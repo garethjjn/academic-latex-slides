@@ -1,0 +1,39 @@
+\documentclass[9pt,aspectratio=169]{ctexbeamer}
+\mode<presentation>
+
+\usetheme{Madrid}
+\usecolortheme[RGB={0,100,50}]{structure}
+\usefonttheme{structurebold}
+\setbeamercovered{invisible}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\addbibresource{references.bib}
+\usepackage[pscoord]{eso-pic}
+
+\title[{{SHORT_TITLE}}]{ {{TITLE}} }
+\subtitle{ {{SUBTITLE}} }
+\author{ {{AUTHOR}} }
+\institute[{{SHORT_INSTITUTE}}]{ {{INSTITUTE}} }
+\date{ {{DATE}} }
+\titlegraphic{\includegraphics[width=4.4cm]{msu.png}}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+\AddToShipoutPictureFG{
+  \put(\LenToUnit{.92\paperwidth},\LenToUnit{.185\paperheight})
+  {\vtop{{\null}\makebox{\includegraphics[width=.8cm,keepaspectratio]{Logo.png}}}}
+}
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+{{SECTION_INPUTS}}
+
+\end{document}

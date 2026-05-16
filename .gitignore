@@ -39,6 +39,11 @@ archive_zipfiles/
 _minted*/
 *.pyg
 
+# ---- Python ----
+__pycache__/
+*.pyc
+dist/
+
 # ---- OS files ----
 .DS_Store
 Thumbs.db

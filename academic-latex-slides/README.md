@@ -1,6 +1,6 @@
 # Academic LaTeX Slides
 
-A Claude Code skill/plugin for generating academic Beamer projects after a deliberate pre-build interview.
+A portable academic-slide skill that can be installed in **Codex** as a standalone skill or distributed to **Claude Code** as a plugin.
 
 ## What it does
 
@@ -33,18 +33,20 @@ figures/
 references.bib
 ```
 
-## Plugin layout
+## Portable layout
 
 ```text
-.claude-plugin/marketplace.json
+skills/academic-latex-slides/              # canonical skill source for Codex/manual install
+.claude-plugin/marketplace.json             # Claude Code marketplace metadata
 plugins/academic-latex-slides/
   .claude-plugin/plugin.json
-  skills/academic-latex-slides/
-    SKILL.md
-    references/
-    assets/templates/
-    scripts/scaffold.py
+  skills/academic-latex-slides/             # synced mirror for Claude Code plugin install
+scripts/
+  sync_distributions.py
+  build_portable_packages.py
 ```
+
+Edit the canonical skill under `skills/academic-latex-slides/`, then run the sync script before packaging or installing the Claude Code plugin mirror.
 
 ## Template assets
 
@@ -54,12 +56,76 @@ plugins/academic-latex-slides/
 
 All variants target `latexmk -xelatex` so Chinese and English decks can share one build path.
 
+## Install on Codex
+
+### Manual copy
+
+Copy the canonical skill folder to the target machine's Codex skill directory:
+
+```bash
+# macOS / Linux
+cp -R skills/academic-latex-slides ~/.codex/skills/
+```
+
+```powershell
+# Windows PowerShell
+Copy-Item -Recurse skills\academic-latex-slides $HOME\.codex\skills\
+```
+
+Then start a new Codex session and invoke it as:
+
+```text
+Use $academic-latex-slides to create a research-talk deck.
+```
+
+### Portable ZIP
+
+Build a ready-to-transfer ZIP:
+
+```bash
+python scripts/build_portable_packages.py
+```
+
+The script writes:
+
+- `dist/academic-latex-slides-codex-skill.zip`
+- `dist/academic-latex-slides-claude-plugin.zip`
+
+Extract the Codex ZIP so that the final folder on the target machine is:
+
+```text
+~/.codex/skills/academic-latex-slides/
+```
+
+## Install on Claude Code
+
+On the target machine, keep or extract this repository, then from Claude Code run:
+
+```text
+/plugin marketplace add /absolute/path/to/academic-latex-slides
+/plugin install academic-latex-slides@academic-latex-slides
+```
+
+If you transfer only the plugin ZIP, extract it first, then point `marketplace add` at the extracted repository folder.
+
+## Maintenance commands
+
+```bash
+# Copy the canonical skill into the Claude Code plugin mirror
+python scripts/sync_distributions.py
+
+# Build both portable ZIP packages
+python scripts/build_portable_packages.py
+```
+
+Run `sync_distributions.py` after editing the canonical skill and before sharing the project with another device.
+
 ## Scaffold helper
 
 Generate a starter project:
 
 ```bash
-python plugins/academic-latex-slides/skills/academic-latex-slides/scripts/scaffold.py ^
+python skills/academic-latex-slides/scripts/scaffold.py ^
   --template sjtu ^
   --deck-type lecture ^
   --language zh ^
