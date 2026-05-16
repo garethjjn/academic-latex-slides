@@ -47,8 +47,9 @@ and an explicit missing-materials list — not a confident, wrong deck.
 
 - **Two deck archetypes** — `lecture` and `research talk`, each with its own
   narrative spine.
-- **Three visual variants** — `MSU`, `SJTU`, `CityU`. Same content logic;
-  choose by visual identity only.
+- **Four visual variants** — `MSU`, `SJTU`, `CityU`, and `Generic`
+  (institution-neutral, no branding). Same content logic; choose by visual
+  identity only.
 - **Bilingual interview** — the agent interviews you in your language
   (Chinese in → Chinese out) using tiered, scripted questions.
 - **Inference-first** — it reads your attached materials and existing notes,
@@ -85,7 +86,7 @@ talk before it writes LaTeX. The skill therefore enforces three gates:
 | Build automation | **`latexmk`** (recommended) |
 | Scaffold script | **Python 3.8+** (standard library only — no `pip install`) |
 
-> **Note on fonts.** All three templates use the `ctexbeamer` document class, so
+> **Note on fonts.** All four templates use the `ctexbeamer` document class, so
 > *even English-only decks* compile through XeLaTeX with Chinese font support
 > loaded. A full TeX Live install (which bundles the Fandol CJK fonts and the
 > `ctex`/`biblatex` packages) is the friction-free choice. On MiKTeX, allow
@@ -98,7 +99,7 @@ academic-latex-slides/
 ├── skills/academic-latex-slides/        # canonical skill source — EDIT HERE
 │   ├── SKILL.md
 │   ├── references/                      # interview protocol, blueprints, rules
-│   ├── assets/templates/                # MSU / SJTU / CityU template assets
+│   ├── assets/templates/                # MSU / SJTU / CityU / Generic template assets
 │   ├── scripts/scaffold.py              # deterministic starter generator
 │   └── agents/openai.yaml               # Codex interface metadata
 ├── plugins/academic-latex-slides/       # synced mirror for the Claude Code plugin
@@ -205,7 +206,8 @@ A few things so I build the right deck —
     magnitude restatement?
   • What does a skeptical referee attack first — selection, or the FE design?
   • Title / author / institute / date? (placeholders are fine — I'll flag them)
-  • I'll assume figures + a references slide, no appendix. Right?
+  • I'll assume figures + inline author-year citations (e.g., “Gul, Wu, and
+    Yang 2013”) — no separate references slide, no appendix. Right?
 ```
 
 **3 — The agent presents the outline and waits** (the approval gate):
@@ -313,7 +315,7 @@ python skills\academic-latex-slides\scripts\scaffold.py `
 | Argument | Required | Values / notes |
 | --- | --- | --- |
 | `output_dir` (positional) | yes | target directory |
-| `--template` | yes | `msu` · `sjtu` · `cityu` |
+| `--template` | yes | `msu` · `sjtu` · `cityu` · `generic` |
 | `--deck-type` | yes | `lecture` · `research-talk` |
 | `--language` | yes | `en` · `zh` (selects starter section language) |
 | `--title` | yes | LaTeX-escaped automatically |
@@ -336,6 +338,7 @@ your language, institution, or talk type.
 | **MSU** | Green academic palette, classic Beamer feel | General talks, seminars, internal presentations | `msu.png`, `Logo.png` |
 | **SJTU** | Formal institutional theme with a strong cover system | Polished lectures, formal academic events | SJTU theme `.sty` files, `vi/` identity assets |
 | **CityU** | Purple academic palette, restrained clean title page | Compact lectures, concise reports, clean seminars | `CityULogo.pdf` |
+| **Generic** | Institution-neutral stock Beamer theme, no logo or branded colors | Cross-institution talks, drafts, brand-free decks | none (template only) |
 
 ## Development & maintenance
 
@@ -374,7 +377,8 @@ The SJTU variant bundles a minimal runtime subset of the **SJTU Beamer theme**;
 the MSU and CityU variants are simplified academic decks inspired by the visual
 identities of Michigan State University and City University of Hong Kong
 respectively. These assets are included only to make the generated decks
-compile out of the box.
+compile out of the box. The Generic variant carries no institutional identity —
+it uses only a stock Beamer theme and ships no bundled assets.
 
 ## License
 

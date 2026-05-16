@@ -25,6 +25,15 @@ All variants share the same content logic, interview flow, and modular output st
 - Bundled runtime assets:
   - `CityULogo.pdf`
 
+## Generic
+
+- Visual character: institution-neutral, clean stock Beamer theme (no logo,
+  no university branding, no branded color scheme)
+- Good fit: cross-institution talks, drafts, any deck that should carry no
+  school identity
+- Bundled runtime assets:
+  - none (template only; zero extra package dependencies)
+
 ## Selection rule
 
 - Ask the user to choose explicitly during interview.

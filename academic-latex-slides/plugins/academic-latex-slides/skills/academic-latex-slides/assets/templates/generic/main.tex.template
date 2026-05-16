@@ -1,0 +1,43 @@
+\documentclass[10pt,aspectratio=169]{ctexbeamer}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\addbibresource{references.bib}
+
+% Generic, institution-neutral look: a stock Beamer theme, no logo, no
+% branded color scheme, no extra package dependencies. Shares the same
+% ctexbeamer + XeLaTeX + biber build path as the other variants.
+\usetheme{Boadilla}
+\setbeamertemplate{navigation symbols}{}
+\usefonttheme{professionalfonts}
+
+\title[{{SHORT_TITLE}}]{ {{TITLE}} }
+\subtitle{ {{SUBTITLE}} }
+\author{ {{AUTHOR}} }
+\institute[{{SHORT_INSTITUTE}}]{ {{INSTITUTE}} }
+\date{ {{DATE}} }
+
+\AtBeginSection[]{
+  \begin{frame}
+    \vfill
+    \centering
+    \usebeamerfont{title}\insertsectionhead\par
+    \vfill
+  \end{frame}
+}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+{{SECTION_INPUTS}}
+
+\end{document}

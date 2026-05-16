@@ -32,8 +32,9 @@ latexmk -xelatex main.tex
 - Use formulas only when they carry the argument.
 - Introduce notation before using it.
 - Use figures only when the source is supplied or clearly specified by the user.
-- Keep references and appendix material available when requested, but do not force them into every deck.
-- When formulas, figures, references, or appendix slides are requested, reserve dedicated approved slots for them during generation rather than bolting them on after the deck is drafted.
+- Cite sources **inline with author-year** (e.g., “Gul, Wu, and Yang 2013”), using biblatex `\textcite` / `\parencite` with entries in `references.bib`. **Do not generate a dedicated references / bibliography slide (`\printbibliography`) by default** — add one only when the user explicitly asks for it.
+- Keep appendix material available when requested, but do not force it into every deck.
+- When formulas, figures, a bibliography slide, or appendix slides are explicitly requested, reserve dedicated approved slots for them during generation rather than bolting them on after the deck is drafted.
 
 ## Academic integrity rules
 

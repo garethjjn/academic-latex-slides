@@ -1,7 +1,7 @@
 {
   "name": "academic-latex-slides",
   "version": "1.0.0",
-  "description": "Generate academic Beamer slide projects with structured interviewing, lecture/research-talk blueprints, and MSU/SJTU/CityU visual variants.",
+  "description": "Generate academic Beamer slide projects with structured interviewing, lecture/research-talk blueprints, and MSU/SJTU/CityU/Generic visual variants.",
   "author": {
     "name": "Gareth"
   },

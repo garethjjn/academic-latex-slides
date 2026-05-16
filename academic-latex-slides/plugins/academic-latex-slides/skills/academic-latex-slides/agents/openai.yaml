@@ -1,4 +1,4 @@
 interface:
   display_name: "Academic LaTeX Slides"
-  short_description: "Interview-first academic Beamer decks (MSU/SJTU/CityU); reads your materials before generating."
-  default_prompt: "Use $academic-latex-slides. Tell it your talk topic and paste or attach any paper, notes, or outline you have; add MSU/SJTU/CityU and lecture-or-research-talk if you know them. It reads your materials, asks only what's missing, and waits for your approval before generating the deck."
+  short_description: "Interview-first academic Beamer decks (MSU/SJTU/CityU/Generic); reads your materials before generating."
+  default_prompt: "Use $academic-latex-slides. Tell it your talk topic and paste or attach any paper, notes, or outline you have; add MSU/SJTU/CityU/Generic and lecture-or-research-talk if you know them. It reads your materials, asks only what's missing, and waits for your approval before generating the deck."

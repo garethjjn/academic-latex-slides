@@ -42,7 +42,7 @@ Each is tagged with the tier that resolves it.
 
 | Field | Tier | Default if user defers |
 | --- | --- | --- |
-| Template (`MSU` / `SJTU` / `CityU`) | 1 | none — must ask |
+| Template (`MSU` / `SJTU` / `CityU` / `Generic`) | 1 | none — must ask |
 | Archetype (`lecture` / `research talk`) | 1 | infer from context, else ask |
 | Language (deck language) | 1 | match the user's language |
 | Core message (one thing to remember) | 1 | none — must ask |
@@ -50,15 +50,15 @@ Each is tagged with the tier that resolves it.
 | Audience (who they are, what they know) | 2 | graduate peers in the field |
 | Timing + slide target | 2 | ≈ 1 content slide per 1.5 min |
 | Material readiness (full / outline / topic) | 2 | infer from how much they gave |
-| Academic components (formulas / figures / refs / appendix) | 2 | infer from archetype, confirm in one line |
+| Academic components (formulas / figures / citations / appendix) | 2 | infer from archetype; citations are inline author-year by default — no references/bibliography slide unless explicitly asked |
 
 ## Tier 1 — Blocking questions (must ask; cannot be safely defaulted)
 
 Ask these whenever the Inference pass did not already resolve them.
 
 - **Template**
-  EN: *"Which visual style — MSU, SJTU, or CityU?"*
-  ZH: *“用哪个视觉风格 —— MSU、SJTU,还是 CityU?”*
+  EN: *"Which visual style — MSU, SJTU, CityU, or Generic (no branding)?"*
+  ZH: *“用哪个视觉风格 —— MSU、SJTU、CityU,还是 Generic(无品牌通用版)?”*
 - **Archetype** (only if context is ambiguous)
   EN: *"Is this a teaching lecture or a research talk? They get different spines."*
   ZH: *“这是教学讲课还是研究报告?两者的叙事主线不同。”*
@@ -87,9 +87,9 @@ the default inline so the user can accept with one word.
   EN: *"Do you have the full content, a rough outline, or just the topic right now?"*
   ZH: *“目前是完整内容、粗略大纲,还是只有题目?”*
 - **Academic components** — confirm an inference, do not ask four yes/nos:
-  EN (research talk): *"I'll assume you want figures and a references slide, no appendix unless you say so — right?"*
+  EN (research talk): *"I'll assume figures and inline author-year citations (e.g., “Gul, Wu, and Yang 2013”) — no separate references/bibliography slide and no appendix unless you ask. Right?"*
   EN (lecture): *"I'll assume formulas and worked examples, no appendix — right?"*
-  ZH (研究报告): *“我默认要图和参考文献页、暂不加附录 —— 对吗?”*
+  ZH (研究报告): *“我默认要图、正文内用作者-年份引用(如“Gul, Wu, and Yang 2013”),不单独做参考文献页、暂不加附录 —— 对吗?”*
   ZH (讲课): *“我默认要公式和例题、暂不加附录 —— 对吗?”*
 
 ## Escape hatch
