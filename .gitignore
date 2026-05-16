@@ -1,0 +1,55 @@
+# ---- Archives ----
+archive_zipfiles/
+*.zip
+
+# ---- LaTeX build artifacts ----
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.synctex(busy)
+*.toc
+*.vrb
+*.xdv
+*.dvi
+*.figlist
+*.makefile
+*.figlist
+*.auxlock
+*-converted-to.*
+
+# Beamer / latexmk
+*.nlo
+*.nls
+
+# minted
+_minted*/
+*.pyg
+
+# ---- OS files ----
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- Editor / IDE ----
+.vscode/
+.idea/
+*.swp
+*~
+
+# ---- Claude Code local state ----
+.claude/settings.local.json
+.claude/state/
