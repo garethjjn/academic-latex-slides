@@ -31,11 +31,14 @@ and an explicit missing-materials list — not a confident, wrong deck.
   - [Building portable ZIPs](#building-portable-zips)
 - [Usage](#usage)
   - [The workflow](#the-workflow)
+  - [Inside the interview](#inside-the-interview)
+  - [Deck blueprints](#deck-blueprints)
   - [End-to-end walkthrough](#end-to-end-walkthrough)
   - [Generated project structure](#generated-project-structure)
   - [Compiling the deck](#compiling-the-deck)
 - [Scaffold helper (standalone)](#scaffold-helper-standalone)
 - [Template variants](#template-variants)
+- [Troubleshooting](#troubleshooting)
 - [Development & maintenance](#development--maintenance)
 - [Scope](#scope)
 - [Acknowledgements](#acknowledgements)
@@ -56,6 +59,11 @@ and an explicit missing-materials list — not a confident, wrong deck.
   echoes back what it extracted, and asks only the gaps.
 - **Low-friction** — blocking questions vs. defaulted shaping questions, plus a
   "use defaults" escape hatch (the outline approval gate always still applies).
+- **Two-round confirmation** — after the outline, the agent runs a
+  content-gated **Round A** (outline-driven, per-slide decisions the outline
+  alone cannot settle) and **Round B** (missing-materials-driven, the fate of
+  each gap item by item), then waits for explicit approval. Either round is
+  skipped in one line when it has nothing real to decide.
 - **No fabrication** — missing evidence becomes a `TODO` placeholder and a
   missing-materials line, never an invented number or citation.
 - **Modular output** — `main.tex` + `sections/` + `figures/` + `references.bib`.
@@ -70,11 +78,18 @@ Academic decks get better when the agent spends its effort understanding the
 talk before it writes LaTeX. The skill therefore enforces three gates:
 
 1. **Interview** before generating — never jump from a vague request to `.tex`.
+   An inference pass reads your materials first; tiered questions ask only the
+   genuine gaps.
 2. **Outline approval** — a requirements summary, slide-by-slide outline, and
-   missing-materials list are presented, and generation waits for your explicit
-   approval.
+   missing-materials list are produced, then refined through two content-gated
+   confirmation rounds (outline-driven, then missing-materials-driven).
+   Generation waits for your explicit approval of the post-confirmation plan.
 3. **Academic integrity** — empirical findings, citations, data descriptions,
    theorem statements, and numerical magnitudes are never invented.
+
+These gates exist because an interview built on a misread source produces a
+confident, wrong deck. The skill spends its effort understanding the talk so the
+LaTeX it writes is the easy part.
 
 ## Requirements
 
@@ -121,16 +136,36 @@ run the sync script (see [Development & maintenance](#development--maintenance))
 
 ### Claude Code
 
-From a machine that has this repository (cloned or extracted), run inside
-Claude Code:
+The plugin is distributed through a Claude Code marketplace
+(`.claude-plugin/marketplace.json`). Install it from a **GitHub repository** or
+from a **local path**.
+
+**From GitHub** (replace `<owner>/<repo>` with the host repository):
+
+```text
+/plugin marketplace add <owner>/<repo>
+/plugin install academic-latex-slides@academic-latex-slides
+```
+
+**From a local clone or extracted ZIP:**
 
 ```text
 /plugin marketplace add /absolute/path/to/academic-latex-slides
 /plugin install academic-latex-slides@academic-latex-slides
 ```
 
-If you transferred only the plugin ZIP, extract it first and point
-`marketplace add` at the extracted repository folder.
+The marketplace name and the plugin name are both `academic-latex-slides`
+(hence `academic-latex-slides@academic-latex-slides`). For a **private** GitHub
+repo, the host authenticates with your existing git credentials. To pick up a
+new version later:
+
+```text
+/plugin marketplace update academic-latex-slides
+```
+
+then restart Claude Code (or reload plugins) so the refreshed skill is active.
+If you previously added it from a local path, remove that entry first
+(`/plugin marketplace remove <old-name>`) to avoid a name clash.
 
 ### Codex
 
@@ -177,9 +212,89 @@ The agent always runs three phases:
 
 | Phase | What happens |
 | --- | --- |
-| **1. Interview** | Inference pass on your materials, then tiered bilingual questions; gated archetype follow-ups. |
-| **2. Outline gate** | Requirements summary + slide-by-slide outline + missing-materials list; **stops and waits for your approval**. |
-| **3. Generate** | Runs the scaffold, replaces starter sections with approved content, returns the project path and compile command. |
+| **1. Interview** | Inference pass on your materials, then tiered bilingual questions (Tier 1 blocking → Tier 2 shaping → gated Tier 3 deep-dive). |
+| **2. Outline gate** | Builds the requirements summary + slide-by-slide outline + missing-materials list, refines them through **Round A** (outline-driven) and **Round B** (missing-materials-driven), then **stops and waits for your approval**. |
+| **3. Generate** | Runs the scaffold, replaces starter sections with approved content, reserves slots for formulas/figures/appendix when called for, returns the project path and compile command. |
+
+### Inside the interview
+
+The interview is the part that decides deck quality, so it is structured rather
+than ad hoc.
+
+**Inference pass (always first).** The agent re-reads your request and every
+attached file, fills in any field it can safely infer, and echoes back what it
+extracted (structure, core results, data, citations) for you to confirm or
+correct. It asks only the genuine gaps. The visual template is the one field it
+**never** infers — it is always asked explicitly.
+
+**Nine core fields** are resolved (asked, inferred, or defaulted) before any
+outline:
+
+| Field | Default if you defer |
+| --- | --- |
+| Template (`MSU` / `SJTU` / `CityU` / `Generic`) | none — always asked |
+| Archetype (`lecture` / `research talk`) | inferred from context, else asked |
+| Language | matches your language |
+| Core message (the one thing to remember) | none — always asked |
+| Metadata (title, author, institute, date) | flagged `TODO` placeholders |
+| Audience | graduate peers in the field |
+| Timing + slide target | ≈ 1 content slide per 1.5 min |
+| Material readiness (full / outline / topic) | inferred from what you gave |
+| Academic components (formulas / figures / citations / appendix) | inferred from archetype; inline author-year citations, no bibliography slide |
+
+**Tiered questions, batched as one colleague-style message:**
+
+- **Tier 1 — blocking:** template, archetype, language, core message. Cannot be
+  safely defaulted.
+- **Tier 2 — shaping:** metadata, audience, timing, material readiness,
+  academic components. Each carries a stated default you can accept in one word.
+- **Tier 3 — gated deep-dive:** sharp archetype-specific questions, asked
+  **only** when you supplied an outline or full content. If you have only a
+  topic, this is skipped — deep questions about absent content only create
+  fabrication pressure.
+
+**Escape hatch.** Say *"use defaults"* (or *“用默认”*) and every Tier 2/3 item
+is filled with its default, stated explicitly. The outline approval gate still
+applies — defaults speed the interview, they never skip the gate.
+
+**Two-round post-outline confirmation.** Once the three artifacts exist, the
+agent confirms them twice more before the approval gate:
+
+- **Round A — outline-driven:** per-slide decisions the outline alone cannot
+  settle (depth/level, which result leads, split vs. merge, what gets cut if the
+  deck runs long, notation or worked-example choice, section order).
+- **Round B — missing-materials-driven:** each gap, item by item — supply it
+  now, supply later (dated `TODO`), drop the slide/claim, or keep a clearly
+  marked placeholder.
+
+Both rounds are **content-gated**: a round with nothing real to decide is
+skipped in a single line, never padded with manufactured questions. The three
+artifacts are updated after each round, so you approve an accurate plan rather
+than a first guess.
+
+### Deck blueprints
+
+Each archetype has a default narrative spine the agent adapts (never a rigid
+template) once the interview clarifies the talk.
+
+**Lecture** — teaching, scaffolding, examples and recap over novelty:
+
+> Title → Learning objectives → Course roadmap / where this lecture fits →
+> Core concept(s) → Derivation or worked example → Exercise / application →
+> Summary & takeaways
+
+**Research talk** — persuading around a contribution; question → design →
+result chain delivered fast:
+
+> Title → Motivation → Research question / gap → Contribution →
+> Data & design → Main results → Supplementary analysis → Conclusion
+
+**Pacing.** The default is ≈ 1 content slide per 1.5 minutes. A `lecture`
+weights explanation, worked examples, and recap; a `research talk` weights
+motivation, identification, results, and interpretation. When timing is short,
+breadth is cut before the narrative spine. The blueprint adapts across domains —
+a panel-data econometrics talk, a lab-protocol lecture, and a numerical-methods
+seminar all use the same spine with different slide roles.
 
 ### End-to-end walkthrough
 
@@ -259,15 +374,26 @@ clearly marked `TODO:` placeholders for you to complete.
 output/audit-talk/
 ├── main.tex                 # template-rendered preamble + \input wiring
 ├── sections/
-│   ├── 01_motivation.tex
-│   ├── 02_design.tex
-│   ├── 03_results.tex
-│   ├── 04_conclusion.tex
+│   ├── 01_*.tex             # archetype-specific starter sections
+│   ├── 02_*.tex
+│   ├── 03_*.tex
+│   ├── 04_*.tex
 │   └── 90_appendix.tex      # \appendix stub, used only when requested
 ├── figures/                 # your figures (empty by default)
 ├── references.bib           # your bibliography (empty by default)
 └── <template assets>        # logos / theme .sty files for the chosen variant
 ```
+
+The starter section filenames depend on the archetype:
+
+| Archetype | Starter sections |
+| --- | --- |
+| `research-talk` | `01_motivation` · `02_design` · `03_results` · `04_conclusion` |
+| `lecture` | `01_learning_goals` · `02_core_content` · `03_examples` · `04_summary` |
+
+Section *headings* follow `--language` (English or Chinese); the filenames stay
+the same. The agent replaces these starters with your approved content and may
+add, split, or rename sections to match the approved outline.
 
 ### Compiling the deck
 
@@ -339,6 +465,18 @@ your language, institution, or talk type.
 | **SJTU** | Formal institutional theme with a strong cover system | Polished lectures, formal academic events | SJTU theme `.sty` files, `vi/` identity assets |
 | **CityU** | Purple academic palette, restrained clean title page | Compact lectures, concise reports, clean seminars | `CityULogo.pdf` |
 | **Generic** | Institution-neutral stock Beamer theme, no logo or branded colors | Cross-institution talks, drafts, brand-free decks | none (template only) |
+
+## Troubleshooting
+
+| Symptom | Cause & fix |
+| --- | --- |
+| `Output directory is not empty: ...` | The scaffold refuses to write into a non-empty directory. Choose an empty target, or pass `--force` to write alongside existing files. |
+| `biber: command not found` / citations render as `[?]` or bold keys | `biber` is missing or was not run. Install a full TeX Live (it bundles `biber`), and compile with `latexmk -xelatex` so biber runs automatically. Compiling by hand needs `xelatex → biber → xelatex → xelatex`. |
+| `Package fontspec/ctex error` or missing CJK glyphs | All four templates use `ctexbeamer`, so XeLaTeX always loads CJK support. Use a full TeX Live (bundles the Fandol fonts), or on MiKTeX allow on-the-fly package installation on the first compile. |
+| Compiles with `pdflatex` fail | Expected — the build target is **XeLaTeX only**. Always use `latexmk -xelatex` (or `xelatex`). |
+| Figures missing in the PDF | The deck references files in `figures/`; the agent does not invent images. Add your figures there (or supply them during the interview) before compiling. |
+| Plugin changes don't show up in Claude Code | Run `/plugin marketplace update academic-latex-slides`, then restart Claude Code. If you edited the skill yourself, edit the **canonical** source under `skills/academic-latex-slides/` and run `python scripts/sync_distributions.py` (the `plugins/` mirror is generated). |
+| Agent produced placeholders instead of content | By design — you supplied a topic or an incomplete source, so unsupported claims stay as marked `TODO:` lines. Supply the missing materials (or resolve them in Round B) and ask the agent to fill them. |
 
 ## Development & maintenance
 
