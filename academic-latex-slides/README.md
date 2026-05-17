@@ -524,4 +524,4 @@ it uses only a stock Beamer theme and ships no bundled assets.
 
 ## License
 
-[MIT](LICENSE) © Gareth
+[MIT](LICENSE) © Gareth Jiang

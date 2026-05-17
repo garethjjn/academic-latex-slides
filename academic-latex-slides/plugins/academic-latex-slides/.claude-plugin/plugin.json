@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Generate academic Beamer slide projects with structured interviewing, lecture/research-talk blueprints, and MSU/SJTU/CityU/Generic visual variants.",
   "author": {
-    "name": "Gareth"
+    "name": "Gareth Jiang"
   },
   "license": "MIT",
   "keywords": ["presentations", "slides", "latex", "beamer", "academic", "lecture", "research-talk"]

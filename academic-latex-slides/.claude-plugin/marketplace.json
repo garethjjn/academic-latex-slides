@@ -3,7 +3,7 @@
   "name": "academic-latex-slides",
   "description": "Generate academic LaTeX slide projects after a structured pre-build interview.",
   "owner": {
-    "name": "Gareth"
+    "name": "Gareth Jiang"
   },
   "plugins": [
     {
