@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 import shutil
 from pathlib import Path
 
@@ -239,6 +240,15 @@ def render_main(
     rendered = template_text
     for placeholder, value in values.items():
         rendered = rendered.replace(placeholder, value)
+    if not subtitle.strip():
+        # An empty subtitle renders as `\subtitle{ }`. The SJTU cover treats
+        # that whitespace as a non-empty subtitle and then crashes on a
+        # trailing `\\` ("There's no line here to end"). Drop the line so
+        # `\insertsubtitle` stays genuinely empty. Behaviour is unchanged for
+        # the other variants, where an empty subtitle shows nothing anyway.
+        rendered = re.sub(
+            r"(?m)^[ \t]*\\subtitle\{[ \t]*\}[ \t]*\n", "", rendered
+        )
     return rendered
 
 
