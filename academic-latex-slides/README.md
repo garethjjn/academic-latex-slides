@@ -8,6 +8,8 @@
 [![Scaffold: Python 3.8+](https://img.shields.io/badge/scaffold-Python%203.8%2B-3776ab.svg)](#scaffold-helper-standalone)
 [![Hosts: Claude Code · Codex](https://img.shields.io/badge/hosts-Claude%20Code%20%C2%B7%20Codex-8a3ffc.svg)](#installation)
 
+**English** · [简体中文](README.zh-CN.md)
+
 `academic-latex-slides` is a portable skill that can be installed in **Codex**
 as a standalone skill or distributed to **Claude Code** as a plugin. It does one
 thing well: it **interviews you before it writes anything**, then generates a
