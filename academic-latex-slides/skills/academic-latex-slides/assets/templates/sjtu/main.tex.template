@@ -18,8 +18,13 @@
 \date{ {{DATE}} }
 
 \AtBeginSection[]{
-  \begin{frame}
-    \tableofcontents[currentsection,subsectionstyle=show/show/hide]
+  \begin{frame}{Outline}
+    \begin{columns}[t]
+      \column{0.48\textwidth}
+        \tableofcontents[currentsection,sections={1-4},subsectionstyle=hide]
+      \column{0.48\textwidth}
+        \tableofcontents[currentsection,sections={5-8},subsectionstyle=hide]
+    \end{columns}
   \end{frame}
 }
 
@@ -28,7 +33,12 @@
 \maketitle
 
 \begin{frame}{Outline}
-  \tableofcontents[hideallsubsections]
+  \begin{columns}[t]
+    \column{0.48\textwidth}
+      \tableofcontents[hideallsubsections,sections={1-4}]
+    \column{0.48\textwidth}
+      \tableofcontents[hideallsubsections,sections={5-8}]
+  \end{columns}
 \end{frame}
 
 {{SECTION_INPUTS}}
