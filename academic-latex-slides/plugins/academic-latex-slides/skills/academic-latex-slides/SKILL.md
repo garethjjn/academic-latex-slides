@@ -41,8 +41,11 @@ Read [references/deck-blueprints.md](references/deck-blueprints.md).
   1. requirements summary
   2. slide-by-slide outline
   3. missing-materials list
-- Stop and wait for explicit user approval.
-- Revise the outline if the user corrects scope, pacing, or emphasis.
+- Then run two content-gated confirmation rounds — (A) outline-driven,
+  (B) missing-materials-driven — per interview-protocol.md; skip a round in one
+  line if it has nothing to decide, and update the three artifacts after each.
+- Present the post-confirmation artifacts; stop and wait for explicit approval.
+- Revise the artifacts if the user corrects scope, pacing, or emphasis.
 
 ### Phase 3 — Generate
 

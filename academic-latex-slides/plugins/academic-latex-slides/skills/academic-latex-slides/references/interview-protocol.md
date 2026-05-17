@@ -158,9 +158,62 @@ Before writing any file, deliver three artifacts:
 3. **Missing-materials list** — what the user must supply before any TODO can
    become real content.
 
+Do **not** jump from these artifacts to the approval gate. First run the two
+confirmation rounds below; they refine the artifacts so the user approves an
+accurate plan, not a first guess.
+
+## Post-outline confirmation (two rounds)
+
+After the three artifacts exist, interview the user twice more — one round
+driven by the **outline**, one by the **missing-materials list**. Same rules as
+the rest of this protocol: interview in the user's language, one batched message
+per round, sound like a colleague, never fabricate, honor the *"use defaults"*
+escape hatch.
+
+**Content-gated, not mandatory filler.** Each round surfaces *only* genuinely
+decision-relevant items. If a round has nothing real to confirm, say so in one
+line — EN: *"The outline is unambiguous — nothing to confirm there."* / ZH:
+*“大纲没有歧义,这一轮无需确认。”* — and move on. Never manufacture questions
+to fill a round. Run Round A before Round B (Round A can change what is missing).
+
+### Round A — Outline-driven confirmation
+
+Walk the slide-by-slide outline and flag only the per-slide decisions the
+outline alone cannot settle: depth/level, which result or number leads, split
+vs. merge, what gets cut if the deck runs long, notation or worked-example
+choice, section ordering. Batch them into one message, referencing slides by
+number. Example phrasings:
+
+- EN: *"Slide 7 (Main result) — lead with the coefficient or the economic magnitude?"*
+  ZH: *“第 7 页(主结果)—— 先放系数还是先放经济量级?”*
+- EN: *"Slides 9–10 are tight for 20 minutes; if we run long, cut robustness or heterogeneity?"*
+  ZH: *“9–10 页对 20 分钟偏紧;超时的话先砍稳健性还是异质性?”*
+- EN: *"Slide 4 (Contribution) — one bullet per prior-work gap, or a single positioning sentence?"*
+  ZH: *“第 4 页(贡献)—— 每个文献缺口一条,还是一句定位?”*
+
+After Round A, update the outline. Round A answers can add or remove gaps, so
+re-derive the missing-materials list before Round B.
+
+### Round B — Missing-materials-driven confirmation
+
+Go through the missing-materials list **item by item**. For each gap, make the
+user choose its fate explicitly — never let the agent guess or fabricate. Offer
+four options per item: supply it now, supply later (keep a dated TODO), drop the
+slide/claim, or keep a clearly-marked placeholder. Batch as one numbered message
+mirroring the list. Example phrasings:
+
+- EN: *"Missing item 1 — economic-magnitude restatement of −0.013: give me the number now, supply later, drop the slide, or keep a `TODO` placeholder?"*
+  ZH: *“缺料 1 —— −0.013 的经济量级换算:现在给数字、稍后补、去掉该页,还是留 `TODO` 占位?”*
+- EN: *"Missing item 2 — robustness table: attach it now, or drop the robustness slide for this version?"*
+  ZH: *“缺料 2 —— 稳健性表:现在附上,还是这一版先去掉稳健性页?”*
+
+After Round B, update the missing-materials list and the requirements summary so
+each gap's resolution is recorded.
+
 ## Approval gate (scripted close)
 
-End the pre-generation message with this close (use the matching language):
+Present the three **post-confirmation** artifacts, then end the message with
+this close (use the matching language):
 
 EN: *"Here's what I'll build, and here's what I can't fill without your input.
 Reply 'approved' to generate, or correct the scope and I'll revise."*
