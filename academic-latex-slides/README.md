@@ -23,28 +23,30 @@ and an explicit missing-materials list — not a confident, wrong deck.
 
 ## Table of Contents
 
-- [Features](#features)
-- [Why interview-first](#why-interview-first)
-- [Requirements](#requirements)
-- [Repository layout](#repository-layout)
-- [Installation](#installation)
-  - [Claude Code](#claude-code)
-  - [Codex](#codex)
-  - [Building portable ZIPs](#building-portable-zips)
-- [Usage](#usage)
-  - [The workflow](#the-workflow)
-  - [Inside the interview](#inside-the-interview)
-  - [Deck blueprints](#deck-blueprints)
-  - [End-to-end walkthrough](#end-to-end-walkthrough)
-  - [Generated project structure](#generated-project-structure)
-  - [Compiling the deck](#compiling-the-deck)
-- [Scaffold helper (standalone)](#scaffold-helper-standalone)
-- [Template variants](#template-variants)
-- [Troubleshooting](#troubleshooting)
-- [Development & maintenance](#development--maintenance)
-- [Scope](#scope)
-- [Acknowledgements](#acknowledgements)
-- [License](#license)
+- [Academic LaTeX Slides](#academic-latex-slides)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Why interview-first](#why-interview-first)
+  - [Requirements](#requirements)
+  - [Repository layout](#repository-layout)
+  - [Installation](#installation)
+    - [Claude Code](#claude-code)
+    - [Codex](#codex)
+    - [Building portable ZIPs](#building-portable-zips)
+  - [Usage](#usage)
+    - [The workflow](#the-workflow)
+    - [Inside the interview](#inside-the-interview)
+    - [Deck blueprints](#deck-blueprints)
+    - [End-to-end walkthrough](#end-to-end-walkthrough)
+    - [Generated project structure](#generated-project-structure)
+    - [Compiling the deck](#compiling-the-deck)
+  - [Scaffold helper (standalone)](#scaffold-helper-standalone)
+  - [Template variants](#template-variants)
+  - [Troubleshooting](#troubleshooting)
+  - [Development \& maintenance](#development--maintenance)
+  - [Scope](#scope)
+  - [Acknowledgements](#acknowledgements)
+  - [License](#license)
 
 ---
 
@@ -423,7 +425,7 @@ python skills/academic-latex-slides/scripts/scaffold.py \
   --template sjtu \
   --deck-type lecture \
   --language zh \
-  --title "资产定价导论" \
+  --title "Introduction to Asset Pricing" \
   --subtitle "Lecture 1" \
   --author "Your Name" \
   --institute "Your Institute" \
@@ -435,7 +437,7 @@ python skills/academic-latex-slides/scripts/scaffold.py \
 # Windows PowerShell (use backtick for line continuation)
 python skills\academic-latex-slides\scripts\scaffold.py `
   --template sjtu --deck-type lecture --language zh `
-  --title "资产定价导论" --subtitle "Lecture 1" `
+  --title "Introduction to Asset Pricing" --subtitle "Lecture 1" `
   --author "Your Name" --institute "Your Institute" `
   --date "2026-05-17" output\slides
 ```

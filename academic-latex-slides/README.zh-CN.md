@@ -22,28 +22,30 @@
 
 ## 目录
 
-- [功能特性](#功能特性)
-- [为什么先访谈](#为什么先访谈)
-- [环境要求](#环境要求)
-- [仓库结构](#仓库结构)
-- [安装](#安装)
-  - [Claude Code](#claude-code)
-  - [Codex](#codex)
-  - [构建可移植 ZIP 包](#构建可移植-zip-包)
-- [使用](#使用)
-  - [工作流程](#工作流程)
-  - [访谈内部机制](#访谈内部机制)
-  - [演示文稿蓝图](#演示文稿蓝图)
-  - [端到端示例](#端到端示例)
-  - [生成的项目结构](#生成的项目结构)
-  - [编译演示文稿](#编译演示文稿)
-- [脚手架脚本(独立使用)](#脚手架脚本独立使用)
-- [模板变体](#模板变体)
-- [故障排查](#故障排查)
-- [开发与维护](#开发与维护)
-- [适用范围](#适用范围)
-- [致谢](#致谢)
-- [许可证](#许可证)
+- [Academic LaTeX Slides](#academic-latex-slides)
+  - [目录](#目录)
+  - [功能特性](#功能特性)
+  - [为什么先访谈](#为什么先访谈)
+  - [环境要求](#环境要求)
+  - [仓库结构](#仓库结构)
+  - [安装](#安装)
+    - [Claude Code](#claude-code)
+    - [Codex](#codex)
+    - [构建可移植 ZIP 包](#构建可移植-zip-包)
+  - [使用](#使用)
+    - [工作流程](#工作流程)
+    - [访谈内部机制](#访谈内部机制)
+    - [演示文稿蓝图](#演示文稿蓝图)
+    - [端到端示例](#端到端示例)
+    - [生成的项目结构](#生成的项目结构)
+    - [编译演示文稿](#编译演示文稿)
+  - [脚手架脚本(独立使用)](#脚手架脚本独立使用)
+  - [模板变体](#模板变体)
+  - [故障排查](#故障排查)
+  - [开发与维护](#开发与维护)
+  - [适用范围](#适用范围)
+  - [致谢](#致谢)
+  - [许可证](#许可证)
 
 ---
 
@@ -403,7 +405,7 @@ python skills/academic-latex-slides/scripts/scaffold.py \
   --template sjtu \
   --deck-type lecture \
   --language zh \
-  --title "资产定价导论" \
+  --title "会计与资本市场研究" \
   --subtitle "Lecture 1" \
   --author "Your Name" \
   --institute "Your Institute" \
@@ -415,7 +417,7 @@ python skills/academic-latex-slides/scripts/scaffold.py \
 # Windows PowerShell(续行用反引号)
 python skills\academic-latex-slides\scripts\scaffold.py `
   --template sjtu --deck-type lecture --language zh `
-  --title "资产定价导论" --subtitle "Lecture 1" `
+  --title "会计与资本市场研究" --subtitle "Lecture 1" `
   --author "Your Name" --institute "Your Institute" `
   --date "2026-05-17" output\slides
 ```
