@@ -55,6 +55,9 @@ desktop.ini
 *.swp
 *~
 
+# ---- Plugin: keep quality reports out of the published repo ----
+academic-latex-slides/quality_reports/
+
 # ---- Claude Code local state ----
 .claude/settings.local.json
 .claude/state/
