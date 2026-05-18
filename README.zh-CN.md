@@ -93,19 +93,23 @@
 
 ## 示例
 
-[`examples/`](examples/) 目录附带了示例演示文稿——**同一份**演示用研究报告
-内容,分别用四种变体(`MSU`、`SJTU`、`CityU`、`Generic`)渲染,可直接对比
-风格。
+**重点示例 —— 由一篇已发表论文生成。** 走完整的 访谈 → 大纲审批 → 生成
+流程,从 Blankespoor、deHaan & Li《Generative AI in Financial Reporting》
+(**Journal of Accounting Research**,2026)生成的约 20 分钟、25 页会议
+报告;**严格忠实于论文自身数字**(原文 Figure 1 改用文字描述,不杜撰)。
 
-| 标题页 | 结果页 |
+| 标题页 | 主结果页 |
 | --- | --- |
-| ![academic-latex-slides 标题页](examples/showcase-title.png) | ![academic-latex-slides 结果页](examples/showcase-results.png) |
+| ![Blankespoor deck 标题页](examples/showcase-blankespoor-title.png) | ![Blankespoor deck 主结果页](examples/showcase-blankespoor-result.png) |
 
-完整 PDF:[MSU](examples/msu-research-talk.pdf) ·
+[📄 完整 deck](examples/blankespoor2026-generative-ai-in-financial-reporting.pdf)
+,更多见 [`examples/`](examples/)。
+
+**模板 demo —— 同一份内容,四种皮肤。** 同一份研究报告内容用四种变体渲染,
+可直接对比风格:[MSU](examples/msu-research-talk.pdf) ·
 [SJTU](examples/sjtu-research-talk.pdf) ·
 [CityU](examples/cityu-research-talk.pdf) ·
-[Generic](examples/generic-research-talk.pdf)。*图中数字为模板演示用的
-示意占位,并非真实数据。*
+[Generic](examples/generic-research-talk.pdf)*(示意占位数字,非真实数据)*。
 
 ## 环境要求
 
