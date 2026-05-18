@@ -93,17 +93,25 @@
 
 ## 示例
 
-**重点示例 —— 由一篇已发表论文生成。** 走完整的 访谈 → 大纲审批 → 生成
-流程,从 Blankespoor、deHaan & Li《Generative AI in Financial Reporting》
-(**Journal of Accounting Research**,2026)生成的约 20 分钟、25 页会议
-报告;**严格忠实于论文自身数字**(原文 Figure 1 改用文字描述,不杜撰)。
+**重点示例 —— 由真实研究论文生成。** 均走完整的 访谈 → 大纲审批 → 生成
+流程,约 20 分钟会议报告,**严格忠实于论文自身数字**(图表改用文字描述,
+绝不杜撰)。
+
+Blankespoor、deHaan & Li《Generative AI in Financial Reporting》(JAR 2026),
+`Generic` 风格:
 
 | 标题页 | 主结果页 |
 | --- | --- |
 | ![Blankespoor deck 标题页](examples/showcase-blankespoor-title.png) | ![Blankespoor deck 主结果页](examples/showcase-blankespoor-result.png) |
 
-[📄 完整 deck](examples/blankespoor2026-generative-ai-in-financial-reporting.pdf)
-,更多见 [`examples/`](examples/)。
+Choi、Jiang、Yang & Zheng《When Banks Leak》(SSRN 2025),`MSU` 风格:
+
+| 标题页 | 主结果页 |
+| --- | --- |
+| ![Jiang deck 标题页](examples/showcase-jiang-title.png) | ![Jiang deck 主结果页](examples/showcase-jiang-result.png) |
+
+完整 deck:[Blankespoor](examples/blankespoor2026-generative-ai-in-financial-reporting.pdf)
+· [Jiang](examples/jiang2025-when-banks-leak.pdf),更多见 [`examples/`](examples/)。
 
 **模板 demo —— 同一份内容,四种皮肤。** 同一份研究报告内容用四种变体渲染,
 可直接对比风格:[MSU](examples/msu-research-talk.pdf) ·
