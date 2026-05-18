@@ -1,0 +1,24 @@
+{
+  "schema": "academic-latex-slides/template@1",
+  "id": "generic",
+  "name": "Generic (institution-neutral)",
+  "summary": "Institution-neutral stock Beamer theme, no logo or branded colors",
+  "good_fit": ["cross-institution talks", "drafts", "brand-free decks"],
+  "status": "stable",
+  "engine": "xelatex",
+  "documentclass": "ctexbeamer",
+  "entry": "main.tex.template",
+  "placeholders": ["TITLE", "SHORT_TITLE", "SUBTITLE", "AUTHOR",
+                   "INSTITUTE", "SHORT_INSTITUTE", "DATE", "SECTION_INPUTS"],
+  "capabilities": {
+    "subtitle": "optional",
+    "empty_subtitle": "omit-line",
+    "section_divider": true,
+    "title_graphic": false,
+    "cjk": true
+  },
+  "escape_profile": "latex-standard",
+  "assets": [],
+  "min_scaffold": "1.0.0",
+  "maintainer": "Gareth Jiang"
+}

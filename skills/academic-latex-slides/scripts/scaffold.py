@@ -4,12 +4,61 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import shutil
+import sys
 from pathlib import Path
 
 
-TEMPLATE_CHOICES = ("msu", "sjtu", "cityu", "generic")
+_LEGACY_TEMPLATE_CHOICES = ("msu", "sjtu", "cityu", "generic")
+_TEMPLATES_DIR = Path(__file__).resolve().parents[1] / "assets" / "templates"
+
+
+def discover_templates() -> tuple[str, ...]:
+    """Discover template ids from the registry (assets/templates/*/).
+
+    A directory is a template if it has a ``template.json`` manifest or (for
+    backward compatibility during migration) a ``main.tex.template``. Falls
+    back to the legacy hardcoded list only if the directory cannot be scanned
+    or is empty. A soft cross-check writes a note to stderr if discovery
+    diverges from the legacy set; it never alters the result (discovery is
+    authoritative) and never touches generated output.
+    """
+    found: set[str] = set()
+    try:
+        for child in _TEMPLATES_DIR.iterdir():
+            if not child.is_dir():
+                continue
+            if (child / "template.json").is_file() or (
+                child / "main.tex.template"
+            ).is_file():
+                found.add(child.name)
+    except OSError:
+        return _LEGACY_TEMPLATE_CHOICES
+    if not found:
+        return _LEGACY_TEMPLATE_CHOICES
+    if found != set(_LEGACY_TEMPLATE_CHOICES):
+        print(
+            f"note: discovered templates {sorted(found)} differ from the "
+            f"legacy set {sorted(_LEGACY_TEMPLATE_CHOICES)}",
+            file=sys.stderr,
+        )
+    return tuple(sorted(found))
+
+
+def list_templates() -> None:
+    """Print the template registry (id, status, summary) and exit."""
+    for child in sorted(_TEMPLATES_DIR.glob("*/template.json")):
+        try:
+            m = json.loads(child.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        print(f"{m.get('id', child.parent.name):10s} "
+              f"[{m.get('status', '?')}]  {m.get('summary', '')}")
+
+
+TEMPLATE_CHOICES = discover_templates()
 DECK_CHOICES = ("lecture", "research-talk")
 LANGUAGE_CHOICES = ("en", "zh")
 
@@ -61,7 +110,10 @@ def prepare_output_dir(path: Path, force: bool) -> None:
 
 def copy_template_assets(template_dir: Path, output_dir: Path) -> None:
     for item in template_dir.iterdir():
-        if item.name == "main.tex.template":
+        # main.tex.template is rendered (not copied); template.json is the
+        # manifest (metadata, not a runtime asset). Excluding it keeps the
+        # generated project byte-identical to pre-registry behavior.
+        if item.name in ("main.tex.template", "template.json"):
             continue
         destination = output_dir / item.name
         if item.is_dir():
@@ -263,6 +315,9 @@ def write_references(output_dir: Path) -> None:
 
 
 def main() -> None:
+    if "--list-templates" in sys.argv[1:]:
+        list_templates()
+        return
     args = parse_args()
     skill_root = Path(__file__).resolve().parents[1]
     template_dir = skill_root / "assets" / "templates" / args.template

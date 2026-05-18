@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/garethjjn/academic-latex-slides/template.schema.json",
+  "title": "academic-latex-slides template manifest",
+  "description": "Declarative contract for one visual template. Source of truth for the scaffold registry, the validator, and (from P3) generated docs. Schema version: academic-latex-slides/template@1.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema", "id", "name", "summary", "status", "engine",
+    "documentclass", "entry", "placeholders", "capabilities",
+    "escape_profile", "assets"
+  ],
+  "properties": {
+    "schema": {
+      "const": "academic-latex-slides/template@1",
+      "description": "Manifest schema identifier and version."
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]*$",
+      "description": "Template id. MUST equal the template directory name."
+    },
+    "name": { "type": "string", "minLength": 1 },
+    "summary": { "type": "string", "minLength": 1 },
+    "good_fit": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "status": {
+      "enum": ["stable", "community", "experimental"],
+      "description": "stable = first-party maintained; community = contributed; experimental = not yet guaranteed."
+    },
+    "engine": {
+      "const": "xelatex",
+      "description": "Build engine. Only XeLaTeX is supported (latexmk -xelatex)."
+    },
+    "documentclass": { "type": "string", "minLength": 1 },
+    "entry": {
+      "const": "main.tex.template",
+      "description": "Placeholder-bearing entry file rendered by the scaffold."
+    },
+    "placeholders": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": ["TITLE", "SHORT_TITLE", "SUBTITLE", "AUTHOR",
+                 "INSTITUTE", "SHORT_INSTITUTE", "DATE", "SECTION_INPUTS"]
+      },
+      "description": "{{...}} tokens the entry file uses. Must include TITLE and SECTION_INPUTS."
+    },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subtitle", "empty_subtitle", "section_divider",
+                   "title_graphic", "cjk"],
+      "properties": {
+        "subtitle": { "enum": ["optional", "required", "unsupported"] },
+        "empty_subtitle": {
+          "enum": ["omit-line", "keep"],
+          "description": "How an empty subtitle is handled. 'omit-line' = the \\subtitle{ } line is dropped (current global behavior; per-template enforcement lands in P2)."
+        },
+        "section_divider": { "type": "boolean" },
+        "title_graphic": { "type": "boolean" },
+        "cjk": { "type": "boolean" }
+      }
+    },
+    "escape_profile": {
+      "enum": ["latex-standard"],
+      "description": "How user-supplied metadata is LaTeX-escaped. 'latex-standard' = the scaffold's current escape_latex policy."
+    },
+    "assets": {
+      "type": "array",
+      "description": "Runtime files bundled so the deck compiles out of the box. Empty for brand-free templates.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["file", "purpose", "source", "license"],
+        "properties": {
+          "file": { "type": "string", "minLength": 1 },
+          "purpose": { "type": "string", "minLength": 1 },
+          "source": { "type": "string", "minLength": 1 },
+          "license": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "min_scaffold": { "type": "string", "default": "1.0.0" },
+    "maintainer": { "type": "string" }
+  }
+}
