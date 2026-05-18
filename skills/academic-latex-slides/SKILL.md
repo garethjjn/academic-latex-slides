@@ -1,0 +1,73 @@
+---
+name: academic-latex-slides
+description: Create compile-ready academic LaTeX Beamer projects for lectures and research talks. Use when the user wants AI-generated academic slides in MSU, SJTU, CityU, or Generic (no-branding) visual styles and needs the agent to interview them thoroughly before producing a modular LaTeX deck.
+---
+
+# Academic LaTeX Slides
+
+Create modular academic Beamer projects only after understanding the talk.
+
+## Non-negotiable rules
+
+1. Support only new-slide generation from scratch.
+2. Interview before generating. Never jump straight from a vague request to `.tex` files.
+3. Use one of four visual variants only: `MSU`, `SJTU`, `CityU`, or `Generic`.
+4. Use one of two deck archetypes only: `lecture` or `research talk`.
+5. If the user lacks content, create structure and placeholders; do **not** invent results, citations, data, or claims.
+6. Present a requirements summary, slide-by-slide outline, and missing-materials list before generation.
+7. Wait for explicit outline approval before creating the project.
+8. Generate a modular project with `main.tex`, `sections/`, `figures/`, `references.bib`, and the selected template assets.
+9. Target `latexmk -xelatex` for all outputs.
+
+## Workflow
+
+### Phase 1 — Interview
+
+Read [references/interview-protocol.md](references/interview-protocol.md).
+
+- Interview in the user's language (Chinese in, Chinese out).
+- Run the Inference pass first: read the request and every attached file, fill
+  what is inferable, echo back what you extracted, and ask only the gaps.
+- Ask Tier 1 (blocking) and Tier 2 (shaping, with defaults) as one human batch,
+  then the gated Tier 3 archetype follow-ups for `lecture` or `research talk`.
+- Honor the "use defaults" escape hatch; the outline gate still applies.
+- If the user has only a topic, skip the deep-dive and mark unknown material explicitly.
+
+### Phase 2 — Outline gate
+
+Read [references/deck-blueprints.md](references/deck-blueprints.md).
+
+- Convert the interview into:
+  1. requirements summary
+  2. slide-by-slide outline
+  3. missing-materials list
+- Then run two content-gated confirmation rounds — (A) outline-driven,
+  (B) missing-materials-driven — per interview-protocol.md; skip a round in one
+  line if it has nothing to decide, and update the three artifacts after each.
+- Present the post-confirmation artifacts; stop and wait for explicit approval.
+- Revise the artifacts if the user corrects scope, pacing, or emphasis.
+
+### Phase 3 — Generate
+
+Read:
+
+- [references/templates.md](references/templates.md)
+- [references/latex-generation.md](references/latex-generation.md)
+
+Then:
+
+1. Run `scripts/scaffold.py` with the chosen template, deck type, language, and metadata.
+2. Replace the starter section files with the approved content plan.
+3. Reserve explicit section slots for formulas, figures, references, and appendix material whenever the approved outline calls for them.
+4. Add those academic components only when supported by the interview or user-supplied materials.
+5. Keep claims faithful to supplied evidence.
+6. Return the project path and the compile command.
+
+## Resource map
+
+- `references/interview-protocol.md` — inference pass, tiered bilingual scripts, escape hatch, approval gate
+- `references/deck-blueprints.md` — lecture and research-talk narrative defaults
+- `references/templates.md` — MSU, SJTU, CityU, Generic selection and bundled assets
+- `references/latex-generation.md` — project structure, slide-writing rules, compile conventions
+- `assets/templates/` — copyable template assets
+- `scripts/scaffold.py` — deterministic starter-project generator

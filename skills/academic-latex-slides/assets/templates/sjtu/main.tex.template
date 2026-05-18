@@ -1,0 +1,48 @@
+\documentclass[xcolor=table,dvipsnames,svgnames,aspectratio=169]{ctexbeamer}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\addbibresource{references.bib}
+\graphicspath{{figures/}}
+
+\usetheme[maxplus]{sjtubeamer}
+
+\title[{{SHORT_TITLE}}]{ {{TITLE}} }
+\subtitle{ {{SUBTITLE}} }
+\author{ {{AUTHOR}} }
+\institute[{{SHORT_INSTITUTE}}]{ {{INSTITUTE}} }
+\date{ {{DATE}} }
+
+\AtBeginSection[]{
+  \begin{frame}{Outline}
+    \begin{columns}[t]
+      \column{0.48\textwidth}
+        \tableofcontents[currentsection,sections={1-4},subsectionstyle=hide]
+      \column{0.48\textwidth}
+        \tableofcontents[currentsection,sections={5-8},subsectionstyle=hide]
+    \end{columns}
+  \end{frame}
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Outline}
+  \begin{columns}[t]
+    \column{0.48\textwidth}
+      \tableofcontents[hideallsubsections,sections={1-4}]
+    \column{0.48\textwidth}
+      \tableofcontents[hideallsubsections,sections={5-8}]
+  \end{columns}
+\end{frame}
+
+{{SECTION_INPUTS}}
+
+\makebottom
+
+\end{document}
