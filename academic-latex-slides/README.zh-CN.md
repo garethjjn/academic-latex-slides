@@ -26,6 +26,7 @@
   - [目录](#目录)
   - [功能特性](#功能特性)
   - [为什么先访谈](#为什么先访谈)
+  - [示例](#示例)
   - [环境要求](#环境要求)
   - [仓库结构](#仓库结构)
   - [安装](#安装)
@@ -89,6 +90,22 @@
 设立这些关卡的原因是:建立在误读原始材料之上的访谈,会产出一份自信却
 错误的演示文稿。本技能把精力花在理解报告上,让它写出的 LaTeX 反而成了
 最轻松的部分。
+
+## 示例
+
+[`examples/`](examples/) 目录附带了示例演示文稿——**同一份**演示用研究报告
+内容,分别用四种变体(`MSU`、`SJTU`、`CityU`、`Generic`)渲染,可直接对比
+风格。
+
+| 标题页 | 结果页 |
+| --- | --- |
+| ![academic-latex-slides 标题页](examples/showcase-title.png) | ![academic-latex-slides 结果页](examples/showcase-results.png) |
+
+完整 PDF:[MSU](examples/msu-research-talk.pdf) ·
+[SJTU](examples/sjtu-research-talk.pdf) ·
+[CityU](examples/cityu-research-talk.pdf) ·
+[Generic](examples/generic-research-talk.pdf)。*图中数字为模板演示用的
+示意占位,并非真实数据。*
 
 ## 环境要求
 

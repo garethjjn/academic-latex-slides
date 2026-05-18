@@ -58,6 +58,9 @@ desktop.ini
 # ---- Plugin: keep quality reports out of the published repo ----
 academic-latex-slides/quality_reports/
 
+# ---- Scratch build area for demo generation ----
+.demo-build/
+
 # ---- Claude Code local state ----
 .claude/settings.local.json
 .claude/state/

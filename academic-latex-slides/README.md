@@ -27,6 +27,7 @@ and an explicit missing-materials list — not a confident, wrong deck.
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Why interview-first](#why-interview-first)
+  - [Examples](#examples)
   - [Requirements](#requirements)
   - [Repository layout](#repository-layout)
   - [Installation](#installation)
@@ -94,6 +95,22 @@ talk before it writes LaTeX. The skill therefore enforces three gates:
 These gates exist because an interview built on a misread source produces a
 confident, wrong deck. The skill spends its effort understanding the talk so the
 LaTeX it writes is the easy part.
+
+## Examples
+
+The [`examples/`](examples/) folder ships sample decks — the **same** demo
+research-talk content rendered in all four variants (`MSU`, `SJTU`, `CityU`,
+`Generic`), so you can compare styles directly.
+
+| Title slide | Results slide |
+| --- | --- |
+| ![academic-latex-slides title slide](examples/showcase-title.png) | ![academic-latex-slides results slide](examples/showcase-results.png) |
+
+Full PDFs: [MSU](examples/msu-research-talk.pdf) ·
+[SJTU](examples/sjtu-research-talk.pdf) ·
+[CityU](examples/cityu-research-talk.pdf) ·
+[Generic](examples/generic-research-talk.pdf). *Numbers shown are illustrative
+placeholders for a template demo, not real data.*
 
 ## Requirements
 
