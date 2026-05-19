@@ -40,8 +40,27 @@ def main():
     bad_ok = rc == 1 and "personalization" in out and "fabricated cite" in out
     cases.append(("lint_style fails bad fixture", bad_ok, [l for l in out.splitlines() if "ERROR" in l][:3]))
 
+    slop_ok = "em-dash overuse" in out and "rhetorical" in out
+    cases.append(("lint_style WARNs AI-slop tells on bad fixture", slop_ok,
+                   [l for l in out.splitlines() if "WARN" in l
+                    and ("em-dash" in l or "rhetorical" in l)][:2]))
+
     rc, out = run("lint_style.py", os.path.join(FIX, "good_draft.md"))
-    cases.append(("lint_style passes good fixture", rc == 0, out.strip().splitlines()[-1:]))
+    good_clean = rc == 0 and "em-dash overuse" not in out and "rhetorical" not in out
+    cases.append(("lint_style passes good fixture (no slop false-positives)",
+                   good_clean, out.strip().splitlines()[-1:]))
+
+    rc, out = run("check_structure.py", os.path.join(FIX, "bad_draft.md"),
+                  "--section", "intro")
+    cs_bad = rc == 0 and "[ N]" in out
+    cases.append(("check_structure flags N on bad fixture (advisory, exit 0)",
+                   cs_bad, out.strip().splitlines()[-1:]))
+
+    rc, out = run("check_structure.py", os.path.join(FIX, "good_draft.md"),
+                  "--section", "abstract")
+    cs_good = rc == 0 and "[ Y] C5 abstract" in out
+    cases.append(("check_structure passes good fixture abstract check",
+                   cs_good, out.strip().splitlines()[-1:]))
 
     corpus = os.path.join(FIX, "corpus_sample.txt")
     rc, out = run("verify_quote.py", corpus,

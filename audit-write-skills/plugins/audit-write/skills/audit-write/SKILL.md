@@ -51,7 +51,7 @@ These files live in **this skill's own directory** (the `audit-write/` folder of
 7. **[move_bank.md](move_bank.md)** — cross-section reusable rhetorical moves (opening/gap/RQ/tension/magnitude/contribution/limitation/IV-build), as an index that points to each move's full treatment.
 8. **[referee_objection_bank.md](referee_objection_bank.md)** — the recurring JAE/JAR/TAR objection→response catalog (O1–O8); used by the referee skill and to pre-empt objections in tension / alternative-explanation sections.
 9. **[exemplar_gallery.md](exemplar_gallery.md)** — navigational index of the annotated corpus exemplars (which paper templates which section, and where the annotation lives).
-10. **[progressive_outline.md](progressive_outline.md)** — the Stage 0–4 staged drafting ratchet (interview → skeleton → bullets → prose → self-audit) with approval gates; orchestrated by this hub.
+10. **[progressive_outline.md](progressive_outline.md)** — the Stage 0–4 staged drafting ratchet (interview → skeleton → bullets → prose → self-audit) with approval gates; orchestrated by this hub. See its **"Why the ratchet is high-leverage"** rationale before letting a user "just draft it".
 11. **[paper_spec_template.md](paper_spec_template.md)** — the canonical `paper-spec.md` field set every sub-skill consumes; produced by `audit-write-interview` (replaces the duplicated per-skill "establish context" step).
 
 Sub-skills reference these via the relative path `../audit-write/<file>.md`; keep the suite's directory layout intact so those links resolve. Update these shared files when the user reports a stylistic correction or framework refinement that should propagate across all sub-skills.

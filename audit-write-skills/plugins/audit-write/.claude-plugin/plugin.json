@@ -4,10 +4,8 @@
   "version": "1.0.0",
   "description": "Hub + 8 sub-skills to draft, rewrite, and audit empirical audit-research papers (JAE/JAR/TAR, DeFond/Zuo/Khurana register). Corpus-grounded, integrity-gated, de-personalized for public reuse.",
   "author": {
-    "name": "[SET YOUR NAME — this is a public template; forkers should set author/repo]"
+    "name": "Gareth Jiang"
   },
-  "homepage": "[SET YOUR REPO URL]",
-  "repository": "[SET YOUR REPO URL]",
   "license": "MIT",
   "keywords": [
     "audit-research",

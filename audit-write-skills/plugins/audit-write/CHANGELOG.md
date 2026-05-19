@@ -3,6 +3,32 @@
 All notable changes to the audit-write skill suite. The pre-1.0 phases (P1–P3) were
 the development arc that produced the first packaged plugin release.
 
+## [P5] — in progress — mechanism layer + external-validation hardening
+
+### Added
+- `docs/external-validation-ng.md` — design-rationale note: an independent
+  practitioner account of AI-assisted writing (progressive outlining +
+  rubric-against-sycophancy) corroborates the suite's two pillars; records
+  provenance caveats and the gap analysis behind the refinements below.
+- `rubric.md`: an **Objective pre-checklist** (binary C1–C7, run before banding);
+  any `N` forces its mapped dimension down one band — reproducible, sycophancy-
+  resistant scoring. The `## Score` output block now carries the checklist line.
+- `scripts/check_structure.py` — advisory (always exit 0) binary self-check; the
+  mechanism mirror of the rubric pre-checklist (`--section`-aware).
+- `style_dna.md` §9: generic AI-slop tells (em-dash overuse, reflexive triads,
+  "not X but Y", a noun-poverty / vague-adjective principle, empty-grand-claim).
+- `progressive_outline.md`: a **"Why the ratchet is high-leverage"** rationale
+  (outline edits cascade; surface the AGAINST before Stage 1; review speed).
+- Golden tests for the new detectors (bad/good fixtures + `run_tests.py` cases).
+
+### Changed
+- `scripts/lint_style.py`: two conservative stdlib WARN detectors — em-dash
+  overuse (≥3 + density) and the mirrored "not X … it's Y" construction. WARNs
+  never fail the run. Rule-of-three / empty-grand-claim kept instruction-only
+  (no reliable mechanical signature).
+- `agents/audit-write-critic.md`: procedure now runs the binary pre-checklist
+  before banding and emits the checklist in the Score block.
+
 ## [1.0.0] — 2026-05-20 — first plugin release (P4)
 
 ### Added

@@ -21,10 +21,17 @@ DeFond/Zuo/Khurana register). You do not improve the draft; you judge it.
    `[ILLUSTRATIVE]` placeholder). If found → total capped at 55, name every offending
    span. The bundled `scripts/lint_style.py` heuristic can be referenced but YOUR
    judgement is the gate.
-5. Score the 5 weighted dimensions with the rubric's anchored bands. Be adversarial:
-   when between two bands, pick the lower and say why.
-6. Emit **exactly** the rubric's "## Score" output block (per-dimension band →
-   composite → integrity-gate line → one-sentence headline fix). Then stop.
+5. **Run the rubric's "Objective pre-checklist" (binary).** Answer each C1–C7
+   item literally Y/N/NA *before* banding. This defeats sycophancy: the binary
+   answers, not your impression of the prose, set the ceiling. The bundled
+   `scripts/check_structure.py` computes the mechanically decidable subset and
+   can be referenced, but YOUR Y/N is authoritative.
+6. Score the 5 weighted dimensions with the rubric's anchored bands. Be adversarial:
+   when between two bands, pick the lower and say why. **Any pre-checklist N forces
+   its mapped dimension down one band** (C1/C2 = N → integrity gate, capped 55).
+7. Emit **exactly** the rubric's "## Score" output block (the binary checklist
+   Y/N table → per-dimension band → composite → integrity-gate line →
+   one-sentence headline fix). Then stop.
 
 ## Hard rules
 

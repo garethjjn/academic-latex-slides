@@ -28,6 +28,31 @@ hard" principle — conventions are priors, integrity is not.
 
 ---
 
+## Objective pre-checklist (binary; run BEFORE banding)
+
+Sycophancy makes a free-form critique drift upward. The fix (corroborated in
+`../../docs/external-validation-ng.md`) is to answer **unambiguous yes/no items
+first** — true or false, nothing in between — and let the answers constrain the
+bands. Answer each item literally **Y / N / NA** (NA only if the section legitimately
+does not reach that rule, e.g. a pre-results draft for the magnitude items).
+
+| # | Binary check (answer Y/N/NA) | Maps to |
+|---|---|---|
+| C1 | Every hard `(Name, Year)` cite is a sanctioned methodological anchor or an `[AUTHOR:]`/`[ILLUSTRATIVE]` slot (no manufactured reference) | Integrity gate + Dim 3 |
+| C2 | No invented numeric result/magnitude is presented as real | Integrity gate + Dim 3 |
+| C3 | Zero blacklist verbs in claim sentences (`show that`/`prove`/`demonstrate definitively`/`delve`/`leverage`/…) | Dim 2 |
+| C4 | Zero AI-slop tells (em-dash overuse, "not X but Y", reflexive triads, mood-adjective+abstract-noun) per `style_dna.md` §9 | Dim 2 |
+| C5 | The section's mandatory structural element is present (intro: a magnitude in Block 4; abstract: **zero** effect-size numbers; hypothesis: a tension paragraph; design: identification machinery **absent** from §3) | Dim 1 |
+| C6 | Every reported effect is magnitude-anchored where the section requires it (or honestly `[AUTHOR:]`) | Dim 3 |
+| C7 | Each stated contribution names an identifiable literature (not "adds to the literature") | Dim 4 |
+
+**Binding rule.** Any **N** forces the mapped dimension **down one band** from
+whatever the prose would otherwise earn (and **C1/C2 = N** trigger the integrity
+gate → capped 55). This is what makes the score reproducible run-to-run: the bands
+describe quality, the checklist removes the wiggle room. NA never penalises.
+
+---
+
 ## The 5 dimensions, weights, and band anchors
 
 | # | Dimension | Weight |
@@ -111,6 +136,9 @@ its dimension; no loose "good/bad audits".
 
 ```markdown
 ## Score
+
+Pre-checklist: C1[Y/N] C2[Y/N] C3[Y/N] C4[Y/N] C5[Y/N/NA] C6[Y/N/NA] C7[Y/N]
+(any N → its mapped dimension is forced down one band; C1/C2 N → integrity gate)
 
 | Dim | Band | Pts |
 |---|---|---|

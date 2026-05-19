@@ -20,8 +20,10 @@
 - [Architecture](#architecture)
 - [Installation](#installation)
 - [Quick start](#quick-start)
-- [Usage examples](#usage-examples)
-- [The scoring rubric](#the-scoring-rubric)
+- [Using the suite: the recommended workflow](#using-the-suite-the-recommended-workflow)
+- [Working on a single section: the three modes](#working-on-a-single-section-the-three-modes)
+- [The scoring rubric & binary pre-checklist](#the-scoring-rubric--binary-pre-checklist)
+- [The mechanism layer (P5): running the checks](#the-mechanism-layer-p5-running-the-checks)
 - [The corpus & scientific discipline](#the-corpus--scientific-discipline)
 - [Repository layout](#repository-layout)
 - [Roadmap](#roadmap)
@@ -132,74 +134,167 @@ If registered you'll get the framework reference and a routing offer.
 
 ## Quick start
 
-Invoke the hub when you are unsure which section you need; it routes you:
-
 ```
-/audit-write review my whole audit paper
-/audit-write which sub-skill should I use for my Section 2?
+/audit-write help me start a paper          # → interview, then progressive outline
+/audit-write review my whole audit paper    # → holistic, section-by-section audit
+/audit-write which sub-skill for my Section 2?
 ```
 
-Or invoke a sub-skill directly with one of the three modes:
+Or go straight to one section in one of the three modes:
 
 ```
 /audit-write-intro draft an intro from these notes: <RQ, DV, IV, setting, finding>
 /audit-write-results rewrite my §4 for JAE style: <paste draft>
-/audit-write-abstract audit my abstract for DeFond style: <paste abstract>
+/audit-write-abstract audit my abstract: <paste abstract>
 ```
 
-## Usage examples
+## Using the suite: the recommended workflow
 
-**1 — Draft an introduction (Mode A).**
+The suite is built around **progressive outlining**: never have the model
+produce a final draft in one shot. You ratchet through resolution levels with an
+approval gate at each step, because **editing an outline is high-leverage and
+editing prose is not** — changing a few words of a skeleton line reorganises a
+whole section, while changing the same words in finished prose changes only
+those words. The rationale and its provenance are in
+[progressive_outline.md](plugins/audit-write/skills/audit-write/progressive_outline.md)
+and [docs/external-validation-ng.md](plugins/audit-write/docs/external-validation-ng.md).
+
+Run the whole thing with one command and let the gates pace you:
 
 ```
+/audit-write draft my whole paper        # runs Stage 0 → 4
+```
+
+What each stage produces and where it stops for you:
+
+| Stage | Trigger | Produces | Gate (it stops here) |
+|---|---|---|---|
+| **0 Interview** | `/audit-write-interview` or "help me start a paper" | `paper-spec.md` — RQ, DV, IV, setting, the FOR (mechanism) **and the AGAINST** (tension), pejorative-reading risk, contributions | You confirm the spec; any BLOCKED field halts the ratchet here |
+| **1 Skeleton** | "outline first" / auto after Stage 0 | `outline.md` — one line per block/move, no prose | You edit/approve the structure before any argument is written |
+| **2 Bullets** | auto after Stage 1 approval | `outline.md` — bullet claims + `[AUTHOR:]` slots | You approve the argument/logic before any prose cost |
+| **3 Prose** | auto after Stage 2 approval | draft, **one block at a time** (routed to the section sub-skill) | Per-block accept / revise |
+| **4 Self-audit** | auto after prose | rubric score + fixes (integrity gate first) | Score reported: ≥90 ship · 75–89 revise · <75 do not ship |
+
+Two enforced behaviours that shape the workflow:
+
+- **Surface the AGAINST before Stage 1.** Stage 0 captures the counter-argument
+  and pejorative-reading risk as required spec fields, and the hypothesis
+  section's tension paragraph is mandatory — the structure answers the likely
+  reviewer objection (catalogued O1–O8) instead of retrofitting it into finished
+  prose.
+- **You may collapse, not skip.** "Just draft it" lets the model fold Stages 1–2
+  together, but it must still show you the skeleton before writing prose. Gates
+  are not optional by default.
+
+State persists to `paper-spec.md` and `outline.md` in your working directory, so
+the workflow survives a context reset and every section reuses the same spec
+(no re-interviewing).
+
+## Working on a single section: the three modes
+
+Every section sub-skill runs in one of three modes — name the mode in your prompt:
+
+- **DRAFT** — build the section from your notes; unknowns become `[AUTHOR: …]` slots.
+- **REWRITE** — recast an existing draft into the register, with a paragraph-level change log.
+- **AUDIT** — read-only diagnosis + a rubric Score block; no rewriting.
+
+```
+# DRAFT
 /audit-write-intro draft intro. RQ: do audit partners with prior preparer
-experience provide higher audit quality? Setting: partner-firm-years, engagement-
-partner-disclosure regime. Finding: −1.8 pp restatements (15% of base). Target: JAE.
-```
+experience provide higher audit quality? Setting: partner-firm-years,
+engagement-partner-disclosure regime. Finding: −1.8 pp restatements
+(15% of base). Target: JAE.
+→ 5-block intro, [AUTHOR:] slots, a magnitude in Block 4, numbered
+  contributions, a self-audit.
 
-Returns a 5-block intro with `[AUTHOR: …]` placeholders for anything you did not
-supply, a magnitude in Block 4, numbered contributions, and a self-audit.
+# REWRITE
+/audit-write-results rewrite my §4 for JAE style: <paste draft>
+→ recast §4 + a paragraph-level change log.
 
-**2 — Audit an existing results section (Mode C).**
-
-```
+# AUDIT
 /audit-write-results audit my §4: <paste>
-```
+→ sub-section-by-sub-section diagnosis + the rubric Score block.
 
-Returns a sub-section-by-sub-section diagnosis and the rubric Score block
-(per-dimension band → composite → **integrity-gate line** → one headline fix).
-
-**3 — Holistic review across the whole paper.**
-
-```
+# Holistic (routes every section through its sub-skill)
 /audit-write review the whole paper: <paths or pasted sections>
+→ combined report + a top-issues list.
+
+# Referee response (R&R)
+/audit-referee-response draft a response to Reviewer 2's
+"identification is weak" comment: <paste comment>
+→ 4-move response (acknowledge → reframe → action → location),
+  drawing on the O1–O8 objection bank, with [AUTHOR: run …] slots.
 ```
 
-Routes each section through its sub-skill and returns a combined report with a
-top-issues list.
+Sub-skills: `audit-write-abstract` · `-intro` · `-hypothesis` · `-design` ·
+`-results` · `-robustness` · `audit-referee-response`. Invoke the hub
+`/audit-write` if you are unsure which one you need.
 
-**4 — Respond to referees (R&R).**
+## The scoring rubric & binary pre-checklist
+
+Every AUDIT, the holistic review, and the `audit-write-critic` agent score with
+one shared instrument
+([rubric.md](plugins/audit-write/skills/audit-write/rubric.md)). It runs in three
+layers, in order:
+
+1. **Integrity gate (first, pass/fail).** Any fabricated citation, invented
+   result, or invented magnitude presented as real → total **capped at 55/100
+   (FAIL)**, offending spans named. Unknowns must be `[AUTHOR: …]` slots.
+2. **Binary pre-checklist (objective, before banding).** Seven yes/no items —
+   answered literally Y/N/NA, nothing in between — remove the wiggle room that
+   lets a free-form critique drift upward (sycophancy). Any **N forces its mapped
+   dimension down one band**; C1/C2 = N trips the integrity gate.
+
+   | # | Binary check | Maps to |
+   |---|---|---|
+   | C1 | every hard `(Name, Year)` cite is a sanctioned anchor or an `[AUTHOR:]` slot | gate + Dim 3 |
+   | C2 | no invented numeric result/magnitude presented as real | gate + Dim 3 |
+   | C3 | zero blacklist verbs in claim sentences | Dim 2 |
+   | C4 | zero AI-slop tells (em-dash overuse, "not X but Y", reflexive triads, mood-adjective+abstract-noun) | Dim 2 |
+   | C5 | the section's mandatory element is present (intro: a magnitude; abstract: **zero** effect numbers; hypothesis: a tension paragraph; design: identification machinery **out** of §3) | Dim 1 |
+   | C6 | every reported effect is magnitude-anchored where required (or honest `[AUTHOR:]`) | Dim 3 |
+   | C7 | each contribution names an identifiable literature | Dim 4 |
+
+3. **5 weighted dimensions, anchored bands.** structure (20) · DeFond register
+   (20) · magnitude & evidentiary discipline (25) · argument & contribution
+   clarity (20) · audit vocabulary (15). Bands: 90–100 / 75–89 / 60–74 / <60.
+
+**Ship thresholds:** ≥90 ship-ready · 75–89 revise-then-ship · <75 do not ship.
+The Score block prints the C1–C7 line, the per-dimension bands, the composite,
+the integrity-gate line, and one headline fix.
+
+## The mechanism layer (P5): running the checks
+
+The integrity gate, the AI-slop tells, and link health are also enforced
+*mechanically* by stdlib-only Python scripts (no dependencies, no API keys).
+They are advisory aids to the rubric, not a replacement for it.
 
 ```
-/audit-referee-response draft a response to Reviewer 2's comment that our
-identification is weak: <paste comment>
+# golden tests — proves the mechanism layer works (run from anywhere)
+python plugins/audit-write/tests/run_tests.py
+
+# style/integrity linter — point at a GENERATED DRAFT, not the skill docs
+python plugins/audit-write/scripts/lint_style.py mydraft.md
+#   ERROR personalization token / suspected fabricated cite   → exit 1
+#   WARN  blacklist verb · em-dash overuse · "not X … it's Y"  → never fails
+
+# binary self-check — the mechanism mirror of the rubric pre-checklist
+python plugins/audit-write/scripts/check_structure.py mydraft.md --section intro
+#   prints C1/C3/C4/C5/C6 as literal Y/N/NA; always exit 0 (advisory)
+
+# link health — every intra-suite Markdown reference resolves
+python plugins/audit-write/scripts/check_links.py
 ```
 
-Returns a 4-move response (acknowledge → reframe → action → location) drawing on the
-O1–O8 objection bank, with `[AUTHOR: run …]` slots for any new analysis.
-
-## The scoring rubric
-
-Every AUDIT and the holistic review score with one shared instrument
-([`audit-write/rubric.md`](audit-write/rubric.md)):
-
-- **Integrity gate (applied first).** Any fabricated citation, invented result, or
-  invented magnitude presented as real → total **capped at 55/100 (FAIL)**, offending
-  spans named.
-- **5 weighted dimensions:** structure (20) · DeFond register (20) · magnitude &
-  evidentiary discipline (25) · argument & contribution clarity (20) · audit vocabulary
-  (15). Anchored bands: 90–100 / 75–89 / 60–74 / <60.
-- **Ship thresholds:** ≥90 ship-ready · 75–89 revise-then-ship · <75 do not ship.
+`lint_style.py` is **draft-only by design** — the skill docs quote banned verbs
+as negative examples and would false-positive. The em-dash and "not X … it's Y"
+detectors are deliberately conservative (≥3 em-dashes + density; the mirrored
+form only) so they never fire on legitimate audit prose such as "not significant
+but economically large". `check_links.py` also runs automatically as a
+`PostToolUse` hook on every Write/Edit. Rule-of-three and empty-grand-claim are
+caught at the instruction layer (`style_dna.md` §9), not mechanically — see
+[docs/external-validation-ng.md](plugins/audit-write/docs/external-validation-ng.md)
+for why.
 
 ## The corpus & scientific discipline
 
@@ -266,7 +361,10 @@ reference resolves unchanged whether installed as a plugin or copied manually.
 
 **Honest status:** the integrity gate and lazy-load policy are currently *instructions
 the agent is told to follow*, not mechanically enforced — enforcement is P5. Quality is
-verified structurally and by review, not yet measured against generated output.
+verified structurally and by review, not yet measured against generated output. P5 also
+adds a binary pre-checklist to the rubric and stdlib AI-slop detectors; the rationale
+(an independent account corroborating the suite's two pillars) is recorded in
+[plugins/audit-write/docs/external-validation-ng.md](plugins/audit-write/docs/external-validation-ng.md).
 
 ## Maintenance discipline (for forkers)
 

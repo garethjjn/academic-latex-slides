@@ -12,6 +12,10 @@ the parts of style_dna.md / the rubric integrity gate that are mechanical:
   WARN    blacklist verbs in a claim ("show that", "prove", "demonstrate
           definitively", "delve", "leverage", "shed light", "pave the way",
           "pivotal", "groundbreaking", "paradigm-shifting")
+  WARN    AI-slop tells (style_dna.md §9): em-dash overuse (>=3 em-dashes AND
+          above density threshold) and the rhetorical "not X ... it's Y"
+          construction. Conservative by design — see
+          docs/external-validation-ng.md for the precision rationale.
 
 Usage:  lint_style.py FILE [FILE ...]
 Exit:   0 = no ERRORs · 1 = ERROR(s)   (WARNs never fail the run)
@@ -32,13 +36,27 @@ ANCHORS = [
 ]
 CITE = re.compile(r"\(([A-Z][A-Za-z.\-]+(?:[^()]{0,60}?))?\b(19|20)\d{2}[a-z]?\)")
 
+# AI-slop tells (style_dna.md §9). Deliberately conservative to avoid flagging
+# legitimate audit prose ("not significant but economically large").
+EM_DASH = "—"
+# matches the *mirrored* "it's not X, it's Y" / "not (just) about X ... it's Y"
+# form — not the bare "not A but B" used in legitimate argumentation.
+NOTXBUTY = [
+    re.compile(r"\bit['’]s not\b[^.\n]{1,60}?\bit['’]s\b", re.I),
+    re.compile(
+        r"\bnot (?:just |merely |simply |only )?about\b[^.\n]{1,60}?\bit['’]s\b",
+        re.I,
+    ),
+]
+
 
 def lint(path):
     errs, warns = [], []
     try:
-        lines = open(path, encoding="utf-8").read().splitlines()
+        text = open(path, encoding="utf-8").read()
     except (OSError, UnicodeDecodeError) as e:
         return [f"{path}: cannot read ({e})"], []
+    lines = text.splitlines()
     for i, ln in enumerate(lines, 1):
         low = ln.lower()
         if PERSONAL.search(ln):
@@ -57,6 +75,24 @@ def lint(path):
         for b in BANNED:
             if b in low:
                 warns.append(f"{path}:{i}: WARN blacklist verb '{b}': {ln.strip()[:80]}")
+    # file-level AI-slop tells (style_dna.md §9)
+    n_words = max(1, len(text.split()))
+    n_em = text.count(EM_DASH)
+    em_threshold = max(2, n_words // 150)  # floor 2 → never warns on <3 em-dashes
+    if n_em > em_threshold:
+        warns.append(
+            f"{path}: WARN em-dash overuse: {n_em} em-dashes "
+            f"(threshold {em_threshold} for {n_words} words) — style_dna.md §9"
+        )
+    flat = " ".join(lines)
+    for rx in NOTXBUTY:
+        m = rx.search(flat)
+        if m:
+            warns.append(
+                f"{path}: WARN rhetorical \"not X ... it's Y\" construction: "
+                f"\"{m.group(0)[:60]}\" — style_dna.md §9"
+            )
+            break
     return errs, warns
 
 

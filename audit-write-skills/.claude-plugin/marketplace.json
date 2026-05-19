@@ -1,7 +1,7 @@
 {
   "name": "audit-write-marketplace",
   "owner": {
-    "name": "[SET YOUR NAME — public template; forkers set owner]"
+    "name": "Gareth Jiang"
   },
   "description": "Marketplace hosting the audit-write skill suite for empirical audit-research papers (JAE/JAR/TAR).",
   "version": "1.0.0",

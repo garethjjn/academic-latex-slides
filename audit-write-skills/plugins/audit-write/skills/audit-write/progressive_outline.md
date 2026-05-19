@@ -41,6 +41,25 @@ Stage 4 — SELF-AUDIT           → rubric score + fixes
    GATE: report score; ≥90 ship-ready, 75–89 revise, <75 do not ship.
 ```
 
+## Why the ratchet is high-leverage
+
+(Corroborated by an independent practitioner account —
+`../../docs/external-validation-ng.md`.)
+
+1. **Outline edits cascade; prose edits do not.** Changing a few words of a
+   *skeleton* line reorganises an entire block of the eventual draft. Changing the
+   same words in finished *prose* changes only those words and leaves a wrong
+   structure intact. Iterate where the leverage is — Stages 1–2 — not Stage 3.
+   This is the whole reason the gates come *before* prose, not after.
+2. **Surface the AGAINST before Stage 1.** Before the skeleton, state the evidence
+   *for and against* the prediction. In audit writing this is not optional: the
+   hypothesis section's tension paragraph is mandatory (`style_dna.md`) and likely
+   reviewer objections are catalogued (`referee_objection_bank.md`, O1–O8). Pull
+   the counter-argument in at Stage 1 so the structure already answers it, rather
+   than retrofitting a tension paragraph into finished prose.
+3. **Outline-first speeds review.** A skeleton/bullet diff is read in seconds; a
+   re-prosed section is not. Cheap review at every gate is the point.
+
 ## Operating rules
 
 1. **Never skip a gate without the user saying so.** "just draft it" → you may

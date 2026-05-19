@@ -284,14 +284,44 @@ In addition to the generic econ-write anti-AI list, audit papers have these spec
 - ❌ "It goes without saying..." (then don't say it)
 - ❌ Numbered lists of contributions where each contribution has the same length (real DeFond papers have varied paragraph lengths per contribution)
 
+### Generic AI-slop tells (corroborated externally — see `../../docs/external-validation-ng.md`)
+
+AI slop reads acceptably one sentence at a time but is collectively thin. In
+audit prose these surface as:
+
+- ❌ **Em-dash (—) overuse.** AI uses the em-dash far more than human academic
+  writing. Audit prose rarely needs it: prefer a comma, a colon, or two
+  sentences. (Mechanically flagged at ≥3 em-dashes + above-threshold density by
+  `../../scripts/lint_style.py`.)
+- ❌ **Rule-of-three / triadic lists** ("A, B, and C") used reflexively where two
+  items, or one precise noun, would do. Vary list length; do not pad to three.
+- ❌ **"not X but Y" / "not just about X, it's about Y"** with X and Y both vague
+  abstractions ("not about infrastructure, it's about architecture"). Empty but
+  self-important. Use the plain claim instead.
+- ❌ **Noun-poverty / vague-adjective principle.** AI substitutes adjective+noun
+  for a concrete noun ("robust instruction", "highly insightful paper",
+  "comprehensive framework"). Every claim in audit prose carries a concrete noun,
+  a number, or a reference — never a mood adjective standing in for content. This
+  generalises the "robust audit framework" tell above into a rule.
+- ❌ **Big, empty-but-self-important sentences** ("but it does change
+  everything") — a grand claim with no referent and no magnitude. Delete it or
+  attach the specific result.
+
+> Note: heavy AI use is making human writing drift toward these patterns
+> (*delve* is rising in human speech). Vigilance is required even on prose a
+> human "wrote".
+
 ### Pattern enforcement
 
 When auditing or rewriting text, search for these specific patterns:
 1. "show that" → replace with "find that" or "document"
 2. "demonstrate" → replace with "find" or "show" (only OK if showing means "exhibit", not "prove")
-3. "robust audit" → replace with the specific quality dimension
+3. "robust audit" / any mood-adjective + abstract noun → replace with the specific quality dimension or a concrete noun
 4. Three-sentences-each contributions → vary lengths
 5. Adjectives describing own work ("important contribution", "novel finding") → delete the adjective
+6. Em-dash (—) → replace with comma / colon / sentence split unless genuinely parenthetical and rare
+7. "not X but Y" / "not just about X, it's about Y" → state the plain claim
+8. Reflexive triads ("A, B, and C") → keep only the items that carry information
 
 ---
 
