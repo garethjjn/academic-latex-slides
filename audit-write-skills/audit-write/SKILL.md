@@ -29,6 +29,8 @@ When the user asks for help with a specific section, route to the corresponding 
 | "structure my **robustness**" / "my additional analyses" / "Section 5" | `audit-write-robustness` |
 | "draft my **referee response**" / "rebuttal letter" / "response to reviewers" | `audit-referee-response` |
 
+> **Dependency note.** `audit-referee-response` is a **separate companion skill**, not bundled inside this suite. If it is installed, route to it as above. If it is not available, say so and offer to handle the rebuttal here using the shared `style_dna.md` register (structure-only, no dedicated referee playbook). All other routes target sub-skills that ship with this suite.
+
 If the user doesn't specify a section, ask:
 > "Which section are you working on? I can help with: (1) abstract, (2) introduction, (3) hypothesis development, (4) research design, (5) results, (6) robustness, (7) referee response. Or, if you want a holistic review, say 'review the whole paper' and I'll combine the relevant sub-skills."
 
@@ -36,12 +38,13 @@ If the user doesn't specify a section, ask:
 
 ## Shared resources (read these when invoked)
 
-These files are in this skill's directory (`${CLAUDE_SKILL_DIR}` = `~/.claude/skills/audit-write/`):
+These files live in **this skill's own directory** (the `audit-write/` folder of this suite — resolve them relative to this `SKILL.md`, e.g. `${CLAUDE_SKILL_DIR}` when that variable is set; do not assume a fixed absolute install path):
 
 1. **[audit_quality_framework.md](audit_quality_framework.md)** — DeFond-Zhang 2014 / 2025 framework, audit-quality proxy taxonomy, demand-side and supply-side factors, China-specific institutional features, glossary of audit-research terms.
 2. **[style_dna.md](style_dna.md)** — verb whitelist / blacklist, hedging templates, audit-quality vocabulary, citation conventions, sentence-level mechanics, anti-AI patterns specific to audit writing.
+3. **[corpus_manifest.md](corpus_manifest.md)** — provenance of every structural rule and verbatim example: the named source corpus, the shorthand-code decode table (`07-DHT` … `26-KLYY`), and the verifiability note (read this before treating any "k/6" frequency claim as law).
 
-Every sub-skill references these. Update these when the user reports a stylistic correction or framework refinement that should propagate across all sub-skills.
+Sub-skills reference these via the relative path `../audit-write/<file>.md`; keep the suite's directory layout intact so those links resolve. Update these shared files when the user reports a stylistic correction or framework refinement that should propagate across all sub-skills.
 
 ---
 
@@ -128,17 +131,17 @@ For each section, read the corresponding sub-skill's resource files and apply it
 Each sub-skill is **focused on one section** and inherits from the master `audit-write` shared resources. The architecture is hub-and-spoke:
 
 ```
-audit-write (hub: framework + style DNA)
+audit-write (hub: framework + style DNA + corpus manifest)
 ├── audit-write-abstract
 ├── audit-write-intro          ★ most-used; the "75% of acceptance" section
 ├── audit-write-hypothesis
 ├── audit-write-design
 ├── audit-write-results
 ├── audit-write-robustness
-└── audit-referee-response
+└── audit-referee-response     ⇲ separate companion skill (not bundled here)
 ```
 
-The 7 sub-skills don't overlap. If a user task spans multiple sections (e.g., "rewrite my intro and abstract together"), invoke each sub-skill in sequence; their outputs share the same style register because they all consult `style_dna.md`.
+The 6 bundled sub-skills don't overlap (`audit-referee-response` is an optional companion — see the dependency note above). If a user task spans multiple sections (e.g., "rewrite my intro and abstract together"), invoke each sub-skill in sequence; their outputs share the same style register because they all consult `style_dna.md`.
 
 ---
 

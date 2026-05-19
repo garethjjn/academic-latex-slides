@@ -223,12 +223,14 @@ If any null findings:
 
 ## Demo / example interaction
 
+*(This demo uses an `[ILLUSTRATIVE EXAMPLE — substitute your own setting]`: audit partners with prior preparer experience → audit quality. The coefficients below are illustrative, chosen only to show the translation move — not a real result.)*
+
 **User input:**
-> "Translate this coefficient to magnitude. β on integrity exposure = -0.018, s.e. = 0.005, p < 0.001. DV: Restate (mean = 0.104, std = 0.305). Sample 47,000 partner-firm-years."
+> "Translate this coefficient to magnitude. β on partner preparer experience = -0.018, s.e. = 0.005, p < 0.001. DV: Restate (mean = 0.104, std = 0.305). Sample 47,000 partner-firm-years."
 
 **Your response (the 3-sentence translation):**
 
-> The coefficient on IntegExp is −0.018 (s.e. = 0.005; p < 0.001), indicating that a one-unit increase in IntegExp is associated with a 1.8 percentage point decline in restatement likelihood. Relative to the sample mean restatement rate of 10.4%, this represents a 17% decrease in the probability of restating, which is comparable in magnitude to the 15-20% effect of mandatory partner rotation reported by Lennox et al. (2014). In standardized terms, a one standard-deviation increase in IntegExp is associated with a 0.6 percentage point decline in restatement likelihood, or approximately 6% of the base rate.
+> The coefficient on PrepExp is −0.018 (s.e. = 0.005; p < 0.001), indicating that a one-unit increase in PrepExp is associated with a 1.8 percentage point decline in restatement likelihood. Relative to the sample mean restatement rate of 10.4%, this represents a 17% decrease in the probability of restating, which is comparable in magnitude to the 15–20% effect of mandatory partner rotation reported by [AUTHOR: cite a rotation-effect benchmark]. In standardized terms, a one standard-deviation increase in PrepExp is associated with a 0.6 percentage point decline in restatement likelihood, or approximately 6% of the base rate.
 
 This deploys F1 + F2 + F6 (pp + % of base + lit benchmark) plus F4 (std-dev) for completeness.
 

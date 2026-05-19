@@ -389,7 +389,7 @@ Audit-partner-trait paper using a culturally-driven measure linked to audit outc
 4. **Two corroboration sentences** — heterogeneity + dark side. The dark side is non-negotiable for partner-trait papers in modern JAE.
 5. **Implication closes with theory-level contribution**, not policy.
 
-For a paper on auditor early-life integrity exposure → audit quality, this is the structural template to mirror.
+For a partner-trait → audit-quality paper, this is the structural template to mirror.
 
 ---
 

@@ -490,7 +490,7 @@ Use a 2–3 sentence Section 2 preamble before the first sub-section:
 
 ### Recommendation
 
-For a modern partner-trait paper (the closest target for our China integrity-propaganda paper), use **Style 1** (clean break, start inside literature). For a multi-hypothesis paper with shared theory, use **Style 2** (Section preamble).
+For a modern single-hypothesis partner-trait paper, use **Style 1** (clean break, start inside literature). For a multi-hypothesis paper with shared theory, use **Style 2** (Section preamble).
 
 ---
 
@@ -518,7 +518,7 @@ This is the single best structural template for a multi-hypothesis partner-trait
 | §2.2.3 ¶2 | "We argue that trusting audit partners may facilitate greater within-GAAP earnings management… However, we do not expect that cultural trust extends to tolerating violations of GAAP…" | **Mechanism + tension for H3(a)/H3(b)** |
 | §2.2.3 ¶3 | "**H3(a).** Audit partners' cultural trust is positively associated with within-GAAP earnings management, ceteris paribus. **H3(b).** Audit partners' cultural trust is not associated with earnings management that violates GAAP, ceteris paribus." | **Pair-prediction H3** |
 
-**Key takeaways from 26-KLYY for a similar paper (e.g., partner integrity exposure):**
+**Key takeaways from 26-KLYY for a similar partner-trait paper:**
 
 1. The shared theory umbrella (§2.1) does the heavy citation lifting. It is ~4 paragraphs and cites 8–10 papers.
 2. Each sub-section (§2.2.1, §2.2.2, §2.2.3) is short — 3–5 paragraphs each.
@@ -593,7 +593,7 @@ Before finalizing a hypothesis development section, verify:
 
 ## Most surprising / actionable findings
 
-1. **The pair-prediction format (H2(a)/H2(b), H3(a)/H3(b)) is a 2026 innovation in 26-KLYY** that does NOT appear in any of the older corpus papers. It is a direct response to the "naïve trust" critique a reviewer would raise. Any future partner-trait paper (e.g., partner integrity exposure → audit quality) should consider this device whenever the trait could be read pejoratively (gullibility, cynicism, tribalism, etc.).
+1. **The pair-prediction format (H2(a)/H2(b), H3(a)/H3(b)) is a 2026 innovation in 26-KLYY** that does NOT appear in any of the older corpus papers. It is a direct response to the "naïve trust" critique a reviewer would raise. Any partner-trait paper should consider this device whenever the trait could be read pejoratively (gullibility, capture, cynicism, tribalism, etc.).
 
 2. **16-DLZ (TAR 2016) is the outlier** — it deliberately avoids a numbered formal hypothesis. This works for TAR but would likely draw a referee complaint at JAE. If targeting JAE/JAR, do NOT model the H section after 16-DLZ.
 

@@ -225,15 +225,15 @@ If the input is .tex, output LaTeX with proper section markers, citation command
 5. Output the structured audit report (template above)
 6. Save it to `quality_reports/audit_intro_review_YYYY-MM-DD.md` if requested
 
-**User input:**
-> "Draft intro for my paper. RQ: do auditor partners with overseas education provide higher audit quality? Setting: China 2008-2022, signatory partners. Finding: partners with overseas education reduce restatements by 1.8 pp (15% of base rate). Contributions: (1) extends partner-trait literature; (2) novel measure of partner education quality; (3) China brain-circulation context."
+**User input:** *(`[ILLUSTRATIVE EXAMPLE — substitute your own setting]`)*
+> "Draft intro for my paper. RQ: do audit partners with prior financial-statement preparer experience provide higher audit quality? Setting: partner-firm-years over [PERIOD] in an economy with engagement-partner disclosure. Finding: preparer-experienced partners reduce restatements by 1.8 pp (15% of base rate). Contributions: (1) extends partner-trait literature; (2) novel measure of partner preparer experience; (3) competence-vs-independence framing."
 
 **Your response:**
 1. Determine: Mode A (draft)
 2. Generate 5-block intro with the user's specifics
 3. Write Block 4 with the 1.8 pp / 15% magnitudes
 4. Use Pattern A from contribution_formulas.md (methods + 2 lits + implications) — match user's 3 contributions
-5. Append the China-data limitation paragraph
+5. Append the scope/limitation paragraph only if the setting warrants it (e.g., single-country or non-US data); the illustrative setting here is generic, so this is optional
 6. Drop the roadmap (assume JAE target)
 7. Self-audit silently using Mode C; deliver the polished intro
 

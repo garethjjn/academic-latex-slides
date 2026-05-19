@@ -163,14 +163,16 @@ Structured audit report:
 
 ## Demo / example interaction
 
+*(This demo uses an `[ILLUSTRATIVE EXAMPLE — substitute your own setting]`: audit partners with prior financial-statement preparer experience → audit quality. The numbers and steps are illustrative, not a real result.)*
+
 **User input:**
-> "Rewrite my §3. DV: restatement. IV: auditor early-life integrity-propaganda exposure (county-year). Sample: Chinese listed firms 2008-2022. I included rotation as IV in §3 — is that right?"
+> "Rewrite my §3. DV: restatement. IV: audit partner prior financial-statement preparer experience. Sample: partner-firm-years over [PERIOD] in an economy with engagement-partner disclosure. I included rotation as IV in §3 — is that right?"
 
 **Your response:**
 
 Three structural issues to fix:
 1. **Rotation as IV belongs in §4, not §3.** Move it to a §4.X "Identification" sub-section.
-2. **§3 should describe the BASELINE OLS spec only.** Lead with the simple regression of restatement on integrity exposure with controls + FE.
+2. **§3 should describe the BASELINE OLS spec only.** Lead with the simple regression of restatement on preparer experience with controls + FE.
 3. **Add DeFond-Zhang 2014 + Aobdia 2019 citations** to the DV defense.
 
 Drafted §3:
@@ -179,23 +181,23 @@ Drafted §3:
 ## 3. Research Design
 
 ### 3.1 Measuring Audit Quality
-Following DeFond and Zhang (2014), we measure audit quality using restatements (Restate), an output-based proxy widely used in the audit literature. Restate equals one if a client's annual financial statements are subsequently restated for a material accounting error, and zero otherwise. As Aobdia (2019) demonstrates, restatements correlate with PCAOB practitioner assessments of audit quality more strongly than do discretionary accruals, supporting their validity. While alternative proxies — discretionary accruals, going-concern opinions, audit fees — are also informative, restatements have the advantage of being attributable to the auditor's failure to detect a material misstatement (Lennox and Wu, 2022).
+Following DeFond and Zhang (2014), we measure audit quality using restatements (Restate), an output-based proxy widely used in the audit literature. Restate equals one if a client's annual financial statements are subsequently restated for a material accounting error, and zero otherwise. As Aobdia (2019) shows, restatements correlate with practitioner-inspector assessments of audit quality more strongly than do discretionary accruals, supporting their validity. While alternative proxies — discretionary accruals, going-concern opinions, audit fees — are also informative, restatements have the advantage of being attributable to the auditor's failure to detect a material misstatement (Lennox and Wu, 2022).
 
-### 3.2 Measuring Auditor Integrity Exposure
-We construct our auditor-level integrity-exposure measure (IntegExp) in three steps. First, [step 1: lexicon of integrity terms × People's Daily corpus → county-year integrity-content metric]. Second, [step 2: weight by radio-signal strength (county × birth-year) for childhood ages 5-15]. Third, [step 3: aggregate to auditor-level by birth-county and birth-year]. The resulting IntegExp ranges from [range], with higher values indicating greater early-life exposure. We validate IntegExp by [construct validation: e.g., correlation with county-level Confucian temple density; survey-based trust measures].
+### 3.2 Measuring Partner Preparer Experience
+We construct our partner-level preparer-experience measure (PrepExp) in three steps. First, [step 1: collect each engagement partner's pre-audit career history from the relevant disclosure/registry source]. Second, [step 2: identify spells in financial-statement preparer roles (e.g., controller, CFO, financial reporting)]. Third, [step 3: define PrepExp as the partner's years of preparer experience prior to audit practice, or an indicator for ≥N years]. We validate PrepExp by [construct validation: e.g., correlation with accounting-credential records or biography text].
 
 ### 3.3 Empirical Model
 We estimate the following baseline model:
 
-> Eq. 1: Restate_{i,t} = α + β·IntegExp_{a,i,t} + γ·X_{i,t} + δ·Z_{a,t} + Industry × Year FE + ε_{i,t}
+> Eq. 1: Restate_{i,t} = α + β·PrepExp_{a,i,t} + γ·X_{i,t} + δ·Z_{a,t} + Industry × Year FE + ε_{i,t}
 
-where _i_ indexes client firm, _a_ indexes auditor, and _t_ indexes year. β is the coefficient of interest; H1 predicts β < 0.
+where _i_ indexes client firm, _a_ indexes the engagement partner, and _t_ indexes year. β is the coefficient of interest; H1 predicts β < 0.
 
 ### 3.4 Controls, Fixed Effects, and Clustering
-We control for client characteristics that affect restatement likelihood (X_{i,t}): firm size, leverage, ROA, market-to-book, sales growth, CFO, age, and SOE status. We control for auditor characteristics (Z_{a,t}): Big-4 status, audit fee, auditor tenure, industry specialization, and auditor age. We include client industry × year fixed effects to absorb industry-time-varying shocks. Standard errors are clustered by audit firm.
+We control for client characteristics that affect restatement likelihood (X_{i,t}): firm size, leverage, ROA, market-to-book, sales growth, operating cash flow, and firm age. We control for auditor characteristics (Z_{a,t}): Big-N status, audit fee, auditor tenure, industry specialization, and partner age. We include client industry × year fixed effects to absorb industry-time-varying shocks. Standard errors are clustered by audit firm.
 
 ### 3.5 Sample Construction
-Our sample begins with [N1] firm-year observations from CSMAR over 2008-2022. We exclude [N2] observations with missing auditor identity, [N3] with missing financial controls, and [N4] for which we cannot identify the auditor's birth-county. The final sample contains [N] firm-year observations across [N_firm] unique firms and [N_auditor] unique signatory auditors. Variable definitions are provided in Appendix A.
+Our sample begins with [N1] partner-firm-year observations from [database] over [PERIOD]. We exclude [N2] observations with missing partner identity, [N3] with missing financial controls, and [N4] for which we cannot reconstruct the partner's pre-audit career history. The final sample contains [N] partner-firm-year observations across [N_firm] unique clients and [N_partner] unique engagement partners. Variable definitions are provided in Appendix A.
 ```
 
 Identification machinery (rotation, falsification) deferred to §4.

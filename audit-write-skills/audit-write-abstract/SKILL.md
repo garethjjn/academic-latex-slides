@@ -169,16 +169,18 @@ When invoked, do not duplicate intro logic — the abstract is its own thing.
 
 ## Demo / example interaction
 
+*(This demo uses an `[ILLUSTRATIVE EXAMPLE — substitute your own setting]`: audit partners with prior preparer experience → audit quality. Not a real result.)*
+
 **User input:**
-> "Draft an abstract. Paper: do auditor partners with overseas education provide higher audit quality? Setting: China 2008-2022, signatory partners. Finding: partners with overseas education reduce restatements; effect concentrated in non-Big-4 offices and complex audits. Cost: these partners also have higher fees. Sample: 18,500 partner-firm-years."
+> "Draft an abstract. Paper: do audit partners with prior financial-statement preparer experience provide higher audit quality? Setting: partner-firm-years over [PERIOD] in an economy with engagement-partner disclosure. Finding: preparer-experienced partners reduce restatements; effect concentrated in non-Big-N engagements and complex audits. Cost: these partners also command higher fees. Sample: [N] partner-firm-years."
 
 **Your response:**
 
 ```markdown
-A growing literature documents that audit partners' personal characteristics shape audit outcomes. We examine whether signatory auditors' overseas education translates into higher audit quality. We propose that overseas-educated partners apply more conservative reporting standards through exposure to stricter regulatory regimes; however, their unfamiliarity with the local relational economy could weaken their effective monitoring. Using 18,500 partner-firm-year observations from Chinese listed companies during 2008-2022, we find that clients of overseas-educated partners are less likely to issue restatements. The effect is concentrated in non-Big-4 offices and in complex audits, consistent with foreign training providing differential value where local regulatory and reputational discipline is weaker. We also find that overseas-educated partners charge higher fees, suggesting the audit-quality benefit comes at a cost to clients. Collectively, our findings identify a previously unrecognized partner-trait channel through which international human-capital flows shape audit quality in emerging economies.
+A growing literature documents that audit partners' personal characteristics shape audit outcomes. We examine whether audit partners' prior financial-statement preparer experience translates into higher audit quality. We propose that preparer experience equips partners with first-hand knowledge of how misstatements are constructed and concealed, sharpening detection; however, familiarity with the preparer's perspective could instead temper professional skepticism. Using [AUTHOR: N] partner-firm-year observations over [AUTHOR: sample period], we find that clients of preparer-experienced partners are less likely to subsequently restate. The effect is concentrated in non-Big-N engagements and in complex audits, consistent with partner-level human capital mattering most where firm-level quality controls are weaker. We also find that preparer-experienced partners command higher fees, suggesting the audit-quality benefit comes at a cost to clients. Collectively, our findings identify a partner-trait channel through which managerial-reporting human capital, carried across the preparer–auditor divide, shapes audit quality.
 ```
 
-Word count: ~155. 5-move shape complete: setup → prediction-with-tension → finding → heterogeneity-and-mechanism → cost-and-closer.
+Word count: ~150. 5-move shape complete: setup → prediction-with-tension → finding → heterogeneity-and-mechanism → cost-and-closer. No effect-size magnitudes (abstract rule); only sample size / period, as placeholders.
 
 ---
 

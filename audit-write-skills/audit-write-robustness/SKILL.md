@@ -211,8 +211,10 @@ If any sub-section reports null:
 
 ## Demo / example interaction
 
+*(This demo uses an `[ILLUSTRATIVE EXAMPLE — substitute your own setting]`: audit partners with prior preparer experience → audit quality. Tests, coefficients, and tables are illustrative scaffolding, not real results.)*
+
 **User input:**
-> "Help me draft §5 robustness for my integrity-exposure paper. I have: (1) county-pair DiD using radio signal discontinuities, (2) placebo using post-1980 propaganda dates (no effect predicted), (3) sub-sample of non-Big-4 audits, (4) alternative integrity measure using a different lexicon."
+> "Help me draft §5 robustness for my preparer-experience paper. I have: (1) a quasi-experimental shock that changed the inflow of preparer-experienced individuals into audit practice (DiD), (2) a placebo using prior *non-financial* career experience (no effect predicted), (3) a sub-sample of non-Big-N audits, (4) an alternative PrepExp construction (years vs. indicator)."
 
 **Your response:**
 
@@ -221,25 +223,25 @@ You have 4 strong tests. Structure as a 5-test numbered battery, adding cross-se
 ```markdown
 ## 5. Additional Analyses
 
-Our main results (Section 4) establish a robust negative association between auditor early-life integrity exposure and client restatement likelihood. In this section, we conduct five additional analyses to address identification concerns and corroborate our findings.
+Our main results (Section 4) establish a robust negative association between audit partners' prior preparer experience and client restatement likelihood. In this section, we conduct five additional analyses to address identification concerns and corroborate our findings.
 
-### 5.1 County-Pair Difference-in-Differences (Test 1)
-First, [exploit radio signal discontinuities at county boundaries — DiD with treated vs neighboring control county pairs]. The TREAT × POST coefficient is [β] (s.e. = [SE]; p < [level]), consistent with our main result. See new Table 5.
+### 5.1 Quasi-Experimental Shock (Test 1)
+First, [exploit a regulatory change that altered the inflow of preparer-experienced individuals into audit practice — DiD with treated vs. control partners around the event]. The TREAT × POST coefficient is [β] (s.e. = [SE]; p < [level]), consistent with our main result. See new Table 5.
 
-### 5.2 Placebo with Post-1980 Propaganda (Test 2)
-Second, we conduct a falsification test using auditors' exposure to post-1980 integrity propaganda — when these auditors were already adults and the imprinting mechanism should not operate. We find no significant effect (β = [magnitude]; 95% CI = [lower, upper], includes zero), and we are able to rule out effects smaller than ±1/3 SD at the 95% confidence level (Cunningham et al. 2019). A power analysis (Cohen 1988) confirms [80%] power to detect economically meaningful effects. The null is therefore informative, not a power problem. See new Table 6.
+### 5.2 Placebo with Non-Financial Prior Experience (Test 2)
+Second, we conduct a falsification test that replaces PrepExp with the partner's prior *non-financial* career experience, which should not operate through the misstatement-detection channel. We find no significant effect (β = [magnitude]; 95% CI = [lower, upper], includes zero), and we are able to rule out effects smaller than ±1/3 SD at the 95% confidence level (Cunningham et al. 2019). A power analysis (Cohen 1988) confirms [80%] power to detect economically meaningful effects. The null is therefore informative, not a power problem. See new Table 6.
 
-### 5.3 Non-Big-4 Subsample (Test 3)
-Third, we restrict the sample to non-Big-4 audit engagements, where individual partner traits should have a stronger effect on audit outcomes. The coefficient on IntegExp is [β] (s.e. = [SE]), [N%] larger than the full-sample estimate, consistent with the trait operating more strongly in environments with weaker firm-level quality controls. See new Table 7.
+### 5.3 Non-Big-N Subsample (Test 3)
+Third, we restrict the sample to non-Big-N audit engagements, where individual partner traits should have a stronger effect on audit outcomes. The coefficient on PrepExp is [β] (s.e. = [SE]), [N%] larger than the full-sample estimate, consistent with the trait operating more strongly in environments with weaker firm-level quality controls. See new Table 7.
 
 ### 5.4 Alternative IV Measure (Test 4)
-Fourth, we re-estimate Eq. 1 using an alternative integrity-exposure measure constructed from [alternative lexicon: e.g., the Cong et al. 2024 integrity-related word list]. The alternative measure correlates [r = N] with our main IntegExp. The coefficient is quantitatively similar to our main estimate (β = [...]), indicating that our findings are not driven by the specific lexicon construction. See new Table 8.
+Fourth, we re-estimate Eq. 1 using an alternative PrepExp construction [e.g., a continuous count of preparer-years in place of the ≥N-year indicator, and a role-restricted variant]. The alternative measure correlates [r = N] with our main PrepExp. The coefficient is quantitatively similar to our main estimate (β = [...]), indicating that our findings are not driven by the specific construction of PrepExp. See new Table 8.
 
 ### 5.5 Cross-Sectional Heterogeneity (Test 5)
-Fifth, we examine cross-sectional variation in the IntegExp effect. We expect the effect to be stronger when [theoretically motivated subgroup A] and weaker when [subgroup B] because [mechanism]. We re-estimate Eq. 1 with an interaction term [IntegExp × Subgroup_A]. Consistent with our prediction, the interaction coefficient is [β_int] (p < [level]), indicating that the IntegExp effect is concentrated in [theoretically predicted subset]. See new Table 9.
+Fifth, we examine cross-sectional variation in the PrepExp effect. We expect the effect to be stronger when [theoretically motivated subgroup A] and weaker when [subgroup B] because [mechanism]. We re-estimate Eq. 1 with an interaction term [PrepExp × Subgroup_A]. Consistent with our prediction, the interaction coefficient is [β_int] (p < [level]), indicating that the PrepExp effect is concentrated in [theoretically predicted subset]. See new Table 9.
 
 ### 5.6 Summary
-Together, these analyses suggest that the negative association between auditor early-life integrity exposure and client restatement likelihood is robust to alternative identification strategies, alternative measure constructions, and cross-sectional partitions, and is not explained by [confounding alternative].
+Together, these analyses suggest that the negative association between audit partners' prior preparer experience and client restatement likelihood is robust to alternative identification strategies, alternative measure constructions, and cross-sectional partitions, and is not explained by [confounding alternative].
 ```
 
 This deploys the numbered-battery template (5 tests) and invokes the Khurana 2026 null-defense for the placebo.

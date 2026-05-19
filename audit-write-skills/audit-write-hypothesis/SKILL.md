@@ -72,7 +72,7 @@ Use the pair-prediction device when ANY of the following apply:
    - Cultural trust → "trusting auditors are gullible" (rebutted by Khurana 2026)
    - Overseas education → "imperialist / disconnected from local"
    - Communist Party membership → "politicized"
-   - Integrity-exposure / patriotic-exposure (Gareth's setting!) → "indoctrinated / nationalist bias"
+   - Prior financial-statement preparer experience → "captured by / sympathetic to management"
    - High social connectedness → "captured / corrupt"
 
 2. **Your prediction asks "is this auditor better at X without being worse at Y?"** The pair-prediction lets you make BOTH claims.
@@ -89,11 +89,12 @@ Reasoning chain to spell out:
 - Direct prediction: trait → reduces overly-conservative behavior
 - Counter-pejorative prediction: trait → does NOT lead to gullible behavior, because Type II errors carry asymmetrically large costs (litigation, reputation loss)
 
-For Gareth's integrity-exposure paper, this could be:
+For an illustrative preparer-experience paper, this could be:
 ```
-H2(a). Auditors with greater early-life integrity exposure issue fewer permissive reports for clients with overstated earnings, ceteris paribus.
-H2(b). Auditors with greater early-life integrity exposure are NOT associated with restatements in clients with conservative reporting, ceteris paribus.
+H2(a). Audit partners with prior financial-statement preparer experience are negatively associated with the likelihood of Type I errors, ceteris paribus.
+H2(b). Audit partners with prior financial-statement preparer experience are NOT associated with the likelihood of Type II errors, ceteris paribus.
 ```
+(The H2(b) null pre-empts the "former preparers are captured by management" reading: if preparer-experienced partners were merely lenient, Type II errors would *rise*; the asymmetric litigation/reputation cost of Type II errors makes this unlikely.)
 
 ---
 
@@ -197,47 +198,49 @@ Structured audit report:
 ## Demo / example interaction
 
 **User input:**
-> "Develop hypothesis for paper. RQ: do auditors with strong early-life integrity exposure provide higher audit quality? Setting: China, county-level integrity-propaganda exposure × auditor birth-county, 2008-2022. Mechanism: integrity values internalized in childhood → as adult auditors, more conservative GAAP enforcement. Could be read pejoratively as 'indoctrinated / nationalist'."
+> "Develop hypothesis for paper. RQ: do audit partners with prior financial-statement preparer experience provide higher audit quality? Setting: an economy with engagement-partner disclosure, partner-firm-year panel. Mechanism: preparer experience → knows where misstatements hide → better detection. Could be read pejoratively as 'captured by / sympathetic to management'."
+
+*(This demo uses an `[ILLUSTRATIVE EXAMPLE — substitute your own setting]`: a generic preparer-experience trait. It is not a real result.)*
 
 **Your response:**
 
-The trait (early-life propaganda exposure) is at risk of pejorative reading ("indoctrinated"). USE THE PAIR-PREDICTION DEVICE. Recommended Arc: B (multi-H).
+The trait (prior preparer experience) is at risk of a pejorative reading ("captured by management"). USE THE PAIR-PREDICTION DEVICE. Recommended Arc: B (multi-H).
 
 Drafted output:
 
 ```markdown
 ## 2. Hypothesis Development
 
-In this section, we develop our hypotheses on whether auditors' early-life exposure to integrity-related propaganda translates into higher-quality audits in adulthood.
+In this section, we develop our hypotheses on whether audit partners' prior experience as financial-statement preparers translates into higher-quality audits.
 
-### 2.1 Childhood Integrity Norm Internalization
+### 2.1 Preparer Experience and Detection Competence
 
-A growing literature documents that early-life experiences durably shape adult professional behavior (Malmendier 2021; Schoar and Zuo 2017). Specifically, [Move 2: theory anchor — develop with citations to Bisin & Verdier; Bourdieu; Bowles & Gintis]. We posit that ...
+A growing literature documents that audit partners' individual backgrounds shape audit outcomes (see Lennox and Wu 2018 for a review). [Move 2: theory anchor — develop with citations on experiential human capital and auditor competence vs. independence, e.g., DeFond and Zhang 2014; DeFond et al. 2024]. We posit that ...
 
-[... Mechanism paragraph: integrity propaganda → childhood internalization of honesty norms → adult resistance to client misreporting]
+[... Mechanism paragraph: preparer experience → first-hand knowledge of how misstatements are constructed and concealed → superior ability to detect aggressive client reporting]
 
 ### 2.2 Direct Prediction: Higher Audit Quality
 
-[Move 3 part 1 — develop the direct prediction: integrity exposure → fewer restatements / more GCOs]
+[Move 3 part 1 — develop the direct prediction: preparer experience → fewer client restatements]
 
-> **H1.** Auditors with greater early-life exposure to integrity-related propaganda are negatively associated with the likelihood of subsequent client restatements, ceteris paribus.
+> **H1.** Audit partners with prior financial-statement preparer experience are negatively associated with the likelihood of subsequent client restatements, ceteris paribus.
 
-### 2.3 Pair-Prediction: Asymmetric Costs Rule Out the "Indoctrinated" Reading
+### 2.3 Pair-Prediction: Asymmetric Costs Rule Out the "Captured" Reading
 
 [Move 3 part 2 — pair-prediction with asymmetric-cost argument]
 
-A natural concern is that early-life integrity exposure could simply reflect ideological indoctrination, leading auditors to apply unduly stringent standards to all clients regardless of underlying reporting quality — a Type-I-error-like behavior that would harm rather than help audit clients. We argue that this reading is unlikely. The costs of issuing an unwarranted modified opinion (Type I error) — including loss of audit fees, partner retention pressure, and forgone client relationships — far exceed the costs of failing to reduce ideological-driven over-skepticism. Under this asymmetric-cost framework, integrity-exposed auditors should target their increased scrutiny at genuinely overstated reporting, not at conservative reporting. We therefore predict:
+A natural concern is that preparer experience could instead reflect socialization into management's perspective, leading these partners to be unduly sympathetic to aggressive client reporting — a leniency that would harm rather than help audit quality. We argue that this reading is unlikely. The costs of failing to catch a material misstatement (a Type II error) — litigation exposure, regulatory sanction, and reputation loss — far exceed any relationship benefit of accommodating a client. Under this asymmetric-cost framework, preparer-experienced partners should direct their superior detection skill at genuinely overstated reporting, not relax scrutiny of it. We therefore predict:
 
-> **H2(a).** Auditors with greater early-life integrity exposure are negatively associated with the likelihood of client restatements among clients with aggressive accruals, ceteris paribus.
+> **H2(a).** Audit partners with prior preparer experience are negatively associated with the likelihood of client restatements among clients with aggressive accruals, ceteris paribus.
 >
-> **H2(b).** Auditors with greater early-life integrity exposure are NOT associated with restatement risk among clients with conservative accruals, ceteris paribus.
+> **H2(b).** Audit partners with prior preparer experience are NOT associated with restatement risk among clients with conservative accruals, ceteris paribus.
 
 ### 2.4 Tension and Counter-Arguments
 
-We acknowledge several reasons our predictions may not hold empirically. First, [counter 1]. Second, [counter 2]. Third, [counter 3]. Whether early-life integrity exposure translates into higher audit quality is therefore an empirical question.
+We acknowledge several reasons our predictions may not hold empirically. First, [counter 1]. Second, [counter 2]. Third, [counter 3]. Whether prior preparer experience translates into higher audit quality is therefore an empirical question.
 ```
 
-This deploys the Khurana 2026 device, frames the integrity trait so pejorative readings are pre-empted, and follows the 6-move multi-H arc.
+This deploys the Khurana 2026 device, frames the preparer-experience trait so pejorative readings are pre-empted, and follows the 6-move multi-H arc.
 
 ---
 
