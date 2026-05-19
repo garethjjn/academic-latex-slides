@@ -2,7 +2,7 @@
 
 **What this is.** The canonical catalog of the recurring JAE/JAR/TAR referee objections
 on audit papers and the calibrated responses to them. Previously this content lived only
-inside `audit-referee-response/SKILL.md` (§"Audit-specific defensive moves") and was
+inside `../audit-referee-response/SKILL.md` (§"Audit-specific defensive moves") and was
 implicitly re-derived by the tension/alternative-explanation logic in the hypothesis and
 results/robustness skills. It now lives here once.
 

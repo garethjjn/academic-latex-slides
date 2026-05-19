@@ -8,7 +8,7 @@
 - Khurana, Li, Yeung, Yu 2026 JAE (`26-KLYY`) ★ closest analogue: partner cultural trait → AQ
 - Dekeyser, He, Xiao, Zuo 2024 JAE (`24-DHXZ`) — Zuo lineage
 
-The 7th paper (DeFond-Zhang 2014 JAE *Archival Auditing Review*) is a review-paper intro and uses a different structure — see `audit-write/audit_quality_framework.md` for its framework content, but do not use its intro structure as a template for empirical papers.
+The 7th paper (DeFond-Zhang 2014 JAE *Archival Auditing Review*) is a review-paper intro and uses a different structure — see `../audit-write/audit_quality_framework.md` for its framework content, but do not use its intro structure as a template for empirical papers.
 
 ---
 

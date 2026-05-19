@@ -1,0 +1,4 @@
+This is a tiny synthetic corpus extraction used only by the verify_quote test.
+Consistent with our hypothesis, we find a significantly negative association
+between auditor industry range and the likelihood of an audit adjustment.
+The coefficient is economically meaningful and robust to alternative measures.

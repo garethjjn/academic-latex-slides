@@ -1,9 +1,9 @@
 # Null-Result & Identification Protocols (single source)
 
 **What this is.** The canonical home for two cross-section protocols that were previously
-duplicated near-verbatim in four files (`audit-write-results/SKILL.md`,
-`audit-write-results/results_patterns.md`, `audit-write-robustness/SKILL.md`,
-`audit-write-robustness/robustness_patterns.md`). They now live here once; those files
+duplicated near-verbatim in four files (`../audit-write-results/SKILL.md`,
+`../audit-write-results/results_patterns.md`, `../audit-write-robustness/SKILL.md`,
+`../audit-write-robustness/robustness_patterns.md`). They now live here once; those files
 link to this and keep only their section-specific application note.
 
 Applies to: **results §4.3 / §4.x null findings** and **robustness §5 placebo /
@@ -96,8 +96,8 @@ methodological critique.
 
 ## How the four ex-duplicate sites should reference this
 
-- `audit-write-results/SKILL.md` → §4.3 + null findings: 2-line summary + "see
+- `../audit-write-results/SKILL.md` → §4.3 + null findings: 2-line summary + "see
   `../audit-write/null_and_identification_protocols.md` §A and §C".
-- `audit-write-robustness/SKILL.md` → numbered battery + placebo null: summary + link to §A, §B.
+- `../audit-write-robustness/SKILL.md` → numbered battery + placebo null: summary + link to §A, §B.
 - `results_patterns.md` / `robustness_patterns.md` → keep section-specific worked
   examples; replace the protocol restatement with a link to the relevant section here.
