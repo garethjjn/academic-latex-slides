@@ -5,9 +5,10 @@
 > **JAE · JAR · TAR**. Corpus-grounded, integrity-gated, and de-personalized for
 > public reuse.
 
-**Status:** v2 (post asset-library refactor) · 1 hub + 7 bundled sub-skills · 9 shared
-asset banks · scoring rubric with an integrity gate · evidence base disclosed in a
-corpus manifest.
+**Status:** v1.0.0 — packaged Claude Code **plugin** · 1 hub + 8 bundled sub-skills
+(incl. `audit-write-interview`) · 11 shared asset banks · staged drafting ratchet ·
+0–100 rubric with an integrity gate · source corpus disclosed in a manifest. See
+[plugins/audit-write/CHANGELOG.md](plugins/audit-write/CHANGELOG.md) for the P1–P4 arc.
 
 ---
 
@@ -94,21 +95,31 @@ quote→source verifiability chain is never broken.
 
 ## Installation
 
-These are **Claude Code skills**. Install by placing each skill directory under your
-Claude Code skills folder (`~/.claude/skills/` on macOS/Linux,
-`C:\Users\<you>\.claude\skills\` on Windows). Keep the directory layout intact — the
-sub-skills resolve shared banks via the relative path `../audit-write/`.
+This repo is a single-plugin **Claude Code marketplace**. No build step, no
+dependencies, no API keys.
 
-**macOS / Linux**
+**A — Install as a plugin (recommended)**
 
-```bash
-cp -r audit-write-skills/* ~/.claude/skills/
+```
+/plugin marketplace add <this-repo-url-or-local-path>
+/plugin install audit-write@audit-write-marketplace
 ```
 
-**Windows (PowerShell)**
+(`/plugin marketplace add .` works if you cloned the repo and Claude Code is launched
+from its root.) The plugin's skills, agents, and hooks are auto-discovered from
+`plugins/audit-write/`.
 
+**B — Manual skills install (no plugin system)**
+
+Copy the skill directories under your Claude Code skills folder
+(`~/.claude/skills/` · Windows `%USERPROFILE%\.claude\skills\`). Keep the layout — the
+sub-skills resolve shared banks via the relative path `../audit-write/`.
+
+```bash
+cp -r plugins/audit-write/skills/* ~/.claude/skills/        # macOS/Linux
+```
 ```powershell
-Copy-Item -Recurse -Force audit-write-skills\* $env:USERPROFILE\.claude\skills\
+Copy-Item -Recurse -Force plugins\audit-write\skills\* $env:USERPROFILE\.claude\skills\   # Windows
 ```
 
 Then verify in Claude Code:
@@ -117,9 +128,7 @@ Then verify in Claude Code:
 /audit-write what's the DeFond audit-quality framework?
 ```
 
-If the skills are registered you will get the framework reference and a routing offer.
-No build step, no dependencies, no API keys. (Plugin packaging — a single
-`/plugin install` — is roadmap item P4.)
+If registered you'll get the framework reference and a routing offer.
 
 ## Quick start
 
@@ -212,27 +221,38 @@ acceptance.
 ## Repository layout
 
 ```
-audit-write-skills/
-├── README.md                       ← this file
-├── audit-write/                    ← hub skill
-│   ├── SKILL.md
-│   ├── style_dna.md                verb register, hedging, anti-AI tells
-│   ├── audit_quality_framework.md  DeFond-Zhang taxonomy + glossary
-│   ├── corpus_manifest.md          provenance + verifiability note
-│   ├── rubric.md                   0–100 instrument + integrity gate
-│   ├── null_and_identification_protocols.md
-│   ├── journal_profile_bank.md     JAE/JAR/TAR/AJPT conventions
-│   ├── move_bank.md                cross-section move index
-│   ├── referee_objection_bank.md   O1–O8 objection→response catalog
-│   └── exemplar_gallery.md         navigational index of annotated exemplars
-├── audit-write-abstract/  (SKILL.md + abstract_patterns.md)
-├── audit-write-intro/     (SKILL.md + intro_patterns.md + contribution_formulas.md)
-├── audit-write-hypothesis/(SKILL.md + hypothesis_patterns.md)
-├── audit-write-design/    (SKILL.md + design_patterns.md)
-├── audit-write-results/   (SKILL.md + results_patterns.md)
-├── audit-write-robustness/(SKILL.md + robustness_patterns.md)
-└── audit-referee-response/(SKILL.md)
+audit-write-skills/                     ← repo = single-plugin marketplace
+├── README.md                           ← this file
+├── .claude-plugin/
+│   └── marketplace.json                ← lists the plugin (source ./plugins/audit-write)
+└── plugins/
+    └── audit-write/                    ← THE plugin
+        ├── .claude-plugin/plugin.json
+        ├── CHANGELOG.md
+        ├── agents/                     ← critic + referee-simulator (P5)
+        ├── hooks/                      ← hooks.json (P5)
+        ├── scripts/                    ← stdlib checks (P5)
+        └── skills/
+            ├── audit-write/            ← hub skill + 11 shared banks
+            │   ├── SKILL.md
+            │   ├── style_dna.md  audit_quality_framework.md  corpus_manifest.md
+            │   ├── rubric.md  null_and_identification_protocols.md
+            │   ├── journal_profile_bank.md  move_bank.md
+            │   ├── referee_objection_bank.md  exemplar_gallery.md
+            │   ├── progressive_outline.md      ← Stage 0–4 ratchet
+            │   └── paper_spec_template.md      ← canonical context object
+            ├── audit-write-interview/  (SKILL.md — Stage 0 intake)
+            ├── audit-write-abstract/   (SKILL.md + abstract_patterns.md)
+            ├── audit-write-intro/      (SKILL.md + intro_patterns.md + contribution_formulas.md)
+            ├── audit-write-hypothesis/ (SKILL.md + hypothesis_patterns.md)
+            ├── audit-write-design/     (SKILL.md + design_patterns.md)
+            ├── audit-write-results/    (SKILL.md + results_patterns.md)
+            ├── audit-write-robustness/ (SKILL.md + robustness_patterns.md)
+            └── audit-referee-response/ (SKILL.md)
 ```
+
+All skill dirs are mutual siblings under `skills/`, so every `../audit-write/<bank>.md`
+reference resolves unchanged whether installed as a plugin or copied manually.
 
 ## Roadmap
 
@@ -240,9 +260,9 @@ audit-write-skills/
 |---|---|---|
 | P1 | De-personalize · corpus manifest · portability | ✅ done |
 | P2 | Asset-library refactor · rubric · hard-rule re-grade · lazy-load · absorb referee | ✅ done |
-| P3 | Interview-driven requirements + progressive-outlining commands | planned |
-| P4 | Claude Code **plugin** packaging (`plugin.json`, marketplace, `${CLAUDE_PLUGIN_ROOT}`, `assets/` foldering) | planned |
-| P5 | Mechanism layer: hook-enforced integrity/link checks, critic + referee-simulator agents, golden tests | planned |
+| P3 | Interview intake + progressive-outline ratchet + DRY context object | ✅ done |
+| P4 | Claude Code **plugin** packaging (`plugin.json` + single-plugin marketplace; `assets/` foldering cancelled — schema-verified unnecessary) | ✅ done |
+| P5 | Mechanism layer: hook-enforced integrity/link checks, critic + referee-simulator agents, golden tests | in progress |
 
 **Honest status:** the integrity gate and lazy-load policy are currently *instructions
 the agent is told to follow*, not mechanically enforced — enforcement is P5. Quality is

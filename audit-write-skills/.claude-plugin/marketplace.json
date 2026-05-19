@@ -1,0 +1,20 @@
+{
+  "name": "audit-write-marketplace",
+  "owner": {
+    "name": "[SET YOUR NAME — public template; forkers set owner]"
+  },
+  "description": "Marketplace hosting the audit-write skill suite for empirical audit-research papers (JAE/JAR/TAR).",
+  "version": "1.0.0",
+  "metadata": {
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "audit-write",
+      "source": "./plugins/audit-write",
+      "description": "Hub + 8 sub-skills: abstract, intro, hypothesis, design, results, robustness, referee-response, plus the interview/progressive-outline intake. 11 shared asset banks, a 0–100 rubric with an integrity gate, and a disclosed source-corpus manifest.",
+      "category": "academic-writing",
+      "keywords": ["audit-research", "academic-writing", "accounting"]
+    }
+  ]
+}
