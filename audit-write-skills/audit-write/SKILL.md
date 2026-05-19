@@ -46,6 +46,9 @@ These files live in **this skill's own directory** (the `audit-write/` folder of
 4. **[rubric.md](rubric.md)** — the shared 0–100 scoring instrument + integrity gate. Every Mode-C audit and the critic subagent score with this; do not invent per-section rubrics.
 5. **[null_and_identification_protocols.md](null_and_identification_protocols.md)** — the null-result protocol, the numbered identification battery, and the §4.3 identification-machinery catalog (single source for results + robustness).
 6. **[journal_profile_bank.md](journal_profile_bank.md)** — JAE/JAR/TAR/AJPT conventions, reviewer culture, and the journal-inference cue table.
+7. **[move_bank.md](move_bank.md)** — cross-section reusable rhetorical moves (opening/gap/RQ/tension/magnitude/contribution/limitation/IV-build), as an index that points to each move's full treatment.
+8. **[referee_objection_bank.md](referee_objection_bank.md)** — the recurring JAE/JAR/TAR objection→response catalog (O1–O8); used by the referee skill and to pre-empt objections in tension / alternative-explanation sections.
+9. **[exemplar_gallery.md](exemplar_gallery.md)** — navigational index of the annotated corpus exemplars (which paper templates which section, and where the annotation lives).
 
 Sub-skills reference these via the relative path `../audit-write/<file>.md`; keep the suite's directory layout intact so those links resolve. Update these shared files when the user reports a stylistic correction or framework refinement that should propagate across all sub-skills.
 

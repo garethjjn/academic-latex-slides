@@ -78,7 +78,7 @@ Sentence 2 — Translation to percentage point change:
   "...indicating that a [unit change in IV] is associated with a [N percentage point] [increase/decrease] in [outcome]."
 
 Sentence 3 — Translation to economic magnitude:
-  "This represents a [N%] [increase/decrease] relative to the sample mean of [base rate]; equivalent to about [comparison to literature: e.g., '40% of the effect of mandatory rotation reported in Lennox et al. 2014']."
+  "This represents a [N%] [increase/decrease] relative to the sample mean of [base rate]; equivalent to about [comparison to literature: e.g., '40% of the effect of mandatory rotation reported in [AUTHOR: cite a rotation-effect benchmark]']."
 ```
 
 This 3-sentence block appears in 6/6 corpus papers for the headline coefficient. Sentence 3 is the magnitude-anchor that reviewers will judge: it MUST tie to either the sample mean or a literature benchmark.
@@ -87,11 +87,11 @@ This 3-sentence block appears in 6/6 corpus papers for the headline coefficient.
 
 | Form | Frequency | Example |
 |---|---|---|
-| **F1. Percentage point change** | 6/6 | "a 2.1 percentage point decline" |
+| **F1. Percentage point change** | 5/6 | "a 2.1 percentage point decline" |
 | **F2. Percent of base rate** | 5/6 | "a 19% decline relative to the sample mean of 10.4%" |
-| **F6. Literature benchmark** | 4/6 | "comparable to the effect of mandatory rotation (Lennox et al. 2014)" |
-| **F4. Standard-deviation shift** | 3/6 | "a one std-dev increase in PartnerTrust is associated with..." |
-| **F3. Decile / quartile shift** | 2/6 | "moving from the bottom to the top decile" |
+| **F6. Literature benchmark** | 3/6 | "comparable to the effect of mandatory rotation ([AUTHOR: cite a rotation-effect benchmark])" |
+| **F4. Standard-deviation shift** | 3/6 | "a one std-dev increase in [IV] is associated with..." |
+| **F3. Decile / quartile shift** | 1/6 | "moving from the bottom to the top decile" |
 | **F5. Interquartile range (IQR)** | 1/6 | "an interquartile change in [IV]" |
 
 **Default pattern: F1 + F2 + F6.** Use this for the headline coefficient. F4 is acceptable for partner-trait papers. F3 / F5 are situational.
