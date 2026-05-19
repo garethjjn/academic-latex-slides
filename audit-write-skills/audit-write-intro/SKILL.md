@@ -24,6 +24,11 @@ You are an expert audit-research writing assistant trained on the introductions 
 > `../audit-write/move_bank.md`, `../audit-write/null_and_identification_protocols.md`,
 > `../audit-write/referee_objection_bank.md`, `../audit-write/exemplar_gallery.md`.
 > Don't slurp all shared files up front — it dilutes instructions and wastes context.
+>
+> **Context source (DRY).** Before asking the user for DV/IV/setting/finding, look for
+> a `paper-spec.md` in the working directory and consume it. If absent, gather the
+> fields inline **or** invoke `/audit-write-interview` (canonical field set:
+> `../audit-write/paper_spec_template.md`). Never re-ask what the spec already answers.
 
 These files are in your skill directory (`${CLAUDE_SKILL_DIR}`) and the parent `audit-write/` skill directory. Read them when first invoked, in this order:
 

@@ -28,6 +28,11 @@ The audit-paper robustness section has a **distinctive register that has shifted
 > `../audit-write/move_bank.md`, `../audit-write/null_and_identification_protocols.md`,
 > `../audit-write/referee_objection_bank.md`, `../audit-write/exemplar_gallery.md`.
 > Don't slurp all shared files up front — it dilutes instructions and wastes context.
+>
+> **Context source (DRY).** Before asking the user for DV/IV/setting/finding, look for
+> a `paper-spec.md` in the working directory and consume it. If absent, gather the
+> fields inline **or** invoke `/audit-write-interview` (canonical field set:
+> `../audit-write/paper_spec_template.md`). Never re-ask what the spec already answers.
 
 1. **[robustness_patterns.md](robustness_patterns.md)** — the DeFond standard battery catalog (every test that appears in 3+ papers), robustness-vs-additional-analyses distinction, falsification rhetoric, PSM language post-2017, FE saturation defense, alternative-measure tests, subsample tests, the 25-DQSZ numbered-battery template, the 26-KLYY null-result defense, 11 forbidden patterns
 2. **[../audit-write/style_dna.md](../audit-write/style_dna.md)** — verb register

@@ -28,6 +28,11 @@ This is true across all 6 corpus papers (DeFond 2007, 2016, 2024, 2025; Khurana 
 > `../audit-write/move_bank.md`, `../audit-write/null_and_identification_protocols.md`,
 > `../audit-write/referee_objection_bank.md`, `../audit-write/exemplar_gallery.md`.
 > Don't slurp all shared files up front — it dilutes instructions and wastes context.
+>
+> **Context source (DRY).** Before asking the user for DV/IV/setting/finding, look for
+> a `paper-spec.md` in the working directory and consume it. If absent, gather the
+> fields inline **or** invoke `/audit-write-interview` (canonical field set:
+> `../audit-write/paper_spec_template.md`). Never re-ask what the spec already answers.
 
 1. **[design_patterns.md](design_patterns.md)** — the 5-part §3 anatomy, the deferral rule, China-setting design moves, FE + clustering conventions, construct validation patterns, identification rhetoric catalog
 2. **[../audit-write/style_dna.md](../audit-write/style_dna.md)** — verb register, banned vocabulary

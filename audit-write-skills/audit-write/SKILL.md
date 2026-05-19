@@ -21,6 +21,8 @@ When the user asks for help with a specific section, route to the corresponding 
 
 | User says | Route to |
 |---|---|
+| "interview me" / "help me **start** a paper" / "turn my notes into a spec" / a section skill is invoked but no `paper-spec.md` exists | `audit-write-interview` (Stage 0) |
+| "**outline** first" / "skeleton" / "progressive outline" / "don't write prose yet" / "draft the **whole paper**" | run the ratchet in `progressive_outline.md` |
 | "rewrite/audit/draft my **introduction**" | `audit-write-intro` |
 | "rewrite/audit/draft my **abstract**" | `audit-write-abstract` |
 | "develop my **hypothesis** section" / "my Section 2" | `audit-write-hypothesis` |
@@ -32,7 +34,7 @@ When the user asks for help with a specific section, route to the corresponding 
 > **Note.** `audit-referee-response` is a **bundled sub-skill** of this suite (it ships alongside the six section skills). It can also be invoked standalone for rebuttal work. All routes above target sub-skills that ship with this suite.
 
 If the user doesn't specify a section, ask:
-> "Which section are you working on? I can help with: (1) abstract, (2) introduction, (3) hypothesis development, (4) research design, (5) results, (6) robustness, (7) referee response. Or, if you want a holistic review, say 'review the whole paper' and I'll combine the relevant sub-skills."
+> "Are you (a) **starting a paper** (I'll interview you → `paper-spec.md`, then progressively outline), (b) working on a specific section — (1) abstract, (2) introduction, (3) hypothesis, (4) design, (5) results, (6) robustness, (7) referee response, or (c) wanting a **holistic review**? If a `paper-spec.md` already exists I'll use it instead of re-asking."
 
 ---
 
@@ -49,6 +51,8 @@ These files live in **this skill's own directory** (the `audit-write/` folder of
 7. **[move_bank.md](move_bank.md)** — cross-section reusable rhetorical moves (opening/gap/RQ/tension/magnitude/contribution/limitation/IV-build), as an index that points to each move's full treatment.
 8. **[referee_objection_bank.md](referee_objection_bank.md)** — the recurring JAE/JAR/TAR objection→response catalog (O1–O8); used by the referee skill and to pre-empt objections in tension / alternative-explanation sections.
 9. **[exemplar_gallery.md](exemplar_gallery.md)** — navigational index of the annotated corpus exemplars (which paper templates which section, and where the annotation lives).
+10. **[progressive_outline.md](progressive_outline.md)** — the Stage 0–4 staged drafting ratchet (interview → skeleton → bullets → prose → self-audit) with approval gates; orchestrated by this hub.
+11. **[paper_spec_template.md](paper_spec_template.md)** — the canonical `paper-spec.md` field set every sub-skill consumes; produced by `audit-write-interview` (replaces the duplicated per-skill "establish context" step).
 
 Sub-skills reference these via the relative path `../audit-write/<file>.md`; keep the suite's directory layout intact so those links resolve. Update these shared files when the user reports a stylistic correction or framework refinement that should propagate across all sub-skills.
 
@@ -145,7 +149,8 @@ For each section, read the corresponding sub-skill's resource files and apply it
 Each sub-skill is **focused on one section** and inherits from the master `audit-write` shared resources. The architecture is hub-and-spoke:
 
 ```
-audit-write (hub: framework + style DNA + corpus manifest)
+audit-write (hub: framework + style DNA + corpus manifest + ratchet)
+├── audit-write-interview      Stage 0 — requirements intake → paper-spec.md
 ├── audit-write-abstract
 ├── audit-write-intro          ★ most-used; the "75% of acceptance" section
 ├── audit-write-hypothesis
@@ -155,7 +160,7 @@ audit-write (hub: framework + style DNA + corpus manifest)
 └── audit-referee-response     rebuttal / response-to-reviewers
 ```
 
-The 7 sub-skills don't overlap. If a user task spans multiple sections (e.g., "rewrite my intro and abstract together"), invoke each sub-skill in sequence; their outputs share the same style register because they all consult `style_dna.md`.
+The 7 section/referee sub-skills don't overlap (`audit-write-interview` is Stage-0 intake, not a section skill). If a user task spans multiple sections (e.g., "rewrite my intro and abstract together"), invoke each sub-skill in sequence; their outputs share the same style register because they all consult `style_dna.md`.
 
 ---
 

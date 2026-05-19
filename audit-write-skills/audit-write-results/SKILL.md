@@ -29,6 +29,11 @@ The audit-paper results section has its own register, distinct from the introduc
 > `../audit-write/move_bank.md`, `../audit-write/null_and_identification_protocols.md`,
 > `../audit-write/referee_objection_bank.md`, `../audit-write/exemplar_gallery.md`.
 > Don't slurp all shared files up front — it dilutes instructions and wastes context.
+>
+> **Context source (DRY).** Before asking the user for DV/IV/setting/finding, look for
+> a `paper-spec.md` in the working directory and consume it. If absent, gather the
+> fields inline **or** invoke `/audit-write-interview` (canonical field set:
+> `../audit-write/paper_spec_template.md`). Never re-ask what the spec already answers.
 
 1. **[results_patterns.md](results_patterns.md)** — the 6-sub-section ordering, 4 main-result lead archetypes, 6 magnitude framing forms, the 3-sentence translation move, reading-the-table prose templates, cross-sectional 4-step structure, mechanism 3-flavor framework, alternative-explanation 3-step, **the Khurana 2026 null-result protocol**, verb whitelist, 11 forbidden patterns, annotated 24-DLWW Section 4.1 example
 2. **[../audit-write/style_dna.md](../audit-write/style_dna.md)** — verb register

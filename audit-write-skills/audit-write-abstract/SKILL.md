@@ -30,6 +30,11 @@ The audit-paper abstract has its own register, **different from both the introdu
 > `../audit-write/move_bank.md`, `../audit-write/null_and_identification_protocols.md`,
 > `../audit-write/referee_objection_bank.md`, `../audit-write/exemplar_gallery.md`.
 > Don't slurp all shared files up front — it dilutes instructions and wastes context.
+>
+> **Context source (DRY).** Before asking the user for DV/IV/setting/finding, look for
+> a `paper-spec.md` in the working directory and consume it. If absent, gather the
+> fields inline **or** invoke `/audit-write-interview` (canonical field set:
+> `../audit-write/paper_spec_template.md`). Never re-ask what the spec already answers.
 
 1. **[abstract_patterns.md](abstract_patterns.md)** — the 6-sentence / 5-move template, verbatim corpus examples, frequency matrix, length statistics, opening/closing sentence archetypes
 2. **[../audit-write/style_dna.md](../audit-write/style_dna.md)** — verb whitelist/blacklist, audit-specific terminology, anti-AI patterns
