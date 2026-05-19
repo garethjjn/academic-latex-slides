@@ -29,7 +29,7 @@ When the user asks for help with a specific section, route to the corresponding 
 | "structure my **robustness**" / "my additional analyses" / "Section 5" | `audit-write-robustness` |
 | "draft my **referee response**" / "rebuttal letter" / "response to reviewers" | `audit-referee-response` |
 
-> **Dependency note.** `audit-referee-response` is a **separate companion skill**, not bundled inside this suite. If it is installed, route to it as above. If it is not available, say so and offer to handle the rebuttal here using the shared `style_dna.md` register (structure-only, no dedicated referee playbook). All other routes target sub-skills that ship with this suite.
+> **Note.** `audit-referee-response` is a **bundled sub-skill** of this suite (it ships alongside the six section skills). It can also be invoked standalone for rebuttal work. All routes above target sub-skills that ship with this suite.
 
 If the user doesn't specify a section, ask:
 > "Which section are you working on? I can help with: (1) abstract, (2) introduction, (3) hypothesis development, (4) research design, (5) results, (6) robustness, (7) referee response. Or, if you want a holistic review, say 'review the whole paper' and I'll combine the relevant sub-skills."
@@ -43,6 +43,9 @@ These files live in **this skill's own directory** (the `audit-write/` folder of
 1. **[audit_quality_framework.md](audit_quality_framework.md)** — DeFond-Zhang 2014 / 2025 framework, audit-quality proxy taxonomy, demand-side and supply-side factors, China-specific institutional features, glossary of audit-research terms.
 2. **[style_dna.md](style_dna.md)** — verb whitelist / blacklist, hedging templates, audit-quality vocabulary, citation conventions, sentence-level mechanics, anti-AI patterns specific to audit writing.
 3. **[corpus_manifest.md](corpus_manifest.md)** — provenance of every structural rule and verbatim example: the named source corpus, the shorthand-code decode table (`07-DHT` … `26-KLYY`), and the verifiability note (read this before treating any "k/6" frequency claim as law).
+4. **[rubric.md](rubric.md)** — the shared 0–100 scoring instrument + integrity gate. Every Mode-C audit and the critic subagent score with this; do not invent per-section rubrics.
+5. **[null_and_identification_protocols.md](null_and_identification_protocols.md)** — the null-result protocol, the numbered identification battery, and the §4.3 identification-machinery catalog (single source for results + robustness).
+6. **[journal_profile_bank.md](journal_profile_bank.md)** — JAE/JAR/TAR/AJPT conventions, reviewer culture, and the journal-inference cue table.
 
 Sub-skills reference these via the relative path `../audit-write/<file>.md`; keep the suite's directory layout intact so those links resolve. Update these shared files when the user reports a stylistic correction or framework refinement that should propagate across all sub-skills.
 
@@ -138,27 +141,22 @@ audit-write (hub: framework + style DNA + corpus manifest)
 ├── audit-write-design
 ├── audit-write-results
 ├── audit-write-robustness
-└── audit-referee-response     ⇲ separate companion skill (not bundled here)
+└── audit-referee-response     rebuttal / response-to-reviewers
 ```
 
-The 6 bundled sub-skills don't overlap (`audit-referee-response` is an optional companion — see the dependency note above). If a user task spans multiple sections (e.g., "rewrite my intro and abstract together"), invoke each sub-skill in sequence; their outputs share the same style register because they all consult `style_dna.md`.
+The 7 sub-skills don't overlap. If a user task spans multiple sections (e.g., "rewrite my intro and abstract together"), invoke each sub-skill in sequence; their outputs share the same style register because they all consult `style_dna.md`.
 
 ---
 
 ## Default journal targeting
 
-When journal is unspecified:
+When journal is unspecified, infer it from the cue table in
+**[journal_profile_bank.md](journal_profile_bank.md)** (single source for the
+inference cues, per-journal conventions, and reviewer culture). Quick version: US +
+partner-trait + post-2017 → JAR; cross-country → JAE; single-country regulatory
+experiment → JAE/TAR; theory-led → TAR; fee/practitioner → AJPT; replication → JAR.
 
-| Cue from input | Default assumption |
-|---|---|
-| US data, partner-trait, post-2017 | JAR |
-| Cross-country or institutional comparison | JAE |
-| China data, regulatory experiment | JAE (occasionally TAR) |
-| Theoretical or framework paper | TAR |
-| Practitioner-oriented (audit fees focus) | AJPT (and the skill applies but tone slightly less restrictive) |
-| Short-paper / replication | JAR |
-
-If unsure, ask the user. Roadmap rule depends on this: drop for JAE/JAR, keep for TAR/AJPT.
+If unsure, ask the user — the roadmap rule and several structural defaults depend on it.
 
 ---
 

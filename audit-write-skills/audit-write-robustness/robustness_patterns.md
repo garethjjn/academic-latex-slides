@@ -754,6 +754,8 @@ Cataloged from the (absence of) violations across the 6-paper corpus and from re
 
 ## 14. Annotated Example: 25-DQSZ "First...Sixth" Six-Test Identification Battery
 
+**Single source.** The *reusable* numbered-battery template lives in [`../audit-write/null_and_identification_protocols.md`](../audit-write/null_and_identification_protocols.md) §B. What follows is the **annotated corpus exemplar** it was distilled from (kept here for verifiability per `corpus_manifest.md` §2) — do not delete.
+
 The 2025 DeFond-Qi-Si-Zhang JAE paper on signatory tax expertise contains the **single best template** for an identification/robustness battery in modern audit research. The structure is explicit, numbered, and exhaustive — exactly what reviewers want.
 
 ### 14.1 Verbatim Frame (from intro, ¶'s introducing the battery)

@@ -54,57 +54,20 @@ Standard structure:
 
 ---
 
-## The numbered identification battery (25-DQSZ template)
+## Numbered battery & null-result defense → single source
 
-The most recent JAE papers (2024-2026) use a numbered list of identification tests, structured like:
+The **numbered identification battery** (25-DQSZ "First … Sixth" template) and the
+**null-result protocol** (95% CI bound + power analysis + bootstrap, for placebo /
+pair-prediction H(b) tests) are **defined once** in
+**[../audit-write/null_and_identification_protocols.md](../audit-write/null_and_identification_protocols.md)**
+(§B and §A). Read that when structuring §5 or defending a robustness null.
 
-```
-Following our main results, we conduct [N] additional analyses to address
-identification concerns and corroborate our findings.
-
-First, [Test 1: typically a quasi-experimental shock — rotation, regulatory event].
-[1 paragraph + table reference]
-
-Second, [Test 2: typically a regulatory shock — tax cut, IFRS, SOX].
-[1 paragraph + table reference]
-
-Third, [Test 3: typically a decomposition — IV split into components].
-[1 paragraph + table reference]
-
-Fourth, [Test 4: typically a channel test — does the proposed mechanism operate?].
-[1 paragraph + table reference]
-
-Fifth, [Test 5: typically a cross-sectional partition].
-[1 paragraph + table reference]
-
-Sixth, [Test 6: typically client / firm fixed effects].
-[1 paragraph + table reference]
-
-Together, these analyses suggest that ...
-```
-
-The 25-DQSZ paper executes this with 6 numbered analyses. Khurana 2026 uses a similar structure with 5 additional tests. Use 4-6 numbered analyses for a typical JAE paper.
-
----
-
-## The Khurana 2026 null-result defense
-
-When a robustness sub-section involves a null result (e.g., the H(b) of a pair-prediction, or a placebo test), use the 3-step protocol:
-
-```
-Step 1 — 95% CI bound:
-  "We are able to rule out effects [smaller than ±1/3 SD of the dependent variable]
-   at the 95% confidence level (Cunningham et al. 2019)."
-
-Step 2 — Power analysis:
-  "We perform a power analysis (Cohen 1988) and find that our sample has [N%] power
-   to detect an effect size of [magnitude]."
-
-Step 3 — Bootstrap robustness:
-  "We confirm this conclusion using a bootstrap procedure with 1,000 replications."
-```
-
-This same protocol appears in `audit-write-results` for null findings in §4. In §5 (robustness), it's used for placebo tests and pair-prediction H(b) tests.
+**Robustness-specific notes:**
+- Default 4–6 numbered analyses (JAE/JAR); TAR/AJPT tolerate a looser structure.
+- Two moves are **universal (6/6 corpus)** and non-optional in §5: cross-sectional
+  heterogeneity, and an alternative measure of the focal IV.
+- Use the null protocol for §5 placebo / H(b) tests only when the null is defensible;
+  an underpowered null must be stated honestly (`rubric.md` Dim 3).
 
 ---
 

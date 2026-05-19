@@ -370,6 +370,8 @@ This "concede + counter" move appears 5/6. It signals epistemic humility while n
 
 ### The 3-step null-result protocol (26-KLYY)
 
+**Single source.** The *reusable* protocol template lives in [`../audit-write/null_and_identification_protocols.md`](../audit-write/null_and_identification_protocols.md) §A. What follows is the **annotated corpus exemplar** it was distilled from (verbatim 26-KLYY text, kept here for verifiability per `corpus_manifest.md` §2) — do not delete.
+
 > "In column (3), where TypeIIError is the dependent variable, the coefficient on PartnerTrust is not statistically significant (p > 0.10). **To assess how much confidence can be placed in the absence of an association, we perform three complementary analyses.**
 >
 > **First**, we consider the magnitude of the 95% confidence interval for the insignificant PartnerTrust coefficient (e.g., Cready et al., 2022). **The confidence interval of [–0.00244, 0.00094] indicates that the potential effect size does not exceed one-third of one standard deviation in TypeIIError, consistent with the threshold Cunningham et al. (2019) propose for interpreting a null result as evidence of a small or negligible effect.**

@@ -98,44 +98,20 @@ This 3-sentence block appears in 6/6 corpus papers for the headline coefficient.
 
 ---
 
-## The Khurana 2026 null-result protocol
+## Null results & identification machinery → single source
 
-When you have a null result that you want to defend rather than hide, follow this 3-step protocol from Khurana et al. (2026 JAE):
+The null-result protocol (95% CI bound + power analysis + bootstrap) and the §4.3
+identification-machinery catalog (quasi-experiment / falsification / FE saturation /
+acknowledgment-then-counter) are **defined once** in
+**[../audit-write/null_and_identification_protocols.md](../audit-write/null_and_identification_protocols.md)**
+(§A and §C). Read that when a draft has a defensible null or a §4.3 identification block.
 
-```
-Step 1 — 95% CI bound:
-  "We are able to rule out effects [smaller than ±1/3 SD of the dependent variable]
-   at the 95% confidence level (Cunningham et al. 2019)."
-
-Step 2 — Power analysis:
-  "We perform a power analysis (Cohen 1988) and find that our sample has [N% / 80%]
-   power to detect an effect size of [magnitude]. The absence of a detected effect
-   is therefore informative, not merely a power problem."
-
-Step 3 — Bootstrap robustness:
-  "We confirm this conclusion using a bootstrap procedure with 1,000 replications,
-   which produces a 95% bootstrap confidence interval of [lower, upper]."
-```
-
-This transforms a null from a weakness into a credibly bounded, defensible finding. Use it whenever:
-- A reviewer might pejoratively interpret the null as "your treatment doesn't work"
-- The null IS the contribution (e.g., H(b) in a Khurana-style pair-prediction)
-- The null is in a heterogeneity test where it actually supports your mechanism
-
-**Do NOT apply this protocol if the null is genuinely a power problem.** Be honest.
-
----
-
-## Identification machinery (lives here, not in §3)
-
-Recall: design skill DEFERS identification to here. So §4.3 must include:
-
-1. **Quasi-experimental sub-sub-section.** Partner rotation / SOX / IFRS / regulatory shock. State the shock. Explain why it's plausibly exogenous. Run DiD. Report TREAT × POST.
-2. **Falsification sub-sub-section.** "We replace [IV] with [placebo] and find [no effect / opposite effect]."
-3. **FE saturation sub-sub-section.** Show coefficient stability across FE structures (industry × year, client × year, partner × client).
-4. **Acknowledgment-then-counter (when honest).** "We acknowledge that we cannot fully rule out [confounder]. However, the following three pieces of evidence are inconsistent with this concern: ..."
-
-Each sub-sub-section is 1-3 paragraphs + a table.
+**Results-specific notes:**
+- §4.3 is where identification machinery LIVES (the design skill defers it here). Each
+  sub-sub-section = 1–3 paragraphs + a table.
+- Apply the null protocol to a §4 null only when it is defensible (pair-prediction H(b),
+  mechanism-supporting heterogeneity null). If the null is genuinely underpowered, say so
+  honestly — that is a `rubric.md` Dim-3 judgement, not a place for the protocol.
 
 ---
 
