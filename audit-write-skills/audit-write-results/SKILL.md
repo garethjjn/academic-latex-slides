@@ -20,6 +20,16 @@ The audit-paper results section has its own register, distinct from the introduc
 
 ## CRITICAL — Read these reference files when first invoked
 
+> **Lazy-load policy (context economy).** Read **now**: this skill's own pattern
+> file(s) listed below **+** `../audit-write/style_dna.md` **+** `../audit-write/rubric.md`.
+> Read **on demand**, only when the task touches it:
+> `../audit-write/audit_quality_framework.md` (audit-quality vocabulary),
+> `../audit-write/journal_profile_bank.md` (journal-specific choices),
+> `../audit-write/corpus_manifest.md` (provenance / "k/6" questions),
+> `../audit-write/move_bank.md`, `../audit-write/null_and_identification_protocols.md`,
+> `../audit-write/referee_objection_bank.md`, `../audit-write/exemplar_gallery.md`.
+> Don't slurp all shared files up front — it dilutes instructions and wastes context.
+
 1. **[results_patterns.md](results_patterns.md)** — the 6-sub-section ordering, 4 main-result lead archetypes, 6 magnitude framing forms, the 3-sentence translation move, reading-the-table prose templates, cross-sectional 4-step structure, mechanism 3-flavor framework, alternative-explanation 3-step, **the Khurana 2026 null-result protocol**, verb whitelist, 11 forbidden patterns, annotated 24-DLWW Section 4.1 example
 2. **[../audit-write/style_dna.md](../audit-write/style_dna.md)** — verb register
 3. **[../audit-write/audit_quality_framework.md](../audit-write/audit_quality_framework.md)** — DV / IV interpretation anchor
@@ -180,12 +190,23 @@ If any null findings:
 2. [...]
 3. [...]
 
-## Score [X/100]
+## Score
+
+Score with **`../audit-write/rubric.md`** — the shared 5-dimension instrument + integrity gate. Emit rubric.md's exact "## Score" block (per-dimension band → composite → integrity-gate line → headline). Do **not** invent a per-section scale; for Dimension 1 plug in this section's canonical structure (the 6-sub-section ordering).
 ```
 
 ---
 
 ## Hard rules — never violate
+
+> **How to read these — two tiers** (`../audit-write/corpus_manifest.md` §2):
+> **(i) Integrity rules — absolute.** Never invent citations, results, or numeric
+> magnitudes; use `[AUTHOR: …]` / `[ILLUSTRATIVE]` placeholders for anything not
+> supplied; never misstate corpus provenance. Enforced by the
+> `../audit-write/rubric.md` integrity gate.
+> **(ii) Convention rules — strong corpus priors, not laws.** Every other
+> "never/always" below is unanimous across the *named* corpus, not a rule of the
+> field. Apply by default; deviate only with a brief stated reason — never silently.
 
 1. **Always lead §4.2 with one of the 4 archetypes.** Never bury the headline behind warmup paragraphs.
 2. **Always translate the headline coefficient to two of (pp, % base, std-dev, decile, lit benchmark).** Coefficient + SE alone is never sufficient.

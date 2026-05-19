@@ -19,6 +19,16 @@ This is true across all 6 corpus papers (DeFond 2007, 2016, 2024, 2025; Khurana 
 
 ## CRITICAL — Read these reference files when first invoked
 
+> **Lazy-load policy (context economy).** Read **now**: this skill's own pattern
+> file(s) listed below **+** `../audit-write/style_dna.md` **+** `../audit-write/rubric.md`.
+> Read **on demand**, only when the task touches it:
+> `../audit-write/audit_quality_framework.md` (audit-quality vocabulary),
+> `../audit-write/journal_profile_bank.md` (journal-specific choices),
+> `../audit-write/corpus_manifest.md` (provenance / "k/6" questions),
+> `../audit-write/move_bank.md`, `../audit-write/null_and_identification_protocols.md`,
+> `../audit-write/referee_objection_bank.md`, `../audit-write/exemplar_gallery.md`.
+> Don't slurp all shared files up front — it dilutes instructions and wastes context.
+
 1. **[design_patterns.md](design_patterns.md)** — the 5-part §3 anatomy, the deferral rule, China-setting design moves, FE + clustering conventions, construct validation patterns, identification rhetoric catalog
 2. **[../audit-write/style_dna.md](../audit-write/style_dna.md)** — verb register, banned vocabulary
 3. **[../audit-write/audit_quality_framework.md](../audit-write/audit_quality_framework.md)** — DV / IV vocabulary anchor
@@ -58,6 +68,15 @@ Part 5 — SAMPLE CONSTRUCTION (1 paragraph)
 ---
 
 ## Hard rules — never violate
+
+> **How to read these — two tiers** (`../audit-write/corpus_manifest.md` §2):
+> **(i) Integrity rules — absolute.** Never invent citations, results, or numeric
+> magnitudes; use `[AUTHOR: …]` / `[ILLUSTRATIVE]` placeholders for anything not
+> supplied; never misstate corpus provenance. Enforced by the
+> `../audit-write/rubric.md` integrity gate.
+> **(ii) Convention rules — strong corpus priors, not laws.** Every other
+> "never/always" below is unanimous across the *named* corpus, not a rule of the
+> field. Apply by default; deviate only with a brief stated reason — never silently.
 
 1. **Defer all identification machinery to §4.** §3 is for the BASELINE spec only. Do NOT include in §3:
    - Auditor rotation as IV
@@ -144,7 +163,9 @@ Structured audit report:
 2. [...]
 3. [...]
 
-## Score [X/100]
+## Score
+
+Score with **`../audit-write/rubric.md`** — the shared 5-dimension instrument + integrity gate. Emit rubric.md's exact "## Score" block (per-dimension band → composite → integrity-gate line → headline). Do **not** invent a per-section scale; for Dimension 1 plug in this section's canonical structure (the 5-part anatomy + identification-deferral rule).
 ```
 
 ---

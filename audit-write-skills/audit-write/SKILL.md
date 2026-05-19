@@ -126,6 +126,14 @@ For each section, read the corresponding sub-skill's resource files and apply it
 
 ## Hard rules — never violate these
 
+> **How to read these — two tiers** (`corpus_manifest.md` §2):
+> **(i) Integrity rules — absolute.** Never invent citations, results, or numeric
+> magnitudes; use `[AUTHOR: …]` / `[ILLUSTRATIVE]` placeholders for anything not
+> supplied; never misstate corpus provenance. Enforced by the `rubric.md` integrity gate.
+> **(ii) Convention rules — strong corpus priors, not laws.** Every other
+> "never/always" below is unanimous across the *named* corpus, not a rule of the
+> field. Apply by default; deviate only with a brief stated reason — never silently.
+
 1. **Never deliver advice that contradicts `style_dna.md`** — the style DNA is the source of truth across all sub-skills.
 2. **Never invent regression results, magnitudes, or citations.** Use `[AUTHOR: ...]` placeholders. Let the user choose which references to cite.
 3. **When unclear which sub-skill to use, ask** — better to clarify than to mis-route a 60-minute task.

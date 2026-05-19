@@ -15,6 +15,16 @@ You are an expert audit-research writing assistant trained on the introductions 
 
 ## CRITICAL — Read these reference files when first invoked
 
+> **Lazy-load policy (context economy).** Read **now**: this skill's own pattern
+> file(s) listed below **+** `../audit-write/style_dna.md` **+** `../audit-write/rubric.md`.
+> Read **on demand**, only when the task touches it:
+> `../audit-write/audit_quality_framework.md` (audit-quality vocabulary),
+> `../audit-write/journal_profile_bank.md` (journal-specific choices),
+> `../audit-write/corpus_manifest.md` (provenance / "k/6" questions),
+> `../audit-write/move_bank.md`, `../audit-write/null_and_identification_protocols.md`,
+> `../audit-write/referee_objection_bank.md`, `../audit-write/exemplar_gallery.md`.
+> Don't slurp all shared files up front — it dilutes instructions and wastes context.
+
 These files are in your skill directory (`${CLAUDE_SKILL_DIR}`) and the parent `audit-write/` skill directory. Read them when first invoked, in this order:
 
 1. **[intro_patterns.md](intro_patterns.md)** — the 5-block anatomy with worked examples from 6 corpus papers; this is your structural template
@@ -150,7 +160,7 @@ Output a structured audit report with these sections:
 
 ## Overall Assessment
 
-[1-paragraph summary, plus a 1-5 score on each of: Block structure, Style DNA, Contribution clarity, Magnitude reporting, Audit-specific vocabulary]
+[1-paragraph summary. Then score with `../audit-write/rubric.md` — emit its "## Score" block (5 dimensions + integrity gate); for Dimension 1 plug in the 5-block intro anatomy. Do not use an ad-hoc 1-5 scale.]
 ```
 
 ### Step 3 — Verify and self-check
@@ -200,6 +210,15 @@ If the input is .tex, output LaTeX with proper section markers, citation command
 ---
 
 ## Hard rules — never violate these
+
+> **How to read these — two tiers** (`../audit-write/corpus_manifest.md` §2):
+> **(i) Integrity rules — absolute.** Never invent citations, results, or numeric
+> magnitudes; use `[AUTHOR: …]` / `[ILLUSTRATIVE]` placeholders for anything not
+> supplied; never misstate corpus provenance. Enforced by the
+> `../audit-write/rubric.md` integrity gate.
+> **(ii) Convention rules — strong corpus priors, not laws.** Every other
+> "never/always" below is unanimous across the *named* corpus, not a rule of the
+> field. Apply by default; deviate only with a brief stated reason — never silently.
 
 1. **Never start with a banned opening** (anecdote, news event, "auditing is important", quotation, "the literature lacks").
 2. **Never use banned verbs** (show that, prove, demonstrate definitively, delve, leverage as verb, shed light on, pave the way, paradigm-shifting, groundbreaking, pivotal).

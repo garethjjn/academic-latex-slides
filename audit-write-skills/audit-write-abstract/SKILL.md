@@ -21,6 +21,16 @@ The audit-paper abstract has its own register, **different from both the introdu
 
 ## CRITICAL — Read these reference files when first invoked
 
+> **Lazy-load policy (context economy).** Read **now**: this skill's own pattern
+> file(s) listed below **+** `../audit-write/style_dna.md` **+** `../audit-write/rubric.md`.
+> Read **on demand**, only when the task touches it:
+> `../audit-write/audit_quality_framework.md` (audit-quality vocabulary),
+> `../audit-write/journal_profile_bank.md` (journal-specific choices),
+> `../audit-write/corpus_manifest.md` (provenance / "k/6" questions),
+> `../audit-write/move_bank.md`, `../audit-write/null_and_identification_protocols.md`,
+> `../audit-write/referee_objection_bank.md`, `../audit-write/exemplar_gallery.md`.
+> Don't slurp all shared files up front — it dilutes instructions and wastes context.
+
 1. **[abstract_patterns.md](abstract_patterns.md)** — the 6-sentence / 5-move template, verbatim corpus examples, frequency matrix, length statistics, opening/closing sentence archetypes
 2. **[../audit-write/style_dna.md](../audit-write/style_dna.md)** — verb whitelist/blacklist, audit-specific terminology, anti-AI patterns
 3. **[../audit-write/audit_quality_framework.md](../audit-write/audit_quality_framework.md)** — only consult if you need to anchor a vocabulary choice (e.g., "audit quality" definition)
@@ -124,12 +134,21 @@ Output: a structured audit report identifying violations:
 3. [Third]
 
 ## Score
-[X/5 on each: shape compliance, style register, verb register, length, audit-vocabulary; X/25 total → X/100]
+Score with `../audit-write/rubric.md` — the shared 5-dimension instrument + integrity gate. Emit rubric.md's "## Score" block; for Dimension 1 plug in the 5-move/6-sentence abstract shape. Do not use an ad-hoc per-section scale.
 ```
 
 ---
 
 ## Hard rules — never violate
+
+> **How to read these — two tiers** (`../audit-write/corpus_manifest.md` §2):
+> **(i) Integrity rules — absolute.** Never invent citations, results, or numeric
+> magnitudes; use `[AUTHOR: …]` / `[ILLUSTRATIVE]` placeholders for anything not
+> supplied; never misstate corpus provenance. Enforced by the
+> `../audit-write/rubric.md` integrity gate.
+> **(ii) Convention rules — strong corpus priors, not laws.** Every other
+> "never/always" below is unanimous across the *named* corpus, not a rule of the
+> field. Apply by default; deviate only with a brief stated reason — never silently.
 
 1. **Never include numerical magnitudes** in the abstract proper. Only sample sizes (N obs) and years (sample period) are acceptable numbers.
 2. **Never use "we hypothesize"** — corpus has 0 occurrences. Use "we examine / propose / predict / find".
