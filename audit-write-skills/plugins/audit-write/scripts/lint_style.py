@@ -23,6 +23,12 @@ Exit:   0 = no ERRORs · 1 = ERROR(s)   (WARNs never fail the run)
 import re
 import sys
 
+# Force UTF-8 stdout so Windows GBK codec doesn't choke on em-dashes / pilcrows.
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+except AttributeError:
+    pass
+
 PERSONAL = re.compile(r"gareth|integexp|integrity[ -]?(exposure|propaganda)", re.I)
 BANNED = [
     "show that", "prove that", "proves that", "demonstrate definitively",
@@ -61,8 +67,27 @@ def lint(path):
         low = ln.lower()
         if PERSONAL.search(ln):
             errs.append(f"{path}:{i}: ERROR personalization token: {ln.strip()[:90]}")
+        # Build a set of character ranges that fall INSIDE a "..." verbatim
+        # quote on this line. Cites inside verbatim quotes from a source paper
+        # are not fabrications — they belong to the cited paper, not the
+        # annotator. We skip them.
+        quoted_ranges = []
+        in_q = False
+        q_start = None
+        for j, ch in enumerate(ln):
+            if ch == '"':
+                if not in_q:
+                    in_q = True
+                    q_start = j + 1
+                else:
+                    in_q = False
+                    quoted_ranges.append((q_start, j))
+        def _inside_quote(a, b):
+            return any(qs <= a and b <= qe for qs, qe in quoted_ranges)
         for m in CITE.finditer(ln):
             span = m.group(0)
+            if _inside_quote(m.start(), m.end()):
+                continue
             ctx = ln[max(0, m.start() - 40):m.end() + 5].lower()
             if any(a in ctx for a in ANCHORS):
                 continue

@@ -21,6 +21,8 @@ def norm(s):
     s = s.replace("“", '"').replace("”", '"')
     s = s.replace("‘", "'").replace("’", "'")
     s = s.replace("—", "-").replace("–", "-").replace("…", "...")
+    # join PDF soft hyphenation across line breaks: "en-\ndowments" → "endowments"
+    s = re.sub(r"-\s*\n\s*", "", s)
     return re.sub(r"\s+", " ", s).strip()
 
 
