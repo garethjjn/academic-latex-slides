@@ -77,6 +77,21 @@ INTRO_BLOCKS = {
         r"\b(robust(?:ness)?|falsification|placebo|cross-section|sensitivity|identification)", re.I),
     "contributions": re.compile(r"\bcontribut", re.I),
 }
+# intro Block-2: a SIGNED prediction must be crystallized as a DISPLAYED formal H.
+# FORMAL_H = a displayed hypothesis line ("H1.", "**H2a:**", "Hypothesis 1:") or the
+# spelled-out "Hypothesis N" anywhere. "ceteris paribus" in prose does NOT count — the
+# convention is a displayed statement, not the tag alone.
+FORMAL_H = re.compile(r"(?mi)^[*_>#\s]*(?:H|Hypothesis)\s*\d+[a-z]?\s*[.:]")
+HYP_SPELLED = re.compile(r"\bHypothesis\s+\d+[a-z]?\b", re.I)
+# SIGNED prediction = one sentence carrying BOTH a prediction verb AND a direction word.
+# Fires on owned signed predictions ("we posit ... more comparable"), NOT on RQ-first
+# framing ("we examine whether ..."), so the no-formal-H / RQ-first variant is left alone.
+PRED_VERB = re.compile(
+    r"\b(?:we|i)\s+(?:predict|posit|hypothesi[sz]e|expect|anticipate|conjecture|argue)\b",
+    re.I)
+DIRECTION = re.compile(
+    r"\b(?:increase|decrease|higher|lower|greater|less|fewer|more|positive|negative|"
+    r"improv|reduc|enhanc|weaken|rais|comparab|similar|associated with)\w*", re.I)
 # results sub-section cues + the ordering check (identification before cross-sectional)
 RES_DESC = re.compile(r"\b(descriptive statistics|summary statistics)\b", re.I)
 RES_ID = re.compile(
@@ -144,6 +159,13 @@ def check(path, section):
             rows.append(("   missing block cues: " + ", ".join(missing), "·", ""))
         rows.append(("C5 intro states >=1 magnitude", mag_status, "Dim 1"))
         rows.append(("C6 effect magnitude present", mag_status, "Dim 3"))
+        # a signed/directional prediction must be displayed as a formal H ("H1. ...");
+        # RQ-first / exploratory intros (no signed prediction) are NA, not N.
+        has_formal_h = bool(FORMAL_H.search(text) or HYP_SPELLED.search(text))
+        signed = any(PRED_VERB.search(s) and DIRECTION.search(s)
+                     for s in re.split(r"(?<=[.!?])\s+", flat))
+        h_status = "Y" if has_formal_h else ("N" if signed else "NA")
+        rows.append(("C5 signed prediction stated as formal H", h_status, "Dim 1"))
     elif section == "hypothesis":
         rows.append(("C5 tension cue present", yn(bool(TENSION.search(text))),
                       "Dim 1/4"))

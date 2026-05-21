@@ -30,6 +30,11 @@ scope: audit-write skill suite (post Stage-1 GREEN)
   frequencies re-derived over n=22; go/no-go +5.0.
 - **Optimization Round 1 (mechanize the gate + eval harness): COMPLETE** (commit b10d053).
   lint_style + check_structure now catch C4/C5/C7 + ordering; harness is re-runnable.
+- **Optimization Round 2 (slim + harmonize intro): COMPLETE.** intro_patterns.md 120K→31K
+  (74%↓); pilot digest mirrors hypothesis/results; held-out 14-FPW composite **90 ≥ 85**
+  baseline (no regression). The regression check surfaced a formal-H reliability gap that
+  was closed enforcement-first: a new conditional `check_structure` rule (signed prediction
+  must be a displayed H) lifted the gated draft +5 — Phase F's lesson again.
 
 ## Capability map (Task 2 lens): 9 functions × 4 tiers
 

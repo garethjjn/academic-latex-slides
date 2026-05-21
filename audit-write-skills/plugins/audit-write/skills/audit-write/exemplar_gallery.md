@@ -48,7 +48,7 @@ Shorthand codes decode in `corpus_manifest.md` §1.
 
 | Section | Annotated exemplar(s) | File · locator |
 |---|---|---|
-| Introduction | 26-KLYY ¶-by-¶ block map + **16 Stage-1 full annotated examples** (19-JWW, 22-LNS, 23-ACN, 19-Aob, 19-BGH, 20-WY, 20-CKMS, 22-CHLP, 22-Dug, 22-FHKF, 22-FW, 23-PSZ, 23-ZBLM, 24-Chen, 24-DGZZ, 16-DLLN) | `../audit-write-intro/intro_patterns.md` → "Annotated example:" sections (17 total) |
+| Introduction | 26-KLYY ¶-by-¶ block map + 19-JWW RQ-first counter-template; **16 Stage-1 pilot in the digest table** | `../audit-write-intro/intro_patterns.md` → 2 anchor "Annotated example:" sections + "Stage-1 Phase-C pilot digest" |
 | Abstract | 24-DLWW rich-prediction shape; 26-KLYY default shape; 24-DLWW single-country analogue | `../audit-write-abstract/abstract_patterns.md` → annotated-example sections |
 | Hypothesis | 26-KLYY multi-H + pair-prediction; 24-DLWW single-H 4-move; **16 Stage-1 pilot in the digest table** | `../audit-write-hypothesis/hypothesis_patterns.md` → annotated examples + "Stage-1 Phase-C pilot digest" |
 | Design | 24-DLWW design-section extraction (filters, FE, clustering, sample waterfall) | `../audit-write-design/design_patterns.md` → annotated 24-DLWW block |

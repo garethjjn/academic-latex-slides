@@ -62,6 +62,19 @@ def main():
     cases.append(("check_structure passes good fixture abstract check",
                    cs_good, out.strip().splitlines()[-1:]))
 
+    # intro signed-prediction-must-be-a-formal-H check (Round 2 mechanization)
+    rc, out = run("check_structure.py", os.path.join(FIX, "intro_signed_no_h.md"),
+                  "--section", "intro")
+    cs_noh = rc == 0 and "[ N] C5 signed prediction stated as formal H" in out
+    cases.append(("check_structure flags signed prediction with no formal H",
+                   cs_noh, [l for l in out.splitlines() if "formal H" in l][:1]))
+
+    rc, out = run("check_structure.py", os.path.join(FIX, "intro_formal_h.md"),
+                  "--section", "intro")
+    cs_h = rc == 0 and "[ Y] C5 signed prediction stated as formal H" in out
+    cases.append(("check_structure passes intro with a displayed formal H",
+                   cs_h, [l for l in out.splitlines() if "formal H" in l][:1]))
+
     corpus = os.path.join(FIX, "corpus_sample.txt")
     rc, out = run("verify_quote.py", corpus,
                   "we find a significantly negative association between auditor "
