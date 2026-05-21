@@ -14,6 +14,15 @@ obtain the papers from their publishers; the suite is usable without them.
 
 ## 1. Shorthand-code decode table (the 6 empirical template papers)
 
+> **These 6 are a subset, not the whole base.** The suite was developed against a
+> **29-paper DeFond-primary reading corpus** (DeFond-led, with Lennox / Zuo / Aobdia /
+> partner-trait lineages as support — see §3 and `audit_writing_corpus/CORPUS_INDEX.md`).
+> The 6 below are simply the empirical papers given **shorthand codes** because they are
+> quoted verbatim as *structural-frequency templates* in the pattern files; the other ~23
+> feed framework, vocabulary, design, and journal-culture guidance without per-move counts.
+> Stage-1 (2026-05) added 16 more coded pilot papers (§1b). So the evidentiary base is
+> ~29 reading + 22 structurally-coded, not "only 6."
+
 The pattern files (`intro_patterns.md`, `hypothesis_patterns.md`, `design_patterns.md`,
 `results_patterns.md`, `robustness_patterns.md`, `abstract_patterns.md`) reference papers
 by these codes. All six are empirical articles used as structural templates.
@@ -30,6 +39,35 @@ by these codes. All six are empirical articles used as structural templates.
 A 7th paper — DeFond & Zhang (2014, *JAE*), *A review of archival auditing research* —
 supplies the **conceptual framework** (see `audit_quality_framework.md`), not an intro
 template. It is deliberately excluded from the empirical-structure counts.
+
+---
+
+## 1b. Stage-1 pilot decode table (16 papers; added 2026-05-21)
+
+These 16 archival audit papers were distilled across intro / hypothesis / results in
+Stage-1 Phase C. Their annotated staging tables live in
+`corpus_inventory/track_b_drafts/<code>_{intro,hypothesis,results}.md`; source PDFs are
+third-party (filenames in `corpus_inventory/gold_set_pilot.md`, not redistributed). They
+are the basis for the `n=22` re-derived frequencies (§2 item 5).
+
+| Code | Citation (author, year, journal) | Topic |
+|---|---|---|
+| `19-JWW` | Jiang, Wang & Wang (2019, *TAR*) | Big N auditors & audit quality; M&A quasi-experiments (US) |
+| `22-LNS` | Lee, Naiker & Stewart (2022, *TAR*) | Audit-office labor-market proximity to universities |
+| `23-ACN` | Aobdia, Choudhary & Newberger (2023, *TAR*) | Economics of audit production; middle managers (PCAOB data) |
+| `20-WY` | Wu & Ye (2020, *JAR*) | Public attention & auditor behavior; Hurun Rich List (China) |
+| `22-CHLP` | Chen, Huang, Li & Pittman (2022, *JAR*) | Auditor social connections & mutual-fund portfolios (China) |
+| `22-Dug` | Duguay (2022, *JAR*) | Financial-audit regulation in the charitable sector |
+| `23-ZBLM` | Zimmerman, Barr-Pulliam, Lee & Minutti-Meza (2023, *JAR*) | Auditors' use of in-house specialists |
+| `24-Chen` | Chen (2024, *JAR*) | Employee lawsuits & talent acquisition in audit offices |
+| `24-DGZZ` | De Franco, Guan, Zhou & Zhu (2024, *JAR*) | Credit-market development & auditor choice; banking deregulation |
+| `19-Aob` | Aobdia (2019, *JAE*) | Practitioner assessments vs academic AQ proxies; PCAOB inspections |
+| `19-BGH` | Beck, Gunn & Hallman (2019, *JAE*) | Geographic decentralization of audit firms |
+| `20-CKMS` | Cook, Kowaleski, Minnis, Sutherland & Zehms (2020, *JAE*) | Auditor-client matching; US broker-dealer market |
+| `16-DLLN` | Dhaliwal, Lamoreaux, Litov & Neyland (2016, *JAE*) | Shared auditors in M&A (substituted for out-of-scope survey paper 22-HS) |
+| `23-PSZ` | Pan, Shroff & Zhang (2023, *JAE*) | Dark side of audit-market competition; bullet-train shock (China) |
+| `22-FHKF` | Fedyk, Hodson, Khimich & Fedyk (2022, *RAST*) | Is AI improving the audit process; mixed-methods |
+| `22-FW` | Fox & Wilson (2022, *RAST*) | IRS attention to financial-accounting restatements |
 
 ---
 
@@ -51,6 +89,19 @@ template. It is deliberately excluded from the empirical-structure counts.
 4. **Small, correlated sample.** n = 6, several DeFond-coauthored, mostly China-setting
    partner-trait designs. The register it teaches is real and high-value for that target
    (JAE/JAR/TAR audit-quality papers) but is a *style*, not a guarantee of acceptance.
+5. **2026-05-21 Stage-1 update — corpus expanded to n = 22.** Sixteen Stage-1 pilot papers
+   (§1b below) were distilled across intro / hypothesis / results. **Headline intro-move
+   frequencies are now re-derived over n = 22** (6 template + 16 pilot) and written `k/22`
+   in the pattern files, with the full per-paper coding in
+   `corpus_inventory/move_presence_matrix.md`. Claims still written `k/6 (template)` refer to
+   the **original 6 template papers only** — they are not yet re-coded over the pilot. Key
+   re-derivations: M4 tension is no longer "6/6 unanimous" (canonical-form 7/22, any-form
+   14/22, absent-from-intro 8/22); the "forbidden 0/6" opener rule has 2 counter-examples
+   (20-WY anecdote, 22-Dug policy-motivation, both JAR); a new **M3-first / RQ-first opener
+   family** (5/22) and new magnitude forms **F7 time-decline**, **F8 odds-ratio**, plus
+   **F6 spatial / internal** sub-variants were added. The pilot is still correlated
+   (audit × top-5 journals) but materially broadens journals (adds JAR/RAST), eras
+   (2016–2024), and topics (M&A, AI, regulation, labor, mobility).
 
 ---
 
@@ -131,7 +182,7 @@ indicate the role each item plays in the suite, not paper quality.
 
 | Missing | Affects | Workaround |
 |---|---|---|
-| DeFond, Erkens & Zhang (2017, *Management Science*) — PSM critique of the Big-N audit-quality effect | `audit-write-robustness` (PSM-language post-2017) | Extract the PSM-critique rhetoric secondhand from the references *to* this paper inside DeFond & Zhang (2014) and DeFond et al. (2024); or obtain the SSRN working-paper version. The robustness skill's matching-language guidance is built from these secondary sources, not the primary paper. |
+| DeFond, Erkens & Zhang (2017, *Management Science*) — PSM critique of the Big-N audit-quality effect | `audit-write-robustness` (post-2017 PSM-language) | Extract the PSM-critique rhetoric secondhand from the references *to* this paper inside DeFond & Zhang (2014) and DeFond et al. (2024); or obtain the SSRN working-paper version. The robustness skill's matching-language guidance is built from these secondary sources, not the primary paper. |
 
 ---
 

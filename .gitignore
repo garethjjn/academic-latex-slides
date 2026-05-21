@@ -70,7 +70,11 @@ blankespoor2026.txt
 J of Accounting Research - 2026 - BLANKESPOOR - Generative AI in Financial Reporting.pdf
 jiang_ssrn4954576.txt
 ssrn-4954576 (1).pdf
-audit_writing_corpus
+# Base reading corpus: ignore third-party PDFs + txt extractions (no
+# redistribution of copyrighted articles), but TRACK the metadata index so the
+# corpus composition is versioned/visible.
+audit_writing_corpus/*
+!audit_writing_corpus/CORPUS_INDEX.md
 quality_reports
 paper
 # ---- Track B scratch ----

@@ -12,12 +12,15 @@ The 7th paper (DeFond-Zhang 2014 JAE *Archival Auditing Review*) has no empirica
 
 ---
 
+> **Frequency provenance (Stage-1 update 2026-05-21).** A bare `k/6 (template)` count is over the 6 original template papers (`corpus_manifest.md` §1). Headline move frequencies re-derived over **n=22** (6 template + 16 Stage-1 pilot) are written `k/22` with a pointer to `corpus_inventory/move_presence_matrix.md`. Do not read a `k/6 (template)` as if it were n=22.
+
+
 ## TL;DR — the actionable five
 
 1. **The single-H modern paper has a 4-move arc**: literature/theory anchor → mechanism FOR prediction → counter-arguments / "tension" → formal H statement. ~1,200–1,800 words. Use `(24-DLWW)` and `(25-DQSZ)` as templates.
 2. **The multi-H paper has a 2-tier arc**: a shared theory umbrella (Section 2.1) + per-hypothesis sub-section, each with mini-arc inside (Section 2.2.1, 2.2.2, …). Use `(26-KLYY)` as template.
-3. **"Stated in alternative form" is the safest DeFond default** — appears verbatim in 5/6 original papers immediately before the H block. Stage-1 pilot papers show legitimate exceptions: null-form Hs, RQ-only sections, narrative predictions, and RAST "Prediction 1/2/3" labels. Use the default unless the paper's theory is explicitly unsigned or exploratory.
-4. **The tension paragraph is a strong default, not a law** — appears in 6/6 original papers, but Stage-1 pilot papers show tension can be thin, head-placed, converted into moderators, embedded symmetrically in FOR/AGAINST structure, or absent in RQ-only / mixed-methods designs. If omitted, state the reason.
+3. **"Stated in alternative form" is the safest DeFond default** — appears verbatim in 5/6 (template) original papers immediately before the H block. Stage-1 pilot papers show legitimate exceptions: null-form Hs, RQ-only sections, narrative predictions, and RAST "Prediction 1/2/3" labels. Use the default unless the paper's theory is explicitly unsigned or exploratory.
+4. **The tension paragraph is a strong default, not a law** — appears in 6/6 (template) original papers, but Stage-1 pilot papers show tension can be thin, head-placed, converted into moderators, embedded symmetrically in FOR/AGAINST structure, or absent in RQ-only / mixed-methods designs. If omitted, state the reason.
 5. **Hypotheses are predictions, not claims** — verbs are "we hypothesize that…", "we posit that…", "we expect…", "we argue that…". Verbs to NEVER use: "we will show", "we prove", "common sense suggests", "obviously".
 
 ---
@@ -81,11 +84,11 @@ Move 7 (optional): CROSS-SECTIONAL PREVIEWS
 
 | Anchor type | Frequency | Example | When to use |
 |---|---|---|---|
-| **Theory-first** | 2/6 | "A growing literature in economics, finance, and accounting shows that a person's experiences significantly affect her judgment and decision making beyond 'the information set' considered in traditional economic models" `(24-DHXZ)` | When importing theory from psychology/economics into accounting |
-| **Literature-first** | 3/6 | "Prior literature finds that auditors who are socially connected to their client's executives and audit committee chairs, provide lower quality audits (Guan et al., 2016; He et al., 2017)." `(24-DLWW)` | When you are extending an audit-literature chain |
-| **Theory + Literature combined** | 1/6 | "The traditional approach in economics, finance, and accounting is to take individual beliefs and preferences as exogenous… More recently, economic theories endogenize these attitude endowments, arguing that individual beliefs and preferences are shaped by two key mechanisms (Bisin and Verdier, 2000)." `(26-KLYY)` | When you need a deep theory umbrella because you have multiple hypotheses |
+| **Theory-first** | 2/6 (template) | "A growing literature in economics, finance, and accounting shows that a person's experiences significantly affect her judgment and decision making beyond 'the information set' considered in traditional economic models" `(24-DHXZ)` | When importing theory from psychology/economics into accounting |
+| **Literature-first** | 3/6 (template) | "Prior literature finds that auditors who are socially connected to their client's executives and audit committee chairs, provide lower quality audits (Guan et al., 2016; He et al., 2017)." `(24-DLWW)` | When you are extending an audit-literature chain |
+| **Theory + Literature combined** | 1/6 (template) | "The traditional approach in economics, finance, and accounting is to take individual beliefs and preferences as exogenous… More recently, economic theories endogenize these attitude endowments, arguing that individual beliefs and preferences are shaped by two key mechanisms (Bisin and Verdier, 2000)." `(26-KLYY)` | When you need a deep theory umbrella because you have multiple hypotheses |
 
-**Hard observation:** in 5/6 papers, the anchor cites at least **one** non-accounting source (psychology, sociology, economics, neuroscience). The DeFond-Zuo style explicitly **imports** theory. Pure within-accounting anchoring (like 07-DHT) is the older style — modern (2024+) papers all reach outside.
+**Hard observation:** in 5/6 (template) papers, the anchor cites at least **one** non-accounting source (psychology, sociology, economics, neuroscience). The DeFond-Zuo style explicitly **imports** theory. Pure within-accounting anchoring (like 07-DHT) is the older style — modern (2024+) papers all reach outside.
 
 ### Anchor verbs (whitelist)
 
@@ -108,7 +111,7 @@ Move 7 (optional): CROSS-SECTIONAL PREVIEWS
 
 ## Move 2: Mechanism construction — the FOR argument
 
-The mechanism move is **the longest** move in the section (2–4 paragraphs in 5/6 papers). It must:
+The mechanism move is **the longest** move in the section (2–4 paragraphs in 5/6 (template) papers). It must:
 
 1. **Specify a causal chain** in plain English — cause → mechanism → outcome.
 2. **Provide 2–4 concrete examples** (not abstract claims).
@@ -128,7 +131,7 @@ The pattern: theoretical concept → contrast (high vs low) → application to a
 
 ### Mechanism verbs (whitelist, in order of frequency)
 
-- "We argue that…" — most common; appears in 5/6 papers, sometimes 6+ times in one section
+- "We argue that…" — most common; appears in 5/6 (template) papers, sometimes 6+ times in one section
 - "We posit that…" — slightly more formal, signals a deductive prediction
 - "We expect [X] to…" — for direct empirical predictions
 - "We hypothesize that…" — usually reserved for the formal H statement
@@ -149,7 +152,7 @@ The pattern: theoretical concept → contrast (high vs low) → application to a
 
 ## Move 3: Tension / counter-argument structure
 
-### Original-corpus default: the tension paragraph appears in 6/6 papers
+### Original-corpus default: the tension paragraph appears in 6/6 (template) papers
 
 The original six-paper corpus has **zero** instances of a hypothesis section without a counter-argument paragraph. Treat this as the default reviewer expectation, but not as a universal law. Stage-1 pilot drafts add several disciplined exceptions: no-formal-H / RQ-only sections (`19-JWW`, `23-ACN`, `24-DGZZ`), narrative-prediction sections with only thin tension (`22-LNS`), mixed-methods prediction sections (`22-FHKF`), and sections where the counter-argument is converted into a moderator (`16-DLLN`). Phase D will re-count the exact `k/N`; until then, write "strong default" rather than "non-negotiable."
 
@@ -237,7 +240,7 @@ When you cannot resolve the tension, signal it explicitly:
 
 ### Formal H statement — required ingredients (in order)
 
-1. **Bridge sentence** — varies by paper, but ALL 5/6 (excluding 16-DLZ) use one of:
+1. **Bridge sentence** — varies by paper, but ALL 5/6 (template) (excluding 16-DLZ) use one of:
    - "Based on the above arguments we posit the following hypothesis [in the alternative form]:"
    - "This leads to the following hypothesis (in alternative form):"
    - "Therefore, we form the following hypothesis."
@@ -254,7 +257,7 @@ When you cannot resolve the tension, signal it explicitly:
    - OR "[Subject] [verb] more / less [outcome] than [comparison]."
    - OR "Auditors with [X] are associated with [higher / lower] [outcome]."
 
-4. **"ceteris paribus"** appears in 1/6 papers (26-KLYY uses it on every H; older papers omit it).
+4. **"ceteris paribus"** appears in 1/6 (template) papers (26-KLYY uses it on every H; older papers omit it).
 
 ### When to omit a formal H statement
 
@@ -469,7 +472,7 @@ Across the 6 papers, a clear pattern: **the proxy is named in the H statement an
 
 How do papers transition from the end of the introduction to the start of Section 2? The 6 papers fall into 3 styles:
 
-### Style 1: No bridge sentence, clean section break (3/6)
+### Style 1: No bridge sentence, clean section break (3/6 (template))
 
 The Section 2 opener does not reference the introduction. It begins **inside the literature**, identical to a fresh start. Examples:
 
@@ -477,14 +480,14 @@ The Section 2 opener does not reference the introduction. It begins **inside the
 - `(24-DHXZ)` §3 (note: numbering different): "A growing literature in economics, finance, and accounting shows…"
 - `(26-KLYY)` §2.1: "The traditional approach in economics, finance, and accounting…"
 
-### Style 2: Section-internal "in this section we…" preamble (2/6)
+### Style 2: Section-internal "in this section we…" preamble (2/6 (template))
 
 Use a 2–3 sentence Section 2 preamble before the first sub-section:
 
 - `(07-DHT)` §2 (before §2.1): "Recent research on investor protection institutions has several implications for the structural factors in countries' financial reporting environments that are likely to influence how investors respond to earnings announcements. **In this section we appeal to this literature to identify those factors…**"
 - `(26-KLYY)` §2.2 (before §2.2.1): "**In this study, we examine the role of cultural trust in the auditing setting**, focusing on how audit partners' cultural trust influences the likelihood and accuracy of their going concern opinions and their clients' financial reporting quality."
 
-### Style 3: First sub-section IS the bridge (1/6)
+### Style 3: First sub-section IS the bridge (1/6 (template))
 
 `(25-DQSZ)` has §2.1 "Motivation and background" — this section is essentially a literature-review bridge that re-narrates what the introduction said about the relevant tax-expertise and NAS-conflict studies (`[AUTHOR:]`). The H is then introduced in §2.5.
 
@@ -652,6 +655,6 @@ Before finalizing a hypothesis development section, verify:
 
 4. **Modern (2024+) JAE papers all import theory from outside accounting.** 24-DHXZ uses cognitive psychology, 24-DLWW uses Granovetter sociology + Klein-Williamson contract theory, 25-DQSZ uses Donohoe-Knechel auditing complexity theory + Bianchi-McGuire NAS-conflict, 26-KLYY uses Bisin-Verdier cultural transmission. The single-anchor "we extend [audit lit X]" style of 07-DHT is the older convention.
 
-5. **Proxy operationalization is firmly OUT of the H section.** 5/6 papers defer measurement details to Section 3 (Research Design) or later. The H section names the construct ("social networks", "industry range", "tax expertise", "cultural trust") and provides 1–3 sentences of conceptual justification, no more.
+5. **Proxy operationalization is firmly OUT of the H section.** 5/6 (template) papers defer measurement details to Section 3 (Research Design) or later. The H section names the construct ("social networks", "industry range", "tax expertise", "cultural trust") and provides 1–3 sentences of conceptual justification, no more.
 
 6. **The "However, there are several reasons why this relation may not hold empirically" structure with 3 numbered counter-arguments (26-KLYY)** is the single most efficient device for handling tension when 3+ alternative explanations exist. Memorize this template.

@@ -9,9 +9,12 @@
 - DeFond, Qi, Si, Zhang 2025 JAE (`25-DQSZ`) — signatory auditor tax expertise
 - Khurana, Li, Yeung, Yu 2026 JAE (`26-KLYY`) — audit partner cultural trust ★ second closest analogue
 
-The results section in modern audit papers averages **8–14 pages** and contains **6–9 sub-sections**. The structure is more variable than introductions, but the canonical sequence below is followed by 5 of 6 corpus papers.
+The results section in modern audit papers averages **8–14 pages** and contains **6–9 sub-sections**. The structure is more variable than introductions, but the canonical sequence below is followed by 5 of 6 (template) corpus papers.
 
 ---
+
+> **Frequency provenance (Stage-1 update 2026-05-21).** A bare `k/6 (template)` count is over the 6 original template papers (`corpus_manifest.md` §1). Headline move frequencies re-derived over **n=22** (6 template + 16 Stage-1 pilot) are written `k/22` with a pointer to `corpus_inventory/move_presence_matrix.md`. Do not read a `k/6 (template)` as if it were n=22.
+
 
 ## 1. The canonical 6-sub-section ordering
 
@@ -30,12 +33,12 @@ The results section in modern audit papers averages **8–14 pages** and contain
 
 | Sub-section | Frequency | Sometimes called |
 |---|---|---|
-| Descriptive stats (4.1) | 6/6 | "Sample selection and descriptive statistics", "Descriptive statistics" |
-| Primary / baseline (4.2) | 6/6 | "Primary analysis", "Multivariate results", "Regression results", "Baseline analysis" |
-| Identification / falsification (4.3) | 5/6 | "Identification strategies", "Falsification tests", "Mitigating concerns about endogenous matching", "Identification" |
-| Cross-sectional / heterogeneity (4.4) | 6/6 | "Cross-sectional analyses", "Cross-sectional variation in the effects of …" |
-| Mechanism / channel (4.5) | 4/6 | "Path Analysis", "Channel test", "Components of …" |
-| Alternative measures / fixed effects (4.6) | 5/6 | "Fixed-effects models", "Alternative measures", "Sensitivity tests" |
+| Descriptive stats (4.1) | 6/6 (template) | "Sample selection and descriptive statistics", "Descriptive statistics" |
+| Primary / baseline (4.2) | 6/6 (template) | "Primary analysis", "Multivariate results", "Regression results", "Baseline analysis" |
+| Identification / falsification (4.3) | 5/6 (template) | "Identification strategies", "Falsification tests", "Mitigating concerns about endogenous matching", "Identification" |
+| Cross-sectional / heterogeneity (4.4) | 6/6 (template) | "Cross-sectional analyses", "Cross-sectional variation in the effects of …" |
+| Mechanism / channel (4.5) | 4/6 (template) | "Path Analysis", "Channel test", "Components of …" |
+| Alternative measures / fixed effects (4.6) | 5/6 (template) | "Fixed-effects models", "Alternative measures", "Sensitivity tests" |
 
 **24-DLWW canonical numbering:** 4.1 primary → 4.2 alt audit-quality measures (concealment ruled out) → 4.3 falsification → 4.4 fixed effects → 5.1 cross-sectional → 5.2 trends → 5.3 disruption shock.
 
@@ -49,7 +52,7 @@ The results section in modern audit papers averages **8–14 pages** and contain
 
 Modern audit papers use one of four formulas to open the primary multivariate result. **Frequency in 6-paper corpus:**
 
-### Archetype A — "Table N reports" (4/6 papers)
+### Archetype A — "Table N reports" (4/6 (template) papers)
 
 > "**Table 3 shows the results** of estimating Equation (1). Column (1) reports that the coefficient on Network is −0.021 and significant at the 5% level…" (24-DLWW, ¶377)
 
@@ -59,7 +62,7 @@ Modern audit papers use one of four formulas to open the primary multivariate re
 
 > "**Table 4 depicts the results** of our regression models using our three different measures of Range." (24-DHXZ, ¶682)
 
-### Archetype B — "Consistent with [our hypothesis], we find …" (3/6 papers; often the 2nd sentence)
+### Archetype B — "Consistent with [our hypothesis], we find …" (3/6 (template) papers; often the 2nd sentence)
 
 > "**Consistent with our predictions**, we find a significantly positive association between auditor industry range and the likelihood of an audit adjustment in all three columns (RangeN: coeff. = 0.256, p < 0.05; …)." (24-DHXZ, ¶683)
 
@@ -67,11 +70,11 @@ Modern audit papers use one of four formulas to open the primary multivariate re
 
 > "**As predicted, Panel A of Table 7 finds** that the coefficient on Network × X is significantly negative when X is captured by RelationClient and is significantly positive when X is captured by HighTrust…" (24-DLWW, ¶2359)
 
-### Archetype C — "Turning to our test variable, the coefficient on X …" (1/6, but elegant)
+### Archetype C — "Turning to our test variable, the coefficient on X …" (1/6 (template), but elegant)
 
 > "Turning to our test variable, **the coefficient on PartnerTrust is negative and statistically significant** (p < 0.004), indicating that audit partners who descended from trusting cultures are less likely to issue going concern opinions relative to their peers." (26-KLYY, ¶964)
 
-### Archetype D — "Panel C reports … and shows that …" (1/6, common in TAR/older JAE)
+### Archetype D — "Panel C reports … and shows that …" (1/6 (template), common in TAR/older JAE)
 
 > "Panel C reports the multivariate test results and **shows that the coefficients on CON_KW and CON_NOPA are significantly negative at p < 0.01**, consistent with auditors charging lower audit fees to more conservative clients." (16-DLZ, ¶340)
 
@@ -98,7 +101,7 @@ Modern audit papers use one of four formulas to open the primary multivariate re
 
 Block 4 of the intro has at least one magnitude. The **results section repeats the magnitude with more precision** and adds 1–3 more forms. Catalog of magnitude forms across the corpus, with verbatim examples:
 
-### Form 1: Percentage point change (5/6 papers; most common)
+### Form 1: Percentage point change (5/6 (template) papers; most common)
 
 > "This represents **a 2.1 percentage point reduction** in the probability of a financial reporting irregularity, from 11.1% for an engagement auditor with weak connections, to 9.0% for an engagement auditor with strong connections (i.e., above-median)…" (24-DLWW, ¶379)
 
@@ -106,7 +109,7 @@ Block 4 of the intro has at least one magnitude. The **results section repeats t
 
 > "the coefficients on BigN and FirmIndSpec are significantly negative, resulting in **a 3.9 percentage point reduction** (37% decline) and **a 2.8 percentage point reduction** (27% decline) in reported financial irregularities, respectively…" (24-DLWW, ¶601)
 
-### Form 2: Percentage of base rate (5/6 papers; almost always paired with Form 1)
+### Form 2: Percentage of base rate (5/6 (template) papers; almost always paired with Form 1)
 
 > "…which equals **a 19% decline** in financial irregularities. Thus, the effect is both statistically and economically significant." (24-DLWW, ¶381)
 
@@ -118,23 +121,23 @@ Block 4 of the intro has at least one magnitude. The **results section repeats t
 
 > "…which translates to a reduction of approximately **15% relative to the unconditional mean** of 4.6%." (26-KLYY, ¶972)
 
-### Form 3: Decile / quartile shift (1/6 papers but distinctive)
+### Form 3: Decile / quartile shift (1/6 (template) papers but distinctive)
 
 > "The estimated coefficient 0.293 (0.097) on CON_KW (CON_NOPA) indicates that **a one-decile increase in conservatism is associated with about a 3.3 (1.1) percent decline in audit fees**." (16-DLZ, ¶342–343)
 
 > "**A one-decile increase in CON_KW and CON_NOPA reduces the propensity of auditors to resign by 2.3 percent and 1.2 percent**, respectively." (16-DLZ, ¶388)
 
-### Form 4: Standard-deviation framing (3/6 papers; standard for partner-trait papers)
+### Form 4: Standard-deviation framing (3/6 (template) papers; standard for partner-trait papers)
 
 > "**A one standard deviation increase in PartnerTrust is associated with a 0.8% decrease** in the probability of a going concern opinion, which represents a reduction of approximately 17% relative to the unconditional mean of 4.8%." (26-KLYY, ¶966–968)
 
 > "**a one-standard-deviation increase in CON_KW results in a 0.049-standard-deviation decrease in audit fees** through CON_KW's impact on auditor litigation risk." (16-DLZ, ¶2021)
 
-### Form 5: Interquartile change (1/6 — Dekeyser's signature framing)
+### Form 5: Interquartile change (1/6 (template) — Dekeyser's signature framing)
 
 > "When we hold all other variables at their means, **an interquartile change in RangeN, RangeHerf, and RangeEntropy leads to a 6.64%, 7.16%, and 7.26% increase in the likelihood of an audit adjustment**, respectively." (24-DHXZ, ¶946)
 
-### Form 6: Comparison to a literature benchmark (3/6 — strongest pattern for credibility)
+### Form 6: Comparison to a literature benchmark (3/6 (template) — strongest pattern for credibility)
 
 > "**These effects are similar in magnitude to the effect of mandatory partner rotation (6.5–9.3%) documented in Lennox et al. (2014) and that of early career experiences (4.7%) documented in He et al. (2018)**." (24-DHXZ, ¶947–948)
 
@@ -258,7 +261,7 @@ Step 4: REPORT + INTERPRET.
    "As predicted, Panel A finds the coefficient on X × Y is [sign and significance]."
 ```
 
-### Verbatim leads (frequency in corpus: cross-sectional appears 6/6)
+### Verbatim leads (frequency in corpus: cross-sectional appears 6/6 (template))
 
 > "**While China is primarily a relationship-based economy, there is variation in the use of relational contracts. We conjecture that** the association between Network and FinIrreg is stronger for clients that are more likely to use relational contracts, because the benefits of social connections should be greater. **We explore this using two tests.**" (24-DLWW, ¶2043–2044)
 
@@ -296,7 +299,7 @@ Audit papers test mechanisms via:
 2. **Mediation / path analysis** (formal Baron & Kenny / Sobel — "what % of the effect goes through M?")
 3. **Suggestive evidence** (look at one specific channel — "consistent with channel C, we find …")
 
-### Flavor 1: Decomposition (3/6 papers; the most rigorous + most common)
+### Flavor 1: Decomposition (3/6 (template) papers; the most rigorous + most common)
 
 > "**However, lower BTD may be caused by a reduction in tax aggressiveness (an increase in taxable income) and/or a reduction in opportunistic earnings management (a decrease in book income). If tax-expert auditors reduce BTD by reducing tax aggressiveness, we should find that their effects are associated with increases in taxable income rather than decreases in book income**, which would further strengthen our identification. **We follow Armstrong et al. (2012) and partition BTD into PBI** (pre-tax book income) **and TI** (taxable income). **We then repeat our analysis using PBI and TI as dependent variables and use seemingly unrelated regressions to estimate the difference in the coefficients on TAX_EXP across the models.**" (25-DQSZ, ¶2492–2497)
 
@@ -304,13 +307,13 @@ Audit papers test mechanisms via:
 
 > "**Column (2) of Table 3 repeats our hypothesis test after disaggregating Network it into three components: Network(BusOnly), Network(GovOnly) and Network(Both).** … Importantly, **finding a significantly negative coefficient on Network(BusOnly) is inconsistent with our results in Column (1) being explained by connected auditors using their strong political connections to conceal poor client performance.**" (24-DLWW, ¶382–387)
 
-### Flavor 2: Path analysis / formal mediation (1/6 — 16-DLZ canonical)
+### Flavor 2: Path analysis / formal mediation (1/6 (template) — 16-DLZ canonical)
 
 > "**We next perform a path analysis to test our maintained assumption that inherent risk and auditor business risk are the paths through which conservatism affects fees, GCOs, and resignations.** Path analysis uses a structural equation model to answer how a source variable (in our case, conservatism) affects an outcome variable (in our case, fees, GCOs, or resignations) **by decomposing the correlation between the source variable and an outcome variable into their direct path, and their indirect paths through mediating variables (Baron and Kenny 1986).**" (16-DLZ, ¶1656–1657)
 
 > "**The total mediated path for litigation risk … is significantly negative at p < 0.01, with a coefficient of 0.049. The coefficient implies that a one-standard-deviation increase in CON_KW results in a 0.049-standard-deviation decrease in audit fees through CON_KW's impact on auditor litigation risk. This suggests that the proportion of the total effect … that is attributable to litigation risk is about 35 percent [=0.049/(0.089 − 0.049 − 0.003)].**" (16-DLZ, ¶2021–2024)
 
-### Flavor 3: Suggestive evidence (4/6 papers)
+### Flavor 3: Suggestive evidence (4/6 (template) papers)
 
 > "**The results in Columns (5)–(7) suggest that one channel through which tax-expert auditors curb tax aggressiveness is by making audit adjustments that increase taxable income, which further improves our identification.**" (25-DQSZ, ¶2628–2630)
 
@@ -358,7 +361,7 @@ Step 3: REPORT THE TEST AND CONCLUDE.
 
 ### "We acknowledge, however …" pattern
 
-This "concede + counter" move appears 5/6. It signals epistemic humility while neutralizing a referee objection:
+This "concede + counter" move appears 5/6 (template). It signals epistemic humility while neutralizing a referee objection:
 
 > "**We acknowledge, however, that there are limitations in using GCs to measure audit quality** (DeFond and Zhang, 2014). Specifically, the auditor's decision to issue a GCs is only applicable to clients that are in reasonably poor financial health, **and the evaluation of GC problems is not the auditor's primary area of expertise**." (24-DLWW, footnote 22)
 

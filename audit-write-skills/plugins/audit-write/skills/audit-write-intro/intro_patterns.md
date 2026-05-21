@@ -12,6 +12,9 @@ The 7th paper (DeFond-Zhang 2014 JAE *Archival Auditing Review*) is a review-pap
 
 ---
 
+> **Frequency provenance (Stage-1 update 2026-05-21).** A bare `k/6 (template)` count is over the 6 original template papers (`corpus_manifest.md` §1). Headline move frequencies re-derived over **n=22** (6 template + 16 Stage-1 pilot) are written `k/22` with a pointer to `corpus_inventory/move_presence_matrix.md`. Do not read a `k/6 (template)` as if it were n=22.
+
+
 ## The canonical 5-block structure
 
 Modern top-3 audit papers organize the introduction in **5 functional blocks**, totaling **5–8 actual paragraphs** (some blocks span 2 paragraphs). The block ordering is **stable across all 6 papers**.
@@ -37,14 +40,15 @@ Total length: **3-5 pages typical, ~2,000-3,000 words**.
 
 Establish what the literature has done, identify a specific gap or tension, and state the research question. **No throat-clearing.** Open inside the literature, not outside it.
 
-### The 4 valid opening moves (frequency in corpus)
+### The valid opening moves (frequency re-derived over n=22: 6 template + 16 Stage-1 pilot; see `corpus_inventory/move_presence_matrix.md`)
 
-| Move | Frequency | Example | Use when |
+| Move | Freq (n=22) | Example | Use when |
 |---|---|---|---|
-| **A. Lit-baseline opening** | 4/6 | "A large body of research finds that social connections between economic agents affect a variety of financial outcomes" (24-DLWW ¶1) | Default; safest; signals you know the field |
-| **B. Lit-contradiction opening** | 1/6 | "Prior research finds that some potential monitors of tax aggressiveness, including tax-expert auditors, facilitate aggressive tax avoidance. These studies, however, examine auditors who also provide non-audit tax services to their clients, creating conflicting incentives." (25-DQSZ ¶1) | When your contribution is to **overturn** a prior finding |
-| **C. Theory-grounded opening** | 1/6 | "Economic theories of cultural transmission emphasize that culture plays a critical role in shaping individual beliefs and preferences (e.g., Bisin and Verdier, 2000, 2023)." (26-KLYY ¶1) | When the contribution rests on importing theory from outside accounting |
-| **D. Construct-introduction opening** | 1/6 | "Conditional conservatism is a qualitative accounting characteristic that potentially enhances financial reporting quality (Watts 2003). However, while research documents that conservatism improves debt contracting..." (16-DLZ ¶1) | When you're studying a well-known construct from a new angle |
+| **A. Lit-baseline opening** | 11/22 | "A large body of research finds that social connections between economic agents affect a variety of financial outcomes" (24-DLWW ¶1) | Default; safest; signals you know the field |
+| **B. Lit-contradiction opening** | 1/22 (+1 hybrid 23-PSZ) | "Prior research finds that some potential monitors of tax aggressiveness, including tax-expert auditors, facilitate aggressive tax avoidance. These studies, however, examine auditors who also provide non-audit tax services to their clients, creating conflicting incentives." (25-DQSZ ¶1) | When your contribution is to **overturn** a prior finding |
+| **C. Theory-grounded opening** | 1/22 (+2 hybrid 24-Chen, 22-FHKF) | "Economic theories of cultural transmission emphasize that culture plays a critical role in shaping individual beliefs and preferences (e.g., Bisin and Verdier, 2000, 2023)." (26-KLYY ¶1) | When the contribution rests on importing theory from outside accounting |
+| **D. Construct-introduction opening** | 2/22 | "Conditional conservatism is a qualitative accounting characteristic that potentially enhances financial reporting quality (Watts 2003). However, while research documents that conservatism improves debt contracting..." (16-DLZ ¶1) | When you're studying a well-known construct from a new angle |
+| **E. RQ-first opening** (NEW; Stage-1) | 5/22 | "we examine whether Big N auditors provide higher audit quality than non-Big N auditors" (19-JWW ¶1) — RQ stated before any lit anchor | Design-driven / methods / concordance papers (19-JWW, 19-Aob, 22-FHKF, 23-ZBLM, 16-DLLN) |
 
 ### Forbidden openings
 
@@ -87,7 +91,7 @@ Always present, usually the **last sentence of Block 1**. Standard formula:
 
 ### Function
 
-Walk the reader through the conceptual logic supporting the prediction, AND explicitly state countervailing forces ("tension"). The tension paragraph is **non-negotiable** — it appears in 6/6 papers.
+Walk the reader through the conceptual logic supporting the prediction, AND explicitly state countervailing forces ("tension"). The tension paragraph is a **strong default, not a law** — re-derived over n=22 it appears in canonical form in 7/22 intros, in some variant (active-phrasing / enumerated / head-placed / in-¶1 / three-sided / methodological) in another 7/22, and is absent-from-intro (often deferred to §2) in 8/22. Include it unless you have a deliberate reason to defer to Section 2. See `corpus_inventory/move_presence_matrix.md`.
 
 ### Standard internal structure
 
@@ -132,7 +136,7 @@ Justify why this empirical setting is appropriate, describe the data, and (brief
 
 ### China-setting justification template
 
-5 of 6 papers use Chinese data. The justification follows a **standard 3-part structure**:
+5 of 6 (template) papers use Chinese data. The justification follows a **standard 3-part structure**:
 
 ```
 (1) Data availability advantage:
@@ -175,7 +179,7 @@ State the headline result, give the economic magnitude, and pre-empt one or two 
 > — or —
 > "As hypothesized, we find that [subject] [verb] [outcome]."
 
-**Frequency in corpus:** "Consistent with..." appears as opening of Block 4 in 4/6 papers. "As hypothesized" appears in 2/6.
+**Frequency in corpus:** "Consistent with..." appears as opening of Block 4 in 4/6 (template) papers. "As hypothesized" appears in 2/6 (template).
 
 ### Magnitude reporting — non-negotiable
 
@@ -196,9 +200,9 @@ Every paper reports the economic magnitude in Block 4 using **at least one** of 
 5. **Interquartile change:**
    > "An interquartile change in our measures of industry range leads to about a 7% increase in the likelihood of an audit adjustment." (24-DHXZ)
 
-**Hard rule:** Block 4 MUST have at least ONE numerical magnitude. Coefficient + standard error alone is insufficient.
+**Strong default (re-derived n=22):** Block 4 should carry at least ONE numerical magnitude; coefficient + standard error alone is insufficient. Present in 19/22 intros. The 3 exceptions (19-JWW, 22-CHLP, 24-Chen) are pre-2024 or JAR papers that report direction-only — treat magnitude as mandatory for modern JAE/TAR submissions, where its absence now reads as a gap.
 
-### Alternative explanations (in 5/6 papers)
+### Alternative explanations (in 5/6 (template) papers)
 
 After the magnitude, immediately address the most likely alternative explanation:
 
@@ -218,11 +222,11 @@ Demonstrate causal evidence (where possible) and falsification.
 
 | Move | Frequency | Example |
 |---|---|---|
-| Auditor rotation as quasi-experiment | 2/6 | "Our first test exploits regulations in China that require signatory auditors to rotate every five years..." (25-DQSZ) |
-| Regulatory shock | 3/6 | "We exploit a regulatory shock that disrupts the auditor's business connections..." (24-DLWW) |
-| Placebo / falsification test | 4/6 | "We also perform falsification tests that replace [X] with two placebos..." (24-DLWW) |
-| Cross-sectional corroboration | 6/6 | "Corroborating our primary findings, we also find that our results are stronger in [setting] and weaker in [setting]." (24-DLWW) |
-| Fixed effects robustness | 5/6 | "Our primary results are robust to including audit firm, client, signatory auditor, and province-year fixed effects." (24-DLWW) |
+| Auditor rotation as quasi-experiment | 2/6 (template) | "Our first test exploits regulations in China that require signatory auditors to rotate every five years..." (25-DQSZ) |
+| Regulatory shock | 3/6 (template) | "We exploit a regulatory shock that disrupts the auditor's business connections..." (24-DLWW) |
+| Placebo / falsification test | 4/6 (template) | "We also perform falsification tests that replace [X] with two placebos..." (24-DLWW) |
+| Cross-sectional corroboration | 6/6 (template) | "Corroborating our primary findings, we also find that our results are stronger in [setting] and weaker in [setting]." (24-DLWW) |
+| Fixed effects robustness | 5/6 (template) | "Our primary results are robust to including audit firm, client, signatory auditor, and province-year fixed effects." (24-DLWW) |
 
 **Use whichever 2-3 of these are honest in the paper.** Do not invent.
 
@@ -262,7 +266,7 @@ Third, we [contribute to literature L3] by [doing Z3].
 
 See `contribution_formulas.md` for 8 specific formulas.
 
-### Closing limitation paragraph (in 4/6 papers)
+### Closing limitation paragraph (in 4/6 (template) papers)
 
 After contributions, optionally add 1 paragraph acknowledging scope limitations:
 
@@ -350,7 +354,7 @@ This paper is a **counter-template** to the canonical 5-block intro: it inverts 
 1. **RQ-first opening.** Sentence 1 of ¶1 states the research question; the lit-baseline anchor (DeAngelo 1981, Francis-Wilson 1988, Dopuch-Simunic 1982, Sirois-Simunic 2011) backs it up only after the RQ is in place. Inverts the M1A default.
 2. **Design-driven Block 2.** No theory derivation; tension comes from quoted methodological critiques of PSM/Heckman selection-correction approaches. When the contribution is a quasi-experiment rather than a new theory, this is the available substitution.
 3. **No numeric magnitude in Block 4.** Direction-only finding ("smaller discretionary accruals"). Predates the modern magnitude-non-negotiable norm; do not replicate this in 2024+ submissions.
-4. **M7 limitation embedded mid-Final.** Limitations sit between Contribution 1 and Contribution 2 rather than after both contributions. Atypical placement; the 4/6 corpus default is post-contribution.
+4. **M7 limitation embedded mid-Final.** Limitations sit between Contribution 1 and Contribution 2 rather than after both contributions. Atypical placement; the 4/6 (template) corpus default is post-contribution.
 5. **TAR roadmap preserved.** Final sentence is the explicit "Section II discusses..." roadmap; supports the convention that TAR/AJPT keep roadmaps even when modern JAE drops them.
 
 ---
@@ -381,7 +385,7 @@ This paper is the reference exemplar for the **M1A practitioner-data variant**: 
 **Notable deviations in 22-LNS**:
 
 1. **M1A practitioner-data variant.** Opener cites industry data (AICPA survey, PwC recruiter map) rather than academic literature. The rhetorical function of M1A (establish baseline + signal field-knowledge) is preserved; the *evidence type* is practitioner not academic. File this as an M1A sub-form, not a new opener category.
-2. **M4 tension omission.** Block 2 develops the proximity → recruiting → audit-quality mechanism but provides no explicit counter-mechanism or "however, there are reasons why..." paragraph. The endogeneity-concern phrasing in Block 5 is identification-against-confound, not a theoretical tension. Adding 22-LNS to the corpus would change the M4 frequency claim from "corpus-unanimous 6/6" to "k/N where M4 is the dominant default but not universal".
+2. **M4 tension omission.** Block 2 develops the proximity → recruiting → audit-quality mechanism but provides no explicit counter-mechanism or "however, there are reasons why..." paragraph. The endogeneity-concern phrasing in Block 5 is identification-against-confound, not a theoretical tension. Adding 22-LNS to the corpus would change the M4 frequency claim from "corpus-unanimous 6/6 (template)" to "k/N where M4 is the dominant default but not universal".
 3. **No roadmap on a TAR paper.** Intro ends with the AICPA/offices/clients implications paragraph rather than "Section II discusses...". Mild deviation from the style_dna §8 TAR-keeps-roadmap convention; suggests the rule may soften to "TAR optional, JAR/JAE drop".
 4. **F5+F2 magnitude coupling.** Block 4 reports the interquartile-shift form ("an interquartile shift... reduces the likelihood... by around 9.07 (9.44) percent") that doubles as a percent-of-base reduction; cleanest single-clause F5+F2 pairing in the corpus to date.
 5. **Block 5 density.** Combines IV, entropy balancing, alternative DV proxies, expanded city/state controls, orthogonalization, subsample exclusions, switch-design Big-R falsification, cross-sectional partition by office concentration, and beyond-60-mile discriminant placebo. Use as a structural template when the contribution rests on overcoming geography-confound concerns.
@@ -450,7 +454,7 @@ This paper is the reference exemplar for the **M1A practitioner-data variant**: 
 
 **Notable deviations in 19-Aob**:
 
-1. **RQ-first opener inverts M1A.** Sentence 1 of ¶1 states the concordance research question; the M1A lit-baseline anchor follows. Pairs with 19-JWW, 22-FHKF, 23-ZBLM as the corpus's RQ-first family. The corpus claim "M1A 4/6 default" is now better stated as "M1A dominant but RQ-first is a recognized variant for concordance / methods / first-archival-evidence papers".
+1. **RQ-first opener inverts M1A.** Sentence 1 of ¶1 states the concordance research question; the M1A lit-baseline anchor follows. Pairs with 19-JWW, 22-FHKF, 23-ZBLM as the corpus's RQ-first family. The corpus claim "M1A 4/6 (template) default" is now better stated as "M1A dominant but RQ-first is a recognized variant for concordance / methods / first-archival-evidence papers".
 2. **Three-sided M4 tension.** ¶2 layers three counter-considerations (AU 110 pro-direction · practitioner-judgment counter · practitioner-measure limitations third hand). The third hand is rare in the corpus and worth recording as an "M4 three-sided" sub-form; reach for it when the paper's measurement claim itself has known weaknesses that deserve acknowledgement in the intro.
 3. **Dual-magnitude pair across adjacent sentences.** Block 4 reports F2 percent-of-base for output proxies and F5 IQR for the input (audit fees) proxy in two adjacent sentences keyed to proxy type. Use this template when output and input proxies of the same construct have different natural magnitude forms.
 4. **Single-author "I" register.** All quotes use first-person singular. The DeFond/Khurana lineage uses "we" even on single-authored work; 19-Aob breaks this. JAE tolerates the singular form — pairs with 22-Dug, 24-Chen as a JAR/JAE solo-voice variant.
@@ -523,8 +527,8 @@ This paper is the reference exemplar for the **M1A practitioner-data variant**: 
 
 **Notable deviations in 20-WY**:
 
-1. **Anecdote opener tolerated by JAR 2020.** ¶1 leads with Deng Xiaoping's "Let some people get rich first!" pronouncement and a scandal montage before reaching the RQ — currently listed as 0/6 forbidden in intro_patterns.md. 20-WY is a JAR-tolerated counter-example, suggesting the "forbidden anecdote opener" rule should soften to "rare; tolerated in pre-2023 JAR when the anecdote carries policy resonance, not acceptable at JAR/JAE/TAR post-2023".
-2. **M4 tension paragraph absent.** Block 2 develops only the pro-prediction mechanism (publicity → regulator scrutiny → auditor risk); no "however..." counter-paragraph. Aligns with 22-LNS, 22-FHKF, 22-FW, 24-Chen — corpus M4 frequency claim should be revised from "6/6 unanimous" to "dominant default but not universal (k/N)".
+1. **Anecdote opener tolerated by JAR 2020.** ¶1 leads with Deng Xiaoping's "Let some people get rich first!" pronouncement and a scandal montage before reaching the RQ — currently listed as 0/6 (template) forbidden in intro_patterns.md. 20-WY is a JAR-tolerated counter-example, suggesting the "forbidden anecdote opener" rule should soften to "rare; tolerated in pre-2023 JAR when the anecdote carries policy resonance, not acceptable at JAR/JAE/TAR post-2023".
+2. **M4 tension paragraph absent.** Block 2 develops only the pro-prediction mechanism (publicity → regulator scrutiny → auditor risk); no "however..." counter-paragraph. Aligns with 22-LNS, 22-FHKF, 22-FW, 24-Chen — corpus M4 frequency claim should be revised from "6/6 (template) unanimous" to "dominant default but not universal (k/N)".
 3. **Hypothesis stated narratively.** ¶4 states the directional prediction as "The above reasoning suggests auditors will become stricter..." rather than the canonical "**H1.** ... ceteris paribus" form. Defensible for a DiD-event paper where directionality is unambiguous.
 4. **Dual-DV paired-magnitude pattern.** Block 4 carries paired F2 percent-of-base magnitudes ("about 6.3%" for MAO; "about 8%" for audit fees) in adjacent sentences. Cleaner two-sentence dual-DV F2+F2 variant; use when both DVs are continuous and natural percentage scales differ.
 5. **"sheds new light" usage.** style_dna §2 lists "shed light on" as a banned hedge; 20-WY uses it on Contribution 2. Pre-2023 papers tolerate it, post-2023 don't — record as a 2020-tolerable usage that would not pass a modern referee.
@@ -563,7 +567,7 @@ This paper is the reference exemplar for the **M1A practitioner-data variant**: 
 2. **Triple-prediction architecture instead of single-H.** Develops three predictions of two-sided matching; no formal "**H1.**" — Block 2 theory expansion sits entirely in §2. Pairs with 23-ACN, 22-CHLP, 23-ZBLM, 24-Chen as the RQ/multi-prediction variant. Reach for it when the contribution is a system of related predictions rather than a single directional test.
 3. **No "Consistent with our hypothesis" opener in Block 4.** Block 4 leads with "we find an economically and statistically significant relation," skipping the canonical lead form. Consistent with 19-JWW, 22-LNS, 22-FHKF — papers without a formal H in Block 2 also drop the matching opener in Block 4.
 4. **Internal-benchmark F6 magnitude variant.** "nearly half as important as client size" references the in-paper benchmark of client-size matching mechanics rather than an external literature comparator. Worth recording as an "internal-benchmark F6 variant" — the comparator is the same regression's other coefficient.
-5. **Block 5 transparency-shock as identification.** 2007 BrokerCheck modernization sits in Block 4/5 hybrid space, paired with cross-sectional partition and forward-misconduct prediction rather than a discrete identification battery. Matches the corpus pattern of "regulatory shock" as a Block 5 move (~3/6 frequency).
+5. **Block 5 transparency-shock as identification.** 2007 BrokerCheck modernization sits in Block 4/5 hybrid space, paired with cross-sectional partition and forward-misconduct prediction rather than a discrete identification battery. Matches the corpus pattern of "regulatory shock" as a Block 5 move (~3/6 (template) frequency).
 
 ---
 
@@ -632,7 +636,7 @@ This paper is the reference exemplar for the **M1A practitioner-data variant**: 
 
 **Notable deviations in 22-Dug**:
 
-1. **Policy-motivation opener tolerated.** ¶1 sentence 1 is policy motivation — the move bank lists this as 0/6 forbidden in the canonical corpus, but 22-Dug is a 2022 JAR counter-example with a quasi-experimental policy-variation design. Combined with 20-WY's anecdote opener, the "forbidden openings" claim should soften to "rare; JAR-tolerated when the policy resonance is genuine, not acceptable post-2023 at JAE/TAR".
+1. **Policy-motivation opener tolerated.** ¶1 sentence 1 is policy motivation — the move bank lists this as 0/6 (template) forbidden in the canonical corpus, but 22-Dug is a 2022 JAR counter-example with a quasi-experimental policy-variation design. Combined with 20-WY's anecdote opener, the "forbidden openings" claim should soften to "rare; JAR-tolerated when the policy resonance is genuine, not acceptable post-2023 at JAE/TAR".
 2. **M4 tension in ¶1, not Block 2.** "On one hand … On the other hand" tension lives in ¶1 itself, immediately after the policy opener. Block 2 carries only the four-reason mechanism preview and narrative H. Combined with 22-LNS, 20-WY, 22-FHKF, 22-FW, 24-Chen — the M4-corpus-unanimous claim is no longer defensible; M4 in canonical Block 2 placement is the *dominant* form, not universal.
 3. **Single-author "I" register.** Verb whitelist still holds but pronoun differs from corpus-universal "we". Pairs with 19-Aob, 24-Chen — JAR/JAE tolerance for solo voice. File as a register sub-variant, not a deviation requiring style-DNA update.
 4. **Narrative H statement, no formal "**H1.**".** Section 2 may carry the formal H; the intro version is narrative. Suggests style_dna §8 intro-formal-H requirement should soften from rule to convention.
@@ -737,7 +741,7 @@ This paper is the reference exemplar for the **M1A practitioner-data variant**: 
 | ¶9: "new bullet train routes in provincial cities are not associated with audit quality changes for companies located in these cities" | 5 | Placebo test; placebo on provincial cities yields null |
 | ¶10: "bullet train connectivity is not associated with changes in the quality of pre-audit earnings" | 5 | Discriminant null; pre-audit-earnings null isolates auditor-behaviour channel |
 | ¶11: "This paper contributes to the literature by using a plausibly exogenous shock to audit market competition that helps us test the causal relation" | Final | M6 form 7 Contribution 1; design-asset framed, single-paragraph contribution form |
-| ¶12: "we caveat that our inferences are based on analyses of companies and auditors in China, where the regulatory and institutional environment is weaker" | Final | M7 closing scope/limitation; canonical 4/6 corpus placement |
+| ¶12: "we caveat that our inferences are based on analyses of companies and auditors in China, where the regulatory and institutional environment is weaker" | Final | M7 closing scope/limitation; canonical 4/6 (template) corpus placement |
 
 **Notable features in 23-PSZ**:
 
