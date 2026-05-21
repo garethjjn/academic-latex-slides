@@ -817,6 +817,37 @@ Taken together, [closing template from §11.2].
 
 ---
 
+## 14b. Stage-1 Phase-C pilot digest (4 archival papers; 2026-05-22)
+
+**Corpus finding (scope-relevant).** Only **4 of the 16** Stage-1 pilot papers carry a *standalone* robustness / additional-analyses section (`22-LNS`, `22-Dug`, `19-Aob`, `23-PSZ`); the other 12 **fold robustness into §4 (results)** as a `§4.3`-style sub-section rather than a separate section. So the numbered-battery gold standard (`25-DQSZ`, §14 above) is realized as a *standalone* section only in a minority of modern audit papers — more often the battery is distributed inside results. Treat a standalone §5 battery as the strong-form template, not a universal requirement; when robustness lives in §4, the same enumeration discipline still applies. Full annotated tables for the 4 are staging files `<code>_robustness.md` in `corpus_inventory/track_b_drafts/`.
+
+| Code | Battery shape | Distinctive feature |
+|---|---|---|
+| `22-LNS` | Dense multi-layer battery: IV + entropy balancing + ITCV + FE + auditor-switch change tests | Theory-driven cross-sectional partitions (labor-demand: office size, city concentration) |
+| `23-PSZ` | Identification + falsification battery | Geographic IV (SLOPE) with first-stage diagnostics + explicit exclusion-restriction caveat; provincial-city placebo |
+| `19-Aob` | DeFond standard battery by *functional taxonomy* (not rigid headers) | Sample partitions by firm size; treatment decomposition into theoretical subcomponents; paired "should-not-matter" falsification (Non-Complex Estimates) |
+| `22-Dug` | Mechanism-validation + sample-composition sensitivity | Two theoretical channels (misreporting reduction / misconduct-cost escalation); alternative aggregation specification |
+
+### Reusable variants
+
+1. **Enumerate the battery.** All four read as an ordered list of distinct tests (the `check_structure --section robustness` gate now requires a numbered/enumerated battery of ≥3). Use "First, … Second, … Third, …" or "we perform [N] analyses".
+2. **Pair an instrument/shock with its diagnostics + caveat.** `23-PSZ` reports the first stage AND the exclusion-restriction caveat — do not present an IV without both.
+3. **Falsification via a "should-not-matter" variant** (`19-Aob` Non-Complex Estimates; `23-PSZ` placebo) is the most reused single move.
+4. **Cross-sectional partitions belong here only if theory-driven** (`22-LNS` labor-demand) — otherwise they read as fishing.
+
+### Drafting retrieval guide
+
+| If your robustness section has... | Retrieve |
+|---|---|
+| a full six-test standalone battery | `25-DQSZ` (§14 anchor) |
+| an instrument + first-stage + exclusion caveat | `23-PSZ` |
+| a "should-not-matter" falsification | `19-Aob` or `23-PSZ` |
+| treatment decomposition into subcomponents | `19-Aob` |
+| mechanism-channel validation as robustness | `22-Dug` |
+| entropy balancing / ITCV / IV stacked together | `22-LNS` |
+
+---
+
 ## 15. Self-Audit Checklist
 
 Before finalizing a robustness / additional-analyses section, verify:

@@ -94,6 +94,19 @@ def main():
     cases.append(("check_structure flags design with flat (untiered) controls",
                    cs_ft, [l for l in out.splitlines() if "tiered" in l][:1]))
 
+    # robustness numbered-battery check (Round 3)
+    rc, out = run("check_structure.py", os.path.join(FIX, "robustness_battery.md"),
+                  "--section", "robustness")
+    cs_rb = rc == 0 and "[ Y]" in out and "numbered/enumerated battery" in out
+    cases.append(("check_structure passes a numbered robustness battery",
+                   cs_rb, [l for l in out.splitlines() if "battery" in l][:1]))
+
+    rc, out = run("check_structure.py", os.path.join(FIX, "robustness_thin.md"),
+                  "--section", "robustness")
+    cs_rt = rc == 0 and "[ N]" in out and "numbered/enumerated battery" in out
+    cases.append(("check_structure flags a thin (un-enumerated) robustness section",
+                   cs_rt, [l for l in out.splitlines() if "battery" in l][:1]))
+
     corpus = os.path.join(FIX, "corpus_sample.txt")
     rc, out = run("verify_quote.py", corpus,
                   "we find a significantly negative association between auditor "

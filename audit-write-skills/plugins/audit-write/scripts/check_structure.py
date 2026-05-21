@@ -101,6 +101,13 @@ RES_CS = re.compile(
     r"\b(cross-section|partition|heterogen|subsample|stronger (?:for|when|in|among)|"
     r"weaker (?:for|when|in|among))\b", re.I)
 RES_MECH = re.compile(r"\b(mechanism|channel|path analysis)\b", re.I)
+# robustness §5: the gold standard is a NUMBERED / enumerated battery of tests
+ROBUST_ORDINAL = re.compile(
+    r"(?mi)(?<![\w-])(first|second|third|fourth|fifth|sixth|seventh)(?![\w-])")
+ROBUST_COUNT = re.compile(
+    r"\bwe (?:perform|conduct|report|run|present|consider) (?:the following |a series of |"
+    r"several |a battery of |)?(?:\w+\s+){0,2}(?:analyses|tests|specifications|"
+    r"robustness checks?)\b", re.I)
 
 # design §3 mandatory-element cues (complement the identification-deferred check)
 DESIGN_EQ = re.compile(
@@ -220,6 +227,11 @@ def check(path, section):
             elif csm and not idm:
                 rows.append(("C5 identification BEFORE cross-sectional (none found)",
                               "N", "Dim 1/4"))
+        if section == "robustness":
+            n_ord = len({m.group(1).lower() for m in ROBUST_ORDINAL.finditer(text)})
+            battery = n_ord >= 3 or bool(ROBUST_COUNT.search(text))
+            rows.append(("C5 robustness presents a numbered/enumerated battery (>=3)",
+                          yn(battery), "Dim 1"))
     else:
         rows.append(("C5/C6 section structural checks", "NA",
                       "pass --section to enable"))

@@ -237,6 +237,17 @@ This deploys the numbered-battery template (5 tests) and invokes the Khurana 202
 
 ---
 
+## Deterministic gate (run before delivering a drafted/rewritten §5)
+
+Before delivery, run the mechanical gate and resolve every flag.
+
+1. **Run the style linter:** `python ../../scripts/lint_style.py <draft-file>` — fix EVERY ERROR and WARN (blacklist verbs; etc.). Re-run until 0 ERRORs / 0 WARNs.
+2. **Run the structure checker:** `python ../../scripts/check_structure.py <draft-file> --section robustness` — resolve any `N`: the section must present a **numbered / enumerated battery of ≥3 tests** ("First, … Second, … Third, …" or "we perform [N] analyses"), and report an effect magnitude where one is claimed. (If your robustness lives inside §4 results rather than a standalone §5, the same enumeration discipline applies — see `robustness_patterns.md` §14b: only a minority of papers use a standalone section.)
+3. **If the draft quotes a source verbatim**, run `../../scripts/verify_quote.py <source-txt> "<quote>"` on each quote.
+4. **Run the "Self-Audit Checklist"** in `robustness_patterns.md` §15 for anything the scripts cannot mechanically check.
+
+Do not deliver until the linter is clean and the checklist passes.
+
 ## When you finish
 
 End with one short closer line:
