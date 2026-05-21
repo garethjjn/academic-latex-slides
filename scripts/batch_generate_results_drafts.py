@@ -38,6 +38,38 @@ STATUS_PATH = TRACK_B_DRAFTS / "_results_batch_status.md"
 SECTION_SPLITTER = ROOT / "scripts" / "pdf_section_split.py"
 OPENAI_DEFAULT_BASE_URL = "https://api.openai.com/v1"
 DEEPSEEK_DEFAULT_BASE_URL = "https://api.deepseek.com/v1"
+QWEN_DEFAULT_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
+
+# Provider abstraction. Each provider maps to its key/base-url/model env vars,
+# a default base URL, and a default model. Provider precedence (when neither
+# --provider nor AUDIT_RESULTS_PROVIDER is set) follows PROVIDER_ORDER: QWEN is
+# preferred when its key is present, then DeepSeek, then OpenAI.
+PROVIDER_ORDER = ("qwen", "deepseek", "openai")
+PROVIDER_KEY_ENV = {
+    "qwen": "QWEN_API_KEY",
+    "deepseek": "DEEPSEEK_API_KEY",
+    "openai": "OPENAI_API_KEY",
+}
+PROVIDER_BASE_ENV = {
+    "qwen": "QWEN_BASE_URL",
+    "deepseek": "DEEPSEEK_BASE_URL",
+    "openai": "OPENAI_BASE_URL",
+}
+PROVIDER_MODEL_ENV = {
+    "qwen": "QWEN_MODEL",
+    "deepseek": "DEEPSEEK_MODEL",
+    "openai": "OPENAI_MODEL",
+}
+PROVIDER_DEFAULT_BASE = {
+    "qwen": QWEN_DEFAULT_BASE_URL,
+    "deepseek": DEEPSEEK_DEFAULT_BASE_URL,
+    "openai": OPENAI_DEFAULT_BASE_URL,
+}
+PROVIDER_DEFAULT_MODEL = {
+    "qwen": "qwen3.7-max",
+    "deepseek": "deepseek-v4-pro",
+    "openai": None,
+}
 RESULTS_PATTERNS = (
     ROOT
     / "audit-write-skills"
@@ -53,6 +85,39 @@ LINT_STYLE = (
 VERIFY_QUOTE = (
     ROOT / "audit-write-skills" / "plugins" / "audit-write" / "scripts" / "verify_quote.py"
 )
+
+# Section-parametrized generation. `results` keeps the original behaviour; the
+# other sections reuse the same extraction + quote + lint pipeline.
+_SKILLS = ROOT / "audit-write-skills" / "plugins" / "audit-write" / "skills"
+SECTION_CONFIG: dict[str, dict[str, str]] = {
+    "results": {
+        "patterns": str(_SKILLS / "audit-write-results" / "results_patterns.md"),
+        "moves": ("descriptive statistics, primary/baseline result, economic magnitude "
+                  "translation, identification/falsification/placebo, fixed effects or "
+                  "alternative measures, cross-section/heterogeneity, mechanism/channel, "
+                  "null or mixed-result handling, and section closer"),
+    },
+    "design": {
+        "patterns": str(_SKILLS / "audit-write-design" / "design_patterns.md"),
+        "moves": ("the dependent-variable definition + its defense paragraph, the "
+                  "independent variable built bottom-up, the numbered baseline equation, "
+                  "the control groups (2-4 categorical), and the fixed-effects + clustering "
+                  "choices; note when identification machinery (rotation/shock/falsification) "
+                  "is deferred OUT of this section to results"),
+    },
+    "abstract": {
+        "patterns": str(_SKILLS / "audit-write-abstract" / "abstract_patterns.md"),
+        "moves": ("setup, prediction-with-tension, finding, heterogeneity, "
+                  "cost/dark-side, and the Collectively/Overall closer; record that the "
+                  "abstract carries ZERO effect-size numbers (sample sizes/years only)"),
+    },
+    "robustness": {
+        "patterns": str(_SKILLS / "audit-write-robustness" / "robustness_patterns.md"),
+        "moves": ("the numbered identification battery (e.g. rotation, regulatory shock, "
+                  "decomposition, channel test, cross-sectional partition, client FE), "
+                  "alternative-specification tests, and falsification/placebo tests"),
+    },
+}
 
 PDF_READER_CANDIDATES = [
     ROOT
@@ -280,10 +345,19 @@ def find_pdf(filename: str) -> Path | None:
 def find_txt(pdf_path: Path | None) -> Path | None:
     if pdf_path is None:
         return None
+    # Prefer the pre-cleaned ASCII companion when present (see preclean_corpus.py):
+    # it feeds both the generation input and the quote-verification corpus, so the
+    # model quotes clean ASCII and the gate matches it.
+    clean = pdf_path.with_name(f"{pdf_path.stem}.clean.txt")
+    if clean.exists():
+        return clean
     same_stem = pdf_path.with_suffix(".txt")
     if same_stem.exists():
         return same_stem
     if pdf_path.parent.name == "audit_writing_corpus":
+        clean_corpus = pdf_path.parent / "txt" / f"{pdf_path.stem}.clean.txt"
+        if clean_corpus.exists():
+            return clean_corpus
         candidate = pdf_path.parent / "txt" / f"{pdf_path.stem}.txt"
         if candidate.exists():
             return candidate
@@ -323,13 +397,13 @@ def run_subprocess(args: list[str], timeout: int = 180) -> subprocess.CompletedP
     )
 
 
-def extract_results(pdf_path: Path, timeout: int) -> tuple[bool, str, str]:
+def extract_results(pdf_path: Path, timeout: int, section: str = "results") -> tuple[bool, str, str]:
     proc = run_subprocess(
         [
             sys.executable,
             str(SECTION_SPLITTER),
             str(pdf_path),
-            "results",
+            section,
             "--with-paragraphs",
         ],
         timeout=timeout,
@@ -337,6 +411,9 @@ def extract_results(pdf_path: Path, timeout: int) -> tuple[bool, str, str]:
     details = "\n".join(part for part in [proc.stderr.strip(), proc.stdout[:500].strip()] if part)
     if proc.returncode == 0:
         return True, proc.stdout, details
+    # the decimal-multivariate fallback is results-specific; other sections rely on the splitter
+    if section != "results":
+        return False, proc.stdout, details
     fallback_ok, fallback_text, fallback_detail = fallback_extract_results(pdf_path)
     if fallback_ok:
         combined = "\n".join(
@@ -540,19 +617,22 @@ def build_prompt(
     results_patterns: str,
     pdf_reader_contract: str,
     pdf_reader_source: str,
+    section: str = "results",
+    moves: str | None = None,
 ) -> str:
-    source_txt = rel(paper.txt_path) if paper.txt_path else "none; quote gate will use extracted results text"
+    source_txt = rel(paper.txt_path) if paper.txt_path else f"none; quote gate will use extracted {section} text"
+    moves = moves or SECTION_CONFIG.get(section, SECTION_CONFIG["results"])["moves"]
     return f"""\
-Task: Generate a draft annotated exemplar for audit-write-results Phase C Batch 3.
+Task: Generate a draft annotated exemplar for audit-write-{section} (Stage-1 distillation).
 
 Paper:
 - Code: {paper.code}
 - Source PDF: {rel(paper.pdf_path)}
 - Source TXT: {source_txt}
-- Output file name: corpus_inventory/track_b_drafts/{paper.code}_results.md
+- Output file name: corpus_inventory/track_b_drafts/{paper.code}_{section}.md
 
 Required markdown output:
-- Title: "# Draft annotated exemplar - {paper.code} / results (API draft)"
+- Title: "# Draft annotated exemplar - {paper.code} / {section} (API draft)"
 - Opening italic metadata paragraph with STATUS: DRAFT, Source PDF, Source TXT.
 - Section heading: "## Annotated example (draft): <authors/year if inferable> (`{paper.code}`)"
 - A markdown table with this exact header:
@@ -560,13 +640,9 @@ Required markdown output:
 - Include at least 12 candidate rows.
 - Use ASCII punctuation in your own markup and annotations.
 - Each Quote cell must contain one short ASCII straight-double-quoted verbatim
-  phrase copied from the supplied extracted results section.
+  phrase copied from the supplied extracted {section} section.
 - Do not use curly quote delimiters. Use "like this", not curly quotes.
-- Cover these move families when present: descriptive statistics, primary result
-  lead, coefficient/significance statement, economic magnitude translation,
-  table column/panel walk, identification/falsification/placebo, fixed effects or
-  alternative measures, cross-section/heterogeneity, mechanism/channel, null or
-  mixed-result handling, and section closer.
+- Cover these move families when present: {moves}.
 - After the table, add "## Commentary", "## Self-check log", and
   "## Reviewer notes (for human)".
 - The Conf column must use high, medium, or low.
@@ -581,13 +657,13 @@ Required markdown output:
 Audit-pdf-reader contract source: {pdf_reader_source}
 {pdf_reader_contract}
 
-Current audit-write-results pattern reference:
+Current audit-write-{section} pattern reference:
 {results_patterns}
 
-Extracted results section for {paper.code}:
-<<<RESULTS_SECTION_START
+Extracted {section} section for {paper.code}:
+<<<SECTION_START
 {results_text}
-RESULTS_SECTION_END>>>
+SECTION_END>>>
 """
 
 
@@ -679,7 +755,18 @@ def normalize_api_markdown(text: str) -> str:
         "\u201b": "'",
         "\u2013": "-",
         "\u2014": "-",
+        "\u2010": "-",
+        "\u2011": "-",
+        "\u2012": "-",
+        "\u2212": "-",  # unicode MINUS SIGN (table coefficients: -0.050)
         "\u00a0": " ",
+        "\ufb00": "ff",
+        "\ufb01": "fi",
+        "\ufb02": "fl",
+        "\ufb03": "ffi",
+        "\ufb04": "ffl",
+        "\ufb05": "ft",
+        "\ufb06": "st",
     }
     for src, dst in replacements.items():
         text = text.replace(src, dst)
@@ -840,7 +927,9 @@ def render_status(statuses: list[PaperStatus], args: argparse.Namespace) -> str:
         f"Generated: {timestamp}",
         "",
         f"- Inventory: `{rel(GOLD_SET)}`",
-        f"- Model: `{args.model or get_env_var('AUDIT_RESULTS_MODEL') or get_env_var('DEEPSEEK_MODEL') or ''}`",
+        f"- Provider: `{getattr(args, 'provider', '') or ''}`",
+        f"- Model: `{args.model or ''}`",
+        f"- Base URL: `{args.base_url or ''}`",
         f"- Dry run: `{bool(args.dry_run)}`",
         f"- Overwrite: `{bool(args.overwrite)}`",
         "",
@@ -899,7 +988,7 @@ def process_paper(
 ) -> PaperStatus:
     status = PaperStatus(code=paper.code)
     status.pdf = rel(paper.pdf_path) if paper.pdf_path else "MISSING"
-    output_path = TRACK_B_DRAFTS / f"{paper.code}_results.md"
+    output_path = TRACK_B_DRAFTS / f"{paper.code}_{args.section}.md"
     status.output = rel(output_path)
 
     if paper.pdf_path is None:
@@ -914,7 +1003,7 @@ def process_paper(
         status.quote = "NO_TXT"
         status.note("No companion txt; quote gate will use extracted results text.")
 
-    ok, results_text, details = extract_results(paper.pdf_path, args.extract_timeout)
+    ok, results_text, details = extract_results(paper.pdf_path, args.extract_timeout, args.section)
     if not ok:
         status.extract = "FAIL"
         status.final = "FAILED"
@@ -962,6 +1051,7 @@ def process_paper(
             results_patterns=results_patterns,
             pdf_reader_contract=pdf_reader_contract,
             pdf_reader_source=pdf_reader_source,
+            section=args.section,
         )
         content = ""
         last_error = ""
@@ -1024,34 +1114,56 @@ def process_paper(
 
 
 def build_arg_parser() -> argparse.ArgumentParser:
-    default_api_key_name = resolve_api_key_name()
-    default_base_url = resolve_base_url(default_api_key_name)
-    default_model = resolve_model(default_api_key_name)
     parser = argparse.ArgumentParser(
         description="Generate audit-write results staging drafts from gold_set_pilot.md."
+    )
+    parser.add_argument(
+        "--section",
+        choices=sorted(SECTION_CONFIG),
+        default="results",
+        help="Paper section to distill (default results). Selects the pattern file, the "
+             "splitter target, the move-family prompt, and the <CODE>_<section>.md output.",
     )
     parser.add_argument("--dry-run", action="store_true", help="Parse, locate, and extract only.")
     parser.add_argument("--limit", type=int, help="Process only the first N selected papers.")
     parser.add_argument("--only", help="Comma-separated paper codes, e.g. 19-JWW,22-FW.")
     parser.add_argument("--overwrite", action="store_true", help="Regenerate existing drafts.")
     parser.add_argument(
-        "--model",
-        default=default_model,
+        "--provider",
+        choices=sorted(PROVIDER_ORDER),
+        default=None,
         help=(
-            "Model name. Defaults to AUDIT_RESULTS_MODEL, then DEEPSEEK_MODEL, "
-            "then deepseek-v4-pro when DEEPSEEK_API_KEY is set."
+            "API provider. Defaults to AUDIT_RESULTS_PROVIDER, then the first of "
+            "qwen/deepseek/openai whose key env var is set (QWEN preferred)."
+        ),
+    )
+    parser.add_argument(
+        "--model",
+        default=None,
+        help=(
+            "Model name. Defaults to AUDIT_RESULTS_MODEL, then <PROVIDER>_MODEL, "
+            "then the provider default (qwen3.6-plus for QWEN, deepseek-v4-pro for DeepSeek)."
         ),
     )
     parser.add_argument(
         "--base-url",
-        default=default_base_url,
+        default=None,
         help=(
-            "OpenAI-compatible API base URL. Defaults to OPENAI_BASE_URL, then "
-            "DEEPSEEK_BASE_URL, then DeepSeek when DEEPSEEK_API_KEY is set."
+            "OpenAI-compatible API base URL. Defaults to <PROVIDER>_BASE_URL, then "
+            "the provider default (DashScope for QWEN, DeepSeek for DeepSeek)."
         ),
     )
     parser.add_argument("--temperature", type=float, default=0.2)
-    parser.add_argument("--max-tokens", type=int, default=8000)
+    parser.add_argument(
+        "--max-tokens",
+        type=int,
+        default=16384,
+        help=(
+            "Completion token cap. Default 16384 gives headroom so verbose models "
+            "finish the table + required sections instead of truncating mid-output. "
+            "qwen3.6-plus typically completes in ~6.5k."
+        ),
+    )
     parser.add_argument("--pattern-chars", type=int, default=6000)
     parser.add_argument("--reader-chars", type=int, default=2500)
     parser.add_argument(
@@ -1098,43 +1210,45 @@ def get_env_var(name: str) -> str | None:
     return None
 
 
-def resolve_api_key_name() -> str | None:
-    if get_env_var("DEEPSEEK_API_KEY"):
-        return "DEEPSEEK_API_KEY"
-    if get_env_var("OPENAI_API_KEY"):
-        return "OPENAI_API_KEY"
+def resolve_provider(explicit: str | None) -> str | None:
+    """Pick the active provider from --provider, AUDIT_RESULTS_PROVIDER, or key presence."""
+    choice = explicit or get_env_var("AUDIT_RESULTS_PROVIDER")
+    if choice:
+        choice = choice.strip().lower()
+        if choice not in PROVIDER_KEY_ENV:
+            raise SystemExit(
+                f"Unknown provider '{choice}'; choose from {', '.join(PROVIDER_ORDER)}"
+            )
+        return choice
+    for provider in PROVIDER_ORDER:
+        if get_env_var(PROVIDER_KEY_ENV[provider]):
+            return provider
     return None
 
 
-def resolve_api_key() -> tuple[str | None, str | None]:
-    key_name = resolve_api_key_name()
-    if key_name is None:
+def resolve_api_key(provider: str | None) -> tuple[str | None, str | None]:
+    if provider is None:
         return None, None
+    key_name = PROVIDER_KEY_ENV[provider]
     return get_env_var(key_name), key_name
 
 
-def resolve_base_url(api_key_name: str | None) -> str:
-    openai_base_url = get_env_var("OPENAI_BASE_URL")
-    if openai_base_url:
-        return openai_base_url
-    deepseek_base_url = get_env_var("DEEPSEEK_BASE_URL")
-    if deepseek_base_url:
-        return deepseek_base_url
-    if api_key_name == "DEEPSEEK_API_KEY":
-        return DEEPSEEK_DEFAULT_BASE_URL
-    return OPENAI_DEFAULT_BASE_URL
+def resolve_base_url(provider: str | None) -> str:
+    if provider is None:
+        return get_env_var("OPENAI_BASE_URL") or OPENAI_DEFAULT_BASE_URL
+    return get_env_var(PROVIDER_BASE_ENV[provider]) or PROVIDER_DEFAULT_BASE[provider]
 
 
-def resolve_model(api_key_name: str | None) -> str | None:
+def resolve_model(provider: str | None) -> str | None:
     audit_results_model = get_env_var("AUDIT_RESULTS_MODEL")
     if audit_results_model:
         return audit_results_model
-    deepseek_model = get_env_var("DEEPSEEK_MODEL")
-    if deepseek_model:
-        return deepseek_model
-    if api_key_name == "DEEPSEEK_API_KEY":
-        return "deepseek-v4-pro"
-    return None
+    if provider is None:
+        return None
+    provider_model = get_env_var(PROVIDER_MODEL_ENV[provider])
+    if provider_model:
+        return provider_model
+    return PROVIDER_DEFAULT_MODEL[provider]
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -1158,11 +1272,26 @@ def main(argv: list[str] | None = None) -> int:
         print(str(exc), file=sys.stderr)
         return 2
 
-    results_patterns = read_text(RESULTS_PATTERNS, args.pattern_chars)
+    results_patterns = read_text(Path(SECTION_CONFIG[args.section]["patterns"]), args.pattern_chars)
     pdf_reader_contract, pdf_reader_source = load_pdf_reader_contract(args.reader_chars)
-    api_key, api_key_name = resolve_api_key()
+    status_path = TRACK_B_DRAFTS / f"_{args.section}_batch_status.md"
+
+    try:
+        provider = resolve_provider(args.provider)
+    except SystemExit as exc:
+        print(str(exc), file=sys.stderr)
+        return 2
+    args.provider = provider
+    api_key, api_key_name = resolve_api_key(provider)
+    if args.base_url is None:
+        args.base_url = resolve_base_url(provider)
+    if args.model is None:
+        args.model = resolve_model(provider)
     if api_key_name:
-        print(f"Using API key from {api_key_name}; base URL: {args.base_url}; model: {args.model}")
+        print(
+            f"Using provider {provider}; key from {api_key_name}; "
+            f"base URL: {args.base_url}; model: {args.model}"
+        )
 
     statuses = [
         process_paper(
@@ -1181,8 +1310,8 @@ def main(argv: list[str] | None = None) -> int:
         print(dry_run_report(statuses))
     else:
         TRACK_B_DRAFTS.mkdir(parents=True, exist_ok=True)
-        STATUS_PATH.write_text(render_status(statuses, args), encoding="utf-8")
-        print(f"Wrote {rel(STATUS_PATH)}")
+        status_path.write_text(render_status(statuses, args), encoding="utf-8")
+        print(f"Wrote {rel(status_path)}")
 
     if any(status.final in {"FAILED", "NEEDS_REVIEW"} for status in statuses):
         return 1

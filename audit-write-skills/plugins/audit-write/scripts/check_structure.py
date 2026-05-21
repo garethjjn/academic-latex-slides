@@ -102,6 +102,16 @@ RES_CS = re.compile(
     r"weaker (?:for|when|in|among))\b", re.I)
 RES_MECH = re.compile(r"\b(mechanism|channel|path analysis)\b", re.I)
 
+# design §3 mandatory-element cues (complement the identification-deferred check)
+DESIGN_EQ = re.compile(
+    r"\bestimat(?:e|ing) the following\b|"
+    r"\bfollowing[^\n.]{0,25}(?:regression|equation|model|specification)\b|"
+    r"\bbaseline[^\n.]{0,25}(?:regression|equation|model|specification)\b|"
+    r"\bequation\s*\(?\s*1\s*\)?|"            # "equation (1)" / "Eq. 1"
+    r"=[^\n]*\(\s*1\s*\)",                    # a displayed equation line ending in (1)
+    re.I)
+DESIGN_CLUSTER = re.compile(r"\bcluster", re.I)  # cluster / clustered / clustering
+
 
 def yn(ok):
     return "Y" if ok else "N"
@@ -172,6 +182,12 @@ def check(path, section):
     elif section == "design":
         rows.append(("C5 §3 free of identification machinery",
                       yn(not ID_MACHINERY.search(text)), "Dim 1"))
+        rows.append(("C5 §3 has a numbered baseline equation",
+                      yn(bool(DESIGN_EQ.search(text))), "Dim 1"))
+        rows.append(("C5 §3 states SE clustering",
+                      yn(bool(DESIGN_CLUSTER.search(text))), "Dim 1"))
+        rows.append(("C5 §3 has a descriptive-statistics block (corpus norm)",
+                      yn(bool(RES_DESC.search(text))), "Dim 1"))
     elif section in ("results", "robustness"):
         rows.append(("C6 effect magnitude present", mag_status, "Dim 3"))
         if section == "results":

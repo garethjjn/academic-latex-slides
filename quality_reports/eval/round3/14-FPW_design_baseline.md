@@ -1,0 +1,33 @@
+## 3. Research Design
+
+### 3.1 Measuring Financial Statement Comparability
+
+Following DeFond and Zhang (2014), audit quality is reflected in the credibility of a client's reported earnings, and our setting lets us examine a property of those earnings that is inherently relational rather than firm-specific: comparability. We measure comparability at the level of a pair of firms in the same industry and year. For each ordered firm pair, our dependent variable, *Comparability*, captures how similar the two firms' reported earnings are after conditioning on the economic events they experience in common. Higher values of *Comparability* indicate that the pair's financial statements map similar economic events into more similar accounting outcomes.
+
+We construct *Comparability* from each firm's accrual-generating function. The economic intuition is that two firms with comparable financial statements translate a given set of economic fundamentals into similar reported numbers. We therefore estimate, firm by firm, the relation between a firm's accruals and its underlying economics (for example, cash flows and other fundamentals), obtaining a firm-specific mapping from economics to reported accounting [PLACEHOLDER: exact estimation window and functional form for the accrual-generating function]. For each firm pair, we then apply both firms' mappings to a common set of economic inputs and compare the two sets of predicted accounting outcomes; the closer the predicted outcomes, the higher the pair's measured comparability [AUTHOR: cite the comparability-measurement antecedent].
+
+Comparability is an appealing property to study in the audit setting because it is a joint product of two clients' reporting and therefore cannot be attributed to a single firm's characteristics in isolation. A pairwise measure isolates the shared component of two firms' reporting, which is precisely the dimension a common auditor could influence. While firm-level proxies such as discretionary accruals, restatements, and going-concern opinions are informative about the level of audit quality for a single client (DeFond and Zhang, 2014; Aobdia, 2019), they are not designed to capture similarity across clients. We accordingly focus on the pairwise comparability measure, which is matched to our research question. [AUTHOR: cite prior comparability and auditor-style work.]
+
+### 3.2 Measuring Shared Auditor Style
+
+Our independent variable of interest, *Same Auditor*, captures whether the two firms in a pair share an auditor and therefore a common auditor "style." We construct *Same Auditor* in two steps. First, for each firm-year we identify the firm's auditor and retain pairs in which both firms are audited by a Big N (Big 4) firm, so that the comparison holds audit-firm size and capability roughly constant across the treatment and benchmark groups [PLACEHOLDER: Big 4 / Big N identification source]. Second, we define *Same Auditor* as an indicator equal to one if both firms in the pair are audited by the same Big 4 firm, and equal to zero if the two firms are audited by two different Big 4 firms.
+
+This construction embeds the paper's central idea. A single audit firm applies an internally consistent set of judgments, working-rule interpretations, and materiality conventions across its clients; two clients of the same firm are exposed to the same "house style," whereas two clients of different firms are not. *Same Auditor* therefore proxies for exposure to a common style, and our prediction is that pairs sharing an auditor exhibit higher comparability. By restricting both the treatment and the benchmark to Big 4 clients, we hold constant the broad differences between Big 4 and non-Big 4 reporting environments and isolate variation in style across audit firms of similar standing.
+
+### 3.3 Empirical Model
+
+We test our hypothesis by estimating the following OLS regression:
+
+> *Comparability*<sub>ij,t</sub> = α + β · *Same Auditor*<sub>ij,t</sub> + γ · *X*<sub>ij,t</sub> + Industry × Year fixed effects + ε<sub>ij,t</sub>     (1)
+
+where *i* and *j* index the two firms in a pair, *t* indexes year, *X*<sub>ij,t</sub> is a vector of pairwise control variables, and the pair is observed within a single industry-year. The coefficient of interest is β; H1 predicts β > 0, indicating that pairs of firms audited by the same Big 4 firm report more comparable earnings than pairs audited by different Big 4 firms. All variables are defined in Appendix A.
+
+### 3.4 Controls, Fixed Effects, and Clustering
+
+Because the unit of observation is a firm pair, the controls are specified as pairwise differences rather than firm levels: each control measures how far apart the two firms are on a given fundamental. We control for the absolute pairwise difference in firm fundamentals that plausibly drive mechanical similarity in accruals, including differences in firm size, the debt-to-assets ratio, growth, operating cash flows, and loss frequency [AUTHOR: cite the source for the control set]. Conditioning on these differences ensures that estimated comparability reflects shared reporting choices rather than the two firms simply being economically alike. [PLACEHOLDER: any same-industry / same-size-decile matching applied to construct the benchmark pairs.]
+
+We include industry × year fixed effects so that each pair is compared only with other pairs drawn from the same industry in the same year, absorbing industry-wide and time-varying shocks to reporting and economic conditions. Because firm pairs that share a firm overlap mechanically, the observations are not independent; the disturbance for one pair is correlated with the disturbances of every other pair containing the same firm. We therefore cluster standard errors to accommodate this non-independence [PLACEHOLDER: clustering dimension — by industry-year or two-way].
+
+### 3.5 Sample Construction
+
+Our sample period covers 1987 through 2011, and the unit of analysis is the firm-pair-year, formed from U.S. public companies grouped within the same industry-year [AUTHOR: data source for financial statement and auditor data]. We begin with all firm-years for U.S. public companies with the data required to construct the accrual-generating function and the pairwise control variables, retain firm-years audited by a Big 4 firm, and form all within-industry-year pairs of such firms. We exclude pairs with insufficient data to estimate either firm's accrual-generating function and pairs with missing data on the pairwise controls. The final sample comprises [PLACEHOLDER: final N of firm-pairs] firm-pair-year observations spanning 1987 to 2011. Variable definitions are provided in Appendix A.

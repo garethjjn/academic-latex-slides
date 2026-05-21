@@ -71,6 +71,39 @@ SECTION_TITLES: dict[str, list[str]] = {
         "main findings",
         "main empirical results",
     ],
+    "abstract": [
+        "abstract",
+    ],
+    "design": [                           # §3 sample / measures / model
+        "research design",
+        "empirical design",
+        "research method",                # method / methodology / methods
+        "data and sample",
+        "sample and data",
+        "sample selection",
+        "sample and variable",
+        "sample, data",                   # "Sample, data, and measures" (22-FHKF)
+        "sample data",                    # "PCAOB sample data construction ..." (19-Aob)
+        "data and variable",              # "Data and Variables" (22-CHLP)
+        "setting, data",                  # "Setting, data, and summary statistics" (20-CKMS)
+        "data and method",
+        "variable measurement",
+        "measurement of variable",
+        "variable definition",
+        "empirical model",
+        "model and variable",
+        "research model",
+    ],
+    "robustness": [                       # the inverse of the results-exclude set
+        "robustness",
+        "sensitivity",
+        "additional analys",              # analysis / analyses
+        "additional test",
+        "supplementary analys",
+        "further analys",
+        "further test",
+        "other analys",
+    ],
 }
 
 # Headers we EXCLUDE when matching `results` (we want main results, not robustness)
@@ -79,19 +112,36 @@ RESULTS_EXCLUDE = [
     "conclusion", "discussion", "implications", "summary",
     "limitations", "extensions",
 ]
+# Per-section exclude lists (first header matching a title and no exclude wins).
+SECTION_EXCLUDE: dict[str, list[str]] = {
+    "results": RESULTS_EXCLUDE,
+    # design: avoid grabbing a later results/robustness header that mentions the model
+    "design": ["results", "findings", "robustness", "sensitivity",
+               "conclusion", "discussion"],
+}
 
 
 # ---------------------------------------------------------------------------
 # Source acquisition
 # ---------------------------------------------------------------------------
 def find_companion_txt(pdf_path: Path) -> Path | None:
-    """Locate the .txt that pairs with the given PDF, trying several locations."""
-    # 1. Same dir, same basename
+    """Locate the .txt that pairs with the given PDF, trying several locations.
+
+    A pre-cleaned `<stem>.clean.txt` (see scripts/preclean_corpus.py) is preferred
+    over the raw `<stem>.txt` so section extraction operates on normalized ASCII.
+    """
+    # 1. Same dir, cleaned then raw
+    clean = pdf_path.with_name(pdf_path.stem + ".clean.txt")
+    if clean.exists():
+        return clean
     candidate = pdf_path.with_suffix(".txt")
     if candidate.exists():
         return candidate
     # 2. audit_writing_corpus/txt/ if PDF is in audit_writing_corpus/
     if pdf_path.parent.name == "audit_writing_corpus":
+        clean_corpus = pdf_path.parent / "txt" / (pdf_path.stem + ".clean.txt")
+        if clean_corpus.exists():
+            return clean_corpus
         candidate = pdf_path.parent / "txt" / (pdf_path.stem + ".txt")
         if candidate.exists():
             return candidate
@@ -195,7 +245,7 @@ def match_target(headers: list[tuple[int, int, str]], section: str) -> int | Non
         tl = title.lower()
         if not any(s in tl for s in titles):
             continue
-        if section == "results" and any(w in tl for w in RESULTS_EXCLUDE):
+        if any(w in tl for w in SECTION_EXCLUDE.get(section, [])):
             continue
         return j
     return None
@@ -251,7 +301,8 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("pdf_path", type=Path)
     ap.add_argument("section", nargs="?",
-                    choices=["intro", "hypothesis", "results"])
+                    choices=["intro", "hypothesis", "results",
+                             "abstract", "design", "robustness"])
     ap.add_argument("--list-sections", action="store_true",
                     help="Print all detected section headers and exit")
     ap.add_argument("--with-paragraphs", action="store_true",

@@ -1,0 +1,31 @@
+## 3. Research Design
+
+### 3.1 Measuring Financial Statement Comparability
+
+Following [AUTHOR: cite for the accrual-based comparability measure], we measure financial statement comparability at the level of the firm pair. Two firms are comparable when their accounting systems map similar economic events into similar financial statements. To operationalize this idea, we estimate each firm's accrual-generating function by regressing the firm's accruals on its cash flows and other fundamentals firm by firm over [PLACEHOLDER: exact estimation window], obtaining a firm-specific mapping from economic events to reported accruals. For each pair of firms in the same industry-year, we then apply both firms' estimated functions to a common set of economic events and compare the predicted accruals. Our comparability measure (Comparability) is increasing in the similarity of the two firms' predicted accruals, so that higher values denote more comparable financial statements. [PLACEHOLDER: exact functional form / sign convention if needed].
+
+Comparability is an appealing proxy for the construct of interest because it captures the output of the financial reporting system rather than its inputs. The auditor's role is to ensure that a client's accounting choices faithfully translate the client's underlying economics into reported numbers; when two clients of the same auditor face similar economics and report similar accruals, the resulting similarity is directly attributable to a shared application of professional judgment. Unlike auditor-characteristic proxies, which measure the inputs to audit quality, our pairwise measure observes the realized consequence of those inputs in the comparability of reported earnings. While alternative comparability proxies based on returns-earnings relations are also informative, we focus on the accrual-based pairwise measure because accruals are the locus of the discretion that an auditor's style most plausibly shapes [AUTHOR: cite for accrual-based comparability choice].
+
+### 3.2 Measuring Shared Auditor Style
+
+Our independent variable of interest captures whether the two firms in a pair share an auditor's style. We construct it in two steps. First, for each firm-year we identify the firm's Big 4 audit firm. Second, for each firm pair in the same industry-year, we define SAME AUDITOR as an indicator equal to one if both firms are audited by the same Big 4 firm, and zero if the two firms are audited by two different Big 4 firms. By restricting both members of every pair to Big 4 clients, the measure isolates variation in shared audit style while holding constant the broad differences in audit quality that distinguish Big 4 from non-Big 4 auditors [AUTHOR: cite for Big 4 audit-quality differences]. A pair coded SAME AUDITOR = 1 is therefore exposed to a common set of firm-wide audit methods, policies, and internal consultation practices, whereas a pair coded zero is exposed to two distinct sets of such practices.
+
+### 3.3 Empirical Model
+
+We test our hypothesis by estimating the following OLS regression:
+
+> Comparability_{i,j,t} = α + β·SAME AUDITOR_{i,j,t} + γ·Controls_{i,j,t} + Industry × Year FE + ε_{i,j,t}     (1)
+
+where _i_ and _j_ index the two firms in a pair and _t_ indexes year. All variables are defined in Appendix A. β is the coefficient of interest; H1 predicts β > 0, indicating that pairs of firms sharing the same Big 4 auditor exhibit greater comparability of reported earnings than pairs audited by two different Big 4 firms.
+
+### 3.4 Controls, Fixed Effects, and Clustering
+
+Because the unit of analysis is the firm pair, we control for pairwise differences in the two firms' fundamentals that could mechanically generate similar or dissimilar accruals. We control for the absolute difference within each pair in firm size, the debt-to-assets ratio, sales growth, operating cash flows, and the incidence of losses [AUTHOR: confirm control list and pairwise-difference definitions]. Each control enters as the pairwise difference between the two firms so that the specification compares pairs that are otherwise similar on these dimensions; full definitions are provided in Appendix A. We include industry-year fixed effects to absorb time-varying, industry-wide shocks to accrual structures, so that identification comes from comparisons among firm pairs within the same industry and year. [PLACEHOLDER: any same-industry / same-size-decile matching, if used]. Because the same firm appears in many overlapping pairs within an industry-year, the pairwise observations are not independent; we therefore cluster standard errors [PLACEHOLDER: by industry-year or two-way by the two firms in each pair] to account for this non-independence [AUTHOR: cite for clustering with overlapping pairs].
+
+### 3.5 Sample Construction
+
+Our sample period is 1987 through 2011 [PLACEHOLDER: confirm period and reason for start/end years]. We begin with U.S. public companies with Big 4 (Big N) auditors and the financial-statement data required to estimate the accrual-generating functions in Equation (1) [AUTHOR: confirm database]. We exclude [PLACEHOLDER: N] firm-years with missing data needed to construct the comparability measure and [PLACEHOLDER: N] firm-years with missing control variables. We then form all firm pairs within each industry-year. The final sample comprises [PLACEHOLDER: final N of firm-pairs] firm-pair-year observations. Variable definitions are provided in Appendix A.
+
+### 3.6 Descriptive Statistics
+
+Table 2 reports descriptive statistics for the variables used in Equation (1). [PLACEHOLDER: mean and standard deviation of Comparability across firm pairs]. [PLACEHOLDER: fraction of firm pairs for which SAME AUDITOR equals one]. The pairwise control variables, which measure absolute differences within each pair in firm size, the debt-to-assets ratio, sales growth, operating cash flows, and the incidence of losses, have the distributions reported in the remaining rows of Table 2 [PLACEHOLDER: means and standard deviations of the pairwise control differences]. Table 3 reports the pairwise correlations among these variables; [PLACEHOLDER: sign and magnitude of the correlation between SAME AUDITOR and Comparability].

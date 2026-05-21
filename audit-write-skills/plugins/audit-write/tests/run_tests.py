@@ -75,6 +75,19 @@ def main():
     cases.append(("check_structure passes intro with a displayed formal H",
                    cs_h, [l for l in out.splitlines() if "formal H" in l][:1]))
 
+    # design §3 mandatory-element checks (Round 3 mechanization)
+    rc, out = run("check_structure.py", os.path.join(FIX, "design_complete.md"),
+                  "--section", "design")
+    cs_dc = rc == 0 and "0 N ->" in out
+    cases.append(("check_structure passes a complete design section",
+                   cs_dc, out.strip().splitlines()[-1:]))
+
+    rc, out = run("check_structure.py", os.path.join(FIX, "design_no_descriptives.md"),
+                  "--section", "design")
+    cs_dn = rc == 0 and "[ N]" in out and "descriptive-statistics block" in out
+    cases.append(("check_structure flags design missing descriptive statistics",
+                   cs_dn, [l for l in out.splitlines() if "descriptive" in l][:1]))
+
     corpus = os.path.join(FIX, "corpus_sample.txt")
     rc, out = run("verify_quote.py", corpus,
                   "we find a significantly negative association between auditor "

@@ -618,6 +618,48 @@ This is the **single most useful template** for a China audit paper studying an 
 
 ---
 
+## 13b. Stage-1 Phase-C pilot digest (13 archival papers; 2026-05-22)
+
+The full annotated row tables for these 13 pilot design sections live as staging files named `<code>_design.md` in the Track B drafts directory (`corpus_inventory/track_b_drafts/`). §13 above keeps the full canonical anchor (24-DLWW); this digest distills the rest — which §3 layout and construction variants are reusable. (3 pilot papers — 23-ACN, 20-WY, 16-DLLN — are omitted: their section headers were not cleanly detectable for extraction.)
+
+| Code | §3 layout | DV / IV construction | Distinctive design feature |
+|---|---|---|---|
+| `22-LNS` | Setup-first (canonical) | DV + baseline equation first | Controls in 4 categorical blocks (client / office / economic-bonding / city-labor) — the reference control-tiering |
+| `23-ZBLM` | Setup-first | Functional baseline equation first; DV triad (process + output) | IV continuous then partitioned into indicators for skewness + entropy balancing; grouped controls |
+| `22-FW` | DV-first | Attention proxy built bottom-up from raw server logs | Controls in 4 categorical blocks (tax-avoidance / firm / ...); heavy measurement-validity documentation |
+| `19-JWW` | Specification-first | Three-proxy DV; bottom-up IV | DV-defense paragraph that RULES OUT alternatives (restatements / GC / fees / earnings-benchmarks) on sample-size + data + conceptual grounds |
+| `19-BGH` | Specification-first | Big 4-restricted; IV via geographic APIs + ellipsoidal distance | Baseline equation early; dual DV (abnormal accruals + restatements) |
+| `23-PSZ` | Specification-first | Single numbered equation; treatment at city-year level | Cleanly separates baseline from identification; states city-level clustering in §3; three AQ proxies |
+| `24-DGZZ` | Specification-first | Policy shock + IV first; RSINDEX from 4 legal barriers (0-4) | Sample waterfall table; stacked-DiD framework introduced as the IV (the identification battery still belongs in §4) |
+| `19-Aob` | Setup-first | Multi-proxy DV (modified Jones, Dechow-Dichev, scaled accruals) + binary (restatement, GC) | Per-DV defense; subsample restrictions (e.g. distressed firms for going concern) |
+| `20-CKMS` | Setup-first | IV bottom-up (misconduct disclosures -> binary -> BD-year average) | Institutional-context + data-provenance heavy; granular IV construction defended by prior literature |
+| `22-CHLP` | Setup-first | Manual alumni-record extraction IV | Front-loads data provenance; explicit 2004 start-date justification (market development) |
+| `22-Dug` | Exposure / instrument-first | Bottom-up IV (charity revenue thresholds -> state-type-year exposure share); simulated instrument | Traditional covariate controls deliberately ABSENT — the instrument / institutional design carries identification |
+| `22-FHKF` | Setup-first | Bottom-up focal AI measure; DVs (restatements, fees) appear in the descriptive block | Data-provenance + construct-validation heavy; compressed DV defense |
+| `24-Chen` | Setup-first | IV bottom-up (employee lawsuits, DB-filtered, court-docket-validated); web-scraped DV | Dedicated defense for the web-scraped incoming-auditor-quality DV |
+
+### New reusable variants surfaced by the pilot (n=13)
+
+1. **The two layout families hold and re-balance.** Setup-first (sample / data / measures before the model) is the modal pilot layout (~7/13: 19-Aob, 20-CKMS, 22-CHLP, 22-FHKF, 22-LNS, 23-ZBLM, 24-Chen); specification-first (numbered equation early) is the strong minority (4/13: 19-BGH, 19-JWW, 23-PSZ, 24-DGZZ); DV-first (22-FW) and exposure/instrument-first (22-Dug) are edge variants. Default to setup-first; use specification-first when a clean shock or equation should lead.
+2. **The DV-defense can RULE OUT, not just defend.** 19-JWW's defense paragraph explicitly rejects restatements / going-concern / fees / earnings-benchmarks (sample-size + data + conceptual reasons) before adopting its three accrual proxies. A multi-proxy DV triad with per-proxy defense is the corpus norm (19-Aob, 23-ZBLM).
+3. **Controls are tiered into categorical blocks, not a flat list.** 22-LNS (client / office / economic-bonding / city-labor), 22-FW (tax / firm / ...), 23-ZBLM (grouped) name 3-4 control groups. A flat control list is the single most common Dimension-1 miss in a thin draft.
+4. **IV is built bottom-up almost universally** (raw source -> coded indicator -> aggregated): server logs (22-FW), regulatory disclosures (20-CKMS), alumni records (22-CHLP), court-validated lawsuits (24-Chen), a legal-barrier index (24-DGZZ).
+5. **The IV construction MAY introduce a shock/instrument; the identification battery still defers to §4.** 24-DGZZ (stacked DiD), 22-Dug (simulated instrument), and 23-PSZ (city-year treatment) introduce the source of variation in §3 as part of building the IV, but the falsification / placebo / FE-escalation rhetoric stays in §4 (the skill's deferral rule).
+6. **Controls may be deliberately absent** when an instrument or institutional design carries identification (22-Dug) — but say so explicitly; do not silently omit them.
+
+### Drafting retrieval guide
+
+| If your §3 has... | Retrieve |
+|---|---|
+| the canonical setup-first layout + categorical control blocks | `22-LNS` or `24-DLWW` (anchor, §13) |
+| a clean shock / equation that should lead | `23-PSZ` or `24-DGZZ` (specification-first) |
+| a multi-proxy DV needing per-proxy defense | `19-JWW`, `19-Aob`, or `23-ZBLM` |
+| a novel hand-built / scraped IV (bottom-up construction) | `22-FW`, `20-CKMS`, `22-CHLP`, or `24-Chen` |
+| an instrument / exposure design with few covariates | `22-Dug` |
+| entropy balancing / continuous-IV partition | `23-ZBLM` |
+
+---
+
 ## 14. Self-audit checklist (15 items)
 
 Before submitting the design section, verify each item:

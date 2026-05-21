@@ -230,6 +230,17 @@ Identification machinery (rotation, falsification) deferred to §4.
 
 ---
 
+## Deterministic gate (run before delivering a drafted/rewritten §3)
+
+A silent self-audit is not enough. Before delivery, run the mechanical gate and resolve every flag (Stage-1 Phase F showed this is the highest-leverage single step in the suite).
+
+1. **Run the style linter:** `python ../../scripts/lint_style.py <draft-file>` — fix EVERY ERROR and WARN (blacklist verbs; note "leverage" as a *control-variable noun* is a false positive — reword to "the debt-to-assets ratio" to clear it). Re-run until 0 ERRORs / 0 WARNs.
+2. **Run the structure checker:** `python ../../scripts/check_structure.py <draft-file> --section design` — resolve any `N`: identification machinery must be **absent** from §3 (deferred to §4); a **numbered baseline equation** must be present; **SE clustering** must be stated; and a **descriptive-statistics block** must be present (the corpus norm, 6/6 — the most common omission in a thin §3). Also tier controls into 2-4 categorical groups (see `design_patterns.md` §13b digest).
+3. **If the draft quotes a source verbatim**, run `../../scripts/verify_quote.py <source-txt> "<quote>"` on each quote.
+4. **Run the "Self-audit checklist"** in `design_patterns.md` §14 for anything the scripts cannot mechanically check.
+
+Do not deliver until the linter is clean and the checklist passes.
+
 ## When you finish
 
 End with one short closer line:

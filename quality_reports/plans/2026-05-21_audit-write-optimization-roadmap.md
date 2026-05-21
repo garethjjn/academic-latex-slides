@@ -30,6 +30,14 @@ scope: audit-write skill suite (post Stage-1 GREEN)
   frequencies re-derived over n=22; go/no-go +5.0.
 - **Optimization Round 1 (mechanize the gate + eval harness): COMPLETE** (commit b10d053).
   lint_style + check_structure now catch C4/C5/C7 + ordering; harness is re-runnable.
+- **Optimization Round 3 (deepen rest to n=22): IN PROGRESS — design pilot done.** Pipeline
+  generalized to `--section` (splitter + generator + new `drop_failing_quotes.py`); 13/16 design
+  drafts distilled into a `design_patterns.md §13b` pilot digest; design C5 strengthened
+  (numbered-equation + clustering + descriptive-stats checks, +golden tests, 12/12) + a SKILL.md
+  Step-3 gate added. Held-out 14-FPW design held at **82 = 82** baseline (no regression). Finding:
+  the gate forced the descriptive-stats block but un-mechanized control-tiering was still missed —
+  enforcement > content again. Next: abstract (needs pre-intro extractor) + robustness; optional
+  control-tiering check to lift design >82.
 - **Optimization Round 2 (slim + harmonize intro): COMPLETE.** intro_patterns.md 120K→31K
   (74%↓); pilot digest mirrors hypothesis/results; held-out 14-FPW composite **90 ≥ 85**
   baseline (no regression). The regression check surfaced a formal-H reliability gap that
