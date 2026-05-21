@@ -227,6 +227,22 @@ cross-cutting (anytime): gate hardening [T4: anti-AI · grammar] · critic calib
                          ablation · measured corpus expansion · workflow doc
 ```
 
+## Re-sequencing (2026-05-22) — Gareth's three new gaps take priority
+
+After R3, three gaps were raised (style learning thin · no audit-research knowledge base · review
+system noisy). They are sequenced ahead of the prior R4+ rounds, detailed in
+`2026-05-22_review-style-knowledge-rounds.md`:
+- **Round 4 — harden the review/eval system** (single-source C-checklist, calibration anchors,
+  multi-run averaging, mechanize more, a calibration test set). Measurement instrument first.
+- **Round 5 — deepen `style_dna` over the full 29-paper `audit_writing_corpus`** (expands old R6);
+  re-derive the stale `k/6` move counts.
+- **Round 6 — static audit-research knowledge-base banks** (constructs/measures · institutions ·
+  identification catalog · literature map), corpus-traceable, integrity-gated.
+
+The prior R4 (Stage 1.5 retrieval), R5 (disclosure spoke), R7/R8 (outline rounds) and the
+referee-response deepening shift to *after* these three; retrieval later upgrades the Round-6
+knowledge base from static to retrieval-fed.
+
 ## Decision log
 - 2026-05-21: enforcement-first principle adopted after Phase F.
 - 2026-05-21: Round 1 shipped (b10d053). Round 2 selected as next.
