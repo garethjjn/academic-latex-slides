@@ -27,15 +27,15 @@ must be **verbatim** from the source section — no paraphrasing, no fabrication
 
 Read these files in order — they tell you the schema and the moves to recognise:
 
-- `../skills/audit-write/move_bank.md` — canonical move catalog M1–M8
-- `../skills/audit-write/corpus_manifest.md` — shorthand-code convention and
+- `audit-write-skills/plugins/audit-write/skills/audit-write/move_bank.md` — canonical move catalog M1–M8
+- `audit-write-skills/plugins/audit-write/skills/audit-write/corpus_manifest.md` — shorthand-code convention and
   the verifiability protocol (§2 "prior-not-law caveat")
-- `../skills/audit-write/style_dna.md` — verb whitelist/blacklist (you will
+- `audit-write-skills/plugins/audit-write/skills/audit-write/style_dna.md` — verb whitelist/blacklist (you will
   use these in writing the annotation column; lint_style.py will catch slips)
 - The section pattern file:
-  - intro → `../skills/audit-write-intro/intro_patterns.md`
-  - hypothesis → `../skills/audit-write-hypothesis/hypothesis_patterns.md`
-  - results → `../skills/audit-write-results/results_patterns.md`
+  - intro → `audit-write-skills/plugins/audit-write/skills/audit-write-intro/intro_patterns.md`
+  - hypothesis → `audit-write-skills/plugins/audit-write/skills/audit-write-hypothesis/hypothesis_patterns.md`
+  - results → `audit-write-skills/plugins/audit-write/skills/audit-write-results/results_patterns.md`
 
 In particular, identify the section's **Block scheme** (intro has 5 blocks per
 the SKILL design philosophy; hypothesis uses 4-move / 6-move arcs; results
