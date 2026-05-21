@@ -88,6 +88,12 @@ def main():
     cases.append(("check_structure flags design missing descriptive statistics",
                    cs_dn, [l for l in out.splitlines() if "descriptive" in l][:1]))
 
+    rc, out = run("check_structure.py", os.path.join(FIX, "design_flat_controls.md"),
+                  "--section", "design")
+    cs_ft = rc == 0 and "[ N]" in out and "controls tiered" in out
+    cases.append(("check_structure flags design with flat (untiered) controls",
+                   cs_ft, [l for l in out.splitlines() if "tiered" in l][:1]))
+
     corpus = os.path.join(FIX, "corpus_sample.txt")
     rc, out = run("verify_quote.py", corpus,
                   "we find a significantly negative association between auditor "

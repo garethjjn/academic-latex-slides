@@ -54,3 +54,15 @@ leave-flagged) is a decision before committing the staging drafts.
 Infra generalized (splitter+generator+drop tool), 13 design drafts distilled into design_patterns
 §13b digest, design C5 strengthened (+golden tests 12/12), SKILL Step-3 gate added, held-out
 held at baseline. Ready to replicate to abstract (needs pre-intro extractor) + robustness.
+
+## Design strengthening — control-tiering gate (2026-05-22)
+- Added a CONTROL_TIER check to check_structure --section design: controls must be tiered into
+  >=2 named categorical groups; a no-controls design reads NA (so 22-Dug-style omission is safe).
+  +1 golden fixture (design_flat_controls) + test (run_tests 13/13).
+- Re-regression (14-FPW design, deepened skill + control-tier gate): composite **85** (was 82
+  baseline, 82 first-deepen). +3. The gate forced control-tiering AND register rose to Excellent.
+- Dim1 still Weak on harder-to-mechanize items (mandatory "Following [Author Year]" DV-anchor cite;
+  full 3-move DV-defense). Heuristic note: the tier check passed on a thin second tier ("industry
+  characteristics absorbed via FE") — could be tightened, but it moved the score as intended.
+- Net design pilot arc: baseline 82 -> +digest/desc-stats gate 82 -> +control-tier gate **85**.
+  Confirms (third time) enforcement > content: each mechanized mandatory element moved the score.

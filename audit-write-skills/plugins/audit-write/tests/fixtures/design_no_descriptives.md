@@ -6,8 +6,9 @@ We test our hypothesis by estimating the following OLS regression:
 
 Comparability = a + b Same Auditor + g X + Industry x Year fixed effects + e   (1)
 
-We control for pairwise differences in firm size, debt-to-assets ratio, growth, and loss
-frequency. We include industry-by-year fixed effects. Standard errors are
-clustered by industry-year.
+We organize controls into two groups. Client-level controls capture pairwise
+differences in firm size, the debt-to-assets ratio, sales growth, and the incidence
+of losses. Auditor-level controls capture office size and audit tenure. We include
+industry-by-year fixed effects. Standard errors are clustered by industry-year.
 
 Our final sample consists of firm-pair-years over the period 1987 through 2011.

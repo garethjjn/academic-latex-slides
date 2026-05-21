@@ -111,6 +111,15 @@ DESIGN_EQ = re.compile(
     r"=[^\n]*\(\s*1\s*\)",                    # a displayed equation line ending in (1)
     re.I)
 DESIGN_CLUSTER = re.compile(r"\bcluster", re.I)  # cluster / clustered / clustering
+# controls present at all (so a deliberate no-controls design reads NA, not N)
+DESIGN_HAS_CONTROLS = re.compile(r"\b(?:control(?:s|\sfor|\svariable)|covariate)", re.I)
+# a category-qualified control group, e.g. "client characteristics", "office-level controls",
+# "firm-level determinants". The category word (group 1) is counted; >=2 distinct = tiered.
+CONTROL_TIER = re.compile(
+    r"\b(client|firm|office|auditor|engagement|city|country|industry|governance|board|"
+    r"economic|labor|market|managerial|deal|state|partner)[-\s]?(?:level\s+|market\s+|"
+    r"bonding\s+|)(?:characteristic|control|attribute|factor|determinant|covariate)s?\b",
+    re.I)
 
 
 def yn(ok):
@@ -188,6 +197,12 @@ def check(path, section):
                       yn(bool(DESIGN_CLUSTER.search(text))), "Dim 1"))
         rows.append(("C5 §3 has a descriptive-statistics block (corpus norm)",
                       yn(bool(RES_DESC.search(text))), "Dim 1"))
+        # controls should be tiered into >=2 named categorical groups (the most common
+        # Dim-1 miss); a design that deliberately omits controls reads NA, not N.
+        tiers = {m.group(1).lower() for m in CONTROL_TIER.finditer(text)}
+        tier_status = ("NA" if not DESIGN_HAS_CONTROLS.search(text)
+                       else "Y" if len(tiers) >= 2 else "N")
+        rows.append(("C5 §3 controls tiered into >=2 named groups", tier_status, "Dim 1"))
     elif section in ("results", "robustness"):
         rows.append(("C6 effect magnitude present", mag_status, "Dim 3"))
         if section == "results":
