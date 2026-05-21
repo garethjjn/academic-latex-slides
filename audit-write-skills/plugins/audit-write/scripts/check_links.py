@@ -47,10 +47,31 @@ def norm(target):
     return t.strip()
 
 
+def find_workspace_root(start):
+    """Walk up from `start` looking for a workspace marker. Returns the
+    workspace root or None. Markers (in priority order): .git directory,
+    pyproject.toml, or presence of both corpus_inventory/ and paper/ siblings
+    (this last is the repo-specific heuristic for the audit-write workspace)."""
+    cur = os.path.abspath(start)
+    while True:
+        if os.path.isdir(os.path.join(cur, ".git")):
+            return cur
+        if os.path.isfile(os.path.join(cur, "pyproject.toml")):
+            return cur
+        if (os.path.isdir(os.path.join(cur, "corpus_inventory"))
+                and os.path.isdir(os.path.join(cur, "paper"))):
+            return cur
+        parent = os.path.dirname(cur)
+        if parent == cur:
+            return None
+        cur = parent
+
+
 def main():
     root = sys.argv[1] if len(sys.argv) > 1 else os.path.dirname(
         os.path.dirname(os.path.abspath(__file__))
     )
+    workspace = find_workspace_root(root)
     broken = []
     scanned = 0
     for dirpath, _, files in os.walk(root):
@@ -73,9 +94,18 @@ def main():
                     continue
                 if os.path.basename(tgt) in RUNTIME:
                     continue
+                # Try resolution in order: (1) relative to containing file,
+                # (2) relative to workspace root (for workspace-anchored refs
+                # like `corpus_inventory/track_b_drafts/_accept_log.md` written
+                # from agent files inside the plugin).
                 resolved = os.path.normpath(os.path.join(dirpath, tgt))
-                if not os.path.exists(resolved):
-                    broken.append((os.path.relpath(path, root), raw))
+                if os.path.exists(resolved):
+                    continue
+                if workspace:
+                    resolved_ws = os.path.normpath(os.path.join(workspace, tgt))
+                    if os.path.exists(resolved_ws):
+                        continue
+                broken.append((os.path.relpath(path, root), raw))
     if broken:
         print(f"check_links: {len(broken)} BROKEN reference(s) in {scanned} files:")
         for src, ref in broken:

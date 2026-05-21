@@ -1,0 +1,102 @@
+# Items in Collection: english (100 of 454 items shown)
+
+- `FMU6MP6Z` | Do Nature-Loving CEOs Make the World Greener? (2026) [PDF]
+- `UWP9CL8Y` | The Markets for Independence and Independent Auditors (1981) [PDF]
+- `GQ8MA4XL` | Do PCAOB Inspections Improve the Quality of Internal Control Audits? ()
+- `GDHHLAWD` | The Nature of the Firm (1937) [PDF]
+- `NA9PFM2K` | A review of archival auditing research (2014-11-01) [PDF]
+- `8B9FVPS8` | Does Mandatory Rotation of Audit Partners Improve Audit Quality? (2014-09-01) [PDF]
+- `E4IN9TPR` | The Effect of China's Weak Institutional Environment on the Quality of Big 4 Audits (2015-07-01) [PDF]
+- `87NG7A5M` | Auditing research using Chinese data: what's next? (2021-11-10) [PDF]
+- `Z6WKNG2H` | Industry-Specific Knowledge Transfer in Audit Firms: Evidence from Audit Firm Mergers in China. (2022-05-01) [PDF]
+- `S686I7ST` | The importance of audit partners' risk tolerance to audit quality (2023)
+- `GESB5ABU` | Law, finance, and economic growth in China (2005-07-01) [PDF]
+- `6GKPL2V2` | Do Individual Auditors Affect Audit Quality? Evidence from Archival Data. (2013-11-01) [PDF]
+- `X3X7FDRP` | Is Fraud Contagious? Coworker Influence on Misconduct by Financial Advisors (2018) [PDF]
+- `8C3HWGKH` | The Geography of Financial Misconduct (2018) [PDF]
+- `Q9W9XLND` | IQ and audit quality: Do smarter auditors deliver better audits? (2019) [PDF]
+- `6G8BX58T` | Measuring audit quality (2021-06-01) [PDF]
+- `EZW7DXS9` | A review of China-related accounting research in the past 25 years (11/2022) [PDF]
+- `BMNJZEW5` | Audit partner facial structure, audit pricing, and audit quality (2025-11-27) [PDF]
+- `88G28C98` | Partner wealth and audit quality: evidence from the United States (2025-03-01) [PDF]
+- `ZNCEEGBN` | Audit partners' cultural trust and audit outcomes (2026-02-09) [PDF]
+- `3JNFHBRW` | The Importance of Conscientiousness to Audit Quality: Engagement Partner Graduate Thesis Typos and Audit Adjustments (2026-02-23) [PDF]
+- `HCRTQM5R` | Do Consulting Services Affect Audit Quality? Evidence from the Workforce (2026-02-03) [PDF]
+- `VLYQWILI` | Trying to Get Out from under Water: Paradox and Power in the Audit Senior Associate Role (2026-02-05) [PDF]
+- `TJFEXHVV` | Principal-versus-Agent Considerations in Revenue Recognition Under ASC 606 and Compliance Risk (2026-02-16) [PDF]
+- `T3HJI3TA` | Do School Alma Mater Ties Between Engagement and Review Partners Threaten Audit Firm Quality Control? Evidence from Audit Adjustments (2026-03-19) [PDF]
+- `CRFLDEBH` | Behavioral Economics of Accounting: A Review of Archival Research on Individual Decision Makers* (2022) [PDF]
+- `5EWWHU8J` | The spillover effect of public firm audit regulation on private firm auditing: Evidence from common partners (2026-05-01) [PDF]
+- `KIESUW67` | Early-life experience and CEOs' reactions to COVID-19 (2025-02-01) [PDF]
+- `8J6PZC2A` | Corporate culture and analyst catering (2019-02-01) [PDF]
+- `YBTYW48P` | Political Incentives to Suppress Negative Information: Evidence from Chinese Listed Firms (2015) [PDF]
+- `NBNY96VB` | Racial Disparities in Financial Complaints and the Role of Corporate Social Attitudes (2025) [PDF]
+- `ZGZ92GFY` | Sexism, Culture, and Firm Value: Evidence from the Harvey Weinstein Scandal and the #MeToo Movement (2024) [PDF]
+- `SQG8QNEQ` | Voice of the Customers: Local Trust Culture and Consumer Complaints to the CFPB (2021) [PDF]
+- `PH3E8UDW` | Government Subsidies and Corporate Misconduct (2024) [PDF]
+- `469QMYS3` | Using and Interpreting Fixed Effects Models (2024) [PDF]
+- `Z9VE9MEZ` | The Effects of Mandatory ESG Disclosure Around the World (2024) [PDF]
+- `LZ5T6KXL` | Generative AI in Financial Reporting () [PDF]
+- `HRIQUK2P` | The Impact of Financial Reporting Mandates on Labor Unions () [PDF]
+- `57J7GMMV` | Do Engagement Quality Reviewers' Workplace Ties with Engagement Partners Influence Audit Quality? () [PDF]
+- `R2QAHC9A` | Generative AI in Capital Markets: Information Production, Dissemination, and Processing () [PDF]
+- `V8379QYT` | AI Democratization and Trading Inequality () [PDF]
+- `8FTVFDBV` | Journal of Accounting Research ()
+- `Q44E9K6J` | Childhood Exposure to Misbehavior and the Culture of Financial Misconduct (2025-09-29) [PDF]
+- `AEGLBPMC` | A review of China-related accounting research in the past 25 years - ScienceDirect ()
+- `U4UYNUFM` | The pricing of audit services: Theory and evidence (1980)
+- `QU3EJJVA` | Agency problems, auditing, and the theory of the firm: Some evidence (1983) [PDF]
+- `XNZYHYFJ` | It's a matter of style: The role of audit firms and audit partners in key audit matter reporting (2024)
+- `TTV5YLGB` | Communist propaganda and women's status (10/2024) [PDF]
+- `VRH2XDXA` | Entropy-Balanced Accruals (2020)
+- `7VNEUMSL` | The economics of auditing in China (2024) [PDF]
+- `YH3ZBC5N` | How does artificial intelligence shape audit firms? (2025)
+- `MMG9WFU3` | Audit personnel salaries and audit quality (2018)
+- `VBKMFV6B` | Do internal control weaknesses affect firms' demand for accounting skills? Evidence from US job postings (2023)
+- `CQA2334K` | Difference-in-differences with variation in treatment timing (2021)
+- `ZIGM6X44` | Is artificial intelligence improving the audit process? (2022)
+- `BFI9XN7A` | Mortgage Lock-In, Mobility, and Labor Reallocation (2024)
+- `FC9HPII4` | Litigation Risk and Key Audit Matter Disclosures: Evidence From a Quasi-Natural Experiment in China (2025)
+- `YPUIAR4Q` | Green Paper: Audit Policy: Lessons from the Crisis (2010)
+- `P2HKGRV2` | Auditor size and audit quality (1981)
+- `KGNKDT2G` | Competence vs. Independence: Auditors' connections with members of their clients' business community (2024-08-01) [PDF]
+- `XTT99KXZ` | The auditor's reporting model: A literature overview and research synthesis (2008)
+- `BRDFJQWA` | Man versus machine: Complex estimates and auditor reliance on artificial intelligence (2022)
+- `M2L2YCMK` | Public environmental enforcement and private lender monitoring: Evidence from environmental covenants (2024)
+- `5UEG24N5` | The information content of mandatory risk factor disclosures in corporate filings (2014)
+- `22QCVXRG` | Behavioral implications of Big Data's impact on audit judgment and decision making and future research directions (2015)
+- `NGEM2VV5` | Big data analytics in financial statement audits (2015)
+- `U82NTPG9` | How much should we trust staggered difference-in-differences estimates? (2022)
+- `5IHSLYWM` | Client Restatement Announcement, Audit Office Human Capital Investment, and Audit Quality Improvements (2025)
+- `IKXQ7VFQ` | The impact of improved auditor independence on audit market concentration in China - ScienceDirect ()
+- `5VN9C7MC` | Auditor Skill Demands and Audit Quality: Evidence from Job Postings. (2025-07-01) [PDF]
+- `U3JXDLFB` | Do major corporate customers deter supplier misconduct? (2025-11-01)
+- `AYQJHX38` | Does generative AI facilitate investor Trading? Early evidence from ChatGPT outages (2025-11-01) [PDF]
+- `MTLUEYUH` | With a Grain of Salt: Investor Reactions to Uncertain News and (Non)disclosure (2026-02-01) [PDF]
+- `56FQTCPN` | Carbon accounting quality: Measurement and the role of assurance (2026-04-01) [PDF]
+- `QEHHIBR4` | Do auditors understand the implications of ESG issues for their audits? Evidence from financially material negative ESG incidents (2026-04-01)
+- `ZQAJHHFL` | Social media livestreaming: Investor information or persuasion? (2026-05-01) [PDF]
+- `TUGMH6PR` | The Affordable Care Act and its effects on physician leadership: a qualitative systematic review (2017)
+- `MVN34RE8` | Hospital readmissions and the Affordable Care Act: paying for coordinated quality care (2011)
+- `U7MPDUKU` | Does the accountant shortage impair efficient resource allocation? (2023)
+- `89QEQB9G` | Empirical research in healthcare operations: Past research, present understanding, and future opportunities (2020)
+- `WFWYQ5A7` | The only prescription is transparency: The effect of charge-price-transparency regulation on healthcare prices (2020)
+- `WLRA3FBU` | Strategies for reducing the door-to-balloon time in acute myocardial infarction (2006)
+- `RD9QR4SX` | Door-to-balloon time and mortality among patients undergoing primary PCI (2013)
+- `S9PFDFLS` | Unraveling the black box of cost behavior: An empirical investigation of risk drivers, managerial resource procurement, and cost elasticity (2015)
+- `PPVNNI9Y` | Rehospitalizations among patients in the Medicare fee-for-service program (2009)
+- `DBFA86QW` | Early performance of accountable care organizations in Medicare (2016)
+- `R5TF6ENY` | Impacts of performance pay for hospitals: The readmissions reduction program (2021)
+- `BSYVDA4W` | Women in charge: Evidence from hospitals (2025)
+- `ZW3X6EQJ` | Ancillary cost implications of physicians multisiting and inter-organizational collaboration during healthcare delivery (2022)
+- `TPIZ4V8L` | Impact of the Hospital Readmission Reduction Program on hospital readmission and mortality: An economic analysis (2022)
+- `IH7SLYKU` | Causal inference without balance checking: Coarsened exact matching (2012)
+- `GZ3J2I7W` | The real effects of mandated information on social responsibility in financial reports: Evidence from mine-safety records (2017)
+- `G4UATJJU` | Private equity in the hospital industry (2025)
+- `6AZPYCKB` | Fragmented care and chronic illness patient outcomes: A systematic review (2023)
+- `E3L8ZTMP` | Report to the Congress: Medicare Payment Policy (2025-03)
+- `AX2IKI76` | Accountable Care Organizations (ACOs): General Information (2025)
+- `DZDLQNAC` | Advance Payment ACO Model (2025)
+- `VETNZ5TG` | ACO Investment Model (2025)
+- `4NIHG5E9` | Next Generation ACO Model (2025)
+- `G2Y5LBEC` | Vermont All-Payer ACO Model (2025)

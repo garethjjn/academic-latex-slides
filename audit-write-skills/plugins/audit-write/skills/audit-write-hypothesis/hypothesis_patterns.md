@@ -16,8 +16,8 @@ The 7th paper (DeFond-Zhang 2014 JAE *Archival Auditing Review*) has no empirica
 
 1. **The single-H modern paper has a 4-move arc**: literature/theory anchor → mechanism FOR prediction → counter-arguments / "tension" → formal H statement. ~1,200–1,800 words. Use `(24-DLWW)` and `(25-DQSZ)` as templates.
 2. **The multi-H paper has a 2-tier arc**: a shared theory umbrella (Section 2.1) + per-hypothesis sub-section, each with mini-arc inside (Section 2.2.1, 2.2.2, …). Use `(26-KLYY)` as template.
-3. **"Stated in alternative form" is mandatory** — appears verbatim in 5/6 papers immediately before the H block. Modern (2024+) papers use "in the alternative form" or simply tag "**H1.**" with "ceteris paribus" appended.
-4. **The tension paragraph is non-negotiable** — appears in 6/6 papers, but its location varies: sometimes a dedicated "However, …" paragraph BEFORE the H statement (24-DLWW, 16-DLZ, 26-KLYY-H1), sometimes a paragraph AFTER the H statement labeled "We emphasize that there is tension in our prediction" (25-DQSZ).
+3. **"Stated in alternative form" is the safest DeFond default** — appears verbatim in 5/6 original papers immediately before the H block. Stage-1 pilot papers show legitimate exceptions: null-form Hs, RQ-only sections, narrative predictions, and RAST "Prediction 1/2/3" labels. Use the default unless the paper's theory is explicitly unsigned or exploratory.
+4. **The tension paragraph is a strong default, not a law** — appears in 6/6 original papers, but Stage-1 pilot papers show tension can be thin, head-placed, converted into moderators, embedded symmetrically in FOR/AGAINST structure, or absent in RQ-only / mixed-methods designs. If omitted, state the reason.
 5. **Hypotheses are predictions, not claims** — verbs are "we hypothesize that…", "we posit that…", "we expect…", "we argue that…". Verbs to NEVER use: "we will show", "we prove", "common sense suggests", "obviously".
 
 ---
@@ -149,9 +149,9 @@ The pattern: theoretical concept → contrast (high vs low) → application to a
 
 ## Move 3: Tension / counter-argument structure
 
-### The tension paragraph is universal (6/6 papers)
+### Original-corpus default: the tension paragraph appears in 6/6 papers
 
-The corpus has **zero** instances of a hypothesis section without a counter-argument paragraph. This is not optional. Every reviewer expects to see the alternative considered.
+The original six-paper corpus has **zero** instances of a hypothesis section without a counter-argument paragraph. Treat this as the default reviewer expectation, but not as a universal law. Stage-1 pilot drafts add several disciplined exceptions: no-formal-H / RQ-only sections (`19-JWW`, `23-ACN`, `24-DGZZ`), narrative-prediction sections with only thin tension (`22-LNS`), mixed-methods prediction sections (`22-FHKF`), and sections where the counter-argument is converted into a moderator (`16-DLLN`). Phase D will re-count the exact `k/N`; until then, write "strong default" rather than "non-negotiable."
 
 ### Two structural placements (50/50 split)
 
@@ -258,14 +258,14 @@ When you cannot resolve the tension, signal it explicitly:
 
 ### When to omit a formal H statement
 
-`(16-DLZ)` is the **outlier** — its Section 2 ("Research Issues") never states a numbered formal hypothesis. Instead, it concludes with a directional but non-formal sentence pair:
+`(16-DLZ)` was the original-corpus **outlier** — its Section 2 ("Research Issues") never states a numbered formal hypothesis. Instead, it concludes with a directional but non-formal sentence pair:
 
 > "Therefore, if conservative clients impose less (more) risk, then we expect auditors to issue fewer (more) GCOs."
 > "Therefore, if conservative clients impose less (more) risk, then we expect auditors to resign less (more) frequently."
 
-**Use this style only if:** (a) target is TAR (less rigid than JAE), (b) prediction direction is genuinely ambiguous and you want to test multiple outcomes, (c) you want to signal an exploratory rather than confirmatory test.
+**Use this style only if:** (a) target is TAR/JAR/RAST and the published comparator supports it, (b) prediction direction is genuinely ambiguous and you want to test multiple outcomes, (c) the paper is RQ-only / "what matters" / concordance-measurement / mixed-methods, or (d) the theory is deliberately unsigned and the identification design will adjudicate the direction.
 
-**Modern JAE papers (2024+) DO NOT do this.** All 4 modern JAE papers in the corpus state at least one formal "Hypothesis." or "H1." block.
+**Modern JAE papers (2024+) still usually state at least one formal "Hypothesis." or "H1." block.** The Stage-1 pilot shows exceptions outside that narrow modern-JAE lane: `19-JWW` and `20-CKMS` use narrative / RQ-style theory sections, `23-ACN` uses formal RQs, `24-DGZZ` ends with an empirical-question resolution, and `22-FHKF` uses "Prediction 1/2/3."
 
 ### "in alternative form" — when to include it
 
@@ -277,7 +277,7 @@ The phrase "in alternative form" / "in the alternative form" appears in:
 - 24-DHXZ: omits — uses "we form the following hypothesis"
 - 16-DLZ: omits — no formal H
 
-**Default:** include "in the alternative form" or "(in alternative form)" — it's the safer DeFond convention. Omit only if you have multiple non-directional H's bundled into a single 2.X.
+**Default:** include "in the alternative form" or "(in alternative form)" — it is the safer DeFond convention. Omit deliberately when the section uses a null-form H (`23-PSZ`, `23-ZBLM`, `24-Chen`), RQ-only framing (`23-ACN`), narrative prediction (`19-JWW`, `20-CKMS`, `22-LNS`, `24-DGZZ`), or RAST-style "Prediction" labels (`22-FHKF`). Never omit silently.
 
 ---
 
@@ -486,7 +486,7 @@ Use a 2–3 sentence Section 2 preamble before the first sub-section:
 
 ### Style 3: First sub-section IS the bridge (1/6)
 
-`(25-DQSZ)` has §2.1 "Motivation and background" — this section is essentially a literature-review bridge that re-narrates what the introduction said about Bianchi et al. (2019) and McGuire et al. (2012). The H is then introduced in §2.5.
+`(25-DQSZ)` has §2.1 "Motivation and background" — this section is essentially a literature-review bridge that re-narrates what the introduction said about the relevant tax-expertise and NAS-conflict studies (`[AUTHOR:]`). The H is then introduced in §2.5.
 
 ### Recommendation
 
@@ -536,11 +536,11 @@ This is the cleanest single-H template. Note its **two-sub-section split** — �
 |---|---|---|
 | §2.1 (titled "Auditors' social networks and auditor competency") ¶1 | "Prior literature finds that auditors who are socially connected to their client's executives and audit committee chairs, provide lower quality audits…" | **Move 1: Literature anchor** + gap statement ("the effects of auditors' connections with members of their clients' larger business community have not been explored") |
 | §2.1 ¶2 | "We extend the research that examines auditors' social ties by examining auditors' social connections to their clients' business communities. Strong connections within their clients' communities should increase an auditor's competency…" | **Move 2: Mechanism FOR** — 3 parallel "Connections with X" examples (customers / suppliers / bankers) |
-| §2.1 ¶3 | "In countries such as China, that rely heavily on relationship-based contracting, the auditors' ties with their clients' business community should be particularly beneficial…" | **Move 2 cont.** — China-setting justification + Granovetter (1985) network theory |
+| §2.1 ¶3 | "In countries such as China, that rely heavily on relationship-based contracting, the auditors' ties with their clients' business community should be particularly beneficial…" | **Move 2 cont.** — China-setting justification + `[AUTHOR:]` network theory |
 | §2.1 ¶4 | "The above arguments suggest that signatory auditors with extensive network connections within their clients' business community should be more competent in assessing the risk of financial misreporting…" | **Move 2 closer** — summary of FOR argument |
 | §2.2 (titled "Auditors' social networks and threats to auditor independence") ¶1 | "While strong ties within their clients' community should increase auditor competency, it also threatens auditor independence, because…" | **Move 3: Tension** — independence threat |
-| §2.2 ¶2 | "However, auditors also have strong incentives to maintain their independence, because failure to do can impose costs on the auditor…" | **Move 3 cont.** — counter-counter-argument; reputation/career-cost mechanism (Chen et al. 2022) |
-| §2.2 ¶3 | "Thus, the auditors' network relationships might essentially serve as a collateral bond that incentivizes the auditor to remain independent." | **Move 3 closer** — DeAngelo (1981) quasi-rent reframing |
+| §2.2 ¶2 | "However, auditors also have strong incentives to maintain their independence, because failure to do can impose costs on the auditor…" | **Move 3 cont.** — counter-counter-argument; `[AUTHOR:]` reputation/career-cost mechanism |
+| §2.2 ¶3 | "Thus, the auditors' network relationships might essentially serve as a collateral bond that incentivizes the auditor to remain independent." | **Move 3 closer** — `[AUTHOR:]` quasi-rent reframing |
 | §2.2 ¶4 | "Based on the above arguments we posit the following hypothesis in the alternative form: **Hypothesis.** Chinese engagement auditors with stronger social networks in their clients' communities provide higher quality audits." | **Move 4: Formal H** |
 
 **Key takeaways from 24-DLWW for a similar single-H paper:**
@@ -549,6 +549,57 @@ This is the cleanest single-H template. Note its **two-sub-section split** — �
 2. Even within the AGAINST section, the paper introduces a counter-counter-argument (auditors have incentives to remain independent) before the H. This 3-stage dialectic — for, against, but-wait — is more sophisticated than a binary for/against.
 3. The H statement is single-sentence and bare. No "ceteris paribus" qualifier (older convention).
 4. Total length: ~900 words. This is **the short end** of the range and works because the theory chain (social networks → competence) is well-established.
+
+---
+
+## Stage-1 Phase-C pilot digest (16 archival papers; 2026-05-21)
+
+The full annotated row tables for these 16 pilot sections live as staging files named `<code>_hypothesis.md` in the Track B drafts directory. This pattern file stores the distilled guidance: which structural variants are reusable, which old rules need re-counting, and which examples to retrieve when drafting.
+
+`22-HS` was rejected as survey-methodology and replaced by `16-DLLN` per the archival-only scope rule.
+
+| Code | Section type | H / RQ format | Reusable pattern | Rule implication |
+|---|---|---|---|---|
+| `19-JWW` | TAR background / related lit | No formal H; RQ restatement | Institutional-exogeneity defense + comparator differentiation chain | No-formal-H can work when identification, not theory, carries the paper |
+| `22-LNS` | TAR background / research question | Narrative prediction | Three-reason FOR mechanism; thin "Nevertheless" tension | Tension can be embedded in the closer, but this is weaker than canonical M4 |
+| `23-ACN` | TAR research questions | RQ1-RQ4 | Role-decomposition RQs + credence-goods fee RQs | RQ-only is legitimate for "what matters" exploratory production papers |
+| `20-WY` | JAR multi-H | H1-H4 colon labels | Two-channel audit-risk scaffold + post-H tension | Intro M4 omission can be repaired in Section 2 |
+| `22-CHLP` | JAR single-H | "Hypothesis 1:" inline | Four-prior anchor chain + post-H four-mechanism tension | Directional H plus empirical-question hedge is a valid hybrid |
+| `22-Dug` | JAR single-author narrative | "I predict" narrative | Public-good / moral-hazard theory + four-reason counter block | Single-author JAR can use "I"; formal H block not always needed |
+| `23-ZBLM` | JAR single null-H | Null-form H1 | Four-issue specialist-use tension enumeration | Null-form H is valid when net effect is genuinely ambiguous |
+| `24-Chen` | JAR single-author two-H | Two null-form Hs | Employer-reputation theory + three-channel mechanism | Null-form H can be explicit: "I state my hypothesis in null form" |
+| `24-DGZZ` | JAR no-formal-H | Empirical-question closer | Head-placed M4 + four-perspective mechanism walk | Tension may be declared before mechanisms, then developed in parallel |
+| `19-Aob` | JAE concordance / measurement | No formal H | Three-advantage FOR enumeration + data-source-specific tensions | Measurement-concordance papers can replace H with prediction framework |
+| `19-BGH` | JAE multi-H | H1 + H2a/H2b/H2c | H1 decomposed into monitoring / knowledge / resource channels | Conditional-strength sub-Hs are a clean way to unpack a mechanism |
+| `20-CKMS` | JAE theory framework | Narrative central hypothesis | Credence-good reputation theory + portfolio-screening prediction | "Central hypothesis" narrative can substitute for H block, but M4 is absent |
+| `16-DLLN` | JAE multi-H | Hypothesis 1-5 | Lit-only multi-H; tension converted into moderators | Older JAE permits no shared theory umbrella and no ceteris paribus |
+| `23-PSZ` | JAE single-H | Bare `H:` null form | Symmetric FOR/AGAINST competition theory | Null H is acceptable when theory is balanced and design adjudicates sign |
+| `22-FHKF` | RAST mixed-methods | Prediction 1-3 | Interview synthesis converted into predictions | Mixed-methods papers may use "Prediction" labels, not H labels |
+| `22-FW` | RAST multi-H | H1/H2a/H2b/H3 colon labels | Three-reason FOR + three-reason AGAINST symmetry | Symmetric 3-vs-3 mechanism/tension is a strong template |
+
+### New reusable variants surfaced by the pilot
+
+1. **Formal-H is not binary.** The expanded corpus now has displayed H blocks, inline colon Hs, null-form Hs, narrative predictions, formal RQs, and "Prediction" labels. Use displayed directional Hs for the DeFond/JAE default; use the alternatives only when the paper's own theory is unsigned, exploratory, or mixed-methods.
+2. **Tension has at least six shapes.** Canonical single paragraph; three-reason enumeration; four-issue enumeration; symmetric FOR/AGAINST architecture; head-placed M4 before mechanisms; and tension-as-moderator. "No tension" is now observed, but should be treated as a risky exception, not a template.
+3. **Three-numbered devices work on both sides.** The original corpus highlighted the three-reason counter-argument (`26-KLYY`). Pilot papers also use three-reason FOR mechanisms (`22-LNS`, `24-Chen`) and symmetric three-vs-three mechanism/tension (`22-FW`).
+4. **RQ-only is a distinct family, not a failure.** `19-JWW`, `23-ACN`, and `24-DGZZ` document archival audit papers that develop research questions or empirical-question resolutions instead of directional Hs. This works best when the design is the contribution and the theory is deliberately unsigned.
+5. **Null-form Hs need explicit justification.** `23-PSZ`, `23-ZBLM`, and `24-Chen` use null Hs because the net effect is theoretically ambiguous. Do not state a null H merely to sound conservative; the preceding section must make the ambiguity visible.
+6. **Mixed-methods H sections need separate treatment.** `22-FHKF` uses partner interviews as the bridge from literature to predictions. This is acceptable for RAST-style mixed-methods evidence, but is not the default for JAE/TAR archival-only papers.
+
+### Drafting retrieval guide
+
+| If your paper has... | Retrieve |
+|---|---|
+| partner trait with asymmetric errors | `26-KLYY` |
+| single-H competence vs independence tradeoff | `24-DLWW` |
+| audit-labor / talent channel | `24-Chen` or `22-LNS` |
+| no signed prediction because mechanisms balance | `23-PSZ`, `23-ZBLM`, or `24-DGZZ` |
+| multiple mechanism channels under one treatment | `19-BGH`, `20-WY`, or `22-FW` |
+| measurement-concordance / proxy-validation framing | `19-Aob` |
+| production / "what matters" exploratory RQs | `23-ACN` |
+| mixed-methods technology evidence | `22-FHKF` |
+| M&A shared-auditor setting | `16-DLLN` |
+| two-sided auditor-client matching theory | `20-CKMS` |
 
 ---
 
@@ -595,7 +646,7 @@ Before finalizing a hypothesis development section, verify:
 
 1. **The pair-prediction format (H2(a)/H2(b), H3(a)/H3(b)) is a 2026 innovation in 26-KLYY** that does NOT appear in any of the older corpus papers. It is a direct response to the "naïve trust" critique a reviewer would raise. Any partner-trait paper should consider this device whenever the trait could be read pejoratively (gullibility, capture, cynicism, tribalism, etc.).
 
-2. **16-DLZ (TAR 2016) is the outlier** — it deliberately avoids a numbered formal hypothesis. This works for TAR but would likely draw a referee complaint at JAE. If targeting JAE/JAR, do NOT model the H section after 16-DLZ.
+2. **16-DLZ is the original TAR-era outlier** — it deliberately avoids a numbered formal hypothesis. This works for TAR but would likely draw a referee complaint at JAE. If targeting JAE/JAR, do NOT model the H section after 16-DLZ without a deliberate reason.
 
 3. **Tension placement varies more than the existence of tension.** 50% of papers put tension BEFORE the H statement (more common in old style), 50% put it AFTER ("We emphasize that there is tension in our prediction" — modern style, 25-DQSZ). The post-H placement is harder to do well but signals greater confidence.
 

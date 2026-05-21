@@ -169,8 +169,8 @@ Sentence 2: Economic translation.
    [outcome], from [base] to [post]."
 
 Sentence 3: Relative magnitude.
-   "This equals [N]% of [the sample mean / base rate / a comparable effect from Lennox
-   et al. (2014)]."
+   "This equals [N]% of [the sample mean / base rate / a comparable effect from
+   [AUTHOR: comparable prior study]]."
 ```
 
 **Verbatim example (24-DLWW, the cleanest in the corpus):**
@@ -537,6 +537,56 @@ In audit papers, the FIRST regression you report is your headline result. The fi
 - ❌ "We first present descriptive statistics, then sample distribution, then control variables, before turning to the main result."
 
 The corpus's solution: **fold descriptive stats into a 1-paragraph 4.1 sub-section that is purely descriptive, then open 4.2 with "Table N reports the results of estimating Equation (X)."** No transitional throat-clearing.
+
+---
+
+## Stage-1 Phase-C pilot digest (16 archival papers; 2026-05-21)
+
+The full annotated row tables for these 16 pilot results sections live as staging files named `<code>_results.md` in the Track B drafts directory. This pattern file stores the distilled guidance. Every quote in those staging files is `verify_quote.py`-verified verbatim; the DeepSeek-generated first pass was repaired (fuzzy-match + targeted source recovery), with unrecoverable paraphrase rows dropped rather than fabricated, and `23-ACN` + `16-DLLN` regenerated from source after the API failed on them.
+
+`22-HS` was rejected as survey-methodology and replaced by `16-DLLN` per the archival-only scope rule.
+
+| Code | Lead archetype | Identification move | Magnitude form | Reusable pattern |
+|---|---|---|---|---|
+| `19-JWW` | A ("Tables 4 to 6 report") + column walk | Parallel-trends / pseudo-event placebo | p-value reporting, no pp headline | Canonical 5-block ordering with column-by-column walk-through |
+| `22-LNS` | Table-anchored descriptive lead | IV + entropy balancing (in robustness) | F5+F2 interquartile-and-percent | Compact 3-paragraph results delivering descriptive + main only |
+| `23-ACN` | Direct main-coefficient | Entropy balancing across IV terciles | Dual-DV parenthetical F4+F1 | Parallel 2-IV × 2-DV reporting with affirmative null rows |
+| `20-WY` | Validation-step-first (mechanism check) | Event-study window + cross-section | F2 percent-of-base on dual DVs | Open results with a mechanism-validation step before the main test |
+| `22-CHLP` | 3-part (baseline / sensitivity / endogeneity) | Mandatory-rotation shock | direction + pp where present | Endogeneity sub-section as its own results block |
+| `22-Dug` | Instrument-relevance first | Simulated IV / differential exposure | F1 treatment-intensity-qualified | Lead with instrument relevance when design is the contribution |
+| `23-ZBLM` | Graphical+tabular descriptive lead | Specialist-hours identification | odds-ratio (logit DV) | Rich descriptive evidence before baseline; process/output DV split |
+| `24-Chen` | Research-design exposition | GDD announcement + FE escalation | direction-only in excerpt | Design-exposition-heavy results opening |
+| `24-DGZZ` | A (direct primary-result lead) | IBBEA staggered deregulation | F1+F2 absolute-and-relative | Lead straight into the main table when the shock is the story |
+| `19-Aob` | Primary result lead (Table 5) | FE escalation + hindsight placebo | interquartile + AUC | Concordance reporting with AUC as a discriminant-power metric |
+| `19-BGH` | Compact 3-sub-section | DiD (leadership consolidations) + placebo | odds-ratio + pp | Two complementary AQ proxies run in parallel throughout |
+| `20-CKMS` | Primary result (Table 4 OLS+MLR) | Falsification (auditor exits) | F6 internal-benchmark | Falsification-by-auditor-exit + regulator-only-misconduct robustness |
+| `16-DLLN` | Design paragraph then main coefficient | Big-N subsample + confound pre-emption | marginal-effect + F2 percent-of-base | Design-then-magnitude-then-confound arc on a binary M&A outcome |
+| `23-PSZ` | Baseline static + event-time dynamic | Bullet-train shock + parallel-trends | F1 pp across 3 DVs | Combine static baseline with event-time dynamic to show parallel trends |
+| `22-FHKF` | Baseline primary (Table 4) | Firm- vs office-level decomposition | F4 SD-shift + multi-F2 | Auditor-AI vs client-AI decomposition as the core results move |
+| `22-FW` | Univariate analysis (§4.1) | (event-timing, deeper in section) | time-decline (F7 candidate) | Univariate descriptive opener for a latency DV |
+
+### New reusable variants surfaced by the pilot
+
+1. **Magnitude forms beyond F1–F6.** The pilot adds three: **odds-ratio** (`19-BGH`, `23-ZBLM`; logit/probit DVs), **time-decline** (`22-FW`; latency DVs), and **internal-benchmark** (`20-CKMS`; comparator is the same regression's other coefficient, not an external cite). Recommend cataloguing these as F7 (odds-ratio), F8 (time-decline), and an F6-internal sub-variant.
+2. **Dual-DV parenthetical magnitude** (`23-ACN`, `24-DGZZ`) — report two DVs in one sentence via parenthetical ("2.5 [1.6]-percentage-point") or coordinated clauses. Efficient when an IV is tested against parallel output and input proxies.
+3. **Affirmative null rows belong in the main results, not buried.** `23-ACN` (raw hours; noncore-member timing) and `19-BGH` (resource channel) report nulls in the primary block to localize the effect — a discriminant move, not a weakness.
+4. **Validation-step-first opening** (`20-WY`) — open the results with a mechanism-validation step (e.g., confirming the press-coverage channel) before the main DV test. Reach for it when the treatment's first-stage plausibility is itself contestable.
+5. **Lead archetype A dominates** but is routinely supplemented with a column-by-column walk-through (`19-JWW`). When the shock is the story (`24-DGZZ`, `23-PSZ`), papers lead straight into the main table; when the design is contestable (`22-Dug`), they lead with instrument relevance.
+
+### Drafting retrieval guide
+
+| If your results section needs... | Retrieve |
+|---|---|
+| dual-DV parenthetical magnitude | `23-ACN` or `24-DGZZ` |
+| odds-ratio / logit-DV magnitude | `19-BGH` or `23-ZBLM` |
+| latency / time-to-outcome DV | `22-FW` |
+| internal-benchmark economic significance | `20-CKMS` |
+| event-study + parallel-trends identification | `23-PSZ`, `20-WY`, or `19-JWW` |
+| entropy-balancing identification | `23-ACN` or `22-LNS` |
+| falsification / placebo design | `20-CKMS`, `19-BGH`, or `19-JWW` |
+| affirmative null reporting in the main block | `23-ACN` or `19-BGH` |
+| binary M&A / bid-probability outcome | `16-DLLN` |
+| firm- vs office-level decomposition | `22-FHKF` |
 
 ---
 

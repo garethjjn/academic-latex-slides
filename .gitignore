@@ -73,3 +73,6 @@ ssrn-4954576 (1).pdf
 audit_writing_corpus
 quality_reports
 paper
+# ---- Track B scratch ----
+corpus_inventory/track_b_drafts/_*_scratch.txt
+corpus_inventory/track_b_drafts/_batch_c1_insertion.md

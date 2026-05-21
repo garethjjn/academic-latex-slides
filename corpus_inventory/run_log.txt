@@ -1,0 +1,9 @@
+files_seen=1389
+pdf=711
+txt=678
+parse_ok=1389
+unique_papers=925
+true_dup_groups=0
+companion_pairs=464
+pdf_only=247
+txt_only=214
