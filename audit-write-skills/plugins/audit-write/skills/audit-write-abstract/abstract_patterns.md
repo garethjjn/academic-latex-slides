@@ -415,6 +415,52 @@ For a partner-trait → audit-quality paper, this is the structural template to 
 
 ---
 
+## Stage-1 Phase-C pilot digest (16 archival papers; 2026-05-22)
+
+The full annotated row tables for these 16 pilot abstracts live as staging files named `<code>_abstract.md` in `corpus_inventory/track_b_drafts/`. The two annotated anchors above (26-KLYY shape, 24-DLWW variant) stay; this digest distills the move-structure variants the pilot surfaced.
+
+| Code | Move backbone | Distinctive feature |
+|---|---|---|
+| `19-JWW` | 5-move | Setup/gap then immediate quasi-experimental design; directional finding |
+| `22-LNS` | 3-move (setup-finding-closer) | Design folded into one embedded sentence; no separate M4 |
+| `23-ACN` | 5-sentence compact | Sentence 2 merges design + prediction + primary finding |
+| `20-WY` | 5-move | Quasi-exogenous design (Hurun list) stated up front; directional prediction |
+| `22-CHLP` | Results-forward | Opens with the primary FINDING, not a setup/gap; dense heterogeneity sentence |
+| `22-Dug` | 4-move | No explicit cost/dark-side (M4 omitted); regulatory setting up front |
+| `23-ZBLM` | 5-move | Descriptive prevalence then primary finding paired with a NULL result |
+| `24-Chen` | 5-move | Single-author "I" voice throughout |
+| `24-DGZZ` | 5-move | Opens with a staggered policy shock (IBBEA) + RQ; tension folded into setup |
+| `19-Aob` | setup-finding-heterogeneity-closer | Prediction-with-tension move ABSENT; contrasts academic vs practitioner proxies |
+| `19-BGH` | 5-move | Canonical setup + explicit prediction-with-tension (proximity vs internal-control) |
+| `20-CKMS` | compact | Setup straight to finding, then magnitude + dynamic adjustment |
+| `16-DLLN` | 5-move | Construct + transaction setup; finding opens with a prevalence statistic |
+| `23-PSZ` | compact | Setup -> design -> finding fast; no prior-lit invocation in the opener |
+| `22-FHKF` | descriptive-to-empirical | Opens with a direct RQ; introduces a novel resume dataset before the finding |
+| `22-FW` | 5-move | Institutional setting + theory gap (M1); clear directional prediction (M2) |
+
+### New reusable variants surfaced by the pilot
+
+1. **The move count is 3-6, not fixed at 5.** 5-move is modal, but 3-move (setup-finding-closer with an embedded design sentence: `22-LNS`) and 4-move (no cost/dark-side: `22-Dug`) are valid. Compress to the paper's strongest selling point.
+2. **Prediction-with-tension (M2) is frequently folded into the setup or omitted** (`19-Aob`, `22-Dug`, `24-DGZZ`) — abstracts compress the tension far more than introductions do. Keep it only if it earns its words.
+3. **The opener is not always a setup/gap.** Results-forward (`22-CHLP` opens with the finding), RQ-first (`22-FHKF`, `24-DGZZ`), and shock/design-first (`20-WY`, `23-PSZ`) all appear. Match the opener to the paper's hook.
+4. **Single-author "I" is acceptable** (`24-Chen`).
+5. **A null result can sit beside the headline finding** (`23-ZBLM` process-positive / output-null).
+6. **Zero EFFECT-SIZE numbers still holds**, but sample windows and the occasional descriptive *prevalence* statistic appear (`16-DLLN`, `23-ZBLM`). The ban is on effect magnitudes (%, coefficients, pp), not on sample descriptors.
+
+### Drafting retrieval guide
+
+| If your abstract... | Retrieve |
+|---|---|
+| has rich theory to preview | `26-KLYY` (anchor) |
+| has rich findings, thin theory | `24-DLWW` (anchor) or `22-CHLP` |
+| should compress to 3-4 moves | `22-LNS` or `22-Dug` |
+| opens on a regulatory/policy shock | `24-DGZZ` or `20-WY` |
+| opens RQ-first | `22-FHKF` |
+| is single-author | `24-Chen` |
+| pairs a finding with a null | `23-ZBLM` |
+
+---
+
 ## Self-audit checklist
 
 Before submitting your abstract, verify:

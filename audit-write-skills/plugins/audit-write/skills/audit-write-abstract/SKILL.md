@@ -208,6 +208,16 @@ Word count: ~150. 5-move shape complete: setup → prediction-with-tension → f
 
 ---
 
+## Deterministic gate (run before delivering a drafted/rewritten abstract)
+
+Before delivery, run the mechanical gate and resolve every flag.
+
+1. **Run the style linter:** `python ../../scripts/lint_style.py <draft-file>` — fix EVERY ERROR and WARN. Re-run until 0 ERRORs / 0 WARNs.
+2. **Run the structure checker:** `python ../../scripts/check_structure.py <draft-file> --section abstract` — resolve any `N`. The abstract's defining check is **ZERO effect-size numbers** (no %, coefficients, pp, t-stats; sample sizes/years are fine). If it flags a magnitude, delete the number — do not placeholder it.
+3. **Run the "Self-audit checklist"** below for the move structure and register items the script cannot check (see also the `§ Stage-1 pilot digest` in `abstract_patterns.md` for the move-count and opener variants).
+
+Do not deliver until the linter is clean and the checklist passes.
+
 ## When you finish
 
 End with one short closer line:
