@@ -1,8 +1,8 @@
 {
   "name": "audit-write",
   "displayName": "Audit-Research Writing Suite",
-  "version": "1.0.0",
-  "description": "Hub + 8 sub-skills to draft, rewrite, and audit empirical audit-research papers (JAE/JAR/TAR, DeFond/Zuo/Khurana register). Corpus-grounded, integrity-gated, de-personalized for public reuse.",
+  "version": "1.1.0",
+  "description": "Hub + 8 sub-skills to draft, rewrite, and audit empirical audit-research papers for top-tier accounting journals, in a calibrated register reverse-engineered from a named corpus. Corpus-grounded, integrity-gated, de-personalized for public reuse.",
   "author": {
     "name": "Gareth Jiang"
   },
@@ -13,8 +13,8 @@
     "audit-research",
     "academic-writing",
     "accounting",
-    "jae-jar-tar",
-    "defond-style",
+    "audit-quality",
+    "top-accounting-journals",
     "paper-writing"
   ]
 }

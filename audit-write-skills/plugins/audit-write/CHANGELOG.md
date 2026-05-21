@@ -3,9 +3,15 @@
 All notable changes to the audit-write skill suite. The pre-1.0 phases (P1–P3) were
 the development arc that produced the first packaged plugin release.
 
-## [P5] — in progress — mechanism layer + external-validation hardening
+## [1.1.0] — 2026-05-22 — mechanism layer, corpus deepening, context slim
 
 ### Added
+- **Corpus deepening (Stage 1).** Distilled 16 additional pilot papers × 3 sections
+  (intro / hypothesis / results) into the pattern files; re-derived headline move
+  frequencies over **n=22**; extended the exemplar gallery + move bank accordingly.
+- **Intro formal-H gate (Round 2).** `check_structure.py --section intro` now flags a
+  signed/directional prediction that is not crystallized as a displayed `H1.`; pure
+  RQ-first intros stay exempt (`NA`). Golden fixtures + tests added.
 - `docs/external-validation-ng.md` — design-rationale note: an independent
   practitioner account of AI-assisted writing (progressive outlining +
   rubric-against-sycophancy) corroborates the suite's two pillars; records
@@ -22,6 +28,11 @@ the development arc that produced the first packaged plugin release.
 - Golden tests for the new detectors (bad/good fixtures + `run_tests.py` cases).
 
 ### Changed
+- **Context economy (Round 2).** `intro_patterns.md` slimmed ~74% (120K→31K chars):
+  kept the 5-block guidance, n=22 frequency tables, two anchor exemplars (`26-KLYY` +
+  `19-JWW`), and the self-audit checklist; the other pilot intros moved to a compact
+  digest + retrieval pointers, harmonizing intro with the hypothesis/results form.
+  Held-out regression held composite at 90 (no regression vs the pre-slim 85).
 - `scripts/lint_style.py`: two conservative stdlib WARN detectors — em-dash
   overuse (≥3 + density) and the mirrored "not X … it's Y" construction. WARNs
   never fail the run. Rule-of-three / empty-grand-claim kept instruction-only

@@ -3,8 +3,8 @@
   "owner": {
     "name": "Gareth Jiang"
   },
-  "description": "Marketplace hosting the audit-write skill suite for empirical audit-research papers (JAE/JAR/TAR).",
-  "version": "1.0.0",
+  "description": "Marketplace hosting the audit-write skill suite for empirical audit-research papers at top-tier accounting journals.",
+  "version": "1.1.0",
   "metadata": {
     "pluginRoot": "./plugins"
   },

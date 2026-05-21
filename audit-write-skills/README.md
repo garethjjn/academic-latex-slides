@@ -1,11 +1,11 @@
 # audit-write — Audit-Research Writing Skill Suite
 
 > A Claude Code skill suite that drafts, rewrites, and audits empirical
-> **audit-research** papers in the DeFond / Zuo / Khurana register, targeting
-> **JAE · JAR · TAR**. Corpus-grounded, integrity-gated, and de-personalized for
-> public reuse.
+> **audit-research** papers in a calibrated register reverse-engineered from a
+> named corpus of published audit papers at top-tier accounting journals.
+> Corpus-grounded, integrity-gated, and de-personalized for public reuse.
 
-**Status:** v1.0.0 — packaged Claude Code **plugin** · 1 hub + 8 bundled sub-skills
+**Status:** v1.1.0 — packaged Claude Code **plugin** · 1 hub + 8 bundled sub-skills
 (incl. `audit-write-interview`) · 11 shared asset banks · staged drafting ratchet ·
 0–100 rubric with an integrity gate · source corpus disclosed in a manifest. See
 [plugins/audit-write/CHANGELOG.md](plugins/audit-write/CHANGELOG.md) for the P1–P4 arc.
@@ -35,8 +35,7 @@
 ## What this is
 
 `audit-write` is a set of Claude Code **skills** for writing empirical accounting/audit
-papers aimed at the top-3 accounting journals (Journal of Accounting and Economics,
-Journal of Accounting Research, The Accounting Review). It does three things for any
+papers aimed at top-tier accounting journals. It does three things for any
 section of a paper:
 
 - **DRAFT** a section from your notes (research question, DV, IV, setting, finding),
@@ -54,7 +53,7 @@ papers and encoded as section-specific templates.
 |---|---|
 | "Write good academic prose" | Section-specific anatomies (5-block intro, 5-move abstract, 4/6-move hypothesis, 5-part design, 6-sub-section results, numbered robustness battery, 4-move rebuttal) |
 | Invents plausible-sounding citations | **Integrity gate**: any fabricated citation/result/number caps the score at 55/100; unknowns must be `[AUTHOR: …]` placeholders |
-| Generic confidence | Calibrated DeFond register: verb whitelist/blacklist, banned marketing adjectives, anti-AI tells |
+| Generic confidence | Calibrated, corpus-derived register: verb whitelist/blacklist, banned marketing adjectives, anti-AI tells |
 | Rules asserted as universal | Rules **graded**: integrity rules are absolute; conventions are *corpus priors you may override with a stated reason* |
 | Opaque basis | Every "k/6" frequency claim is traceable to a disclosed corpus (`corpus_manifest.md`) |
 
@@ -127,7 +126,7 @@ Copy-Item -Recurse -Force plugins\audit-write\skills\* $env:USERPROFILE\.claude\
 Then verify in Claude Code:
 
 ```
-/audit-write what's the DeFond audit-quality framework?
+/audit-write what's the audit-quality framework?
 ```
 
 If registered you'll get the framework reference and a routing offer.
