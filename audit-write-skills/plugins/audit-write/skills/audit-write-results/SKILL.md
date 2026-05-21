@@ -12,7 +12,7 @@ You are an expert audit-research results-section writer. Your task is to draft, 
 The audit-paper results section has its own register, distinct from the introduction / abstract / hypothesis / design sub-skills:
 
 - **Magnitudes are reported in a 3-sentence translation move:** coefficient + standard error → percentage point change → percent of base rate or comparison to benchmark.
-- **The dominant magnitude pattern is "Form 1 + Form 2 + Form 6"** (pp change + % of base + comparison to literature). This is used by 4 of 6 corpus papers. Std-dev framing is rarer than expected and mainly a partner-trait convention.
+- **The dominant magnitude pattern is "Form 1 + Form 2 + Form 6"** (pp change + % of base + comparison to literature). This is used by 4 of 6 (template) corpus papers. Std-dev framing is rarer than expected and mainly a partner-trait convention.
 - **Identification machinery lives HERE, not in §3.** Quasi-experiments, falsification, FE saturation tests are sub-sections of Results.
 - **Khurana 2026 is the canonical null-result protocol** — only complete playbook in the corpus.
 
@@ -77,7 +77,7 @@ Ordering 4.3 → 4.4 → 4.5 is stable across the corpus. 4.6 may move earlier o
 | **C. As-predicted** | "As predicted, the coefficient on [IV] is [direction]..." | When emphasizing the prediction-confirmation arc |
 | **D. Direct-finding** | "We find that auditors [verb] [outcome]." | When the result is intuitive and doesn't need predictive setup |
 
-In 6/6 corpus papers, the FIRST sentence of §4.2 (Main Results) is one of these 4 forms. **Do not bury the lead.**
+In 6/6 (template) corpus papers, the FIRST sentence of §4.2 (Main Results) is one of these 4 forms. **Do not bury the lead.**
 
 ---
 
@@ -96,18 +96,18 @@ Sentence 3 — Translation to economic magnitude:
   "This represents a [N%] [increase/decrease] relative to the sample mean of [base rate]; equivalent to about [comparison to literature: e.g., '40% of the effect of mandatory rotation reported in [AUTHOR: cite a rotation-effect benchmark]']."
 ```
 
-This 3-sentence block appears in 6/6 corpus papers for the headline coefficient. Sentence 3 is the magnitude-anchor that reviewers will judge: it MUST tie to either the sample mean or a literature benchmark.
+This 3-sentence block appears in 6/6 (template) corpus papers for the headline coefficient. Sentence 3 is the magnitude-anchor that reviewers will judge: it MUST tie to either the sample mean or a literature benchmark.
 
 ### The 6 magnitude framing forms (in order of corpus frequency)
 
 | Form | Frequency | Example |
 |---|---|---|
-| **F1. Percentage point change** | 5/6 | "a 2.1 percentage point decline" |
-| **F2. Percent of base rate** | 5/6 | "a 19% decline relative to the sample mean of 10.4%" |
-| **F6. Literature benchmark** | 3/6 | "comparable to the effect of mandatory rotation ([AUTHOR: cite a rotation-effect benchmark])" |
-| **F4. Standard-deviation shift** | 3/6 | "a one std-dev increase in [IV] is associated with..." |
-| **F3. Decile / quartile shift** | 1/6 | "moving from the bottom to the top decile" |
-| **F5. Interquartile range (IQR)** | 1/6 | "an interquartile change in [IV]" |
+| **F1. Percentage point change** | 5/6 (template) | "a 2.1 percentage point decline" |
+| **F2. Percent of base rate** | 5/6 (template) | "a 19% decline relative to the sample mean of 10.4%" |
+| **F6. Literature benchmark** | 3/6 (template) | "comparable to the effect of mandatory rotation ([AUTHOR: cite a rotation-effect benchmark])" |
+| **F4. Standard-deviation shift** | 3/6 (template) | "a one std-dev increase in [IV] is associated with..." |
+| **F3. Decile / quartile shift** | 1/6 (template) | "moving from the bottom to the top decile" |
+| **F5. Interquartile range (IQR)** | 1/6 (template) | "an interquartile change in [IV]" |
 
 **Default pattern: F1 + F2 + F6.** Use this for the headline coefficient. F4 is acceptable for partner-trait papers. F3 / F5 are situational.
 
@@ -157,7 +157,7 @@ Structured audit report:
 # §4 Results Audit Report
 
 **Word count:** [X] (target: 3,000-5,000)
-**Sub-section structure:** [6/6 / partial / non-standard]
+**Sub-section structure:** [6/6 (template) / partial / non-standard]
 
 ## Sub-Section Diagnosis
 
@@ -247,3 +247,15 @@ End with one short closer line:
 - Mode C: "Audit complete: [N] FAILs, [M] WARNs. Top fix: [single sentence]."
 
 Do not over-explain.
+
+
+## Step 3 — Mechanical self-audit (MANDATORY before delivering any draft)
+
+A *silent* self-audit is not enough. Before delivering ANY drafted/rewritten results section, run the deterministic gate. Stage-1 Phase F showed this single step is the highest-leverage move in the suite: on identical blind-eval tasks it raised mean composite from +1.0 to +5.0.
+
+1. **Run the style linter:** `python ../../scripts/lint_style.py <draft-file>` — fix EVERY ERROR and EVERY "blacklist verb" WARN. CRITICAL: never write "results show that" / "show that" / "demonstrate" in claim sentences; use "we find" / "Table N reports" / "the results indicate". Re-run until **0 ERRORs and 0 blacklist-verb WARNs**.
+2. **Sub-section ORDERING check (the Phase-F defect):** the canonical order is 4.1 descriptive -> 4.2 main result -> **4.3 identification/falsification -> 4.4 cross-sectional/heterogeneity** -> 4.5 mechanism -> 4.6 alternative measures. Identification MUST precede the cross-sectional/heterogeneity tests — a reader cannot interpret heterogeneity causally before endogeneity is addressed. Placing identification after cross-sectional is the single most common ordering error (it cost the only task decline in Phase F).
+3. **Magnitude check:** the headline result carries the 3-sentence coefficient->economic-magnitude translation (or an honest `[PLACEHOLDER: ...]`); any key null uses the null-result protocol.
+4. **Run the Sub-Section diagnosis** (Mode C) and the pattern file's §14 self-audit checklist.
+
+Do not deliver until the linter is clean, the sub-sections are in canonical order, and the checklist passes.

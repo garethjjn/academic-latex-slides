@@ -249,6 +249,18 @@ If the input is .tex, output LaTeX with proper section markers, citation command
 5. Output the structured audit report (template above)
 6. Save it to `quality_reports/audit_intro_review_YYYY-MM-DD.md` if requested
 
+### Step 3 — Mechanical self-audit (MANDATORY before delivering any draft)
+
+A *silent* self-audit is not enough. Before delivering ANY drafted or rewritten intro, run the deterministic gate. Stage-1 Phase F showed this single step is the highest-leverage move in the whole suite: on identical blind-eval tasks it raised mean composite from +1.0 to +5.0 by catching exactly the register/structure slips a silent pass misses.
+
+1. **Run the style linter** on the draft file:
+   `python ../../scripts/lint_style.py <draft-file>`
+   Fix EVERY ERROR and EVERY "blacklist verb" WARN before delivery. Replace banned verbs ("show that", "showing that", "demonstrate", "prove", "leverage", "shed light", "pivotal", "groundbreaking") with whitelist verbs (find / document / observe / report / provide evidence consistent with). Re-run until **0 ERRORs and 0 blacklist-verb WARNs**.
+2. **If the draft quotes a source verbatim**, run `../../scripts/verify_quote.py <source-txt> "<quote>"` on each quote.
+3. **Run the "Checklist for self-audit"** in `intro_patterns.md`. In particular confirm: each numbered contribution names an **identifiable literature** (not a vague "debate" or bare "implications for regulators"); contributions **vary in length** (not equal-length clauses — an AI tell); Block 4 carries a magnitude (or an honest `[PLACEHOLDER: ...]`); Block 2 has an explicit tension paragraph.
+
+Do not deliver until the linter is clean and the checklist passes.
+
 **User input:** *(`[ILLUSTRATIVE EXAMPLE — substitute your own setting]`)*
 > "Draft intro for my paper. RQ: do audit partners with prior financial-statement preparer experience provide higher audit quality? Setting: partner-firm-years over [PERIOD] in an economy with engagement-partner disclosure. Finding: preparer-experienced partners reduce restatements by 1.8 pp (15% of base rate). Contributions: (1) extends partner-trait literature; (2) novel measure of partner preparer experience; (3) competence-vs-independence framing."
 
