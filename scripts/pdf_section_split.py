@@ -251,7 +251,60 @@ def match_target(headers: list[tuple[int, int, str]], section: str) -> int | Non
     return None
 
 
+def extract_abstract(text: str) -> tuple[str, str] | None:
+    """The abstract is unlabeled pre-intro prose, not a numbered header. Take the
+    region before the first detected section header (or the first 80 lines), start
+    after an 'Abstract' label if present, and stop at Keywords / JEL / first header."""
+    lines = text.split("\n")
+    headers = find_headers(text)
+    end = headers[0][0] if headers else min(len(lines), 80)
+    region = lines[:end]
+    start = None
+    # 1. prefer an explicit "Abstract" label (incl. spaced "A B S T R A C T")
+    for i, ln in enumerate(region):
+        squashed = re.sub(r"\s+", "", ln).lower()
+        if re.match(r"^\s*abstract\b[:.]?\s*$", ln, re.I):
+            start = i + 1
+            break
+        if re.match(r"^\s*abstract[:.]\s", ln, re.I) or squashed == "abstract":
+            start = i if re.match(r"^\s*abstract[:.]\s", ln, re.I) else i + 1
+            break
+    # 2. otherwise skip front-matter (masthead/URL/volume/author lines) to the first prose line
+    if start is None:
+        FRONT = re.compile(
+            r"contents lists available|sciencedirect|journal homepage|www\.|https?://|"
+            r"\(\d{4}\)\s*\d|\bdoi:|©|elsevier|crossmark|available at|locate/|"
+            r"^\s*journal of [a-z ]+\d", re.I)
+        start = 0
+        for i, ln in enumerate(region):
+            s = ln.strip()
+            if not s or FRONT.search(s):
+                continue
+            words = s.split()
+            # first real prose line: enough words AND enough genuinely lowercase words
+            # (>=4 words of len>=3 starting lowercase) — skips Title-Case title/author lines
+            lower_words = [w for w in words if len(w) >= 3 and w[0].islower()]
+            if len(words) >= 8 and len(lower_words) >= 4:
+                start = i
+                break
+    stop = len(region)
+    STOP_RE = re.compile(r"^\s*(keywords?|key words|jel(\s+classification)?|"
+                         r"data availability|©|electronic copy)\b", re.I)
+    for i in range(start, len(region)):
+        if STOP_RE.match(region[i]):
+            stop = i
+            break
+    body = "\n".join(region[start:stop]).strip()
+    # drop the leading "Abstract" word if it begins an inline "Abstract: ..." line
+    body = re.sub(r"^\s*abstract[:.]?\s*", "", body, flags=re.I).strip()
+    if len(body) < 200:   # too short to be a real abstract — signal failure
+        return None
+    return body, "abstract (pre-intro prose)"
+
+
 def extract_section(text: str, section: str) -> tuple[str, str] | None:
+    if section == "abstract":
+        return extract_abstract(text)
     headers = find_headers(text)
     if not headers:
         return None
