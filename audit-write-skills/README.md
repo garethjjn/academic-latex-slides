@@ -5,10 +5,12 @@
 > named corpus of published audit papers at top-tier accounting journals.
 > Corpus-grounded, integrity-gated, and de-personalized for public reuse.
 
-**Status:** v1.1.0 — packaged Claude Code **plugin** · 1 hub + 8 bundled sub-skills
+**Status:** v1.2.0 — packaged Claude Code **plugin** · 1 hub + 8 bundled sub-skills
 (incl. `audit-write-interview`) · 11 shared asset banks · staged drafting ratchet ·
-0–100 rubric with an integrity gate · source corpus disclosed in a manifest. See
-[plugins/audit-write/CHANGELOG.md](plugins/audit-write/CHANGELOG.md) for the P1–P4 arc.
+0–100 rubric with an integrity gate · **section-specific mechanical self-check gates**
+(`check_structure.py`) for intro / abstract / design / results / robustness · source
+corpus disclosed in a manifest. See
+[plugins/audit-write/CHANGELOG.md](plugins/audit-write/CHANGELOG.md) for the full release history.
 
 ---
 
@@ -356,7 +358,8 @@ reference resolves unchanged whether installed as a plugin or copied manually.
 | P2 | Asset-library refactor · rubric · hard-rule re-grade · lazy-load · absorb referee | ✅ done |
 | P3 | Interview intake + progressive-outline ratchet + DRY context object | ✅ done |
 | P4 | Claude Code **plugin** packaging (`plugin.json` + single-plugin marketplace; `assets/` foldering cancelled — schema-verified unnecessary) | ✅ done |
-| P5 | Mechanism layer: hook-enforced integrity/link checks, critic + referee-simulator agents, golden tests | in progress |
+| P5 | Mechanism layer: hook-enforced integrity/link checks, critic + referee-simulator agents, golden tests | ✅ done |
+| Opt. R1–R3 | Mechanize the rubric pre-checklist as `check_structure.py` section gates (intro formal-H · design equation/clustering/descriptive-stats/control-tiering · robustness numbered-battery · abstract zero-magnitude); slim/harmonize intro; deepen design/abstract over the Stage-1 pilot corpus; held-out blind eval per change | ✅ done |
 
 **Honest status:** the integrity gate and lazy-load policy are currently *instructions
 the agent is told to follow*, not mechanically enforced — enforcement is P5. Quality is
@@ -392,3 +395,13 @@ This suite is a public template. If you fork it for your field:
 - **Licensing.** Distilled patterns are the project's own work and reusable. Source
   papers are **not** redistributed; obtain them from their publishers via the manifest
   citations. The suite is fully usable without them.
+
+## Acknowledgments
+
+- **Maintainer:** Gareth Jiang.
+- **Built with [Claude](https://www.anthropic.com/claude) (Anthropic) in Claude Code.**
+  Claude was a substantial co-developer of this suite — corpus distillation into the
+  pattern files and digests, the section-specific `check_structure.py` gates and golden
+  tests, the progressive-outline ratchet, and the held-out blind-eval methodology were
+  developed in collaboration with Claude. Final design decisions, the corpus selection,
+  and review are the maintainer's.

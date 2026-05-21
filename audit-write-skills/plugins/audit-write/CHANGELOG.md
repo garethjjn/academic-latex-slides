@@ -3,6 +3,35 @@
 All notable changes to the audit-write skill suite. The pre-1.0 phases (P1–P3) were
 the development arc that produced the first packaged plugin release.
 
+## [1.2.0] — 2026-05-22 — section gates + design/abstract/robustness deepening (Opt. R3)
+
+### Added
+- **Section-specific `check_structure.py` gates** that mechanize the rubric pre-checklist per
+  section (the high-leverage enforcement layer; each held-out blind-eval confirmed gates move the
+  score where digest content alone did not):
+  - **intro:** a signed/directional prediction must be a displayed formal `H1.` (RQ-first intros exempt).
+  - **design:** identification-machinery-deferred (existing) + numbered baseline equation + SE
+    clustering + a descriptive-statistics block + controls tiered into ≥2 named groups.
+  - **robustness:** a numbered / enumerated battery of ≥3 tests.
+  - **abstract:** zero effect-size numbers (existing).
+  Golden fixtures + tests for each (run_tests 15/15).
+- **Stage-1 pilot digests** distilled into the pattern files: design (§13b, 13 papers),
+  abstract (16 papers), robustness (§14b, 4 papers — see finding below). Each mirrors the lean
+  digest form (per-paper table + reusable variants + retrieval guide).
+- **Step-3 deterministic-gate sections** added to the design / robustness / abstract SKILL.md
+  (intro / results / hypothesis already had them).
+
+### Changed
+- intro_patterns.md slimmed/harmonized (Opt. R2, also in 1.1.0 line) and design/abstract deepened
+  over the Stage-1 pilot corpus. Held-out blind eval: design 82→85, abstract 90→92, robustness 82.
+
+### Notes
+- **Corpus finding:** only 4 of 16 pilot papers carry a *standalone* robustness section (the rest
+  fold robustness into §4 results), so robustness received a *light* deepening (gate + 4-paper
+  digest), not an n=22 deepening.
+- `audit-referee-response` deepening is deferred to a later round (no paper-section to distill;
+  it would deepen from the O1–O8 objection bank).
+
 ## [1.1.0] — 2026-05-22 — mechanism layer, corpus deepening, context slim
 
 ### Added
