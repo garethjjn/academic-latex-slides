@@ -285,8 +285,9 @@ Do not over-explain.
 
 A *silent* self-audit is not enough. Before delivering ANY drafted/rewritten hypothesis section, run the deterministic gate. Stage-1 Phase F showed this single step is the highest-leverage move in the suite: on identical blind-eval tasks it raised mean composite from +1.0 to +5.0.
 
-1. **Run the style linter:** `python ../../scripts/lint_style.py <draft-file>` — fix EVERY ERROR and EVERY "blacklist verb" WARN (no "show that"/"prove"/"demonstrate"/"leverage"/etc. in claim sentences). Re-run until **0 ERRORs and 0 blacklist-verb WARNs**.
-2. **Hypothesis-form check (the Phase-F defect):** every formal hypothesis must be **directional** (`**H1.** ... ceteris paribus`) OR an **explicit null** ("is NOT associated with") WITH a stated justification for the ambiguity. NEVER ship a bare non-directional "is associated with" (neither alternative nor null).
+1. **Run the style linter:** `python ../../scripts/lint_style.py <draft-file>` — fix EVERY ERROR and EVERY WARN (blacklist verbs; contribution-literature; triadic). Re-run until **0 ERRORs and 0 WARNs** (em-dash density excepted if genuinely parenthetical).
+2. **Run the structure checker:** `python ../../scripts/check_structure.py <draft-file> --section hypothesis` — resolve any `N` (tension cue present).
+3. **Hypothesis-form check (the Phase-F defect):** every formal hypothesis must be **directional** (`**H1.** ... ceteris paribus`) OR an **explicit null** ("is NOT associated with") WITH a stated justification for the ambiguity. NEVER ship a bare non-directional "is associated with" (neither alternative nor null).
 3. **Tension check:** every hypothesis has an explicit tension/counter-argument before it.
 4. **Run the Move-by-Move diagnosis** (Mode C) and the pattern file's self-audit checklist.
 

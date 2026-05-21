@@ -23,7 +23,7 @@ import sys
 
 EM_DASH = "—"
 BANNED = [
-    "show that", "prove that", "proves that", "demonstrate definitively",
+    "prove that", "proves that", "demonstrate definitively",
     "delve", "leverage", "shed light", "pave the way", "paradigm-shifting",
     "groundbreaking", "pivotal",
 ]
@@ -32,6 +32,10 @@ ANCHORS = [
     "cohen, 19", "hainmueller",
 ]
 CITE = re.compile(r"\(([A-Z][A-Za-z.\-]+(?:[^()]{0,60}?))?\b(19|20)\d{2}[a-z]?\)")
+# own-work "show that" (banned) vs prior-lit "literature shows that" (fine)
+OWN_SHOW = re.compile(
+    r"\b(?:we|by|our|this study|this paper|results?|table|column)\b"
+    r"[^.\n]{0,40}?\bshow(?:s|ing)? that\b", re.I)
 NOTXBUTY = [
     re.compile(r"\bit['’]s not\b[^.\n]{1,60}?\bit['’]s\b", re.I),
     re.compile(
@@ -59,6 +63,30 @@ ID_MACHINERY = re.compile(
     re.I,
 )
 
+# intro 5-block cues (C5 structural completeness)
+INTRO_BLOCKS = {
+    "B1 motivation/gap": re.compile(
+        r"\b(purpose of (?:this|our) study|we examine|we investigate|fill (?:this|a) gap|"
+        r"has not been|remains? (?:unclear|unexplored|unsettled)|little (?:is known|attention))",
+        re.I),
+    "B2 theory/tension": TENSION,
+    "B3 setting/data": re.compile(
+        r"\b(our (?:final )?sample|sample (?:consists|of)|observations|over the period|firm-year)", re.I),
+    "B4 findings": re.compile(r"\b(we find|consistent with our|we document|we observe that)", re.I),
+    "B5 robustness": re.compile(
+        r"\b(robust(?:ness)?|falsification|placebo|cross-section|sensitivity|identification)", re.I),
+    "contributions": re.compile(r"\bcontribut", re.I),
+}
+# results sub-section cues + the ordering check (identification before cross-sectional)
+RES_DESC = re.compile(r"\b(descriptive statistics|summary statistics)\b", re.I)
+RES_ID = re.compile(
+    r"\b(identification|falsification|placebo|endogen|heckman|instrument(?:al)?|"
+    r"exogenous shock|parallel trends?|selection (?:model|correction))\b", re.I)
+RES_CS = re.compile(
+    r"\b(cross-section|partition|heterogen|subsample|stronger (?:for|when|in|among)|"
+    r"weaker (?:for|when|in|among))\b", re.I)
+RES_MECH = re.compile(r"\b(mechanism|channel|path analysis)\b", re.I)
+
 
 def yn(ok):
     return "Y" if ok else "N"
@@ -72,6 +100,11 @@ def check(path, section):
         return
     low = text.lower()
     rows = []
+    # magnitude status: Y real number · NA honest "[PLACEHOLDER:]" pending · N absent
+    # ([PLACEHOLDER:] is the suite's convention for a pending number; [AUTHOR:] = cite)
+    has_mag = bool(MAGNITUDE.search(text))
+    mag_pending = "[placeholder" in low
+    mag_status = "Y" if has_mag else ("NA" if mag_pending else "N")
 
     # C1 — cite integrity (same heuristic as lint_style.py)
     fab = False
@@ -86,7 +119,7 @@ def check(path, section):
     rows.append(("C1 cite-integrity", yn(not fab), "integrity gate + Dim 3"))
 
     # C3 — blacklist verbs
-    has_banned = any(b in low for b in BANNED)
+    has_banned = any(b in low for b in BANNED) or bool(OWN_SHOW.search(text))
     rows.append(("C3 register (blacklist verbs)", yn(not has_banned), "Dim 2"))
 
     # C4 — AI-slop tells
@@ -98,13 +131,19 @@ def check(path, section):
     rows.append(("C4 AI-slop tells", yn(not (em_bad or notxy)), "Dim 2"))
 
     # C5 — section mandatory element  /  C6 — magnitude where required
-    has_mag = bool(MAGNITUDE.search(text))
+    # (has_mag / mag_status computed at top: Y real · NA "[PLACEHOLDER:]" pending · N)
     if section == "abstract":
         rows.append(("C5 abstract has ZERO effect numbers",
                       yn(not has_mag), "Dim 1/3"))
     elif section == "intro":
-        rows.append(("C5 intro states >=1 magnitude", yn(has_mag), "Dim 1"))
-        rows.append(("C6 effect magnitude present", yn(has_mag), "Dim 3"))
+        present = [k for k, rx in INTRO_BLOCKS.items() if rx.search(text)]
+        missing = [k for k in INTRO_BLOCKS if k not in present]
+        rows.append((f"C5 intro 5-block coverage ({len(present)}/6 cues)",
+                      yn(len(present) >= 5), "Dim 1"))
+        if missing:
+            rows.append(("   missing block cues: " + ", ".join(missing), "·", ""))
+        rows.append(("C5 intro states >=1 magnitude", mag_status, "Dim 1"))
+        rows.append(("C6 effect magnitude present", mag_status, "Dim 3"))
     elif section == "hypothesis":
         rows.append(("C5 tension cue present", yn(bool(TENSION.search(text))),
                       "Dim 1/4"))
@@ -112,7 +151,22 @@ def check(path, section):
         rows.append(("C5 §3 free of identification machinery",
                       yn(not ID_MACHINERY.search(text)), "Dim 1"))
     elif section in ("results", "robustness"):
-        rows.append(("C6 effect magnitude present", yn(has_mag), "Dim 3"))
+        rows.append(("C6 effect magnitude present", mag_status, "Dim 3"))
+        if section == "results":
+            idm, csm = RES_ID.search(text), RES_CS.search(text)
+            present = sum(1 for x in (RES_DESC.search(text), idm, csm,
+                                       RES_MECH.search(text)) if x)
+            rows.append((f"C5 results sub-section coverage ({present}/4 key cues)",
+                          yn(present >= 3), "Dim 1"))
+            rows.append(("C5 identification sub-section present", yn(bool(idm)),
+                          "Dim 1"))
+            # the 14-HLM defect: identification must precede cross-sectional
+            if idm and csm:
+                rows.append(("C5 identification BEFORE cross-sectional",
+                              yn(idm.start() < csm.start()), "Dim 1/4"))
+            elif csm and not idm:
+                rows.append(("C5 identification BEFORE cross-sectional (none found)",
+                              "N", "Dim 1/4"))
     else:
         rows.append(("C5/C6 section structural checks", "NA",
                       "pass --section to enable"))

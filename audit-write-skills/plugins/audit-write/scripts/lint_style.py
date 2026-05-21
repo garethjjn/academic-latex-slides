@@ -31,7 +31,7 @@ except AttributeError:
 
 PERSONAL = re.compile(r"gareth|integexp|integrity[ -]?(exposure|propaganda)", re.I)
 BANNED = [
-    "show that", "prove that", "proves that", "demonstrate definitively",
+    "prove that", "proves that", "demonstrate definitively",
     "delve", "leverage", "shed light", "pave the way", "paradigm-shifting",
     "groundbreaking", "pivotal",
 ]
@@ -54,6 +54,36 @@ NOTXBUTY = [
         re.I,
     ),
 ]
+
+# Contribution-block checks (C4 triadic / C7 unpinned-literature; rubric.md).
+# Only run when the draft is contribution-bearing ("contribut" present), to
+# avoid flagging "First,/Second," used in ordinary methods/argument lists.
+# own-work "show that" (banned) vs prior-lit "the literature shows that" (fine):
+# fire only when an own-work marker precedes show/shows/showing that.
+OWN_SHOW = re.compile(
+    r"\b(?:we|by|our|this study|this paper|results?|table|column)\b"
+    r"[^.\n]{0,40}?\bshow(?:s|ing)? that\b", re.I)
+ORDINAL = re.compile(r"\b(First|Second|Third|Fourth|Fifth|Finally),\s", re.I)
+# a contribution legitimately names a literature / prior work / cite-or-author slot
+LIT_SIGNAL = re.compile(
+    r"\bliterature\b|\bresearch\b|\bstudies\b|\bstream\b|\bwork on\b|"
+    r"\bprior work\b|\bline of\b|\[author|\([A-Z][A-Za-z.\-]+[^()]{0,40}\b(?:19|20)\d{2}",
+    re.I,
+)
+
+
+def contribution_segments(text):
+    """Return [(ordinal, segment_text), ...] for a contribution block, or []."""
+    if "contribut" not in text.lower():
+        return []
+    marks = [(m.group(1).capitalize(), m.start()) for m in ORDINAL.finditer(text)]
+    if len(marks) < 2:                       # not a numbered list
+        return []
+    segs = []
+    for k, (ordn, start) in enumerate(marks):
+        end = marks[k + 1][1] if k + 1 < len(marks) else min(len(text), start + 600)
+        segs.append((ordn, text[start:end]))
+    return segs
 
 
 def lint(path):
@@ -118,6 +148,28 @@ def lint(path):
                 f"\"{m.group(0)[:60]}\" — style_dna.md §9"
             )
             break
+    m = OWN_SHOW.search(flat)
+    if m:
+        warns.append(
+            f"{path}: WARN blacklist verb 'show that' (own-work claim): "
+            f"\"{m.group(0)[:60]}\" — use find / document (style_dna §2)"
+        )
+    # contribution-block checks (rubric.md C7 + C4-triadic)
+    segs = contribution_segments(text)
+    for ordn, seg in segs:
+        if not LIT_SIGNAL.search(seg):
+            warns.append(
+                f"{path}: WARN contribution-literature: '{ordn}' contribution names "
+                f"no identifiable literature/research/[AUTHOR:] (rubric C7, Dim 4)"
+            )
+    if len(segs) == 3 and all(o in ("First", "Second", "Third") for o, _ in segs):
+        lens = [len(s.split()) for _, s in segs]
+        if min(lens) and (max(lens) - min(lens)) / max(lens) <= 0.20:
+            warns.append(
+                f"{path}: WARN triadic-contributions: three contributions of near-equal "
+                f"length ({'/'.join(map(str, lens))} words) — AI tell, vary length "
+                f"(rubric C4, Dim 2; style_dna.md §9)"
+            )
     return errs, warns
 
 

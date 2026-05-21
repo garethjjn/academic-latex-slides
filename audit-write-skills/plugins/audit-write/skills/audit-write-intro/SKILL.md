@@ -255,9 +255,10 @@ A *silent* self-audit is not enough. Before delivering ANY drafted or rewritten 
 
 1. **Run the style linter** on the draft file:
    `python ../../scripts/lint_style.py <draft-file>`
-   Fix EVERY ERROR and EVERY "blacklist verb" WARN before delivery. Replace banned verbs ("show that", "showing that", "demonstrate", "prove", "leverage", "shed light", "pivotal", "groundbreaking") with whitelist verbs (find / document / observe / report / provide evidence consistent with). Re-run until **0 ERRORs and 0 blacklist-verb WARNs**.
-2. **If the draft quotes a source verbatim**, run `../../scripts/verify_quote.py <source-txt> "<quote>"` on each quote.
-3. **Run the "Checklist for self-audit"** in `intro_patterns.md`. In particular confirm: each numbered contribution names an **identifiable literature** (not a vague "debate" or bare "implications for regulators"); contributions **vary in length** (not equal-length clauses — an AI tell); Block 4 carries a magnitude (or an honest `[PLACEHOLDER: ...]`); Block 2 has an explicit tension paragraph.
+   Fix EVERY ERROR and EVERY WARN before delivery: blacklist verbs ("show that", "showing that", "demonstrate", "prove", "leverage", "shed light", "pivotal", "groundbreaking" → use find / document / observe / report / provide evidence consistent with); **contribution-literature** WARNs (every numbered contribution must name an identifiable literature, not a vague "debate" / bare "implications"); **triadic-contributions** WARNs (vary contribution lengths). Re-run until **0 ERRORs and 0 WARNs** (em-dash density excepted if genuinely parenthetical).
+2. **Run the structure checker:** `python ../../scripts/check_structure.py <draft-file> --section intro` — resolve any `N`: 5-block coverage (motivation/gap · theory/tension · setting/data · findings · robustness · contributions) and Block-4 magnitude (an honest `[PLACEHOLDER: ...]` is fine pre-results).
+3. **If the draft quotes a source verbatim**, run `../../scripts/verify_quote.py <source-txt> "<quote>"` on each quote.
+4. **Run the "Checklist for self-audit"** in `intro_patterns.md` for anything the scripts cannot mechanically check.
 
 Do not deliver until the linter is clean and the checklist passes.
 
