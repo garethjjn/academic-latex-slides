@@ -30,14 +30,21 @@ scope: audit-write skill suite (post Stage-1 GREEN)
   frequencies re-derived over n=22; go/no-go +5.0.
 - **Optimization Round 1 (mechanize the gate + eval harness): COMPLETE** (commit b10d053).
   lint_style + check_structure now catch C4/C5/C7 + ordering; harness is re-runnable.
-- **Optimization Round 3 (deepen rest to n=22): IN PROGRESS — design pilot done.** Pipeline
-  generalized to `--section` (splitter + generator + new `drop_failing_quotes.py`); 13/16 design
-  drafts distilled into a `design_patterns.md §13b` pilot digest; design C5 strengthened
-  (numbered-equation + clustering + descriptive-stats checks, +golden tests, 12/12) + a SKILL.md
-  Step-3 gate added. Held-out 14-FPW design held at **82 = 82** baseline (no regression). Finding:
-  the gate forced the descriptive-stats block but un-mechanized control-tiering was still missed —
-  enforcement > content again. Next: abstract (needs pre-intro extractor) + robustness; optional
-  control-tiering check to lift design >82.
+- **Optimization Round 3 (deepen rest): COMPLETE for design + abstract + robustness; referee
+  deferred.** Pipeline generalized to `--section` (splitter +abstract pre-intro extractor,
+  generator, new `drop_failing_quotes.py`); golden tests 15/15.
+  - **design** (13/16 drafts → §13b digest): C5 strengthened (equation + clustering + descriptive-
+    stats + control-tiering checks) + SKILL Step-3 gate. Held-out 14-FPW **82 → 85** (control-tiering
+    gate gave the +3; descriptive-stats gate held it).
+  - **abstract** (16/16 → digest): zero-magnitude C5 (existing) + SKILL gate. Held-out **90 → 92**
+    (clean A/B). Skill was already near-ceiling.
+  - **robustness** (only **4/16** have a standalone section; rest fold into §4 → light deepening):
+    numbered-battery C5 + 4-paper digest + SKILL gate. Held-out **82**.
+  - Findings: enforcement > content confirmed repeatedly (gates move the held-out score, digests
+    alone don't); keep pre/post eval prompts identical (a prompt nudge cost abstract 7 pts before a
+    clean re-run); critic flags em-dashes stricter than the mechanical C4 (calibration gap).
+  - **`audit-referee-response` deferred** to its own round (no paper-corpus section to distill;
+    would deepen from the O1–O8 objection bank). Ready to publish design+abstract+robustness as v1.2.0.
 - **Optimization Round 2 (slim + harmonize intro): COMPLETE.** intro_patterns.md 120K→31K
   (74%↓); pilot digest mirrors hypothesis/results; held-out 14-FPW composite **90 ≥ 85**
   baseline (no regression). The regression check surfaced a formal-H reliability gap that
