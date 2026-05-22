@@ -5,8 +5,8 @@
 > named corpus of published audit papers at top-tier accounting journals.
 > Corpus-grounded, integrity-gated, and de-personalized for public reuse.
 
-**Status:** v1.2.0 — packaged Claude Code **plugin** · 1 hub + 8 bundled sub-skills
-(incl. `audit-write-interview`) · 11 shared asset banks · staged drafting ratchet ·
+**Status:** v1.3.0 — packaged Claude Code **plugin** · 1 hub + 9 bundled sub-skills
+(incl. `audit-write-interview` and `audit-write-review`) · 11 shared asset banks · staged drafting ratchet ·
 0–100 rubric with an integrity gate · **section-specific mechanical self-check gates**
 (`check_structure.py`) for intro / abstract / design / results / robustness · source
 corpus disclosed in a manifest. See
@@ -61,9 +61,14 @@ papers and encoded as section-specific templates.
 
 ## Features
 
-- **8 skills, hub-and-spoke.** One dispatcher (`audit-write`) + 7 bundled sub-skills:
-  abstract, intro, hypothesis, design, results, robustness, referee-response.
-- **3 operating modes** per sub-skill: DRAFT / REWRITE / AUDIT.
+- **Hub-and-spoke.** One dispatcher (`audit-write`) + 9 bundled sub-skills: the
+  interview/progressive-outline intake, abstract, intro, hypothesis, design, results,
+  robustness, review, and referee-response.
+- **3 operating modes** per section sub-skill: DRAFT / REWRITE / AUDIT.
+- **Whole-paper review in two senses** (`audit-write-review`, interviews you for which):
+  a rubric-scored **writing** review, or a simulated **peer**-review pipeline (editor desk
+  review → two referees with deliberately different dispositions → editorial decision letter,
+  calibrated to JAE/JAR/TAR/AJPT, every concern tied to an O1–O8 objection code).
 - **9 shared asset banks** (single-sourced, no duplication): style DNA, audit-quality
   framework, corpus manifest, scoring rubric, null/identification protocols, journal
   profile bank, move bank, referee-objection bank, exemplar gallery.
@@ -88,7 +93,11 @@ audit-write  (hub: dispatcher + 9 shared asset banks)
 ├── audit-write-design          5-part §3 (identification deferred to §4)
 ├── audit-write-results         6-sub-section §4 + magnitude translation
 ├── audit-write-robustness      numbered identification battery
+├── audit-write-review          whole-paper review: writing (rubric) OR peer (editor + 2 referees)
 └── audit-referee-response      4-move point-by-point rebuttal
+
+agents:  audit-write-critic (writing scorer) · audit-referee-simulator (referee persona,
+         disposition-aware) · audit-editor (desk review + referee selection + synthesis)
 ```
 
 Sub-skills consult the hub's banks via `../audit-write/<bank>.md`. Two banks
@@ -137,7 +146,7 @@ If registered you'll get the framework reference and a routing offer.
 
 ```
 /audit-write help me start a paper          # → interview, then progressive outline
-/audit-write review my whole audit paper    # → holistic, section-by-section audit
+/audit-write-review review my whole paper    # → interviews: writing review, peer review, or both
 /audit-write which sub-skill for my Section 2?
 ```
 
@@ -216,9 +225,13 @@ engagement-partner-disclosure regime. Finding: −1.8 pp restatements
 /audit-write-results audit my §4: <paste>
 → sub-section-by-sub-section diagnosis + the rubric Score block.
 
-# Holistic (routes every section through its sub-skill)
-/audit-write review the whole paper: <paths or pasted sections>
-→ combined report + a top-issues list.
+# Whole-paper review (interviews you for which review you want)
+/audit-write-review review my paper for JAR: <path or pasted sections>
+→ asks: (1) WRITING review (rubric-scored register/structure, section-by-section),
+  (2) PEER review (editor desk → 2 dispositioned referees → decision letter), or (3) both.
+  Both modes write a markdown report into one audit_review_<paper>/ folder: writing_review.md
+  (writing mode) and desk_review / referee_A / referee_B / editorial_decision (peer mode,
+  every concern tagged with its O-code for the rebuttal).
 
 # Referee response (R&R)
 /audit-referee-response draft a response to Reviewer 2's
@@ -228,7 +241,7 @@ engagement-partner-disclosure regime. Finding: −1.8 pp restatements
 ```
 
 Sub-skills: `audit-write-abstract` · `-intro` · `-hypothesis` · `-design` ·
-`-results` · `-robustness` · `audit-referee-response`. Invoke the hub
+`-results` · `-robustness` · `-review` · `audit-referee-response`. Invoke the hub
 `/audit-write` if you are unsure which one you need.
 
 ## The scoring rubric & binary pre-checklist
@@ -325,7 +338,7 @@ audit-write-skills/                     ← repo = single-plugin marketplace
     └── audit-write/                    ← THE plugin
         ├── .claude-plugin/plugin.json
         ├── CHANGELOG.md
-        ├── agents/                     ← critic + referee-simulator (P5)
+        ├── agents/                     ← critic + referee-simulator + editor (peer review)
         ├── hooks/                      ← hooks.json (P5)
         ├── scripts/                    ← stdlib checks (P5)
         └── skills/
@@ -344,6 +357,7 @@ audit-write-skills/                     ← repo = single-plugin marketplace
             ├── audit-write-design/     (SKILL.md + design_patterns.md)
             ├── audit-write-results/    (SKILL.md + results_patterns.md)
             ├── audit-write-robustness/ (SKILL.md + robustness_patterns.md)
+            ├── audit-write-review/     (SKILL.md + peer_review_protocol.md)
             └── audit-referee-response/ (SKILL.md)
 ```
 
@@ -360,6 +374,7 @@ reference resolves unchanged whether installed as a plugin or copied manually.
 | P4 | Claude Code **plugin** packaging (`plugin.json` + single-plugin marketplace; `assets/` foldering cancelled — schema-verified unnecessary) | ✅ done |
 | P5 | Mechanism layer: hook-enforced integrity/link checks, critic + referee-simulator agents, golden tests | ✅ done |
 | Opt. R1–R3 | Mechanize the rubric pre-checklist as `check_structure.py` section gates (intro formal-H · design equation/clustering/descriptive-stats/control-tiering · robustness numbered-battery · abstract zero-magnitude); slim/harmonize intro; deepen design/abstract over the Stage-1 pilot corpus; held-out blind eval per change | ✅ done |
+| Opt. R4 | **Whole-paper review** sub-skill (`audit-write-review`): interview-driven choice of a rubric-scored *writing* review vs a simulated *peer*-review pipeline (new `audit-editor` agent; disposition-aware `audit-referee-simulator`); audit disposition taxonomy mapped onto the O1–O8 bank | ✅ done |
 
 **Honest status:** the integrity gate and lazy-load policy are currently *instructions
 the agent is told to follow*, not mechanically enforced — enforcement is P5. Quality is

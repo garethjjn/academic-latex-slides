@@ -1,6 +1,6 @@
 ---
 name: audit-write
-description: "Master skill and dispatcher for audit-paper writing in DeFond / Zuo / Khurana style targeting JAE / JAR / TAR. USE THIS SKILL when the user asks for high-level audit-writing help without specifying a section ('rewrite my audit paper', 'review my audit-quality manuscript') OR wants the conceptual framework / vocabulary reference. Routes to the appropriate sub-skill (audit-write-intro, audit-write-abstract, audit-write-hypothesis, audit-write-design, audit-write-results, audit-write-robustness, audit-referee-response) based on the section being worked on. Holds shared resources: audit-quality framework (DeFond-Zhang 2014/2025) and style DNA (verb whitelist, hedging vocabulary, audit-specific terminology)."
+description: "Master skill and dispatcher for audit-paper writing in DeFond / Zuo / Khurana style targeting JAE / JAR / TAR. USE THIS SKILL when the user asks for high-level audit-writing help without specifying a section ('rewrite my audit paper', 'review my audit-quality manuscript') OR wants the conceptual framework / vocabulary reference. Routes to the appropriate sub-skill (audit-write-intro, audit-write-abstract, audit-write-hypothesis, audit-write-design, audit-write-results, audit-write-robustness, audit-write-review, audit-referee-response) based on the section being worked on. Holds shared resources: audit-quality framework (DeFond-Zhang 2014/2025) and style DNA (verb whitelist, hedging vocabulary, audit-specific terminology)."
 when_to_use: "Trigger when user asks for audit-paper writing help in general ('help with my audit paper', 'review my audit manuscript', 'what's the DeFond writing style'), OR wants the audit-quality conceptual framework OR vocabulary reference, OR doesn't know which section-specific sub-skill to use. Defer to a specific sub-skill (audit-write-intro etc.) when the section is clear."
 argument-hint: "<task or question> e.g. 'review my audit paper', 'what's the DeFond audit-quality framework', 'which sub-skill should I use for my hypothesis development'"
 user-invocable: true
@@ -29,12 +29,13 @@ When the user asks for help with a specific section, route to the corresponding 
 | "rewrite my **research design**" / "my methodology" / "my Section 3" | `audit-write-design` |
 | "rewrite my **results** section" / "my main findings" | `audit-write-results` |
 | "structure my **robustness**" / "my additional analyses" / "Section 5" | `audit-write-robustness` |
+| "**review** my whole paper" / "**peer review**" / "mock referee report" / "will this **survive** at JAR?" / "desk-review my paper" | `audit-write-review` |
 | "draft my **referee response**" / "rebuttal letter" / "response to reviewers" | `audit-referee-response` |
 
 > **Note.** `audit-referee-response` is a **bundled sub-skill** of this suite (it ships alongside the six section skills). It can also be invoked standalone for rebuttal work. All routes above target sub-skills that ship with this suite.
 
 If the user doesn't specify a section, ask:
-> "Are you (a) **starting a paper** (I'll interview you → `paper-spec.md`, then progressively outline), (b) working on a specific section — (1) abstract, (2) introduction, (3) hypothesis, (4) design, (5) results, (6) robustness, (7) referee response, or (c) wanting a **holistic review**? If a `paper-spec.md` already exists I'll use it instead of re-asking."
+> "Are you (a) **starting a paper** (I'll interview you → `paper-spec.md`, then progressively outline), (b) working on a specific section — (1) abstract, (2) introduction, (3) hypothesis, (4) design, (5) results, (6) robustness, (7) referee response, or (c) wanting a **review of a finished paper** — a *writing* review (rubric-scored register/structure) or a *peer* review (mock editor + referees + decision letter) via `audit-write-review`? If a `paper-spec.md` already exists I'll use it instead of re-asking."
 
 ---
 
@@ -92,7 +93,14 @@ Deliver from `style_dna.md`:
 
 ### "Review my whole audit paper"
 
-If the user wants a holistic review, run a sequential audit across all sections. Output a single combined report:
+> **Prefer the dedicated review skill.** For a finished or near-finished paper, route to
+> **`audit-write-review`** — it interviews the user for the review *type* (a rubric-scored
+> **writing** review, a simulated **peer**-review pipeline, or both) and orchestrates the
+> editor + two-referee pipeline for peer review. The inline holistic audit below is the
+> *writing*-review path; use it directly only for a quick combined section audit when the
+> user explicitly does not want the peer pipeline.
+
+If the user wants a holistic (writing) review, run a sequential audit across all sections. Output a single combined report:
 
 ```markdown
 # Holistic Audit Paper Review
@@ -157,10 +165,11 @@ audit-write (hub: framework + style DNA + corpus manifest + ratchet)
 ├── audit-write-design
 ├── audit-write-results
 ├── audit-write-robustness
+├── audit-write-review         whole-paper review: writing (rubric) OR peer (editor+referees)
 └── audit-referee-response     rebuttal / response-to-reviewers
 ```
 
-The 7 section/referee sub-skills don't overlap (`audit-write-interview` is Stage-0 intake, not a section skill). If a user task spans multiple sections (e.g., "rewrite my intro and abstract together"), invoke each sub-skill in sequence; their outputs share the same style register because they all consult `style_dna.md`.
+The section/review/referee sub-skills don't overlap (`audit-write-interview` is Stage-0 intake, not a section skill; `audit-write-review` reviews a *finished* paper rather than drafting a section). If a user task spans multiple sections (e.g., "rewrite my intro and abstract together"), invoke each sub-skill in sequence; their outputs share the same style register because they all consult `style_dna.md`.
 
 ---
 

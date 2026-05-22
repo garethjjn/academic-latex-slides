@@ -3,6 +3,52 @@
 All notable changes to the audit-write skill suite. The pre-1.0 phases (P1–P3) were
 the development arc that produced the first packaged plugin release.
 
+## [1.3.0] — 2026-05-22 — whole-paper review: writing review + simulated peer-review pipeline (Opt. R4)
+
+### Added
+- **`audit-write-review` sub-skill** (1 hub + 8 → **9** bundled sub-skills). Interviews the
+  user for the review *type*, then runs one of two distinct reviews:
+  - **Writing review** — the suite's holistic AUDIT, run section by section against the
+    shared `rubric.md` (integrity gate → binary pre-checklist → 5 weighted dimensions),
+    optionally via the `audit-write-critic` agent for independent per-section scores.
+    Writes a `writing_review.md` report into the same `audit_review_<paper>/` folder as
+    the peer-mode reports (symmetric, persistable artifact — not just chat output).
+  - **Peer review** — a simulated editorial pipeline calibrated to JAE/JAR/TAR/AJPT:
+    editor desk review → two referees with deliberately different dispositions → editorial
+    decision letter (Accept / Minor / Major / Reject), classifying every major concern
+    FATAL / ADDRESSABLE / TASTE and tagging it with an O1–O8 code for the rebuttal.
+- **`peer_review_protocol.md`** pattern file: the 6-way audit referee-disposition taxonomy
+  (IDENTIFICATION · MEASUREMENT · CONTRIBUTION · INSTITUTIONAL · THEORY · GENERAL-SKEPTIC,
+  each mapped to O-codes), per-journal referee-pool weights, audit-flavored critical/
+  constructive peeve pools, the pipeline phases, the decision rule, and the four report
+  templates (desk_review / referee_A / referee_B / editorial_decision).
+- **`audit-editor` agent** (model: opus) — desk review + referee selection + editorial
+  synthesis. Read-only; never rewrites; no WebSearch novelty probe (novelty is the
+  CONTRIBUTION referee's job, argued from the manuscript, never asserted from invented work).
+
+### Changed
+- **`audit-referee-simulator` agent** is now **disposition-aware**: accepts an optional
+  disposition + critical/constructive peeves (assigned by `audit-editor`) so two referees
+  read the same paper from different priors; emits a 0–100 score with audit dimension
+  weights + mandatory sanity-check blockers; every major comment now carries a
+  "What would change my mind" line. Standalone single-referee use is unchanged.
+- Hub `audit-write` `SKILL.md`: routing row + clarifying question + architecture diagram
+  updated; the inline "review my whole paper" holistic audit now defers to
+  `audit-write-review` for the full (esp. peer) experience.
+- README: status, features, architecture, quick-start, repository-layout, and roadmap
+  (Opt. R4) updated for the 9th sub-skill and the third agent.
+
+### Notes
+- **Distillation provenance:** the peer-review pipeline shape (editor + dispositioned
+  referees, FATAL/ADDRESSABLE/TASTE, "what would change my mind", peeve injection) is
+  adapted from the generic `review-paper --peer` workflow (itself from Hugo Sant'Anna's
+  clo-author) and re-grounded in the audit desk — disposition taxonomy mapped to O1–O8,
+  calibration via `journal_profile_bank.md`.
+- **Scope:** core pipeline only — one fresh round, two referees, one decision. R&R
+  continuation is handled by handing the decision letter to `audit-referee-response`;
+  no hostile-editor stress mode and no N-referee variance distribution (deliberately
+  out of scope to keep the distillation focused).
+
 ## [1.2.0] — 2026-05-22 — section gates + design/abstract/robustness deepening (Opt. R3)
 
 ### Added

@@ -1,8 +1,8 @@
 {
   "name": "audit-write",
   "displayName": "Audit-Research Writing Suite",
-  "version": "1.2.0",
-  "description": "Hub + 8 sub-skills to draft, rewrite, and audit empirical audit-research papers for top-tier accounting journals, in a calibrated register reverse-engineered from a named corpus. Corpus-grounded, integrity-gated, de-personalized for public reuse.",
+  "version": "1.3.0",
+  "description": "Hub + 9 sub-skills to draft, rewrite, audit, and review (writing review + simulated peer review) empirical audit-research papers for top-tier accounting journals, in a calibrated register reverse-engineered from a named corpus. Corpus-grounded, integrity-gated, de-personalized for public reuse.",
   "author": {
     "name": "Gareth Jiang"
   },
