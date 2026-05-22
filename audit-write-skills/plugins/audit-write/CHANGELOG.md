@@ -3,6 +3,44 @@
 All notable changes to the audit-write skill suite. The pre-1.0 phases (P1–P3) were
 the development arc that produced the first packaged plugin release.
 
+## [1.4.0] — 2026-05-22 — audit-write-review: four modular review modes + offline consistency check
+
+### Added
+- **Comprehensive review mode (new default).** One human-friendly report scored across
+  **7 audit review dimensions** (research question & contribution · hypothesis & theory ·
+  identification · measurement & construct validity · specification & inference · magnitude &
+  economic significance · writing/structure/presentation), with Strengths / Major Concerns /
+  Referee Objections / 1–5 dimension ratings — adapted from the generic comprehensive
+  manuscript-review format and re-grounded in the suite's O1–O8 objection bank.
+  Journal-agnostic. New `comprehensive_review_protocol.md`.
+- **Consistency review mode (new).** A whole-paper *internal*-consistency audit — notation/
+  terminology drift, claim parity across abstract↔intro↔results, and in-text-cite ↔
+  bibliography coverage — backed by a bundled **stdlib Python** extractor
+  (`scripts/consistency_check.py`, offline, read-only, advisory exit 0). Inspired by the
+  *shape* of `jusi-aalto/crossref` (a SKILL doc + a `.py`) but uses **no network**: it checks
+  the paper against itself rather than the Crossref API. New `consistency_review_protocol.md`.
+
+### Changed
+- **`audit-write-review` is now a slim 4-mode orchestrator** that interviews for the mode
+  (unless the user names one) and routes to a per-mode protocol file:
+  **comprehensive** (default) · **writing** · **peer** · **consistency**. The four are
+  independent and not substitutes. `allowed-tools` gains `Bash` (to run the consistency script).
+- **Writing review extracted** from the old inline SKILL.md block into its own
+  `writing_review_protocol.md` (rubric instrument unchanged), with a plain-language verdict
+  line added atop the report for readability.
+- **Peer review: target journal is now optional.** If unstated and not inferable, the
+  pipeline runs a journal-neutral disposition draw instead of blocking. Per-journal
+  referee-pool weights + `journal_profile_bank.md` calibration are retained (peer is the only
+  journal-calibrated mode; comprehensive/writing/consistency are journal-agnostic).
+- **Human-friendlier reports across modes** — each report now leads with a plain-language
+  headline/verdict before the structured tables (desk review, referee reports, editorial
+  decision, writing review).
+
+### Notes
+- All four modes remain **read-only** and integrity-gated: no invented citations, results, or
+  magnitudes; unknowns stay `[AUTHOR: …]`. The two peer-pipeline agents (`audit-editor`,
+  `audit-referee-simulator`) are unchanged.
+
 ## [1.3.1] — 2026-05-22 — retarget to the accounting top-5 (AJPT → CAR + RAST)
 
 ### Changed

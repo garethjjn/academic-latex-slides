@@ -1,8 +1,8 @@
 {
   "name": "audit-write",
   "displayName": "Audit-Research Writing Suite",
-  "version": "1.3.1",
-  "description": "Hub + 9 sub-skills to draft, rewrite, audit, and review (writing review + simulated peer review) empirical audit-research papers for the accounting top-5 (JAE/JAR/TAR/CAR/RAST), in a calibrated register reverse-engineered from a named corpus. Corpus-grounded, integrity-gated, de-personalized for public reuse.",
+  "version": "1.4.0",
+  "description": "Hub + 9 sub-skills to draft, rewrite, audit, and review (four review modes: comprehensive, writing-rubric, simulated peer review, and offline internal-consistency) empirical audit-research papers for the accounting top-5 (JAE/JAR/TAR/CAR/RAST), in a calibrated register reverse-engineered from a named corpus. Corpus-grounded, integrity-gated, de-personalized for public reuse.",
   "author": {
     "name": "Gareth Jiang"
   },

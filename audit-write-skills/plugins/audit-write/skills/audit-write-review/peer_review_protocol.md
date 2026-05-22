@@ -65,6 +65,14 @@ soft spot the default draw would miss (e.g. a DAC-based DV at JAE where the defa
 draw is IDENTIFICATION + GENERAL-SKEPTIC), swap one referee to the disposition that owns
 that weakness (MEASUREMENT). State the override and its reason in the desk review.
 
+**Journal is optional.** PEER is the *only* mode that calibrates to a journal, and even
+here the target journal is optional. If the user does not name one and it cannot be
+confidently inferred from the paper, run a **journal-neutral draw**: take the two
+highest-weight dispositions averaged across the columns (in practice IDENTIFICATION +
+MEASUREMENT, swapping to CONTRIBUTION when the paper's exposed weakness is novelty), and
+note in the desk review "calibrated to: general top-5 accounting (no journal specified)".
+Do not block the pipeline waiting for a journal.
+
 ---
 
 ## Peeve pools (audit-flavored)
@@ -129,12 +137,14 @@ Output a short Pre-Flight Report before spawning any agent, so the user can conf
 ## Pre-Flight — audit-write-review (peer)
 
 **Manuscript:** [path] — [pages / sections detected]
-**Target journal:** [SHORT] → [full name]  (source: stated / inferred via cue table)
+**Target journal:** [SHORT → full name (source: stated / inferred via cue table) | "none specified — journal-neutral draw"]
 **Sections present:** abstract · intro · hypothesis · design · results · robustness  [✓/✗ each]
 **Round:** fresh   (R&R continuation → hand off to audit-referee-response, not this skill)
 ```
 
-If the manuscript path doesn't resolve or the journal can't be inferred, stop and ask.
+If the manuscript path doesn't resolve, stop and ask. The target journal is **optional**:
+if unstated and not confidently inferable, proceed with the journal-neutral draw (see
+"Journal is optional" under the selection rule) — do not block the pipeline.
 
 ### Phase 1 — Editor desk review (`audit-editor`)
 
@@ -218,9 +228,11 @@ Report the decision, the report paths, and route the author onward:
 
 ```markdown
 # Desk Review: [Paper Title]
-**Calibrated to:** [Journal full name] ([SHORT])   **Date:** YYYY-MM-DD
+**Calibrated to:** [Journal full name ([SHORT]) | general top-5 accounting — no journal specified]   **Date:** YYYY-MM-DD
 
 ## Verdict: [DESK REJECT / SEND OUT]
+*[One plain-language sentence the author can read first: e.g. "Sending out — the
+contribution is statable and the design is plausible; the open question is identification."]*
 
 ## Contribution (editor's one-paragraph understanding)
 [3–4 sentences. If you can't write it, that is itself a desk-reject signal.]
@@ -241,11 +253,12 @@ Selection note: [default draw, or override + reason]
 ### `referee_A.md` / `referee_B.md` (Phase 2)
 
 ```markdown
-# Referee Report — [Journal]
+# Referee Report — [Journal | general top-5 accounting]
 **Disposition:** [D]   **Critical peeve:** […]   **Constructive peeve:** […]
 
 ## Summary
-[2–4 sentences: what the paper claims, whether the contribution is real, recommendation.]
+[2–4 sentences in plain language: what the paper claims, whether the contribution is real,
+and your recommendation — readable before the structured comments below.]
 **Score:** [0–100]   **Recommendation:** [Reject / Major / Minor / Accept]
 
 ## Sanity checks
@@ -265,7 +278,12 @@ Selection note: [default draw, or override + reason]
 
 ```markdown
 # Editorial Decision: [Paper Title]
-**Calibrated to:** [Journal]   **Decision:** [Accept / Minor / Major / Reject]
+**Calibrated to:** [Journal | general top-5 accounting]   **Decision:** [Accept / Minor / Major / Reject]
+
+## Bottom line
+*[One plain-language sentence: the decision and the single thing that drives it, so the
+author knows the verdict before the detail — e.g. "Major revision: the contribution holds,
+but both referees want the identification shored up before this is publishable."]*
 
 ## Editor's assessment (judgment, not a third review — 4–5 sentences)
 

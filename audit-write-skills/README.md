@@ -1,6 +1,6 @@
 # audit-write — an AI writing suite for audit-research papers
 
-![version](https://img.shields.io/badge/version-1.3.1-blue)
+![version](https://img.shields.io/badge/version-1.4.0-blue)
 ![license](https://img.shields.io/badge/license-MIT-green)
 ![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-8A2BE2)
 ![journals](https://img.shields.io/badge/calibrated%20to-JAE%20·%20JAR%20·%20TAR%20·%20CAR%20·%20RAST-lightgrey)
@@ -30,7 +30,7 @@ accepted top-5 audit paper.
 - [The features, in plain language](#the-features-in-plain-language)
   - [The 9 sub-skills](#the-9-sub-skills)
   - [The three working modes](#the-three-working-modes)
-  - [Whole-paper review (writing review + peer review)](#whole-paper-review-writing-review--peer-review)
+  - [Whole-paper review (four modes)](#whole-paper-review-four-modes)
   - [The 0–100 quality rubric](#the-0100-quality-rubric)
   - [The optional mechanism layer (Python checks)](#the-optional-mechanism-layer-python-checks)
 - [The recommended workflow: progressive outlining](#the-recommended-workflow-progressive-outlining)
@@ -87,7 +87,9 @@ Other things you can ask it to do:
 | Turn rough notes into a structured paper spec, then outline it | `/audit-write-interview` |
 | Rewrite a clunky results section into JAE style | `/audit-write-results rewrite my §4: <paste>` |
 | Get a brutally honest quality score on your abstract | `/audit-write-abstract audit my abstract: <paste>` |
+| Get one all-round review report across 7 dimensions | `/audit-write-review review my paper: paper.pdf` |
 | Run a mock editor + 2 referees and get a decision letter | `/audit-write-review peer review my paper for JAR: paper.pdf` |
+| Check the paper agrees with itself (notation, cites, claims) | `/audit-write-review check consistency: paper.tex --bib refs.bib` |
 | Draft a point-by-point response to a reviewer | `/audit-referee-response respond to R2's "identification is weak": <paste>` |
 
 ---
@@ -261,7 +263,7 @@ call any sub-skill directly.
 | `audit-write-design` | Research design / methods (§3) | Sample, variables, baseline model; identification machinery is deferred to §4 |
 | `audit-write-results` | Results (§4) | Leads with the headline; translates coefficients into economic magnitudes |
 | `audit-write-robustness` | Robustness / additional analyses (§5) | A numbered identification battery (the modern gold standard) |
-| `audit-write-review` | **Whole-paper review** | Writing review (rubric) *or* mock peer review (editor + referees) — it asks which |
+| `audit-write-review` | **Whole-paper review** | Four modes — comprehensive (default), writing-rubric, mock peer review (editor + referees), or internal-consistency — it asks which |
 | `audit-referee-response` | Point-by-point reviewer rebuttals (R&R) | The 4-move response: acknowledge → reframe → action → location |
 
 ★ = most-used.
@@ -286,20 +288,29 @@ Every *section* sub-skill runs in one of three modes — just name the mode in y
 /audit-write-results audit my §4: <paste>
 ```
 
-### Whole-paper review (writing review + peer review)
+### Whole-paper review (four modes)
 
-`audit-write-review` answers two *different* questions, and asks which you want:
+`audit-write-review` answers four *different* questions, and asks which you want (unless you
+name the mode in your prompt):
 
-1. **Writing review** — *Is it written like an accepted audit paper?* A rubric-scored,
+1. **Comprehensive** *(default)* — *Is the paper any good, across everything a referee
+   weighs?* One **human-friendly report** scored across ~7 audit dimensions (question &
+   contribution, theory, identification, measurement, specification, magnitude, writing) with
+   Strengths, Major Concerns, the toughest Referee Objections, and 1–5 ratings. Journal-agnostic.
+2. **Writing** — *Is it written like an accepted audit paper?* A rubric-scored,
    section-by-section diagnosis of register, structure, and contribution clarity. Cheap;
    read-only. Best for a draft you're still polishing.
-2. **Peer review** — *Will it survive review?* A simulated editorial pipeline:
+3. **Peer** — *Will it survive review?* A simulated editorial pipeline:
    **editor desk review → two referees with deliberately different dispositions →
-   editorial decision letter** (Accept / Minor / Major / Reject), calibrated to your
-   target journal, with every concern tagged to an objection code (O1–O8) so you can hand
-   it straight to `audit-referee-response`. Best as a pre-submission dress rehearsal.
+   editorial decision letter** (Accept / Minor / Major / Reject), with every concern tagged
+   to an objection code (O1–O8) so you can hand it straight to `audit-referee-response`. The
+   one journal-calibrated mode (target journal optional). Best as a pre-submission rehearsal.
+4. **Consistency** — *Does the paper agree with itself?* A whole-paper internal-consistency
+   audit: notation/terminology drift, claim parity across abstract↔intro↔results, and whether
+   every in-text citation has a bibliography entry. Backed by a bundled offline Python script
+   (no network) and inspired by the structure of [`jusi-aalto/crossref`](https://github.com/jusi-aalto/crossref).
 
-Both modes save a Markdown report into one `audit_review_<paper>/` folder.
+Each mode saves a Markdown report into one `audit_review_<paper>/` folder.
 
 ### The 0–100 quality rubric
 
@@ -348,6 +359,9 @@ python plugins/audit-write/scripts/check_structure.py mydraft.md --section intro
 
 # Link health across the suite's docs
 python plugins/audit-write/scripts/check_links.py
+
+# Whole-paper internal-consistency extractor (audit-write-review CONSISTENCY mode)
+python plugins/audit-write/skills/audit-write-review/scripts/consistency_check.py paper.tex --bib refs.bib
 
 # Golden tests — prove the mechanism layer itself works
 python plugins/audit-write/tests/run_tests.py
@@ -500,7 +514,7 @@ audit-write  (hub: dispatcher + 11 shared reference banks)
 ├── audit-write-design         5-part §3 (identification deferred to §4)
 ├── audit-write-results        6-sub-section §4 + magnitude translation
 ├── audit-write-robustness     numbered identification battery
-├── audit-write-review         whole-paper review: writing (rubric) OR peer (editor + 2 referees)
+├── audit-write-review         whole-paper review: comprehensive / writing / peer / consistency
 └── audit-referee-response     4-move point-by-point rebuttal
 
 agents:  audit-write-critic (writing scorer) · audit-referee-simulator (referee persona,
@@ -544,7 +558,7 @@ audit-write-skills/                     ← repo = single-plugin marketplace
             ├── audit-write-design/     (SKILL.md + design_patterns.md)
             ├── audit-write-results/    (SKILL.md + results_patterns.md)
             ├── audit-write-robustness/ (SKILL.md + robustness_patterns.md)
-            ├── audit-write-review/     (SKILL.md + peer_review_protocol.md)
+            ├── audit-write-review/     (SKILL.md + comprehensive_/writing_/peer_/consistency_review_protocol.md + scripts/consistency_check.py)
             └── audit-referee-response/ (SKILL.md)
 ```
 </details>
@@ -583,6 +597,7 @@ another discipline):
 | Opt. R1–R3 | Section-specific `check_structure.py` gates; slim/harmonize intro; deepen design/abstract over the pilot corpus; held-out blind eval per change | ✅ done |
 | Opt. R4 | **Whole-paper review** sub-skill (writing + simulated peer review; new `audit-editor` agent; disposition-aware referee) | ✅ done |
 | Opt. R5 | Retarget to the accounting top-5 (AJPT → CAR + RAST) | ✅ done |
+| Opt. R6 | `audit-write-review` → **four modular modes** (comprehensive · writing · peer · consistency); new offline `consistency_check.py`; journal calibration confined to peer mode | ✅ done |
 
 **Honest status:** the integrity gate and lazy-load policy are *instructions the agent is
 told to follow*, reinforced by the stdlib mechanism layer (hook-enforced link checks,

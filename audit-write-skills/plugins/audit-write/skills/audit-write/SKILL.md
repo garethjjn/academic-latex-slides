@@ -29,7 +29,7 @@ When the user asks for help with a specific section, route to the corresponding 
 | "rewrite my **research design**" / "my methodology" / "my Section 3" | `audit-write-design` |
 | "rewrite my **results** section" / "my main findings" | `audit-write-results` |
 | "structure my **robustness**" / "my additional analyses" / "Section 5" | `audit-write-robustness` |
-| "**review** my whole paper" / "**peer review**" / "mock referee report" / "will this **survive** at JAR?" / "desk-review my paper" | `audit-write-review` |
+| "**review** my whole paper" / "comprehensive review" / "**peer review**" / "mock referee report" / "will this **survive** at JAR?" / "desk-review my paper" / "check my paper is **consistent**" | `audit-write-review` |
 | "draft my **referee response**" / "rebuttal letter" / "response to reviewers" | `audit-referee-response` |
 
 > **Note.** `audit-referee-response` is a **bundled sub-skill** of this suite (it ships alongside the six section skills). It can also be invoked standalone for rebuttal work. All routes above target sub-skills that ship with this suite.
@@ -94,11 +94,13 @@ Deliver from `style_dna.md`:
 ### "Review my whole audit paper"
 
 > **Prefer the dedicated review skill.** For a finished or near-finished paper, route to
-> **`audit-write-review`** — it interviews the user for the review *type* (a rubric-scored
-> **writing** review, a simulated **peer**-review pipeline, or both) and orchestrates the
-> editor + two-referee pipeline for peer review. The inline holistic audit below is the
-> *writing*-review path; use it directly only for a quick combined section audit when the
-> user explicitly does not want the peer pipeline.
+> **`audit-write-review`** — it interviews the user for the review *mode* and runs one of
+> **four**: **comprehensive** (default — one human-friendly report scored across ~7 audit
+> dimensions), **writing** (rubric-scored register/structure), **peer** (the simulated
+> editor + two-referee pipeline), or **consistency** (whole-paper notation/claim/cite↔bib
+> consistency, Python-backed, offline). The inline holistic audit below is a quick *writing*
+> path; use it directly only for a fast combined section audit when the user does not want
+> the dedicated skill.
 
 If the user wants a holistic (writing) review, run a sequential audit across all sections. Output a single combined report:
 
@@ -165,7 +167,7 @@ audit-write (hub: framework + style DNA + corpus manifest + ratchet)
 ├── audit-write-design
 ├── audit-write-results
 ├── audit-write-robustness
-├── audit-write-review         whole-paper review: writing (rubric) OR peer (editor+referees)
+├── audit-write-review         whole-paper review: comprehensive / writing / peer / consistency
 └── audit-referee-response     rebuttal / response-to-reviewers
 ```
 
