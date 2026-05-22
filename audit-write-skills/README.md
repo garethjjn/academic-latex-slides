@@ -600,7 +600,7 @@ another discipline):
 | P5 | Mechanism layer: hook-enforced integrity/link checks, critic + referee-simulator agents, golden tests | ✅ done |
 | Opt. R1–R3 | Section-specific `check_structure.py` gates; slim/harmonize intro; deepen design/abstract over the pilot corpus; held-out blind eval per change | ✅ done |
 | Opt. R4 | **Whole-paper review** sub-skill (writing + simulated peer review; new `audit-editor` agent; disposition-aware referee) | ✅ done |
-| Opt. R5 | Retarget journal coverage (AJPT → CAR + RAST) | ✅ done |
+| Opt. R5 | Retarget journal coverage | ✅ done |
 | Opt. R6 | `audit-write-review` → **four modular modes** (comprehensive · writing · peer · consistency); new offline `consistency_check.py`; journal calibration confined to peer mode | ✅ done |
 
 **Honest status:** the integrity gate and lazy-load policy are *instructions the agent is
@@ -613,10 +613,8 @@ yet measured against a large sample of generated output. Full history:
 
 ## Scope, limitations & licensing
 
-- **Evidence base is small and correlated.** The corpus is DeFond-coauthored / China /
-  partner-trait-heavy. The manifest discloses this; rules are framed as priors
-  accordingly. **Best fit:** archival audit-quality papers for mainstream accounting
-  journals (JAE/JAR/TAR/CAR/RAST). **Weaker fit:** experimental audit, pure-US settings,
+- **Best fit:** archival audit-quality papers for mainstream accounting
+  journals (JAE/JAR/TAR/CAR/RAST). **Weaker fit:** experimental audit,
   non-accounting — the suite will say so and defer.
 - **Not a guarantee.** It encodes a register and structure, not a path to acceptance.
 - **License:** **MIT** — see [LICENSE](LICENSE). The distilled patterns are the project's
