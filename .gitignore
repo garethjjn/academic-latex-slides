@@ -64,20 +64,3 @@ academic-latex-slides/quality_reports/
 # ---- Claude Code local state ----
 .claude/settings.local.json
 .claude/state/
-slides_report
-slides_seminar
-blankespoor2026.txt
-J of Accounting Research - 2026 - BLANKESPOOR - Generative AI in Financial Reporting.pdf
-jiang_ssrn4954576.txt
-ssrn-4954576 (1).pdf
-# Base reading corpus: ignore third-party PDFs + txt extractions (no
-# redistribution of copyrighted articles), but TRACK the metadata index so the
-# corpus composition is versioned/visible.
-audit_writing_corpus/*
-!audit_writing_corpus/CORPUS_INDEX.md
-quality_reports
-paper
-# ---- Track B scratch ----
-corpus_inventory/track_b_drafts/_*_scratch.txt
-corpus_inventory/track_b_drafts/_batch_c1_insertion.md
-claude-code-my-workflow-main
