@@ -3,12 +3,11 @@
 ![version](https://img.shields.io/badge/version-1.4.0-blue)
 ![license](https://img.shields.io/badge/license-MIT-green)
 ![Claude Code](https://img.shields.io/badge/Claude%20Code-plugin-8A2BE2)
-![journals](https://img.shields.io/badge/calibrated%20to-JAE%20·%20JAR%20·%20TAR%20·%20CAR%20·%20RAST-lightgrey)
 ![tests](https://img.shields.io/badge/golden%20tests-15%2F15-brightgreen)
 
 > A **Claude Code** plugin that helps you **draft, rewrite, audit, and peer-review**
 > empirical **audit-research** papers in the calibrated register of mainstream accounting
-> academic journals (e.g. JAE, JAR, TAR, CAR, RAST). The structure, tone, and rules are
+> academic journals. The structure, tone, and rules are
 > reverse-engineered from a named corpus of published audit papers — not invented by a
 > chatbot. It never fabricates citations or numbers, and it tells you exactly where its
 > rules come from.
@@ -21,28 +20,33 @@ accepted audit paper in those journals.
 
 ## Table of contents
 
-- [Who this is for](#who-this-is-for)
-- [What it does — a 30-second example](#what-it-does--a-30-second-example)
-- [New to Claude Code? Start here](#new-to-claude-code-start-here)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Your first 10 minutes (tutorial)](#your-first-10-minutes-tutorial)
-- [The features, in plain language](#the-features-in-plain-language)
-  - [The 9 sub-skills](#the-9-sub-skills)
-  - [The three working modes](#the-three-working-modes)
-  - [Whole-paper review (four modes)](#whole-paper-review-four-modes)
-  - [The 0–100 quality rubric](#the-0100-quality-rubric)
-  - [The optional mechanism layer (Python checks)](#the-optional-mechanism-layer-python-checks)
-- [The recommended workflow: progressive outlining](#the-recommended-workflow-progressive-outlining)
-- [Why it is different from "ask ChatGPT to write my paper"](#why-it-is-different-from-ask-chatgpt-to-write-my-paper)
-- [The corpus & scientific discipline](#the-corpus--scientific-discipline)
-- [Glossary](#glossary)
-- [FAQ & troubleshooting](#faq--troubleshooting)
-- [Architecture & repository layout](#architecture--repository-layout)
-- [Customizing / forking for your field](#customizing--forking-for-your-field)
-- [Roadmap](#roadmap)
-- [Scope, limitations & licensing](#scope-limitations--licensing)
-- [Acknowledgments](#acknowledgments)
+- [audit-write — an AI writing suite for audit-research papers](#audit-write--an-ai-writing-suite-for-audit-research-papers)
+  - [Table of contents](#table-of-contents)
+  - [Who this is for](#who-this-is-for)
+  - [What it does — a 30-second example](#what-it-does--a-30-second-example)
+  - [New to Claude Code? Start here](#new-to-claude-code-start-here)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+    - [Option A — Install as a plugin (recommended)](#option-a--install-as-a-plugin-recommended)
+    - [Option B — Manual install (no plugin system)](#option-b--manual-install-no-plugin-system)
+    - [Verify it works](#verify-it-works)
+  - [Your first 10 minutes (tutorial)](#your-first-10-minutes-tutorial)
+  - [The features, in plain language](#the-features-in-plain-language)
+    - [The 9 sub-skills](#the-9-sub-skills)
+    - [The three working modes](#the-three-working-modes)
+    - [Whole-paper review (four modes)](#whole-paper-review-four-modes)
+    - [The 0–100 quality rubric](#the-0100-quality-rubric)
+    - [The optional mechanism layer (Python checks)](#the-optional-mechanism-layer-python-checks)
+  - [The recommended workflow: progressive outlining](#the-recommended-workflow-progressive-outlining)
+  - [Why it is different from "ask ChatGPT to write my paper"](#why-it-is-different-from-ask-chatgpt-to-write-my-paper)
+  - [The corpus \& scientific discipline](#the-corpus--scientific-discipline)
+  - [Glossary](#glossary)
+  - [FAQ \& troubleshooting](#faq--troubleshooting)
+  - [Architecture \& repository layout](#architecture--repository-layout)
+  - [Customizing / forking for your field](#customizing--forking-for-your-field)
+  - [Roadmap](#roadmap)
+  - [Scope, limitations \& licensing](#scope-limitations--licensing)
+  - [Acknowledgments](#acknowledgments)
 
 ---
 
