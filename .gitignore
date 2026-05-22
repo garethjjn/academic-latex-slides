@@ -64,3 +64,12 @@ academic-latex-slides/quality_reports/
 # ---- Claude Code local state ----
 .claude/settings.local.json
 .claude/state/
+
+
+corpus_inventory
+slides_seminar
+paper
+audit_writing_corpus
+claude-code-my-workflow-main
+quality_reports
+slides_report
