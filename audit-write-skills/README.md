@@ -7,15 +7,15 @@
 ![tests](https://img.shields.io/badge/golden%20tests-15%2F15-brightgreen)
 
 > A **Claude Code** plugin that helps you **draft, rewrite, audit, and peer-review**
-> empirical **audit-research** papers in the calibrated register of the accounting
-> top-5 (JAE, JAR, TAR, CAR, RAST). The structure, tone, and rules are
+> empirical **audit-research** papers in the calibrated register of mainstream accounting
+> academic journals (e.g. JAE, JAR, TAR, CAR, RAST). The structure, tone, and rules are
 > reverse-engineered from a named corpus of published audit papers — not invented by a
 > chatbot. It never fabricates citations or numbers, and it tells you exactly where its
 > rules come from.
 
 It is a **writing register-and-structure tool**, not a content generator: you supply the
 research idea and the results; the suite makes the paper *read and stand up* like an
-accepted top-5 audit paper.
+accepted audit paper in those journals.
 
 ---
 
@@ -486,7 +486,7 @@ separates it from a generic chatbot.)
 </details>
 
 <details>
-<summary><b>My paper isn't audit research / isn't for a top-5 accounting journal.</b></summary>
+<summary><b>My paper isn't audit research / isn't for a mainstream accounting journal.</b></summary>
 
 The suite is tuned for archival audit-quality papers at JAE/JAR/TAR/CAR/RAST and will say
 so and defer outside that scope. For other fields, see
@@ -596,7 +596,7 @@ another discipline):
 | P5 | Mechanism layer: hook-enforced integrity/link checks, critic + referee-simulator agents, golden tests | ✅ done |
 | Opt. R1–R3 | Section-specific `check_structure.py` gates; slim/harmonize intro; deepen design/abstract over the pilot corpus; held-out blind eval per change | ✅ done |
 | Opt. R4 | **Whole-paper review** sub-skill (writing + simulated peer review; new `audit-editor` agent; disposition-aware referee) | ✅ done |
-| Opt. R5 | Retarget to the accounting top-5 (AJPT → CAR + RAST) | ✅ done |
+| Opt. R5 | Retarget journal coverage (AJPT → CAR + RAST) | ✅ done |
 | Opt. R6 | `audit-write-review` → **four modular modes** (comprehensive · writing · peer · consistency); new offline `consistency_check.py`; journal calibration confined to peer mode | ✅ done |
 
 **Honest status:** the integrity gate and lazy-load policy are *instructions the agent is
@@ -611,8 +611,8 @@ yet measured against a large sample of generated output. Full history:
 
 - **Evidence base is small and correlated.** The corpus is DeFond-coauthored / China /
   partner-trait-heavy. The manifest discloses this; rules are framed as priors
-  accordingly. **Best fit:** archival audit-quality papers for the accounting top-5
-  (JAE/JAR/TAR/CAR/RAST). **Weaker fit:** experimental audit, pure-US settings,
+  accordingly. **Best fit:** archival audit-quality papers for mainstream accounting
+  journals (JAE/JAR/TAR/CAR/RAST). **Weaker fit:** experimental audit, pure-US settings,
   non-accounting — the suite will say so and defer.
 - **Not a guarantee.** It encodes a register and structure, not a path to acceptance.
 - **License:** **MIT** — see [LICENSE](LICENSE). The distilled patterns are the project's
