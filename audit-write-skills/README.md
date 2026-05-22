@@ -407,16 +407,13 @@ This suite is a public template. If you fork it for your field:
   fit: experimental audit, pure-US settings, non-accounting — the suite will say so and
   defer.
 - **Not a guarantee.** It encodes a register and structure, not a path to acceptance.
-- **Licensing.** Distilled patterns are the project's own work and reusable. Source
+- **Licensing.** Released under the **MIT License** — see [LICENSE](LICENSE). Distilled patterns are the project's own work and reusable. Source
   papers are **not** redistributed; obtain them from their publishers via the manifest
   citations. The suite is fully usable without them.
 
 ## Acknowledgments
 
 - **Maintainer:** Gareth Jiang.
-- **Built with [Claude](https://www.anthropic.com/claude) (Anthropic) in Claude Code.**
-  Claude was a substantial co-developer of this suite — corpus distillation into the
-  pattern files and digests, the section-specific `check_structure.py` gates and golden
-  tests, the progressive-outline ratchet, and the held-out blind-eval methodology were
-  developed in collaboration with Claude. Final design decisions, the corpus selection,
+- Co-developed with **Claude** (Anthropic) in Claude Code — see the commit history /
+  Contributors for the collaboration record. Final design decisions, the corpus selection,
   and review are the maintainer's.
