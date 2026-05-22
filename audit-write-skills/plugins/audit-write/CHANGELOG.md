@@ -3,6 +3,35 @@
 All notable changes to the audit-write skill suite. The pre-1.0 phases (P1–P3) were
 the development arc that produced the first packaged plugin release.
 
+## [1.3.1] — 2026-05-22 — retarget to the accounting top-5 (AJPT → CAR + RAST)
+
+### Changed
+- **Journal calibration now spans the accounting top-5: JAE / JAR / TAR / CAR / RAST.**
+  AJPT (*Auditing: A Journal of Practice and Theory*) is no longer a target desk; it is
+  replaced by **CAR** (Contemporary Accounting Research) and **RAST** (Review of Accounting
+  Studies). `journal_profile_bank.md` (single source) gains full CAR + RAST rows — profile
+  table, reviewer culture, and inference cues:
+  - **CAR** — rigorous clean archival design + clear *incremental* contribution;
+    methodologically pluralistic; identification bar near JAR; broad/international generalizability.
+  - **RAST** — financial-reporting-quality / capital-markets linkage + analytical-empirical;
+    high identification bar; values economic significance and a clear economic/theory frame;
+    shorter papers.
+- Propagated the swap to every consumer: the `audit-editor` + `audit-referee-simulator`
+  agent personas, the `audit-write-review` peer pipeline (calibration line, INSTITUTIONAL
+  disposition lens, and the per-journal referee-pool weights table — AJPT column → CAR + RAST),
+  `audit-referee-response` reviewer-culture section (AJPT subsection → CAR + RAST), the
+  `paper-spec` target-journal field, and the hub inference-cue quick reference.
+- **Roadmap convention is now TAR-only.** AJPT used to keep the end-of-intro roadmap; CAR and
+  RAST follow the modern (no-roadmap) convention, so the rule is: keep for TAR, drop for
+  JAE/JAR/CAR/RAST (intro_patterns.md, the intro SKILL.md, style_dna.md).
+- **Robustness/identification battery default** now lists JAE/JAR/CAR/RAST (TAR alone tolerates
+  a looser structure), in the robustness SKILL.md + null_and_identification_protocols.md.
+
+### Notes
+- AJPT remains where it is a **factual citation** (e.g. Nelson & Tan 2005, *AJPT* in the
+  corpus manifest's review-structure benchmark) and in the source-PDF filename decode legend
+  — it is dropped only as a *target* desk, not erased as a real journal.
+
 ## [1.3.0] — 2026-05-22 — whole-paper review: writing review + simulated peer-review pipeline (Opt. R4)
 
 ### Added

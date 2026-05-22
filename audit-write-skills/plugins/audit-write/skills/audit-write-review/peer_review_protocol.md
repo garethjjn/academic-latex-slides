@@ -2,7 +2,7 @@
 
 **What this is.** The audit-specific distillation of a simulated editorial pipeline —
 **editor desk review → two referees with deliberately different dispositions → editorial
-decision** — calibrated to JAE / JAR / TAR / AJPT. It is the "peer review" half of
+decision** — calibrated to the accounting top-5 (JAE / JAR / TAR / CAR / RAST). It is the "peer review" half of
 `audit-write-review`; the "writing review" half reuses `../audit-write/rubric.md` and the
 `audit-write-critic` agent unchanged.
 
@@ -32,7 +32,7 @@ back to `audit-referee-response` for the rebuttal.
 | **IDENTIFICATION** | Whether the causal claim survives. Probes shocks, partner rotation, FE saturation, falsification, reverse causality. | O1, O5 | "Plausibly exogenous" asserted, not argued; no quasi-experiment or falsification. |
 | **MEASUREMENT** | Whether the DV/IV actually captures audit quality. DAC ↔ Aobdia 2019; novel-measure construct validity. | O3, O8 | Proxy used naively as "audit quality"; novel measure with no validation. |
 | **CONTRIBUTION** | What is *new* vs the single closest prior paper. The JAR hawk. | O6 | Contribution stated as "adds to the literature"; cannot differentiate from a recent paper. |
-| **INSTITUTIONAL** | Setting richness and generalizability; sample representativeness (esp. single-country). The TAR/AJPT lens. | O2 | Institutional setting under-described; sample narrowness unaddressed. |
+| **INSTITUTIONAL** | Setting richness and generalizability; sample representativeness (esp. single-country). The TAR/CAR lens. | O2 | Institutional setting under-described; sample narrowness unaddressed. |
 | **THEORY** | Theory→specification mapping; whether the tension paragraph is honest; framework anchoring. | (framework) | Hypothesis has no tension; spec does not map to the stated mechanism. |
 | **GENERAL-SKEPTIC** | Reasons to reject. Magnitudes too small, too-clean results, robustness theater, estimator choices. | O4, O5 | Effect economically trivial and unframed; robustness is coverage, not threat-targeted. |
 
@@ -50,14 +50,14 @@ The editor draws dispositions according to the target journal's culture
 sampling priors, not probabilities to compute precisely — pick the two highest-weight
 dispositions that differ, unless the paper's own weaknesses argue otherwise.
 
-| Disposition | **JAE** | **JAR** | **TAR** | **AJPT** |
-|---|:---:|:---:|:---:|:---:|
-| IDENTIFICATION | ●●● | ●●● | ●● | ● |
-| MEASUREMENT | ●●● | ●●● | ●● | ●●● |
-| CONTRIBUTION | ●● | ●●●● | ●● | ● |
-| INSTITUTIONAL | ●● | ● | ●●●● | ●●● |
-| THEORY | ●● | ● | ●●● | ● |
-| GENERAL-SKEPTIC | ●●● | ●● | ●● | ● |
+| Disposition | **JAE** | **JAR** | **TAR** | **CAR** | **RAST** |
+|---|:---:|:---:|:---:|:---:|:---:|
+| IDENTIFICATION | ●●● | ●●● | ●● | ●●● | ●●● |
+| MEASUREMENT | ●●● | ●●● | ●● | ●●● | ●●● |
+| CONTRIBUTION | ●● | ●●●● | ●● | ●●● | ●●● |
+| INSTITUTIONAL | ●● | ● | ●●●● | ●● | ● |
+| THEORY | ●● | ● | ●●● | ●● | ●●● |
+| GENERAL-SKEPTIC | ●●● | ●● | ●● | ●● | ●● |
 
 **Selection rule.** Draw disposition D1 = highest-weight for the journal; draw D2 =
 next-highest that **differs** from D1. **Override:** if the paper has an obvious

@@ -1,6 +1,6 @@
 ---
 name: audit-write-review
-description: "Review an empirical audit-research paper in DeFond / Zuo / Khurana style for JAE / JAR / TAR / AJPT — in EITHER of two senses, chosen by a short interview. (1) WRITING review: rubric-scored diagnosis of register, structure, magnitude discipline, and contribution clarity (the 'is this written like an accepted audit paper' question), powered by the shared rubric + audit-write-critic. (2) PEER review: a simulated editorial pipeline — editor desk review → two referees with deliberately different dispositions → editorial decision letter (Accept / Minor / Major / Reject), calibrated to a target journal and tied to the O1–O8 objection bank (the 'will this survive review' question). USE THIS SKILL when the user wants their finished or near-finished audit paper reviewed, critiqued, or run through a mock referee process. Interviews the user up front for which review they want — writing, peer, or both. - Trigger on: 'review my audit paper', 'peer review my manuscript', 'will this survive at JAR', 'mock referee report', 'run my paper past reviewers', 'critique my finished audit paper', 'desk-review my paper'. Defer to a section sub-skill (audit-write-intro etc.) when the user wants to DRAFT or REWRITE one section rather than review a whole paper; defer to audit-referee-response when the user already HAS referee comments and needs a rebuttal."
+description: "Review an empirical audit-research paper in DeFond / Zuo / Khurana style for JAE / JAR / TAR / CAR / RAST — in EITHER of two senses, chosen by a short interview. (1) WRITING review: rubric-scored diagnosis of register, structure, magnitude discipline, and contribution clarity (the 'is this written like an accepted audit paper' question), powered by the shared rubric + audit-write-critic. (2) PEER review: a simulated editorial pipeline — editor desk review → two referees with deliberately different dispositions → editorial decision letter (Accept / Minor / Major / Reject), calibrated to a target journal and tied to the O1–O8 objection bank (the 'will this survive review' question). USE THIS SKILL when the user wants their finished or near-finished audit paper reviewed, critiqued, or run through a mock referee process. Interviews the user up front for which review they want — writing, peer, or both. - Trigger on: 'review my audit paper', 'peer review my manuscript', 'will this survive at JAR', 'mock referee report', 'run my paper past reviewers', 'critique my finished audit paper', 'desk-review my paper'. Defer to a section sub-skill (audit-write-intro etc.) when the user wants to DRAFT or REWRITE one section rather than review a whole paper; defer to audit-referee-response when the user already HAS referee comments and needs a rebuttal."
 when_to_use: "Trigger when the user wants a whole (or near-whole) audit paper reviewed — either a writing-quality audit or a simulated peer-review pipeline. Indicator phrases: 'review my paper', 'peer review', 'mock referee', 'will this survive at [journal]', 'desk review', 'critique my manuscript'. Defer to section sub-skills for single-section DRAFT/REWRITE; defer to audit-referee-response when real referee comments already exist."
 argument-hint: "<paper path or pasted sections> [journal] e.g. 'review my paper for JAR: paper.tex', 'peer-review this manuscript', 'will my partner-trait paper survive at JAE?'"
 user-invocable: true
@@ -19,7 +19,7 @@ There are two distinct reviews:
   are still polishing.
 - **PEER review** — *Will this survive review?* A simulated editorial pipeline (editor desk
   review → two dispositioned referees → editorial decision letter), calibrated to JAE / JAR
-  / TAR / AJPT, with every major concern tied to an O1–O8 objection code. Heavier; the right
+  / TAR / CAR / RAST, with every major concern tied to an O1–O8 objection code. Heavier; the right
   tool for a pre-submission dress rehearsal or a journal-choice decision.
 
 They answer different questions and are not substitutes. A paper can be beautifully written
@@ -40,7 +40,7 @@ unclear, ask **once**, concisely:
 > dispositions → a decision letter (Accept/Minor/Major/Reject), calibrated to your target
 > journal. (heavier; tells you whether the paper *survives*, not just whether it reads well)
 > **(3) Both** — writing review first (catches register issues cheaply), then peer review.
-> And: which journal — JAE, JAR, TAR, or AJPT? (I can infer it from the paper if unsure.)"
+> And: which journal — JAE, JAR, TAR, CAR, or RAST? (I can infer it from the paper if unsure.)"
 
 Use `AskUserQuestion` if running interactively. Default journal inference: the cue table in
 `../audit-write/journal_profile_bank.md`.

@@ -195,5 +195,5 @@ If you extend or replace the corpus for your own field, keep this manifest in sy
 
 Filename convention: `<YEAR>_<JOURNAL>_<FirstAuthor>_<short_topic>.pdf`
 (`JAE` J Acct & Econ · `JAR` J Acct Research · `TAR` The Accounting Review ·
-`CAR` Contemporary Acct Res · `RAS` Review of Acct Studies · `AJPT` Auditing: A J P&T ·
+`CAR` Contemporary Acct Res · `RAST` (a.k.a. RAS) Review of Acct Studies · `AJPT` Auditing: A J P&T ·
 preprint / book chapter labeled explicitly).

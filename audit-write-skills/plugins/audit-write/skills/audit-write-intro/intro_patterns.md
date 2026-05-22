@@ -276,11 +276,11 @@ This is **NOT a weakness signal.** It is the modern DeFond style — preempting 
 
 ---
 
-## Roadmap — drop it for JAE/JAR, keep it for TAR/AJPT
+## Roadmap — drop it for JAE/JAR/CAR/RAST, keep it for TAR
 
-Modern JAE intros (3 of 4 corpus JAE papers) **do not** include an explicit roadmap. The 2007 DeFond JAE paper does ("The remainder of the study proceeds as follows..."). The 2016 TAR paper has roadmap. The 2024-2025 JAE papers don't.
+Modern JAE intros (3 of 4 corpus JAE papers) **do not** include an explicit roadmap. The 2007 DeFond JAE paper does ("The remainder of the study proceeds as follows..."). The 2016 TAR paper has roadmap. The 2024-2025 JAE papers don't. CAR and RAST follow the modern (no-roadmap) convention.
 
-**Default:** No roadmap unless target journal is TAR/AJPT, or unless the paper is unusually long (>50 pages with non-standard structure).
+**Default:** No roadmap unless target journal is TAR, or unless the paper is unusually long (>50 pages with non-standard structure).
 
 ---
 
@@ -355,7 +355,7 @@ This paper is a **counter-template** to the canonical 5-block intro: it inverts 
 2. **Design-driven Block 2.** No theory derivation; tension comes from quoted methodological critiques of PSM/Heckman selection-correction approaches. When the contribution is a quasi-experiment rather than a new theory, this is the available substitution.
 3. **No numeric magnitude in Block 4.** Direction-only finding ("smaller discretionary accruals"). Predates the modern magnitude-non-negotiable norm; do not replicate this in 2024+ submissions.
 4. **M7 limitation embedded mid-Final.** Limitations sit between Contribution 1 and Contribution 2 rather than after both contributions. Atypical placement; the 4/6 (template) corpus default is post-contribution.
-5. **TAR roadmap preserved.** Final sentence is the explicit "Section II discusses..." roadmap; supports the convention that TAR/AJPT keep roadmaps even when modern JAE drops them.
+5. **TAR roadmap preserved.** Final sentence is the explicit "Section II discusses..." roadmap; supports the convention that TAR keeps roadmaps even when modern JAE/JAR/CAR/RAST drop them.
 
 ---
 
@@ -389,7 +389,7 @@ The full annotated row tables for these 16 pilot intros live as staging files na
 3. **Tension (M4) placement has several shapes.** Head-placed in para 1 (`22-Dug`, `23-PSZ`), enumerated multi-issue (`23-ZBLM` four issues; `19-Aob` three-sided), or omitted in the intro and repaired in Section 2 (`22-LNS`, `20-WY`). Treat omission as a risky exception, not a template.
 4. **Single-author "I" is acceptable** in single-author JAR/JAE papers (`19-Aob`, `22-Dug`, `24-Chen`).
 5. **The gap (M2) can be absent** in older JAE (`16-DLLN`, 2016), but this is an era-specific exception; modern JAE/JAR/TAR expect an explicit gap.
-6. **Roadmap follows the journal.** Keep the "Section II..." roadmap for TAR/AJPT (`19-JWW`, `23-ACN`); modern JAE/JAR drop it.
+6. **Roadmap follows the journal.** Keep the "Section II..." roadmap for TAR (`19-JWW`, `23-ACN`); modern JAE/JAR/CAR/RAST drop it.
 
 ### Drafting retrieval guide
 

@@ -82,10 +82,17 @@ Move 4 — LOCATION
 - **More tolerance for descriptive evidence.** TAR will accept correlational papers if the institutional contribution is strong.
 - **Roadmaps and signposting.** TAR reviewers like clear paper organization. Defensive move when reviewer says "the paper is hard to follow": improve roadmap, add section transitions.
 
-### AJPT (Auditing: A Journal of Practice and Theory) reviewers expect
+### CAR (Contemporary Accounting Research) reviewers expect
 
-- **Practitioner relevance.** Reviewers may ask "what should auditors do differently after reading this paper?" — be ready with an implications-for-practice paragraph.
-- **Less novelty-obsessed.** AJPT will accept replications and methodological refinements that JAE/JAR would reject.
+- **Clean design + clear incremental contribution.** CAR is rigorous and contribution-conscious like JAR, but methodologically pluralistic. Probe SE clustering, FE structure, and sample selection; be ready to state precisely what is *incremental* relative to the closest prior paper.
+- **Construct validity for any novel measure.** Same standard as JAE — answer with convergent/face-validity tests.
+- **Broad generalizability valued.** If a reviewer questions external validity, address sample/setting/time-period dimensions explicitly (the international readership cares).
+
+### RAST (Review of Accounting Studies) reviewers expect
+
+- **Economic framing + the financial-reporting-quality linkage.** Reviewers want a clear economic or theoretical rationale for the prediction and an explicit tie between audit quality and financial-reporting outcomes; lead with economic significance, not just statistical significance.
+- **Concise execution.** RAST papers run shorter; reviewers reward a tight, well-scoped paper. Defensive move when asked to add analyses: integrate them as compact appendix tables rather than expanding the body.
+- **Rigorous identification.** Same bar as JAE/JAR — quasi-experiment, falsification, FE saturation.
 
 ---
 

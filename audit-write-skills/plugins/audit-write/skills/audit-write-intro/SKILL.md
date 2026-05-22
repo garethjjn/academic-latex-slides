@@ -90,7 +90,7 @@ Block 4 (Findings + Magnitudes)   ~350 words   1–2 paragraphs, MUST include nu
 Block 5 (Robustness)              ~200 words   1–2 paragraphs
 Final  (Contributions)            ~600 words   3–4 numbered contributions
 [Optional limitation paragraph    ~150 words   only if Chinese / non-US data]
-[Optional roadmap                 ~50 words    only if TAR/AJPT, drop for JAE/JAR]
+[Optional roadmap                 ~50 words    only if TAR, drop for JAE/JAR/CAR/RAST]
 ```
 
 For each block, follow the conventions in `intro_patterns.md`. For each contribution, pick from the 8 formulas in `contribution_formulas.md` and combine them into Pattern A/B/C/D depending on the paper's contribution structure.
@@ -231,7 +231,7 @@ If the input is .tex, output LaTeX with proper section markers, citation command
 4. **Never report a finding without a numerical magnitude in Block 4.** No "substantial reduction" or "meaningful effect" — give numbers.
 5. **Never use marketing adjectives to describe your own work** ("important contribution", "novel finding", "rigorous analysis").
 6. **Never invent results, citations, or magnitudes.** If the user has not provided them, use `[AUTHOR: ...]` placeholders.
-7. **Never include a roadmap for JAE or JAR papers.** Only TAR/AJPT.
+7. **Never include a roadmap for JAE / JAR / CAR / RAST papers.** Only TAR.
 8. **Never apologize for using Chinese data.** Use the limitation paragraph format from contribution_formulas.md §closing limitation — frame China as a feature not a bug.
 
 ---

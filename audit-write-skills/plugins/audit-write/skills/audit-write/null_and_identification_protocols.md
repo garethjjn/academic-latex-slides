@@ -66,7 +66,7 @@ Sixth,  [client / firm fixed effects].                                    [¶ + 
 Together, these analyses suggest that [restated main inference].
 ```
 
-25-DQSZ executes six; Khurana 2026 uses five. Default 4–6 for JAE/JAR; TAR/AJPT tolerate
+25-DQSZ executes six; Khurana 2026 uses five. Default 4–6 for JAE/JAR/CAR/RAST; TAR tolerates
 a looser structure. **Two moves are universal (6/6 corpus papers) and non-optional:**
 cross-sectional heterogeneity, and an alternative measure of the focal IV.
 

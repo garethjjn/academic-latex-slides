@@ -78,7 +78,7 @@ pair-prediction H(b) tests) are **defined once** in
 (§B and §A). Read that when structuring §5 or defending a robustness null.
 
 **Robustness-specific notes:**
-- Default 4–6 numbered analyses (JAE/JAR); TAR/AJPT tolerate a looser structure.
+- Default 4–6 numbered analyses (JAE/JAR/CAR/RAST); TAR tolerates a looser structure.
 - Two moves are **universal (6/6 corpus)** and non-optional in §5: cross-sectional
   heterogeneity, and an alternative measure of the focal IV.
 - Use the null protocol for §5 placebo / H(b) tests only when the null is defensible;
@@ -177,7 +177,7 @@ Score with **`../audit-write/rubric.md`** — the shared 5-dimension instrument 
 
 1. **Always include cross-sectional heterogeneity** — universal move, 6/6 papers.
 2. **Always include alternative IV measures** — universal move, 6/6 papers.
-3. **Default to numbered identification battery** (25-DQSZ template) for JAE / JAR papers. TAR / AJPT can use looser structure.
+3. **Default to numbered identification battery** (25-DQSZ template) for JAE / JAR / CAR / RAST papers. TAR can use a looser structure.
 4. **For null findings, use Khurana 2026 protocol or honestly state low power.** Never just say "we find no significant effect."
 5. **Tie each robustness test to a hypothesis prediction.** Tests without predictions feel like fishing.
 6. **Each test gets a table reference.** "See Table 6, Panel B" — never report a robustness result inline without the table.

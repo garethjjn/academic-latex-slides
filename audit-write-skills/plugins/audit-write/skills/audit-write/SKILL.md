@@ -48,7 +48,7 @@ These files live in **this skill's own directory** (the `audit-write/` folder of
 3. **[corpus_manifest.md](corpus_manifest.md)** — provenance of every structural rule and verbatim example: the named source corpus, the shorthand-code decode table (`07-DHT` … `26-KLYY`), and the verifiability note (read this before treating any "k/6" frequency claim as law).
 4. **[rubric.md](rubric.md)** — the shared 0–100 scoring instrument + integrity gate. Every Mode-C audit and the critic subagent score with this; do not invent per-section rubrics.
 5. **[null_and_identification_protocols.md](null_and_identification_protocols.md)** — the null-result protocol, the numbered identification battery, and the §4.3 identification-machinery catalog (single source for results + robustness).
-6. **[journal_profile_bank.md](journal_profile_bank.md)** — JAE/JAR/TAR/AJPT conventions, reviewer culture, and the journal-inference cue table.
+6. **[journal_profile_bank.md](journal_profile_bank.md)** — JAE/JAR/TAR/CAR/RAST (accounting top-5) conventions, reviewer culture, and the journal-inference cue table.
 7. **[move_bank.md](move_bank.md)** — cross-section reusable rhetorical moves (opening/gap/RQ/tension/magnitude/contribution/limitation/IV-build), as an index that points to each move's full treatment.
 8. **[referee_objection_bank.md](referee_objection_bank.md)** — the recurring JAE/JAR/TAR objection→response catalog (O1–O8); used by the referee skill and to pre-empt objections in tension / alternative-explanation sections.
 9. **[exemplar_gallery.md](exemplar_gallery.md)** — navigational index of the annotated corpus exemplars (which paper templates which section, and where the annotation lives).
@@ -179,7 +179,8 @@ When journal is unspecified, infer it from the cue table in
 **[journal_profile_bank.md](journal_profile_bank.md)** (single source for the
 inference cues, per-journal conventions, and reviewer culture). Quick version: US +
 partner-trait + post-2017 → JAR; cross-country → JAE; single-country regulatory
-experiment → JAE/TAR; theory-led → TAR; fee/practitioner → AJPT; replication → JAR.
+experiment → JAE/TAR; theory-led → TAR; clean archival, incremental contribution → CAR;
+financial-reporting-quality / capital-markets linkage → RAST; replication → JAR.
 
 If unsure, ask the user — the roadmap rule and several structural defaults depend on it.
 

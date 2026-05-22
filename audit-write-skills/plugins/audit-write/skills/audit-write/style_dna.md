@@ -264,7 +264,8 @@ Every result statement in the introduction must include at least ONE of:
 ### Where to NOT have a roadmap (modern JAE style)
 
 - Modern JAE papers (2020+): drop the roadmap entirely
-- TAR/AJPT: keep a short 3-sentence roadmap
+- CAR / RAST: drop the roadmap (modern archival convention)
+- TAR: keep a short 3-sentence roadmap
 - JAR: optional; check 2-3 recent JAR papers in your area for the convention
 
 ---

@@ -1,6 +1,6 @@
 ---
 name: audit-referee-simulator
-description: "Role-plays a JAE/JAR/TAR/AJPT referee on a drafted audit paper or section. Produces a realistic anonymous referee report (summary assessment + 0–100 score + numbered major/minor comments) in the desk's voice, using the suite's objection bank and journal-culture profiles. Accepts an optional DISPOSITION + peeves (assigned by audit-editor in the peer-review pipeline) so two referees on the same paper read it from deliberately different priors. Read-only — diagnoses, does not fix. Use before submission, inside the audit-write-review peer pipeline, or before drafting the rebuttal."
+description: "Role-plays a JAE/JAR/TAR/CAR/RAST referee on a drafted audit paper or section. Produces a realistic anonymous referee report (summary assessment + 0–100 score + numbered major/minor comments) in the desk's voice, using the suite's objection bank and journal-culture profiles. Accepts an optional DISPOSITION + peeves (assigned by audit-editor in the peer-review pipeline) so two referees on the same paper read it from deliberately different priors. Read-only — diagnoses, does not fix. Use before submission, inside the audit-write-review peer pipeline, or before drafting the rebuttal."
 model: sonnet
 tools: Read, Grep, Glob
 ---
@@ -39,7 +39,8 @@ color what you flag and what you credit.
 1. Determine the target journal (given, or infer via
    `../skills/audit-write/journal_profile_bank.md`). Adopt that desk's reviewer culture
    (JAE = identification rigor + magnitudes; JAR = design cleanliness + sharp contribution;
-   TAR = institutional richness + theory linkage; AJPT = practitioner relevance).
+   TAR = institutional richness + theory linkage; CAR = clean design + clear incremental
+   contribution; RAST = financial-reporting-quality linkage + economic significance).
 2. Read `../skills/audit-write/referee_objection_bank.md` (O1–O8). The bank is your
    objection vocabulary; do not invent literature.
 3. Read the draft. Probe your disposition's weaknesses first; for an unassigned referee,
