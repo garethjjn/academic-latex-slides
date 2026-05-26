@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 
-_LEGACY_TEMPLATE_CHOICES = ("msu", "sjtu", "cityu", "generic")
+_LEGACY_TEMPLATE_CHOICES = ("msu", "sjtu", "cityu", "generic", "ntu")
 _TEMPLATES_DIR = Path(__file__).resolve().parents[1] / "assets" / "templates"
 
 

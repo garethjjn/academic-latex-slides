@@ -1,6 +1,6 @@
 ---
 name: academic-latex-slides
-description: Create compile-ready academic LaTeX Beamer projects for lectures and research talks. Use when the user wants AI-generated academic slides in MSU, SJTU, CityU, or Generic (no-branding) visual styles and needs the agent to interview them thoroughly before producing a modular LaTeX deck.
+description: Create compile-ready academic LaTeX Beamer projects for lectures and research talks. Use when the user wants AI-generated academic slides in MSU, SJTU, CityU, NTU, or Generic (no-branding) visual styles and needs the agent to interview them thoroughly before producing a modular LaTeX deck.
 ---
 
 # Academic LaTeX Slides
@@ -11,7 +11,7 @@ Create modular academic Beamer projects only after understanding the talk.
 
 1. Support only new-slide generation from scratch.
 2. Interview before generating. Never jump straight from a vague request to `.tex` files.
-3. Use one of four visual variants only: `MSU`, `SJTU`, `CityU`, or `Generic`.
+3. Use one of five visual variants only: `MSU`, `SJTU`, `CityU`, `NTU`, or `Generic`.
 4. Use one of two deck archetypes only: `lecture` or `research talk`.
 5. If the user lacks content, create structure and placeholders; do **not** invent results, citations, data, or claims.
 6. Present a requirements summary, slide-by-slide outline, and missing-materials list before generation.
@@ -67,7 +67,7 @@ Then:
 
 - `references/interview-protocol.md` — inference pass, tiered bilingual scripts, escape hatch, approval gate
 - `references/deck-blueprints.md` — lecture and research-talk narrative defaults
-- `references/templates.md` — MSU, SJTU, CityU, Generic selection and bundled assets
+- `references/templates.md` — MSU, SJTU, CityU, NTU, Generic selection and bundled assets
 - `references/latex-generation.md` — project structure, slide-writing rules, compile conventions
 - `assets/templates/` — copyable template assets
 - `scripts/scaffold.py` — deterministic starter-project generator

@@ -25,6 +25,15 @@ All variants share the same content logic, interview flow, and modular output st
 - Bundled runtime assets:
   - `CityULogo.pdf`
 
+## NTU
+
+- Visual character: NTU red/blue palette, smoothbars header with frame
+  navigation, automatic section/subsection table-of-contents frames
+- Good fit: technical talks, thesis defenses, research seminars
+- Bundled runtime assets:
+  - `NTU.sty` theme
+  - `ntu-logo.png`
+
 ## Generic
 
 - Visual character: institution-neutral, clean stock Beamer theme (no logo,

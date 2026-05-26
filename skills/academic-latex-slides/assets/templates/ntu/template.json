@@ -1,0 +1,37 @@
+{
+  "schema": "academic-latex-slides/template@1",
+  "id": "ntu",
+  "name": "Nanyang Technological University",
+  "summary": "NTU red/blue palette with smoothbars header and auto section TOC frames",
+  "good_fit": ["technical talks", "thesis defenses", "research seminars"],
+  "status": "stable",
+  "engine": "xelatex",
+  "documentclass": "ctexbeamer",
+  "entry": "main.tex.template",
+  "placeholders": ["TITLE", "SHORT_TITLE", "SUBTITLE", "AUTHOR",
+                   "INSTITUTE", "SHORT_INSTITUTE", "DATE", "SECTION_INPUTS"],
+  "capabilities": {
+    "subtitle": "optional",
+    "empty_subtitle": "omit-line",
+    "section_divider": true,
+    "title_graphic": true,
+    "cjk": true
+  },
+  "escape_profile": "latex-standard",
+  "assets": [
+    {
+      "file": "NTU.sty",
+      "purpose": "beamer theme (NTU palette, smoothbars header, footline, section TOC frames)",
+      "source": "NTU Beamer template",
+      "license": "NTU Beamer theme; bundled for compile-out-of-the-box"
+    },
+    {
+      "file": "ntu-logo.png",
+      "purpose": "title-page logo",
+      "source": "Nanyang Technological University visual identity",
+      "license": "institutional identity; minimal runtime subset bundled for compile-out-of-the-box; removable"
+    }
+  ],
+  "min_scaffold": "1.0.0",
+  "maintainer": "Gareth Jiang"
+}

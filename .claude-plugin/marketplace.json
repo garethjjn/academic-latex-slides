@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "academic-latex-slides",
-      "description": "Create lecture and research-talk Beamer projects with MSU, SJTU, CityU, or Generic (no-branding) visual variants.",
+      "description": "Create lecture and research-talk Beamer projects with MSU, SJTU, CityU, NTU, or Generic (no-branding) visual variants.",
       "source": "./plugins/academic-latex-slides",
       "category": "productivity",
       "tags": ["presentations", "slides", "latex", "beamer", "academic"]

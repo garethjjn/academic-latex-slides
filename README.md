@@ -55,7 +55,7 @@ and an explicit missing-materials list — not a confident, wrong deck.
 
 - **Two deck archetypes** — `lecture` and `research talk`, each with its own
   narrative spine.
-- **Four visual variants** — `MSU`, `SJTU`, `CityU`, and `Generic`
+- **Five visual variants** — `MSU`, `SJTU`, `CityU`, `NTU`, and `Generic`
   (institution-neutral, no branding). Same content logic; choose by visual
   identity only.
 - **Bilingual interview** — the agent interviews you in your language
@@ -118,11 +118,12 @@ paper's own numbers (figures described, never fabricated).
 Full decks: [Blankespoor](examples/blankespoor2026-generative-ai-in-financial-reporting.pdf)
 · [Jiang](examples/jiang2025-when-banks-leak.pdf) · more in [`examples/`](examples/).
 
-**Template demo — one deck, four skins.** The **same** research-talk content
-rendered in all four variants so you can compare styles directly:
+**Template demo — one deck, five skins.** The **same** research-talk content
+rendered in all five variants so you can compare styles directly:
 [MSU](examples/msu-research-talk.pdf) ·
 [SJTU](examples/sjtu-research-talk.pdf) ·
 [CityU](examples/cityu-research-talk.pdf) ·
+[NTU](examples/ntu-research-talk.pdf) ·
 [Generic](examples/generic-research-talk.pdf) *(illustrative placeholder
 numbers, not real data)*.
 
@@ -136,7 +137,7 @@ numbers, not real data)*.
 | Build automation | **`latexmk`** (recommended) |
 | Scaffold script | **Python 3.8+** (standard library only — no `pip install`) |
 
-> **Note on fonts.** All four templates use the `ctexbeamer` document class, so
+> **Note on fonts.** All five templates use the `ctexbeamer` document class, so
 > *even English-only decks* compile through XeLaTeX with Chinese font support
 > loaded. A full TeX Live install (which bundles the Fandol CJK fonts and the
 > `ctex`/`biblatex` packages) is the friction-free choice. On MiKTeX, allow
@@ -149,7 +150,7 @@ academic-latex-slides/
 ├── skills/academic-latex-slides/        # canonical skill source — EDIT HERE
 │   ├── SKILL.md
 │   ├── references/                      # interview protocol, blueprints, rules
-│   ├── assets/templates/                # MSU / SJTU / CityU / Generic template assets
+│   ├── assets/templates/                # MSU / SJTU / CityU / NTU / Generic template assets
 │   ├── scripts/scaffold.py              # deterministic starter generator
 │   └── agents/openai.yaml               # Codex interface metadata
 ├── plugins/academic-latex-slides/       # synced mirror for the Claude Code plugin
@@ -267,7 +268,7 @@ outline:
 
 | Field | Default if you defer |
 | --- | --- |
-| Template (`MSU` / `SJTU` / `CityU` / `Generic`) | none — always asked |
+| Template (`MSU` / `SJTU` / `CityU` / `NTU` / `Generic`) | none — always asked |
 | Archetype (`lecture` / `research talk`) | inferred from context, else asked |
 | Language | matches your language |
 | Core message (the one thing to remember) | none — always asked |
@@ -476,7 +477,7 @@ python skills\academic-latex-slides\scripts\scaffold.py `
 | Argument | Required | Values / notes |
 | --- | --- | --- |
 | `output_dir` (positional) | yes | target directory |
-| `--template` | yes | `msu` · `sjtu` · `cityu` · `generic` |
+| `--template` | yes | `msu` · `sjtu` · `cityu` · `ntu` · `generic` |
 | `--deck-type` | yes | `lecture` · `research-talk` |
 | `--language` | yes | `en` · `zh` (selects starter section language) |
 | `--title` | yes | LaTeX-escaped automatically |
@@ -499,6 +500,7 @@ your language, institution, or talk type.
 | **MSU** | Green academic palette, classic Beamer feel | General talks, seminars, internal presentations | `msu.png`, `Logo.png` |
 | **SJTU** | Formal institutional theme with a strong cover system | Polished lectures, formal academic events | SJTU theme `.sty` files, `vi/` identity assets |
 | **CityU** | Purple academic palette, restrained clean title page | Compact lectures, concise reports, clean seminars | `CityULogo.pdf` |
+| **NTU** | NTU red/blue palette, smoothbars header, auto section TOC frames | Technical talks, thesis defenses, research seminars | `NTU.sty`, `ntu-logo.png` |
 | **Generic** | Institution-neutral stock Beamer theme, no logo or branded colors | Cross-institution talks, drafts, brand-free decks | none (template only) |
 
 ## Troubleshooting
@@ -507,7 +509,7 @@ your language, institution, or talk type.
 | --- | --- |
 | `Output directory is not empty: ...` | The scaffold refuses to write into a non-empty directory. Choose an empty target, or pass `--force` to write alongside existing files. |
 | `biber: command not found` / citations render as `[?]` or bold keys | `biber` is missing or was not run. Install a full TeX Live (it bundles `biber`), and compile with `latexmk -xelatex` so biber runs automatically. Compiling by hand needs `xelatex → biber → xelatex → xelatex`. |
-| `Package fontspec/ctex error` or missing CJK glyphs | All four templates use `ctexbeamer`, so XeLaTeX always loads CJK support. Use a full TeX Live (bundles the Fandol fonts), or on MiKTeX allow on-the-fly package installation on the first compile. |
+| `Package fontspec/ctex error` or missing CJK glyphs | All five templates use `ctexbeamer`, so XeLaTeX always loads CJK support. Use a full TeX Live (bundles the Fandol fonts), or on MiKTeX allow on-the-fly package installation on the first compile. |
 | Compiles with `pdflatex` fail | Expected — the build target is **XeLaTeX only**. Always use `latexmk -xelatex` (or `xelatex`). |
 | Figures missing in the PDF | The deck references files in `figures/`; the agent does not invent images. Add your figures there (or supply them during the interview) before compiling. |
 | Plugin changes don't show up in Claude Code | Run `/plugin marketplace update academic-latex-slides`, then restart Claude Code. If you edited the skill yourself, edit the **canonical** source under `skills/academic-latex-slides/` and run `python scripts/sync_distributions.py` (the `plugins/` mirror is generated). |
@@ -546,12 +548,13 @@ spends its energy on understanding the talk before it writes.
 
 ## Acknowledgements
 
-The SJTU variant bundles a minimal runtime subset of the **SJTU Beamer theme**;
-the MSU and CityU variants are simplified academic decks inspired by the visual
-identities of Michigan State University and City University of Hong Kong
-respectively. These assets are included only to make the generated decks
-compile out of the box. The Generic variant carries no institutional identity —
-it uses only a stock Beamer theme and ships no bundled assets.
+The SJTU variant bundles a minimal runtime subset of the **SJTU Beamer theme**,
+and the NTU variant bundles the **NTU Beamer theme** (`NTU.sty`); the MSU and
+CityU variants are simplified academic decks inspired by the visual identities
+of Michigan State University and City University of Hong Kong respectively.
+These assets are included only to make the generated decks compile out of the
+box. The Generic variant carries no institutional identity — it uses only a
+stock Beamer theme and ships no bundled assets.
 
 ## License
 

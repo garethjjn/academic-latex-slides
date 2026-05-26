@@ -42,7 +42,7 @@ Each is tagged with the tier that resolves it.
 
 | Field | Tier | Default if user defers |
 | --- | --- | --- |
-| Template (`MSU` / `SJTU` / `CityU` / `Generic`) | 1 | none — must ask |
+| Template (`MSU` / `SJTU` / `CityU` / `NTU` / `Generic`) | 1 | none — must ask |
 | Archetype (`lecture` / `research talk`) | 1 | infer from context, else ask |
 | Language (deck language) | 1 | match the user's language |
 | Core message (one thing to remember) | 1 | none — must ask |
@@ -57,8 +57,8 @@ Each is tagged with the tier that resolves it.
 Ask these whenever the Inference pass did not already resolve them.
 
 - **Template**
-  EN: *"Which visual style — MSU, SJTU, CityU, or Generic (no branding)?"*
-  ZH: *“用哪个视觉风格 —— MSU、SJTU、CityU,还是 Generic(无品牌通用版)?”*
+  EN: *"Which visual style — MSU, SJTU, CityU, NTU, or Generic (no branding)?"*
+  ZH: *“用哪个视觉风格 —— MSU、SJTU、CityU、NTU,还是 Generic(无品牌通用版)?”*
 - **Archetype** (only if context is ambiguous)
   EN: *"Is this a teaching lecture or a research talk? They get different spines."*
   ZH: *“这是教学讲课还是研究报告?两者的叙事主线不同。”*

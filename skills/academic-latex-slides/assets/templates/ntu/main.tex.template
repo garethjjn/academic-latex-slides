@@ -1,0 +1,39 @@
+\documentclass[9pt,aspectratio=169]{ctexbeamer}
+\mode<presentation>
+
+% NTU visual identity: smoothbars outer theme, circles inner theme, the
+% NTU red/blue palette, and automatic section/subsection table-of-contents
+% frames are all provided by the bundled NTU theme.
+\usepackage{NTU}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\addbibresource{references.bib}
+
+\title[{{SHORT_TITLE}}]{ {{TITLE}} }
+\subtitle{ {{SUBTITLE}} }
+\author{ {{AUTHOR}} }
+\institute[{{SHORT_INSTITUTE}}]{ {{INSTITUTE}} }
+\date{ {{DATE}} }
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+  \vspace{-10pt}
+  \begin{center}
+    \includegraphics[width=0.28\linewidth]{ntu-logo.png}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents[sectionstyle=show,subsectionstyle=show/shaded/hide,subsubsectionstyle=show/shaded/hide]
+\end{frame}
+
+{{SECTION_INPUTS}}
+
+\end{document}

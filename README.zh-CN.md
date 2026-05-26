@@ -54,7 +54,7 @@
 
 - **两种演示文稿原型** —— `lecture`(教学讲课)与 `research talk`(研究报告),
   各有专属的叙事主线。
-- **四种视觉变体** —— `MSU`、`SJTU`、`CityU` 与 `Generic`(无机构品牌、
+- **五种视觉变体** —— `MSU`、`SJTU`、`CityU`、`NTU` 与 `Generic`(无机构品牌、
   无任何院校标识)。内容逻辑完全一致,只按视觉风格选择。
 - **双语访谈** —— 智能体用你的语言与你访谈(中文进 → 中文出),采用分层、
   脚本化的提问。
@@ -113,10 +113,11 @@ Choi、Jiang、Yang & Zheng《When Banks Leak》(SSRN 2025),`MSU` 风格:
 完整 deck:[Blankespoor](examples/blankespoor2026-generative-ai-in-financial-reporting.pdf)
 · [Jiang](examples/jiang2025-when-banks-leak.pdf),更多见 [`examples/`](examples/)。
 
-**模板 demo —— 同一份内容,四种皮肤。** 同一份研究报告内容用四种变体渲染,
+**模板 demo —— 同一份内容,五种皮肤。** 同一份研究报告内容用五种变体渲染,
 可直接对比风格:[MSU](examples/msu-research-talk.pdf) ·
 [SJTU](examples/sjtu-research-talk.pdf) ·
 [CityU](examples/cityu-research-talk.pdf) ·
+[NTU](examples/ntu-research-talk.pdf) ·
 [Generic](examples/generic-research-talk.pdf)*(示意占位数字,非真实数据)*。
 
 ## 环境要求
@@ -129,7 +130,7 @@ Choi、Jiang、Yang & Zheng《When Banks Leak》(SSRN 2025),`MSU` 风格:
 | 构建自动化 | **`latexmk`**(推荐) |
 | 脚手架脚本 | **Python 3.8+**(仅标准库 —— 无需 `pip install`) |
 
-> **关于字体的说明。** 四种模板都使用 `ctexbeamer` 文档类,因此*即便是
+> **关于字体的说明。** 五种模板都使用 `ctexbeamer` 文档类,因此*即便是
 > 纯英文演示文稿*也会经由 XeLaTeX 并加载中文字体支持。安装完整版 TeX Live
 >(自带 Fandol 中文字体以及 `ctex`/`biblatex` 宏包)是最省心的选择。
 > 若使用 MiKTeX,请在首次编译时允许“按需自动安装宏包”。
@@ -141,7 +142,7 @@ academic-latex-slides/
 ├── skills/academic-latex-slides/        # 规范技能源 —— 在此编辑
 │   ├── SKILL.md
 │   ├── references/                      # 访谈协议、蓝图、规则
-│   ├── assets/templates/                # MSU / SJTU / CityU / Generic 模板资源
+│   ├── assets/templates/                # MSU / SJTU / CityU / NTU / Generic 模板资源
 │   ├── scripts/scaffold.py              # 确定性起始工程生成器
 │   └── agents/openai.yaml               # Codex 接口元数据
 ├── plugins/academic-latex-slides/       # 供 Claude Code 插件使用的同步镜像
@@ -253,7 +254,7 @@ python scripts/build_portable_packages.py
 
 | 字段 | 你不指定时的默认 |
 | --- | --- |
-| 模板(`MSU` / `SJTU` / `CityU` / `Generic`) | 无 —— 始终询问 |
+| 模板(`MSU` / `SJTU` / `CityU` / `NTU` / `Generic`) | 无 —— 始终询问 |
 | 原型(`lecture` / `research talk`) | 由上下文推断,否则询问 |
 | 语言 | 与你的语言一致 |
 | 核心信息(只需记住的那一件事) | 无 —— 始终询问 |
@@ -454,7 +455,7 @@ python skills\academic-latex-slides\scripts\scaffold.py `
 | 参数 | 必填 | 取值 / 说明 |
 | --- | --- | --- |
 | `output_dir`(位置参数) | 是 | 目标目录 |
-| `--template` | 是 | `msu` · `sjtu` · `cityu` · `generic` |
+| `--template` | 是 | `msu` · `sjtu` · `cityu` · `ntu` · `generic` |
 | `--deck-type` | 是 | `lecture` · `research-talk` |
 | `--language` | 是 | `en` · `zh`(选择起始小节语言) |
 | `--title` | 是 | 自动做 LaTeX 转义 |
@@ -476,6 +477,7 @@ python skills\academic-latex-slides\scripts\scaffold.py `
 | **MSU** | 绿色学术配色,经典 Beamer 质感 | 通用报告、研讨会、内部演示 | `msu.png`、`Logo.png` |
 | **SJTU** | 正式机构主题,封面系统较强 | 精致讲课、正式学术活动 | SJTU 主题 `.sty` 文件、`vi/` 视觉识别资源 |
 | **CityU** | 紫色学术配色,标题页简洁克制 | 紧凑讲课、简洁报告、清爽研讨 | `CityULogo.pdf` |
+| **NTU** | NTU 红/蓝配色,smoothbars 页眉,自动生成章节目录页 | 技术报告、论文答辩、研究研讨 | `NTU.sty`、`ntu-logo.png` |
 | **Generic** | 机构中性的原生 Beamer 主题,无 logo、无品牌色 | 跨机构报告、草稿、无品牌演示 | 无(仅模板) |
 
 ## 故障排查
@@ -484,7 +486,7 @@ python skills\academic-latex-slides\scripts\scaffold.py `
 | --- | --- |
 | `Output directory is not empty: ...` | 脚手架拒绝写入非空目录。改用空目录,或加 `--force` 与现有文件并存。 |
 | `biber: command not found` / 引用显示为 `[?]` 或粗体键名 | `biber` 缺失或未运行。安装完整版 TeX Live(自带 `biber`),并用 `latexmk -xelatex` 编译以自动跑 biber。手动编译需 `xelatex → biber → xelatex → xelatex`。 |
-| `Package fontspec/ctex error` 或缺中文字形 | 四种模板都用 `ctexbeamer`,XeLaTeX 总会加载中文支持。用完整版 TeX Live(自带 Fandol 字体),或在 MiKTeX 首次编译时允许按需装包。 |
+| `Package fontspec/ctex error` 或缺中文字形 | 五种模板都用 `ctexbeamer`,XeLaTeX 总会加载中文支持。用完整版 TeX Live(自带 Fandol 字体),或在 MiKTeX 首次编译时允许按需装包。 |
 | 用 `pdflatex` 编译失败 | 属预期——构建目标**仅限 XeLaTeX**。请始终用 `latexmk -xelatex`(或 `xelatex`)。 |
 | PDF 里图丢失 | 演示文稿引用 `figures/` 里的文件;智能体不会编造图。编译前把你的图放进去(或在访谈时提供)。 |
 | Claude Code 里看不到插件改动 | 运行 `/plugin marketplace update academic-latex-slides`,再重启 Claude Code。若你自己改了技能,请编辑 `skills/academic-latex-slides/` 下的**规范**源并运行 `python scripts/sync_distributions.py`(`plugins/` 镜像是生成的)。 |
@@ -521,10 +523,11 @@ python scripts/build_portable_packages.py
 
 ## 致谢
 
-SJTU 变体打包了 **SJTU Beamer 主题**的一个最小运行时子集;MSU 与 CityU
-变体是受密歇根州立大学与香港城市大学视觉识别启发的简化学术演示文稿。
-这些资源仅为让生成的演示文稿开箱即可编译而附带。Generic 变体不携带任何
-机构标识——它只用原生 Beamer 主题,且不附带任何资源。
+SJTU 变体打包了 **SJTU Beamer 主题**的一个最小运行时子集,NTU 变体打包了
+**NTU Beamer 主题**(`NTU.sty`);MSU 与 CityU 变体是受密歇根州立大学与香港
+城市大学视觉识别启发的简化学术演示文稿。这些资源仅为让生成的演示文稿开箱即可
+编译而附带。Generic 变体不携带任何机构标识——它只用原生 Beamer 主题,且不附带
+任何资源。
 
 ## 许可证
 
