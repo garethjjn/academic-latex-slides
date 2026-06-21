@@ -1,0 +1,41 @@
+%% sjtuaccents.sty  --  Plugin add-on (NOT part of upstream sjtubeamer)
+%% --------------------------------------------------------------------------
+%% Official SJTU 2022 Visual Identity (VIS) accent palette, transcribed from
+%% the university's 通用PPT模板 (general PowerPoint templates). The RGB values
+%% are facts from the VIS colour spec, not bundled artwork.
+%%
+%% Load AFTER \usetheme[...]{sjtubeamer} so the bundled theme's beamer colours
+%% already exist and these accents layer cleanly on top. The official .sty
+%% files are left untouched, so the bundled theme can still be updated from
+%% upstream without conflict.
+%% --------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{sjtuaccents}[2026/06/21 v1.0 SJTU VIS accent palette (plugin add-on)]
+
+%% --- VIS accent colours -----------------------------------------------------
+\definecolor{sjtuLightGold}{RGB}{224,207,189}   % 浅金   accent tabs / watermark numerals
+\definecolor{sjtuLightGray}{RGB}{191,191,191}   % 浅灰   transition / secondary structure
+\definecolor{sjtuYouthBlue}{RGB}{23,95,139}     % 青春蓝 official blue-variant primary
+\definecolor{sjtuBrightGreen}{RGB}{146,208,80}  % 亮绿   blue-variant contrast / "go" accent
+% The brand red is defined by the theme as sjtuRedPrimary (~166,32,56);
+% expose a short, friendly alias for deck authors.
+\providecolor{sjtuRed}{named}{sjtuRedPrimary}
+
+%% --- Text accents -----------------------------------------------------------
+% Brand red, readable on white.
+\newcommand{\sjtured}[1]{{\color{sjtuRedPrimary}#1}}
+% Light gold/gray are pale by design; darken for legible inline text.
+\newcommand{\sjtugold}[1]{{\color{sjtuLightGold!65!black}#1}}
+\newcommand{\sjtugray}[1]{{\color{sjtuLightGray!45!black}#1}}
+% Primary emphasis used throughout the official template: brand-red, bold.
+\newcommand{\sjtuemph}[1]{\textbf{\sjtured{#1}}}
+
+%% --- Conservative structural accents ---------------------------------------
+% Example blocks adopt the VIS light-gold callout look (gold tab, soft tint),
+% mirroring the gold callout boxes in the official PPT template.
+\setbeamercolor{block title example}{fg=black,bg=sjtuLightGold}
+\setbeamercolor{block body example}{bg=sjtuLightGold!22,fg=black}
+% Footer page numbers in VIS light gray (matches the official deck footers).
+\setbeamercolor{footline}{fg=sjtuLightGray!55!black}
+
+\endinput

@@ -1,0 +1,25 @@
+% SJTU VIS milestone timeline  —  drop-in frame, modeled on the official 图文
+% timeline page. Uses TikZ (already loaded by the SJTU theme). Colors from
+% sjtuaccents.sty. Edit the \foreach list: x-position/year/label.
+\begin{frame}{Timeline}
+  \centering
+  \begin{tikzpicture}[x=2.9cm,y=1cm]
+    % baseline
+    \draw[line width=2.2pt,sjtuLightGray] (0,0) -- (4,0);
+    \foreach \x/\year/\label in {%
+        0/1896/{Founding}, 1.33/1921/{Renamed}, 2.66/1952/{Restructured},
+        4/1996/{Centennial}}{
+      % marker
+      \fill[sjtuRedPrimary] (\x,0) circle (3.2pt);
+      \fill[sjtuLightGold!80!black] (\x,0) circle (1.4pt);
+      % year above
+      \node[above=5pt,font=\bfseries\large,text=sjtuRedPrimary] at (\x,0) {\year};
+      % label below
+      \node[below=7pt,align=center,text width=2.3cm,font=\small,
+            text=black!72] at (\x,0) {\label};
+    }
+  \end{tikzpicture}
+  \vskip1em
+  {\footnotesize\color{black!65} Replace milestones with your study's timeline
+  (sample period, policy date, data waves).}
+\end{frame}

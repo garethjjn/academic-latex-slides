@@ -1,0 +1,32 @@
+% SJTU VIS styled table  —  drop-in frame, modeled on the official 图表 page.
+% Requires: documentclass option [xcolor=table] (loads colortbl + \rowcolors).
+% Colors come from sjtuaccents.sty (loaded by main.tex). Replace the data freely.
+\begin{frame}{Styled results table}
+  \begin{columns}[T]
+    \column{0.62\textwidth}
+      \small
+      \renewcommand{\arraystretch}{1.35}
+      \setlength{\tabcolsep}{5pt}
+      \rowcolors{2}{sjtuLightGray!16}{white}% banded data rows
+      \begin{tabular}{l cccc}
+        \rowcolor{sjtuRedPrimary}
+        &
+          \textcolor{white}{\textbf{Group 1}} & \textcolor{white}{\textbf{Group 2}} &
+          \textcolor{white}{\textbf{Group 3}} & \textcolor{white}{\textbf{Group 4}}\\
+        \textbf{Category 01} & 0.11 & 0.12 & 0.10 & 0.13\\
+        \textbf{Category 02} & 0.22 & 0.21 & 0.24 & 0.20\\
+        \textbf{Category 03} & 0.33 & 0.31 & 0.35 & 0.34\\
+        \textbf{Category 04} & 0.44 & 0.46 & 0.43 & 0.45\\
+        \textbf{Category 05} & 0.55 & 0.54 & 0.57 & 0.56\\
+      \end{tabular}
+
+    \column{0.32\textwidth}
+      \begin{exampleblock}{Note}
+        \small Use the gold callout for the table's takeaway. Keep it to one
+        sentence: \sjtuemph{the key contrast the table shows}.
+      \end{exampleblock}
+  \end{columns}
+
+  \vskip0.6em
+  {\footnotesize\color{black!65} Source / notes: replace with your data provenance.}
+\end{frame}

@@ -40,9 +40,15 @@
     { "file": "sjtuvi.sty", "purpose": "visual-identity macros",
       "source": "SJTUBeamer theme",
       "license": "SJTU Beamer theme; minimal runtime subset bundled for compile-out-of-the-box" },
-    { "file": "vi", "purpose": "visual-identity asset directory (logos, badges, backgrounds)",
+    { "file": "sjtuaccents.sty", "purpose": "official SJTU VIS accent palette (light gold, light gray, youth blue, bright green) + text/box accent macros",
+      "source": "SJTU 2022 通用PPT模板 visual-identity color spec",
+      "license": "plugin add-on; RGB color values from the published VIS spec; layered on top of the bundled theme" },
+    { "file": "vi", "purpose": "visual-identity asset directory (logos, badges, backgrounds, optional campus cover photos sjtu-vi-campus-1.jpg .. sjtu-vi-campus-6.jpg)",
       "source": "SJTU visual identity",
-      "license": "institutional identity; minimal runtime subset bundled for compile-out-of-the-box; removable" }
+      "license": "institutional identity; minimal runtime subset bundled for compile-out-of-the-box; removable" },
+    { "file": "snippets", "purpose": "reusable SJTU-VIS chart/diagram LaTeX snippets (styled table, timeline, process-steps, bar chart) modeled on the official 图表 layouts",
+      "source": "SJTU 2022 通用PPT模板 layout pages, rebuilt in LaTeX/TikZ with VIS colors",
+      "license": "plugin add-on; original LaTeX/TikZ; drop-in via \\input{snippets/...}; removable" }
   ],
   "min_scaffold": "1.0.0",
   "maintainer": "Gareth Jiang"

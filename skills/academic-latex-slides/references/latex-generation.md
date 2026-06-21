@@ -36,6 +36,18 @@ latexmk -xelatex main.tex
 - Keep appendix material available when requested, but do not force it into every deck.
 - When formulas, figures, a bibliography slide, or appendix slides are explicitly requested, reserve dedicated approved slots for them during generation rather than bolting them on after the deck is drafted.
 
+## Template colors
+
+- Use the variant's own palette for emphasis, callout boxes, and figure accents
+  rather than ad-hoc `\color{red}` / `\textbf` everywhere.
+- **SJTU**: `sjtuaccents.sty` is loaded automatically. Use `\sjtuemph{...}` for
+  primary emphasis (brand-red bold) and the named VIS colors `sjtuLightGold`,
+  `sjtuLightGray`, `sjtuYouthBlue`, `sjtuBrightGreen` for accents. Prefer
+  `exampleblock` for asides (it renders in the VIS gold callout style). See
+  `references/templates.md` for the full palette table.
+- Keep emphasis sparing — one or two accented elements per slide, matching the
+  restrained official template look.
+
 ## Academic integrity rules
 
 - Never invent citations, empirical results, theorem statements, or numerical magnitudes.

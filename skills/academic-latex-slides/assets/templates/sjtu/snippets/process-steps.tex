@@ -1,0 +1,18 @@
+% SJTU VIS process / steps  —  drop-in frame, modeled on the official 01/02/03
+% gold-numeral callout motif. Colors from sjtuaccents.sty. No extra packages.
+\newcommand{\sjtustep}[3]{% #1 number (e.g. 01)  #2 title  #3 description
+  {\fontsize{32}{34}\selectfont\bfseries\color{sjtuLightGold!78!black}#1}\\[2pt]
+  {\bfseries\color{sjtuRedPrimary}#2}\par\vskip2pt
+  {\small\color{black!72}#3}\par}
+\begin{frame}{Approach in four steps}
+  \begin{columns}[T]
+    \column{0.23\textwidth}
+      \sjtustep{01}{Motivation}{State the gap your design closes.}
+    \column{0.23\textwidth}
+      \sjtustep{02}{Design}{Identify the variation and what it isolates.}
+    \column{0.23\textwidth}
+      \sjtustep{03}{Estimation}{Map the design to the estimating equation.}
+    \column{0.23\textwidth}
+      \sjtustep{04}{Result}{Report the magnitude and its interpretation.}
+  \end{columns}
+\end{frame}

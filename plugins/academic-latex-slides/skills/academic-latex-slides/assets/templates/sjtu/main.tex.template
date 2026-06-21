@@ -4,12 +4,23 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathtools}
+\usepackage{booktabs} % clean rules for the styled-table snippet
 \usepackage{hyperref}
 \usepackage[backend=biber,style=authoryear]{biblatex}
 \addbibresource{references.bib}
 \graphicspath{{figures/}}
+% \usepackage{pgfplots}\pgfplotsset{compat=1.18} % uncomment for snippets/chart-bar.tex
 
 \usetheme[maxplus]{sjtubeamer}
+\usepackage{sjtuaccents} % official SJTU VIS accent palette (see references/templates.md)
+
+% Optional: swap the cover background for a bundled SJTU campus photo
+% (vi/sjtu-vi-campus-1.jpg ... campus-6.jpg). Uncomment one, or use your own:
+% \titlegraphic{\includegraphics[width=\paperwidth]{vi/sjtu-vi-campus-1.jpg}}
+% \titlegraphic{\includegraphics[width=\paperwidth]{vi/sjtu-vi-campus-3.jpg}}
+
+% Reusable SJTU-VIS chart/diagram snippets live in snippets/. Drop one into a
+% section with e.g.  \input{snippets/table-styled}  (see references/templates.md).
 
 \title[{{SHORT_TITLE}}]{ {{TITLE}} }
 \subtitle{ {{SUBTITLE}} }

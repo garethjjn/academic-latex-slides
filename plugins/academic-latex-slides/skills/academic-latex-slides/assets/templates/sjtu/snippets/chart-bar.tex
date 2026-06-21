@@ -1,0 +1,27 @@
+% SJTU VIS bar chart  —  drop-in frame, pre-styled with the VIS palette.
+% Requires: \usepackage{pgfplots}\pgfplotsset{compat=1.18}
+%   (commented in main.tex preamble — uncomment to use this snippet).
+% Colors from sjtuaccents.sty. Replace coordinates with your data.
+\begin{frame}{Bar chart}
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+        ybar, bar width=10pt,
+        width=0.86\textwidth, height=0.62\textheight,
+        ymin=0, enlarge x limits=0.18,
+        axis lines=left,
+        every axis plot/.append style={draw=none},
+        tick align=outside, tickwidth=2pt,
+        x tick label style={font=\small}, y tick label style={font=\small},
+        ylabel={Outcome}, ylabel style={font=\small},
+        symbolic x coords={2019,2020,2021,2022},
+        xtick=data,
+        legend style={draw=none, font=\small, at={(0.5,1.04)},
+                      anchor=south, legend columns=-1},
+      ]
+      \addplot[fill=sjtuRedPrimary]      coordinates {(2019,0.31)(2020,0.42)(2021,0.55)(2022,0.61)};
+      \addplot[fill=sjtuLightGold!82!black] coordinates {(2019,0.22)(2020,0.28)(2021,0.34)(2022,0.39)};
+      \legend{Treated, Control}
+    \end{axis}
+  \end{tikzpicture}
+\end{frame}
